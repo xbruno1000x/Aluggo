@@ -1,0 +1,211 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to static method create\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/CreateNewUser.php
+
+		-
+			message: '#^Method App\\Actions\\Fortify\\CreateNewUser\:\:create\(\) has invalid return type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/CreateNewUser.php
+
+		-
+			message: '#^Call to method forceFill\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/ResetUserPassword.php
+
+		-
+			message: '#^Parameter \$user of method App\\Actions\\Fortify\\ResetUserPassword\:\:reset\(\) has invalid type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/ResetUserPassword.php
+
+		-
+			message: '#^Call to method forceFill\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserPassword.php
+
+		-
+			message: '#^Parameter \$user of method App\\Actions\\Fortify\\UpdateUserPassword\:\:update\(\) has invalid type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserPassword.php
+
+		-
+			message: '#^Access to property \$email on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Access to property \$id on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Call to method forceFill\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Call to method sendEmailVerificationNotification\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Parameter \$user of method App\\Actions\\Fortify\\UpdateUserProfileInformation\:\:update\(\) has invalid type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Parameter \$user of method App\\Actions\\Fortify\\UpdateUserProfileInformation\:\:updateVerifiedUser\(\) has invalid type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: '#^Call to function compact\(\) contains possibly undefined variable \$qrCodeUrl\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: app/Http/Controllers/AccountSettingsController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Imovel\:\:\$propriedade\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Http/Controllers/ImovelController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/ImovelController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\PropriedadeController\:\:destroy\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/PropriedadeController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\PropriedadeController\:\:edit\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/PropriedadeController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\PropriedadeController\:\:show\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/PropriedadeController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\PropriedadeController\:\:update\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/PropriedadeController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/PropriedadeController.php
+
+		-
+			message: '#^PHPDoc type array of property App\\Http\\Kernel\:\:\$middleware is not covariant with PHPDoc type array\<int, string\> of overridden property Illuminate\\Foundation\\Http\\Kernel\:\:\$middleware\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^PHPDoc type array of property App\\Http\\Kernel\:\:\$middlewareGroups is not covariant with PHPDoc type array\<string, array\<int, string\>\> of overridden property Illuminate\\Foundation\\Http\\Kernel\:\:\$middlewareGroups\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^PHPDoc type array of property App\\Http\\Kernel\:\:\$routeMiddleware is not covariant with PHPDoc type array\<string, string\> of overridden property Illuminate\\Foundation\\Http\\Kernel\:\:\$routeMiddleware\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^Property App\\Http\\Kernel\:\:\$middleware type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^Property App\\Http\\Kernel\:\:\$middlewareGroups type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^Property App\\Http\\Kernel\:\:\$routeMiddleware type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: '#^Method App\\Http\\Middleware\\Authenticate\:\:redirectTo\(\) should return string\|null but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: app/Http/Middleware/Authenticate.php
+
+		-
+			message: '#^Method App\\Http\\Middleware\\RedirectIfAuthenticated\:\:handle\(\) has parameter \$guards with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Middleware/RedirectIfAuthenticated.php
+
+		-
+			message: '#^Method App\\Http\\Middleware\\RedirectIfAuthenticated\:\:handle\(\) has parameter \$request with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Middleware/RedirectIfAuthenticated.php
+
+		-
+			message: '#^Class App\\Models\\Imovel uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/Imovel.php
+
+		-
+			message: '#^Class App\\Models\\Propriedade uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/Propriedade.php
+
+		-
+			message: '#^Method App\\Models\\Proprietario\:\:verifyTwoFactorCode\(\) has parameter \$code with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Models/Proprietario.php
+
+		-
+			message: '#^PHPDoc tag @extends has invalid type App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: database/factories/UserFactory.php
+
+		-
+			message: '#^Type App\\Models\\User in generic type Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\User\> in PHPDoc tag @extends is not subtype of template type TModel of Illuminate\\Database\\Eloquent\\Model of class Illuminate\\Database\\Eloquent\\Factories\\Factory\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: database/factories/UserFactory.php
+
+		-
+			message: '#^Call to static method factory\(\) on an unknown class App\\Models\\User\.$#'
+			identifier: class.notFound
+			count: 1
+			path: database/seeders/DatabaseSeeder.php

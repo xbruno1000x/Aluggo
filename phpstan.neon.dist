@@ -1,0 +1,15 @@
+parameters:
+    paths:
+        - app
+        - database
+    level: 6
+    tmpDir: storage/phpstan
+    excludePaths:
+        - app/Actions/Fortify/*
+        - database/seeders/*
+        - database/migrations/*
+        - database/factories/*
+        - app/Http/Middleware/*
+        - app/Http/Kernel.php
+includes:
+    - ./vendor/larastan/larastan/extension.neon

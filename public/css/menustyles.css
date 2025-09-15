@@ -1,0 +1,478 @@
+:root {
+    --cor-primaria: #161E2F;
+    --cor-secundaria: #242F49;
+    --cor-destaque: #FFA586;
+    --cor-texto: #E0E0E0;
+    --cor-borda: #541A2E;
+    --cor-acao: #B51A2B;
+    --cor-hover: #B51A2B;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--cor-secundaria);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Menu Visível */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Menu Oculto */
+.sidebar:not(.active) {
+    transform: translateX(-100%);
+}
+
+.sidebar h1 {
+    font-size: 1.8em;
+    color: var(--cor-destaque);
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: var(--cor-texto);
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+}
+
+.sidebar nav ul li a.active {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+
+/* Estilo para o botão de logout */
+.logout-button {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    border: none;
+    position: fixed;
+    top: 20px; /* Distância do topo da tela */
+    right: 20px; /* Distância da borda direita da tela */
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 0.7em;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000; /* Garantir que o botão fique acima de outros elementos */
+}
+
+.logout-button:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+/* Estilo da área principal */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--cor-primaria);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 270px; /* Espaçamento para a sidebar */
+}
+
+.main-content h2 {
+    font-size: 2em;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.main-content p {
+    font-size: 1.2em;
+    color: var(--cor-texto);
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Estilo para o botão de 2FA */
+.button-2fa {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    border: none;
+    padding: 12px 20px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.button-2fa:hover {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    transform: scale(1.05);
+}
+
+/* Estilo para centralizar o QR Code */
+.qrcode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qrcode-container p {
+    font-size: 1.2em;
+    color: var(--cor-texto);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.qrcode {
+    display: inline-block;
+    background: var(--cor-primaria);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para o rodapé */
+footer {
+    margin-top: 20px;
+    color: var(--cor-texto);
+    text-align: center;
+}
+
+footer a {
+    color: var(--cor-destaque);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--cor-acao);
+    text-shadow: 0px 0px 5px var(--cor-acao);
+}
+
+/* Botão de voltar ao menu principal */
+.back-button {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    padding: 8px 15px;
+    font-size: 0.7em;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    transform: scale(1.05);
+}
+
+/* Estilo básico do botão de alternância */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--cor-primaria); /* Cor do fundo do botão, usando a cor primária do site */
+    color: var(--cor-destaque); /* Cor do texto do botão, usando a cor de destaque */
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Coloca o botão acima de outros elementos */
+    border-radius: 50%; /* Para o botão ter formato circular */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background-color: var(--cor-secundaria); /* Cor de fundo no hover, usando a cor secundária */
+    color: var(--cor-texto); /* Cor do texto no hover, usando a cor do texto */
+    transform: scale(1.1); /* Efeito de ampliação ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-top: 20px;
+    }
+}
+
+.toggle-btn:active {
+    transform: scale(0.95); /* Efeito de "pressionado" ao clicar */
+}
+
+/* Estilo para a tabela */
+.data-table {
+    width: 100%;
+    border-collapse: separate; /* Necessário para que o border-radius funcione */
+    border-spacing: 0; /* Remove espaços entre células */
+    margin: 20px 0;
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o border-radius */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--cor-borda); /* Contorno externo */
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--cor-borda); /* Consistência nas bordas internas */
+    color: var(--cor-texto);
+}
+
+.data-table th {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: var(--cor-primaria);
+}
+
+.data-table tr:hover {
+    background-color: var(--cor-borda);
+    color: var(--cor-secundaria);
+}
+
+/* Estilo para os botões de ação */
+.action-link {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 2px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.action-link:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.action-link.delete {
+    background-color: var(--cor-hover);
+}
+
+.action-link.delete:hover {
+    background-color: var(--cor-destaque);
+    transform: scale(1.05);
+}
+
+/* Estilo para botões de criação */
+.create-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-button:hover {
+    background-color: var(--cor-acao);
+    color: var(--cor-texto);
+    transform: scale(1.05);
+}
+
+/* Estilos gerais para o formulário */
+/* Estilos gerais do formulário */
+.form-default {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Grupo de formulário */
+.form-default .form-group {
+    margin-bottom: 15px;
+}
+
+/* Rótulos */
+.form-default label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--cor-texto);
+}
+
+/* Campos de entrada de texto e número, seleção e área de texto */
+.form-default input[type="text"],
+.form-default input[type="number"],
+.form-default select,
+.form-default textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--cor-texto);
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-default input[type="text"]:focus,
+.form-default input[type="number"]:focus,
+.form-default select:focus,
+.form-default textarea:focus {
+    border-color: var(--cor-destaque);
+    background-color: var(--cor-secundaria);
+    outline: none;
+}
+
+/* Botões */
+/* Estilos gerais do formulário */
+.form-default {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Grupo de formulário */
+.form-default .form-group {
+    margin-bottom: 15px;
+}
+
+/* Rótulos */
+.form-default label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--cor-texto);
+}
+
+/* Campos de entrada de texto, número, seleção, área de texto e data */
+.form-default input[type="text"],
+.form-default input[type="number"],
+.form-default select,
+.form-default textarea,
+.form-default input[type="date"] {
+    width: 100%; /* Faz todos os campos ocuparem 100% do contêiner pai */
+    max-width: 100%; /* Limita a largura ao contêiner */
+    padding: 10px;
+    font-size: 16px;
+    color: var(--cor-texto);
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+}
+
+.form-default input[type="text"]:focus,
+.form-default input[type="number"]:focus,
+.form-default select:focus,
+.form-default textarea:focus {
+    border-color: var(--cor-destaque);
+    background-color: var(--cor-secundaria);
+    outline: none;
+}
+
+/* Botões */
+.form-default button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--cor-texto);
+    background-color: var(--cor-destaque);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-default button:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Estilo específico para textarea */
+.form-default textarea {
+    min-height: 100px;
+    resize: vertical;
+}

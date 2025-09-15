@@ -1,0 +1,2 @@
+[15-Sep-2025 03:50:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php on line 451
+[15-Sep-2025 03:50:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Log\Context\Repository.php on line 106

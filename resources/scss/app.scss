@@ -1,0 +1,13 @@
+$primary: #161E2F;        // cor-primaria (navbar, buttons primários)
+$secondary: #242F49;      // cor-secundaria (sidebars, elementos secundários)
+$success: #541A2E;        // verde padrão Bootstrap (para ganhos)
+$danger: #B51A2B;         // cor-acao (alertas, botões de ação)
+$warning: #FFA586;         // cor-destaque (textos ou highlights)
+$info:#f5f7fa;    // fundo claro do body
+$light:#ffffff;    // elementos claros (inputs, cards)
+$dark: #161E2F;            // cor-borda / dark secundário (borders ou headers escuros)
+
+$body-bg: $info;           // define o fundo padrão do body
+$font-color: $light;       // define cor do texto padrão
+
+@import "bootstrap/scss/bootstrap";
