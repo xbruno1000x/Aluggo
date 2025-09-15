@@ -33,7 +33,7 @@
                             <td>{{ $propriedade->endereco }}</td>
                             <td>{{ $propriedade->descricao }}</td>
                             <td class="text-center">
-                                <a href="{{ route('propriedades.edit', $propriedade) }}" class="btn btn-primary btn-sm me-1">
+                                <a href="{{ route('propriedades.edit', $propriedade) }}" class="btn btn-sm btn-warning">
                                     Editar
                                 </a>
                                 <form action="{{ route('propriedades.destroy', $propriedade) }}" method="POST" class="d-inline">
