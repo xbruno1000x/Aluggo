@@ -15,3 +15,10 @@ Container_aecb438820:1757941901
 Container_ba7d44a7e6:1757941763
 Container_416e892d32:1757942218
 Container_201cd582f2:1757944893
+Container_8e46dbc1d0:1757947548
+<<<<<<< HEAD
+=======
+Container_d367fa89dc:1758082968
+Container_4bdcc49f44:1758083091
+Container_c0b94e6316:1758083118
+>>>>>>> fe1e922 (:bug: fix: Recuperação de senha por 2FA não estava redirecionando corretamente.)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Models\Proprietario;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -79,7 +80,7 @@ class AdminController extends Controller
      */
     public function showResetForm(): View
     {
-        return view('admin.email');
+        return view('admin.password-recovery');
     }
 
     /**
@@ -142,7 +143,83 @@ class AdminController extends Controller
     }
 
     /**
-     * Processa o código de 2FA
+     * Processa o código de 2FA (recuperação por 2FA).
+     */
+    public function verifyTwoFactorRecovery(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|email|exists:proprietarios,email',
+            'two_factor_code' => 'required|numeric',
+        ]);
+
+        $user = Proprietario::where('email', $request->email)->first();
+
+        // Anotação para o analisador
+        /** @var \App\Models\Proprietario|null $user */
+
+        if ($user && $user->verifyTwoFactorCode($request->two_factor_code)) {
+            $token = Str::random(64);
+            $expires = time() + 15 * 60;
+
+            session([
+                'reset_email' => $user->email,
+                'reset_token' => $token,
+                'reset_token_expires_at' => $expires,
+            ]);
+
+            return redirect()->route('admin.reset.password.form', ['token' => $token]);
+        }
+
+        return back()->with('error', 'O código de autenticação fornecido é inválido.');
+    }
+
+    /**
+     * Exibe o formulário de redefinição de senha (verifica token em sessão).
+     */
+    public function showResetPasswordForm(string $token): View|RedirectResponse
+    {
+        $sessionToken = session('reset_token');
+        $sessionEmail = session('reset_email');
+        $expiresAt = session('reset_token_expires_at', 0);
+
+        if (! $sessionToken || ! $sessionEmail || $sessionToken !== $token || time() > (int) $expiresAt) {
+            return redirect()->route('admin.reset')->with('error', 'Token inválido ou expirado. Reinicie o processo de recuperação.');
+        }
+
+        return view('admin.reset-password', ['token' => $token, 'email' => $sessionEmail]);
+    }
+
+    /**
+     * Processa a redefinição de senha enviada pelo formulário.
+     */
+    public function resetPassword(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'token' => 'required|string',
+            'email' => 'required|email|exists:proprietarios,email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $sessionToken = session('reset_token');
+        $sessionEmail = session('reset_email');
+        $expiresAt = session('reset_token_expires_at', 0);
+
+        if (! $sessionToken || $sessionToken !== $request->token || $sessionEmail !== $request->email || time() > (int) $expiresAt) {
+            return back()->withErrors(['email' => 'Token inválido ou expirado.'])->withInput();
+        }
+
+        $user = Proprietario::where('email', $request->email)->firstOrFail();
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // Limpa dados sensíveis da sessão
+        session()->forget(['reset_email', 'reset_token', 'reset_token_expires_at']);
+
+        return redirect()->route('admin.login')->with('success', 'Senha redefinida com sucesso. Faça login com a nova senha.');
+    }
+
+    /**
+     * Processa o código de 2FA durante o login.
      */
     public function verifyTwoFactor(Request $request): RedirectResponse
     {
@@ -150,12 +227,18 @@ class AdminController extends Controller
             'two_factor_code' => 'required|numeric',
         ]);
 
-        $user = Auth::user();
-
-        if ($user instanceof Proprietario && $user->verifyTwoFactorCode($request->two_factor_code)) {
-            return redirect()->route('admin.menu');
+        $user = Auth::guard('proprietario')->user();
+        
+        /** @var \App\Models\Proprietario|null $user */
+        if (! $user) {
+            return redirect()->route('admin.login')->with('error', 'Sessão expirada. Faça login novamente.');
         }
 
-        return back()->with('error', 'O código de autenticação fornecido é inválido.');
+        if ($user->verifyTwoFactorCode($request->two_factor_code)) {
+            return redirect()->intended(route('admin.menu'));
+        }
+
+        return back()->with('error', 'Código de autenticação inválido.');
     }
+
 }

@@ -1,4 +1,3 @@
-{{-- resources/views/auth/password-recovery.blade.php --}}
 @extends('layouts.guest') {{-- Layout sem navbar para pré-login --}}
 
 @section('title', 'Recuperação de Senha')
@@ -21,7 +20,7 @@
             </div>
 
             <!-- Formulário para E-mail -->
-            <form id="email-form" class="recovery-form active" action="#" method="POST">
+            <form id="email-form" class="recovery-form active" action="{{ route('admin.recovery-email') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">
@@ -36,19 +35,24 @@
             </form>
 
             <!-- Formulário para 2FA -->
-            <form id="2fa-form" class="recovery-form mt-3" action="{{ route('admin.twofactor.verify') }}" method="POST" style="display: none;">
+            <form id="2fa-form" class="recovery-form mt-3" 
+                  action="{{ route('admin.reset.twofactor.verify') }}" 
+                  method="POST" style="display: none;">
                 @csrf
                 <div class="mb-3">
-                    <input type="text" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="2fa_code" placeholder="Código de autenticação" required class="form-control @error('2fa_code') is-invalid @enderror">
-                    @error('2fa_code')
+                    <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">
+                    @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                @if (session('2fa_status'))
-                    <div class="alert alert-success">{{ session('2fa_status') }}</div>
+                <div class="mb-3">
+                    <input type="text" name="two_factor_code" placeholder="Código de autenticação" required class="form-control @error('two_factor_code') is-invalid @enderror">
+                    @error('two_factor_code')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 <button type="submit" class="btn btn-success w-100">Verificar Código</button>
             </form>

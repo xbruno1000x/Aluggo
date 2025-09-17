@@ -16,10 +16,17 @@ Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.lo
 Route::get('/admin/register', [AdminController::class, 'showRegisterForm'])->name('admin.register');
 Route::post('/admin/register', [AdminController::class, 'register'])->name('admin.register.post');
 
-// Rota para exibir a tela de recuperação de senha
+// Rotas de Recuperação de Senha
 Route::get('/admin/reset', [AdminController::class, 'showResetForm'])->name('admin.reset');
-// Rota para processar a solicitação de recuperação de senha
-Route::post('/admin/email', [AdminController::class, 'sendResetLink'])->name('admin.email');
+Route::post('/admin/password-recovery', [AdminController::class, 'sendResetLink'])->name('admin.password-recovery');
+Route::post('/admin/password-recovery', [AdminController::class, 'sendResetLink'])->name('admin.recovery-email');
+
+// Nova rota para verificação via 2FA (recuperação de senha)
+Route::post('/admin/reset/verify-2fa', [AdminController::class, 'verifyTwoFactorRecovery'])->name('admin.reset.twofactor.verify');
+
+// Rotas para o formulário de redefinição e processamento (token temporário)
+Route::get('/admin/reset/password/{token}', [AdminController::class, 'showResetPasswordForm'])->name('admin.reset.password.form');
+Route::post('/admin/reset/password', [AdminController::class, 'resetPassword'])->name('admin.reset.password.post');
 
 // Rotas protegidas com o guard 'proprietario'
 Route::middleware(['auth:proprietario'])->group(function () {
@@ -33,20 +40,17 @@ Route::middleware(['auth:proprietario'])->group(function () {
     Route::post('/account/settings/toggle-2fa', [AccountSettingsController::class, 'toggleTwoFactorAuthentication'])->name('account.toggle2fa');
 });
 
-// Rotas para a implementação e verificação de autenticação de 2 fatores
+// Rotas para autenticação de 2 fatores no login
 Route::middleware('auth:proprietario')->get('/admin/twofactor', [AdminController::class, 'showTwoFactorForm'])->name('admin.twofactor');
 Route::middleware('auth:proprietario')->post('/admin/twofactor', [AdminController::class, 'verifyTwoFactor'])->name('admin.twofactor.verify');
 
 // Rotas protegidas para Propriedades e Imóveis
 Route::middleware(['auth:proprietario'])->group(function () {
-    // Rotas para Propriedades
     Route::resource('propriedades', PropriedadeController::class);
 
-    // Rotas para Imóveis
     Route::resource('imoveis', ImovelController::class)->parameters([
-        'imoveis' => 'imovel' 
-    ]);    
-    
+        'imoveis' => 'imovel'
+    ]);
 });
 
 // Redirecionamento para login padrão

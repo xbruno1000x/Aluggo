@@ -104,7 +104,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => 'f58bc26715af09f40988025e309decef7e9ea395',
+      0 => 'd26ce7f6cf82a87877ba5a9310c5143ce3d091df',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',
@@ -119,7 +119,10 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         5 => 'app\\http\\controllers\\showresetform',
         6 => 'app\\http\\controllers\\register',
         7 => 'app\\http\\controllers\\showtwofactorform',
-        8 => 'app\\http\\controllers\\verifytwofactor',
+        8 => 'app\\http\\controllers\\verifytwofactorrecovery',
+        9 => 'app\\http\\controllers\\showresetpasswordform',
+        10 => 'app\\http\\controllers\\resetpassword',
+        11 => 'app\\http\\controllers\\verifytwofactor',
       ),
       3 => 
       array (

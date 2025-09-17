@@ -15,10 +15,11 @@
             </a>
         </div>
 
+        <thead class=>
         <!-- Tabela responsiva -->
         <div class="table-responsive">
             <table class="table table-striped table-hover table-dark align-middle">
-                <thead class="table-warning text-dark">
+                <thead class="table-primary text-dark">
                     <tr>
                         <th>Nome</th>
                         <th>Endereço</th>

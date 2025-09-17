@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
+class Container_336a26a9e8 extends _PHPStan_1c270d899\Nette\DI\Container
 {
 	protected $tags = [
 		'phpstan.broker.dynamicMethodReturnTypeExtension' => [
@@ -4802,7 +4802,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -4822,7 +4822,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -4845,7 +4845,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -4903,7 +4903,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -4968,7 +4968,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -4988,7 +4988,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_d9f9698c0b $container)
+			public function __construct(Container_336a26a9e8 $container)
 			{
 				$this->container = $container;
 			}
@@ -8049,7 +8049,7 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 	}
 
 
-	public function createServiceContainer(): Container_d9f9698c0b
+	public function createServiceContainer(): Container_336a26a9e8
 	{
 		return $this;
 	}
@@ -8653,130 +8653,92 @@ class Container_d9f9698c0b extends _PHPStan_1c270d899\Nette\DI\Container
 			'usedLevel' => '6',
 			'cliAutoloadFile' => null,
 			'env' => [
-				'APP_DEBUG' => 'true',
-				'APP_ENV' => 'local',
-				'APP_FAKER_LOCALE' => 'en_US',
-				'APP_FALLBACK_LOCALE' => 'en',
-				'APP_KEY' => 'base64:9TIbRuKJimX8eZEinIDCDUkyCJk5+uTuXK1k0AnUxO8=',
-				'APP_LOCALE' => 'en',
-				'APP_MAINTENANCE_DRIVER' => 'file',
-				'APP_NAME' => 'Laravel',
-				'APP_TIMEZONE' => 'UTC',
-				'APP_URL' => 'http://localhost',
-				'AUTH_GUARD' => 'proprietario',
-				'AUTH_PASSWORD_BROKER' => 'proprietarios',
-				'AWS_ACCESS_KEY_ID' => '',
-				'AWS_BUCKET' => '',
-				'AWS_DEFAULT_REGION' => 'us-east-1',
-				'AWS_SECRET_ACCESS_KEY' => '',
-				'AWS_USE_PATH_STYLE_ENDPOINT' => 'false',
-				'BCRYPT_ROUNDS' => '12',
 				'BIN_TARGET' => 'C:\Users\faria\projeto-final\vendor\bin\/phpstan',
-				'BROADCAST_CONNECTION' => 'log',
-				'CACHE_PREFIX' => '',
-				'CACHE_STORE' => 'database',
-				'COLUMNS' => '50',
+				'COLUMNS' => '106',
 				'COMPOSER_BINARY' => 'C:\ProgramData\ComposerSetup\bin\composer.phar',
 				'COMPOSER_RUNTIME_BIN_DIR' => 'C:\Users\faria\projeto-final\vendor\bin\\',
-				'DB_CONNECTION' => 'mysql',
-				'DB_DATABASE' => 'managementdb',
-				'DB_HOST' => '127.0.0.1',
-				'DB_PASSWORD' => '',
-				'DB_PORT' => '3306',
-				'DB_USERNAME' => 'root',
-				'FILESYSTEM_DISK' => 'local',
 				'LINES' => '8',
-				'LOG_CHANNEL' => 'stack',
-				'LOG_DEPRECATIONS_CHANNEL' => 'null',
-				'LOG_LEVEL' => 'debug',
-				'LOG_STACK' => 'single',
-				'MAIL_ENCRYPTION' => 'null',
-				'MAIL_FROM_ADDRESS' => 'hello@example.com',
-				'MAIL_FROM_NAME' => 'Laravel',
-				'MAIL_HOST' => '127.0.0.1',
-				'MAIL_MAILER' => 'log',
-				'MAIL_PASSWORD' => 'null',
-				'MAIL_PORT' => '2525',
-				'MAIL_USERNAME' => 'null',
-				'MEMCACHED_HOST' => '127.0.0.1',
-				'PHP_CLI_SERVER_WORKERS' => '4',
-				'QUEUE_CONNECTION' => 'database',
-				'REDIS_CLIENT' => 'phpredis',
-				'REDIS_HOST' => '127.0.0.1',
-				'REDIS_PASSWORD' => 'null',
-				'REDIS_PORT' => '6379',
-				'SESSION_DOMAIN' => 'null',
-				'SESSION_DRIVER' => 'database',
-				'SESSION_ENCRYPT' => 'false',
-				'SESSION_LIFETIME' => '120',
-				'SESSION_PATH' => '/',
+				'PROMPT' => '$P$G',
 				'SHELL_VERBOSITY' => '0',
 				'GIT_ASKPASS' => 'echo',
 				'LANGUAGE' => 'C',
-				'Path' => 'C:\Users\faria\projeto-final\vendor\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python313\Scripts\;C:\Python313\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\php83;C:\ProgramData\ComposerSetup\bin;C:\msys64\mingw64\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\faria\scoop\shims;C:\Users\faria\AppData\Local\pnpm;C:\Users\faria\AppData\Local\Microsoft\WindowsApps;C:\Users\faria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\faria\AppData\Roaming\Composer\vendor\bin;C:\msys64\mingw64\bin;C:\Users\faria\AppData\Roaming\npm;;c:\Users\faria\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand',
+				'PATH' => 'C:\Users\faria\projeto-final\vendor\bin;C:\Program Files\Git\mingw64\libexec\git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\faria\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python313\Scripts;C:\Python313;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\php83;C:\ProgramData\ComposerSetup\bin;C:\msys64\mingw64\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\faria\scoop\shims;C:\Users\faria\AppData\Local\pnpm;C:\Users\faria\AppData\Local\Microsoft\WindowsApps;C:\Users\faria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\faria\AppData\Roaming\Composer\vendor\bin;C:\msys64\mingw64\bin;C:\Users\faria\AppData\Roaming\npm;C:\Users\faria\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand',
 				'PHP_BINARY' => 'C:\php83\php.exe',
 				'ALLUSERSPROFILE' => 'C:\ProgramData',
 				'APPDATA' => 'C:\Users\faria\AppData\Roaming',
+				'CHROME_CRASHPAD_PIPE_NAME' => '\\\.\pipe\crashpad_18172_RYSFJYBHIKLUBDIY',
+				'COLORTERM' => 'truecolor',
+				'COMMONPROGRAMFILES' => 'C:\Program Files\Common Files',
+				'COMPUTERNAME' => 'BRUNO-PC',
+				'COMSPEC' => 'C:\WINDOWS\system32\cmd.exe',
 				'ChocolateyInstall' => 'C:\ProgramData\chocolatey',
 				'ChocolateyLastPathUpdate' => '133800846556756186',
-				'CHROME_CRASHPAD_PIPE_NAME' => '\\\.\pipe\crashpad_16500_SFORFCQPALHFOCCG',
-				'CommonProgramFiles' => 'C:\Program Files\Common Files',
 				'CommonProgramFiles(x86)' => 'C:\Program Files (x86)\Common Files',
 				'CommonProgramW6432' => 'C:\Program Files\Common Files',
-				'COMPUTERNAME' => 'BRUNO-PC',
-				'ComSpec' => 'C:\WINDOWS\system32\cmd.exe',
 				'DriverData' => 'C:\Windows\System32\Drivers\DriverData',
-				'EFC_12364_1262719628' => '1',
-				'EFC_12364_1592913036' => '1',
-				'EFC_12364_2283032206' => '1',
-				'EFC_12364_2775293581' => '1',
-				'EFC_12364_3789132940' => '1',
+				'EFC_15172_1262719628' => '1',
+				'EFC_15172_1592913036' => '1',
+				'EFC_15172_2283032206' => '1',
+				'EFC_15172_2775293581' => '1',
+				'EFC_15172_3789132940' => '1',
 				'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer',
 				'FPS_BROWSER_USER_PROFILE_STRING' => 'Default',
+				'GIT_AUTHOR_DATE' => '@@1758083559 -0300',
+				'GIT_AUTHOR_EMAIL' => 'fariabruno10@gmail.com',
+				'GIT_AUTHOR_NAME' => 'xBruno1000x',
+				'GIT_EDITOR' => ':',
+				'GIT_EXEC_PATH' => 'C:/Program Files/Git/mingw64/libexec/git-core',
+				'GIT_INDEX_FILE' => '.git/index',
+				'GIT_PREFIX' => '',
+				'HOME' => 'C:\Users\faria',
 				'HOMEDRIVE' => 'C:',
 				'HOMEPATH' => '\Users\faria',
+				'LANG' => 'en_US.UTF-8',
 				'LOCALAPPDATA' => 'C:\Users\faria\AppData\Local',
 				'LOGONSERVER' => '\\\BRUNO-PC',
+				'MSYSTEM' => 'MINGW64',
 				'NUMBER_OF_PROCESSORS' => '12',
-				'OneDrive' => 'C:\Users\faria\OneDrive',
 				'ORIGINAL_XDG_CURRENT_DESKTOP' => 'undefined',
 				'OS' => 'Windows_NT',
+				'OneDrive' => 'C:\Users\faria\OneDrive',
 				'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL',
+				'PLINK_PROTOCOL' => 'ssh',
 				'PNPM_HOME' => 'C:\Users\faria\AppData\Local\pnpm',
 				'PROCESSOR_ARCHITECTURE' => 'AMD64',
 				'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 141 Stepping 1, GenuineIntel',
 				'PROCESSOR_LEVEL' => '6',
 				'PROCESSOR_REVISION' => '8d01',
-				'ProgramData' => 'C:\ProgramData',
-				'ProgramFiles' => 'C:\Program Files',
-				'ProgramFiles(x86)' => 'C:\Program Files (x86)',
-				'ProgramW6432' => 'C:\Program Files',
-				'PROMPT' => '$P$G',
+				'PROGRAMFILES' => 'C:\Program Files',
 				'PSModulePath' => 'C:\Users\faria\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules',
 				'PUBLIC' => 'C:\Users\Public',
+				'PWD' => 'C:/Users/faria/projeto-final',
+				'ProgramData' => 'C:\ProgramData',
+				'ProgramFiles(x86)' => 'C:\Program Files (x86)',
+				'ProgramW6432' => 'C:\Program Files',
 				'SESSIONNAME' => 'Console',
-				'SystemDrive' => 'C:',
-				'SystemRoot' => 'C:\WINDOWS',
+				'SHLVL' => '2',
+				'SYSTEMDRIVE' => 'C:',
+				'SYSTEMROOT' => 'C:\WINDOWS',
 				'TEMP' => 'C:\Users\faria\AppData\Local\Temp',
+				'TERM' => 'xterm-256color',
+				'TERM_PROGRAM' => 'vscode',
+				'TERM_PROGRAM_VERSION' => '1.104.0',
 				'TMP' => 'C:\Users\faria\AppData\Local\Temp',
+				'TMPDIR' => 'C:\Users\faria\AppData\Local\Temp',
 				'USERDOMAIN' => 'BRUNO-PC',
 				'USERDOMAIN_ROAMINGPROFILE' => 'BRUNO-PC',
 				'USERNAME' => 'faria',
 				'USERPROFILE' => 'C:\Users\faria',
 				'VBOX_MSI_INSTALL_PATH' => 'C:\Program Files\Oracle\VirtualBox\\',
-				'VITE_APP_NAME' => 'Laravel',
-				'VSCODE_PYTHON_AUTOACTIVATE_GUARD' => '1',
-				'windir' => 'C:\WINDOWS',
-				'ZES_ENABLE_SYSMAN' => '1',
-				'TERM_PROGRAM' => 'vscode',
-				'TERM_PROGRAM_VERSION' => '1.104.0',
-				'LANG' => 'en_US.UTF-8',
-				'COLORTERM' => 'truecolor',
-				'VSCODE_GIT_ASKPASS_NODE' => 'C:\Users\faria\AppData\Local\Programs\Microsoft VS Code\Code.exe',
 				'VSCODE_GIT_ASKPASS_EXTRA_ARGS' => '',
 				'VSCODE_GIT_ASKPASS_MAIN' => 'c:\Users\faria\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass-main.js',
+				'VSCODE_GIT_ASKPASS_NODE' => 'C:\Users\faria\AppData\Local\Programs\Microsoft VS Code\Code.exe',
 				'VSCODE_GIT_IPC_HANDLE' => '\\\.\pipe\vscode-git-1a6e550aea-sock',
 				'VSCODE_INJECTION' => '1',
+				'VSCODE_PYTHON_AUTOACTIVATE_GUARD' => '1',
+				'WINDIR' => 'C:\WINDOWS',
+				'ZES_ENABLE_SYSMAN' => '1',
+				'_' => 'C:/php83/php',
 			],
 		];
 	}

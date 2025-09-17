@@ -1924,8 +1924,17 @@ return [
       0 => 'admin.login',
       1 => 'admin.menu',
       2 => 'admin.register',
-      3 => 'admin.email',
+      3 => 'admin.password-recovery',
       4 => 'admin.twofactor',
+      5 => 'admin.reset-password',
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'session',
+        1 => 164,
+      ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
     array (
@@ -1933,7 +1942,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 125,
+        2 => 126,
       ),
     ),
   ),
@@ -2030,7 +2039,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AdminController.php' => 
   array (
-    'fileHash' => 'f58bc26715af09f40988025e309decef7e9ea395',
+    'fileHash' => 'd26ce7f6cf82a87877ba5a9310c5143ce3d091df',
     'dependentFiles' => 
     array (
     ),
@@ -2201,6 +2210,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2237,6 +2247,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2284,6 +2295,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2331,6 +2343,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2367,6 +2380,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2403,6 +2417,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2439,6 +2454,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2486,6 +2502,7 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
@@ -2510,11 +2527,11 @@ return [
         )),
         8 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'verifyTwoFactor',
+           'name' => 'verifyTwoFactorRecovery',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Processa o código de 2FA
+     * Processa o código de 2FA (recuperação por 2FA).
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -2522,6 +2539,151 @@ return [
               'request' => 'Illuminate\\Http\\Request',
               'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
+              'proprietario' => 'App\\Models\\Proprietario',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'showResetPasswordForm',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Exibe o formulário de redefinição de senha (verifica token em sessão).
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'request' => 'Illuminate\\Http\\Request',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
+              'proprietario' => 'App\\Models\\Proprietario',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View|Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'token',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'resetPassword',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Processa a redefinição de senha enviada pelo formulário.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'request' => 'Illuminate\\Http\\Request',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
+              'proprietario' => 'App\\Models\\Proprietario',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        11 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'verifyTwoFactor',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Processa o código de 2FA durante o login.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'request' => 'Illuminate\\Http\\Request',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+              'str' => 'Illuminate\\Support\\Str',
               'proprietario' => 'App\\Models\\Proprietario',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
