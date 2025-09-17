@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Aluggo')</title>
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/ts/app.ts'])
+    {{-- Scripts adicionais --}}
+    @stack('scripts-body')
 </head>
 <body class="bg-dark d-flex justify-content-center align-items-center vh-100">
 
@@ -13,8 +15,5 @@
     <main class="w-100" style="max-width: 400px;">
         @yield('content')
     </main>
-
-    {{-- Scripts adicionais --}}
-    @stack('scripts-body')
 </body>
 </html>

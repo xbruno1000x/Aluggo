@@ -1987,17 +1987,7 @@ return [
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
     array (
       0 => 'propriedades.index',
-      1 => 'propriedades.create',
-      2 => 'propriedades.edit',
-    ),
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Builder',
-        1 => 'create',
-        2 => 33,
-      ),
+      1 => 'propriedades.edit',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
@@ -2064,7 +2054,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
   array (
-    'fileHash' => '1e7f7fe08c6d329dae52f99c8cf510c8d7812d01',
+    'fileHash' => 'c70600a211d7539732aafae373451ee280b7e3a7',
     'dependentFiles' => 
     array (
     ),
@@ -2978,24 +2968,6 @@ return [
         )),
         1 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'create',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\View\\View',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'store',
            'phpDoc' => NULL,
            'byRef' => false,
@@ -3004,7 +2976,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
            'parameters' => 
           array (
             0 => 
@@ -3023,7 +2995,7 @@ return [
           array (
           ),
         )),
-        3 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'edit',
            'phpDoc' => NULL,
@@ -3052,7 +3024,7 @@ return [
           array (
           ),
         )),
-        4 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'update',
            'phpDoc' => NULL,
@@ -3092,7 +3064,7 @@ return [
           array (
           ),
         )),
-        5 => 
+        4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'destroy',
            'phpDoc' => NULL,

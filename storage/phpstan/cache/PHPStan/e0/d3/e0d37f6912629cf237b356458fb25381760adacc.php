@@ -164,7 +164,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
     array (
-      0 => '1e7f7fe08c6d329dae52f99c8cf510c8d7812d01',
+      0 => 'c70600a211d7539732aafae373451ee280b7e3a7',
       1 => 
       array (
         0 => 'app\\http\\controllers\\propriedadecontroller',
@@ -172,11 +172,10 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\http\\controllers\\index',
-        1 => 'app\\http\\controllers\\create',
-        2 => 'app\\http\\controllers\\store',
-        3 => 'app\\http\\controllers\\edit',
-        4 => 'app\\http\\controllers\\update',
-        5 => 'app\\http\\controllers\\destroy',
+        1 => 'app\\http\\controllers\\store',
+        2 => 'app\\http\\controllers\\edit',
+        3 => 'app\\http\\controllers\\update',
+        4 => 'app\\http\\controllers\\destroy',
       ),
       3 => 
       array (

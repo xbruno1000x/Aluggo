@@ -5,16 +5,11 @@
 @section('header', 'Gestão de Propriedades')
 
 @section('content')
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-warning">@yield('header')</h2>
+</div>
 <div class="d-flex justify-content-center">
     <div class="w-100">
-
-        <!-- Botão Cadastrar -->
-        <div class="mb-3 text-end">
-            <a href="{{ route('propriedades.create') }}" class="btn btn-success">
-                Cadastrar Nova Propriedade
-            </a>
-        </div>
-
         <thead class=>
         <!-- Tabela responsiva -->
         <div class="table-responsive">

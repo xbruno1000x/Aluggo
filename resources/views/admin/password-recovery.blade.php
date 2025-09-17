@@ -1,5 +1,9 @@
 @extends('layouts.guest') {{-- Layout sem navbar para pré-login --}}
 
+@push('scripts-body')
+    @vite(['resources/ts/password-recovery.ts'])
+@endpush
+
 @section('title', 'Recuperação de Senha')
 @section('header', 'Recuperação de Senha')
 
@@ -66,8 +70,4 @@
 
     </div>
 </div>
-
-@push('scripts-body')
-<script src="{{ asset('js/password-recovery.js') }}" defer></script>
-@endpush
 @endsection
