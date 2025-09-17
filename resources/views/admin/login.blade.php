@@ -8,6 +8,10 @@
 
         <div class="card shadow-sm p-4">
             <header class="mb-4 text-center">
+                <p class="text-muted mb-0">
+                    <img src="{{ asset('images/aluggo_logo.png') }}" alt="Aluggo" style="height:55px;" />
+                    <span class="visually-hidden">Aluggo</span>
+                </p>
                 <h4 class="card-title mb-2">Bem-vindo de volta 👋</h4>
                 <p class="text-muted mb-0">Insira suas informações</p>
             </header>
