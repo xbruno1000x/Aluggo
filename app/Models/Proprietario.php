@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PragmaRX\Google2FA\Google2FA;
@@ -13,7 +14,7 @@ use PragmaRX\Google2FAQRCode\Google2FA as Google2FAQrCode;
  */
 class Proprietario extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'nome', 'cpf', 'telefone', 'email', 'password',
