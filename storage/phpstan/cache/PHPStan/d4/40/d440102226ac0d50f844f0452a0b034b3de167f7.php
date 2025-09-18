@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\CodeCoverage.php' => 
     array (
-      0 => '4497f68287f415f4fa4ec4ce90b91beb071023b4',
+      0 => '517af711c4e0a5fbac2e0691aae701a857838fda',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\codecoverage',
@@ -86,7 +86,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\Data\\RawCodeCoverageData.php' => 
     array (
-      0 => 'abfafb4924d78317578a45129821aa5068d70b86',
+      0 => 'f9fe3081aaa809d96aa4d25a80a25c2d51b80d37',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\data\\rawcodecoveragedata',
@@ -717,7 +717,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\Report\\Cobertura.php' => 
     array (
-      0 => 'ab3d6a4a24776e70d2c4125dbfd03fe90fc4ef30',
+      0 => '7eccec298f335d5765056e1a8cef97f821a79d62',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\report\\cobertura',
@@ -845,7 +845,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\Report\\Html\\Renderer\\File.php' => 
     array (
-      0 => '4b45779453be57c64c8b244a69ac930b350d58f3',
+      0 => '80e70639fde678f98d7244d5842ad65181ee2352',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\report\\html\\file',
@@ -903,7 +903,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\Report\\PHP.php' => 
     array (
-      0 => 'dc56a2fe797da10e30f9c411fd96db0dfe6b6491',
+      0 => 'cff6093a91ddd56e6f4cb51cb2354a98cb388d24',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\report\\php',
@@ -1224,7 +1224,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\StaticAnalysis\\CachingFileAnalyser.php' => 
     array (
-      0 => 'c3638462e587fd631921994cd0a2e74cf1f8c35d',
+      0 => '19988dcff491cf41ed9305cfdc638f0864bf70d0',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\staticanalysis\\cachingfileanalyser',
@@ -1242,7 +1242,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         8 => 'sebastianbergmann\\codecoverage\\staticanalysis\\read',
         9 => 'sebastianbergmann\\codecoverage\\staticanalysis\\write',
         10 => 'sebastianbergmann\\codecoverage\\staticanalysis\\cachefile',
-        11 => 'sebastianbergmann\\codecoverage\\staticanalysis\\cacheversion',
       ),
       3 => 
       array (
@@ -1337,7 +1336,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\StaticAnalysis\\ParsingFileAnalyser.php' => 
     array (
-      0 => 'cb7c54d40766570ba737a30bd7fe8780e34a0feb',
+      0 => 'a1c5036d401217718c74f36365d3af91ed1fb740',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\staticanalysis\\parsingfileanalyser',
@@ -1427,7 +1426,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\TestSize\\TestSize.php' => 
     array (
-      0 => 'de0bbb102444d13a794e8d08ade769fcc9e84fbd',
+      0 => '9a93d48899d90bd73f62e5dc5500ffb59f13d4da',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\test\\testsize\\testsize',
@@ -1586,7 +1585,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\php-code-coverage\\src\\Version.php' => 
     array (
-      0 => '7857d5f0df9de5df40b5496097af8e4c6bb9e1d3',
+      0 => 'da06223426fc25c6f61fe5f40cadeca05ea46998',
       1 => 
       array (
         0 => 'sebastianbergmann\\codecoverage\\version',

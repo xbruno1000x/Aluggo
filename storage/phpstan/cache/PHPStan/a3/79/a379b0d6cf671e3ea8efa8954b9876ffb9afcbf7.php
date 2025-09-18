@@ -37,7 +37,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\code-unit\\src\\CodeUnit.php' => 
     array (
-      0 => 'fa08dcc8e6e39c03d568506baf75be45f5baad96',
+      0 => 'a4e326a3a4495b59d511d5b01a6e76399b6b4610',
       1 => 
       array (
         0 => 'sebastianbergmann\\codeunit\\codeunit',
@@ -77,7 +77,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\code-unit\\src\\CodeUnitCollection.php' => 
     array (
-      0 => '418bb8c2fbd7ac8fe50d9a38d35b6c858be13604',
+      0 => 'e64eb401fd9e3ca74be544e1cbe355e1748d2a1c',
       1 => 
       array (
         0 => 'sebastianbergmann\\codeunit\\codeunitcollection',
@@ -234,7 +234,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\code-unit\\src\\Mapper.php' => 
     array (
-      0 => '1690ef29ea2cead0ab4b544577f06be7be0a57b0',
+      0 => 'cc00facc744914fee9ff117798db3c45c43204bb',
       1 => 
       array (
         0 => 'sebastianbergmann\\codeunit\\mapper',
@@ -248,6 +248,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'sebastianbergmann\\codeunit\\isuserdefinedinterface',
         5 => 'sebastianbergmann\\codeunit\\isuserdefinedtrait',
         6 => 'sebastianbergmann\\codeunit\\isuserdefinedmethod',
+        7 => 'sebastianbergmann\\codeunit\\traits',
       ),
       3 => 
       array (

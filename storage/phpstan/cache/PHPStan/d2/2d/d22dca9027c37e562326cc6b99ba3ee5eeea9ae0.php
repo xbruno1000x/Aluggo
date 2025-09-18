@@ -156,7 +156,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\comparator\\src\\Factory.php' => 
     array (
-      0 => 'a98ef0426a9868c715411429bf8b61b7ceb05771',
+      0 => '9b6254ffac6ddd1c9173d0ae37f852de3d9bbda1',
       1 => 
       array (
         0 => 'sebastianbergmann\\comparator\\factory',
@@ -194,7 +194,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\comparator\\src\\NumericComparator.php' => 
     array (
-      0 => '4ca478d8e32d6d0ef13e359f01149856e6e99375',
+      0 => '103d6be08db1b980e0e14e3e7214e43017a99db0',
       1 => 
       array (
         0 => 'sebastianbergmann\\comparator\\numericcomparator',
@@ -265,7 +265,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\comparator\\src\\SplObjectStorageComparator.php' => 
     array (
-      0 => '6e0c145073b555753c9408146a1c7299eba60176',
+      0 => 'd1416f56d65171fbe999e14854530fa59b0c754e',
       1 => 
       array (
         0 => 'sebastianbergmann\\comparator\\splobjectstoragecomparator',
@@ -285,6 +285,22 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       1 => 
       array (
         0 => 'sebastianbergmann\\comparator\\typecomparator',
+      ),
+      2 => 
+      array (
+        0 => 'sebastianbergmann\\comparator\\accepts',
+        1 => 'sebastianbergmann\\comparator\\assertequals',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\comparator\\src\\NumberComparator.php' => 
+    array (
+      0 => '4fe968b48b5ec6f58911f7bacc643d3083545c66',
+      1 => 
+      array (
+        0 => 'sebastianbergmann\\comparator\\numbercomparator',
       ),
       2 => 
       array (

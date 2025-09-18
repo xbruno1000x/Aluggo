@@ -22,7 +22,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\exceptions.php' => 
     array (
-      0 => '1383200c2647e4b84933a79ccfa3007cb05f2728',
+      0 => 'fc1c194e8b17cc8df6a10389f7b5e2ee94599c06',
       1 => 
       array (
         0 => 'nette\\argumentoutofrangeexception',
@@ -37,6 +37,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         9 => 'nette\\invalidargumentexception',
         10 => 'nette\\outofrangeexception',
         11 => 'nette\\unexpectedvalueexception',
+        12 => 'nette\\shouldnothappenexception',
       ),
       2 => 
       array (
@@ -155,7 +156,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ArrayHash.php' => 
     array (
-      0 => 'cee24efe8e549b816402dae0431c223a5ed88491',
+      0 => '03f5e8115325c1a04905db31c4cb2d509c532b46',
       1 => 
       array (
         0 => 'nette\\utils\\arrayhash',
@@ -176,7 +177,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ArrayList.php' => 
     array (
-      0 => '41fdbf1f4babe976591fe9dffe0f5fdf9d6cbc35',
+      0 => '47e3e00978d3989133c91d53124255debbe0bcad',
       1 => 
       array (
         0 => 'nette\\utils\\arraylist',
@@ -198,10 +199,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Arrays.php' => 
     array (
-      0 => 'ccc4714ae18178765c45498fcc61942415c6caec',
+      0 => '4a9e2449fdd40659d6fbb36bc5608cdd0a8b69ee',
       1 => 
       array (
-        0 => 'nette\\utils\\arrays',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\arrays',
       ),
       2 => 
       array (
@@ -237,11 +239,12 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\PHP_VERSION_ID',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Callback.php' => 
     array (
-      0 => 'd5171969cc8a2d6455e97d7387e95cc35d46a554',
+      0 => 'e35cbfe851dd02c41f56f9abd6bb48986e39524f',
       1 => 
       array (
         0 => 'nette\\utils\\callback',
@@ -261,7 +264,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\DateTime.php' => 
     array (
-      0 => '6dd5eb4474dd74aa2030ced8ad2aeed4ee961beb',
+      0 => '1d0d76e800aad20ba9c0fdc5198bb43ff2860080',
       1 => 
       array (
         0 => 'nette\\utils\\datetime',
@@ -271,9 +274,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'nette\\utils\\from',
         1 => 'nette\\utils\\fromparts',
         2 => 'nette\\utils\\createfromformat',
-        3 => 'nette\\utils\\jsonserialize',
-        4 => 'nette\\utils\\__tostring',
-        5 => 'nette\\utils\\modifyclone',
+        3 => 'nette\\utils\\__construct',
+        4 => 'nette\\utils\\modify',
+        5 => 'nette\\utils\\setdate',
+        6 => 'nette\\utils\\settime',
+        7 => 'nette\\utils\\relativetoseconds',
+        8 => 'nette\\utils\\apply',
+        9 => 'nette\\utils\\jsonserialize',
+        10 => 'nette\\utils\\__tostring',
+        11 => 'nette\\utils\\modifyclone',
+        12 => 'nette\\utils\\handleerrors',
       ),
       3 => 
       array (
@@ -281,7 +291,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\exceptions.php' => 
     array (
-      0 => '2dffb56a116c9d3483151093c11ee75a22a4c240',
+      0 => '7cb8fc0626110d64c5855d31debe65a25c93c419',
       1 => 
       array (
         0 => 'nette\\utils\\imageexception',
@@ -299,7 +309,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\FileInfo.php' => 
     array (
-      0 => '0d09acdaca8285898e8b2e98accfdadded3ccf02',
+      0 => 'b38d074e769c18c8c897e0816489e0fbbbf9d433',
       1 => 
       array (
         0 => 'nette\\utils\\fileinfo',
@@ -318,7 +328,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\FileSystem.php' => 
     array (
-      0 => '0e49655d2ce22192ea7ebaf636dcab0cbe2a2aa5',
+      0 => 'fdf3752908f5ed00a933622ac817a62f23e879b5',
       1 => 
       array (
         0 => 'nette\\utils\\filesystem',
@@ -337,8 +347,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         9 => 'nette\\utils\\isabsolute',
         10 => 'nette\\utils\\normalizepath',
         11 => 'nette\\utils\\joinpaths',
-        12 => 'nette\\utils\\unixslashes',
-        13 => 'nette\\utils\\platformslashes',
+        12 => 'nette\\utils\\resolvepath',
+        13 => 'nette\\utils\\unixslashes',
+        14 => 'nette\\utils\\platformslashes',
       ),
       3 => 
       array (
@@ -346,10 +357,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Finder.php' => 
     array (
-      0 => '621b06ebaf68a9e0e67acee82d84e4afa821a3ef',
+      0 => '699fe8f31ac3bf15f201cd19d02b4f7e408b747a',
       1 => 
       array (
-        0 => 'nette\\utils\\finder',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\finder',
       ),
       2 => 
       array (
@@ -384,11 +396,12 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\GLOB_NOESCAPE',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Floats.php' => 
     array (
-      0 => '65039d7b30497a2a31b5c46c1d0885690fc50805',
+      0 => '4230371d76c783aed33c8790dc8e9d9b7f2e79fd',
       1 => 
       array (
         0 => 'nette\\utils\\floats',
@@ -410,7 +423,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Helpers.php' => 
     array (
-      0 => 'e62fc779c20a38dbfa07b7dadaaba56e090deae7',
+      0 => '4ad4e53dfa27659099e8f286c48acfffcaf7c545',
       1 => 
       array (
         0 => 'nette\\utils\\helpers',
@@ -430,10 +443,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Html.php' => 
     array (
-      0 => '15210683779dc48d764f0ff8ea23417fe590cfac',
+      0 => 'e1cafbe6f74bf1f761fdf42382e3798eef8f91f6',
       1 => 
       array (
-        0 => 'nette\\utils\\html',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\html',
       ),
       2 => 
       array (
@@ -484,14 +498,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\ENT_HTML5',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Image.php' => 
     array (
-      0 => 'c992f525345007d233948733b854562ee1db676a',
+      0 => '8d0b0098366da92c5dbaa2f0fcc68bb951171144',
       1 => 
       array (
-        0 => 'nette\\utils\\image',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\image',
       ),
       2 => 
       array (
@@ -529,17 +545,18 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         31 => 'nette\\utils\\__call',
         32 => 'nette\\utils\\__clone',
         33 => 'nette\\utils\\ispercent',
-        34 => 'nette\\utils\\__sleep',
+        34 => 'nette\\utils\\__serialize',
         35 => 'nette\\utils\\resolvecolor',
         36 => 'nette\\utils\\ensureextension',
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\IMG_BMP',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ImageColor.php' => 
     array (
-      0 => '8889bbb3c776e13241dad50b557446bf45fee016',
+      0 => 'a23d46bb47787c71accdefbd1100e6fd370583fc',
       1 => 
       array (
         0 => 'nette\\utils\\imagecolor',
@@ -557,21 +574,23 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ImageType.php' => 
     array (
-      0 => '5260583e471fb1325407187b0c2a73b9a54f4960',
+      0 => '25573b3d07bc08dc98f71538a295d95022bdb99f',
       1 => 
       array (
-        0 => 'nette\\utils\\imagetype',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\imagetype',
       ),
       2 => 
       array (
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\IMAGETYPE_BMP',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Iterables.php' => 
     array (
-      0 => '7cd85b8037452a5e9d03f768fb81eb297d8357f9',
+      0 => '24e400eab77aa5fb7e6b8ebab31f750eafe5667d',
       1 => 
       array (
         0 => 'nette\\utils\\iterables',
@@ -598,10 +617,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Json.php' => 
     array (
-      0 => 'ebb5956053572eb8a10ce052f7770bcb61402bbe',
+      0 => '62581a8d3a446e9876b651a3961dbead4df58b38',
       1 => 
       array (
-        0 => 'nette\\utils\\json',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\json',
       ),
       2 => 
       array (
@@ -610,11 +630,12 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\JSON_BIGINT_AS_STRING',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ObjectHelpers.php' => 
     array (
-      0 => '2aca9ccf014f50422f953eab312258aa71a69aff',
+      0 => '0224dfcf164e5b953826a4096addeebbc0b1b83a',
       1 => 
       array (
         0 => 'nette\\utils\\objecthelpers',
@@ -669,7 +690,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Random.php' => 
     array (
-      0 => '2aab86d308ae8ffb12a0ffd62540e2e227bc0e87',
+      0 => '869f1f3c8fa7356b512647a56426540101857ea5',
       1 => 
       array (
         0 => 'nette\\utils\\random',
@@ -684,10 +705,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Reflection.php' => 
     array (
-      0 => 'd8eb06ad1f96ef2761b7bb0385639c2a6b0b3e02',
+      0 => '8d50bb09d11ffb91c6b99c1ec30b6ea6056394d8',
       1 => 
       array (
-        0 => 'nette\\utils\\reflection',
+        0 => 'nette\\utils\\',
+        1 => 'nette\\utils\\reflection',
       ),
       2 => 
       array (
@@ -705,11 +727,12 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       ),
       3 => 
       array (
+        0 => 'nette\\utils\\PHP_VERSION_ID',
       ),
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\ReflectionMethod.php' => 
     array (
-      0 => 'f659a2fe5053a9c2d0d1d284266b6b9c548550e3',
+      0 => '8c547da0e832823d060b6d97c5a74dbf4a86255e',
       1 => 
       array (
         0 => 'nette\\utils\\reflectionmethod',
@@ -725,7 +748,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Strings.php' => 
     array (
-      0 => '1ff0966a5554bc83ecb93336e23b10ed14bb0f19',
+      0 => 'b47fd6970860199eca3d318ec87067d01e3d883d',
       1 => 
       array (
         0 => 'nette\\utils\\strings',
@@ -777,7 +800,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Type.php' => 
     array (
-      0 => '3b13edc29c70dcd40105fc5fcf8e404040c7cf39',
+      0 => '1e69638172d006afa0cf60567fceee661481039c',
       1 => 
       array (
         0 => 'nette\\utils\\type',
@@ -810,7 +833,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\nette\\utils\\src\\Utils\\Validators.php' => 
     array (
-      0 => '13d64e6f7d6bbad881932790d34eb71afaa9e659',
+      0 => 'd5737d9aafd2716b601887ed1b1f6a6e5eb1cbae',
       1 => 
       array (
         0 => 'nette\\utils\\validators',

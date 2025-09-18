@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use \App\Models\Propriedade;
+use Database\Factories\ImovelFactory;
 
 class Imovel extends Model
 {
+    /** @use HasFactory<ImovelFactory> */    
     use HasFactory;
+
+    protected static string $factory = ImovelFactory::class;
+
     protected $table = 'imoveis';
 
     protected $fillable = [

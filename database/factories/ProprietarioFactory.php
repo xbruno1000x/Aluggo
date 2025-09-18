@@ -13,11 +13,11 @@ class ProprietarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->name,
+            'nome' => $this->faker->name(),
             'cpf' => $this->faker->numerify('###########'),
-            'telefone' => $this->faker->phoneNumber,
-            'email' => $this->faker->unique()->safeEmail,
-            'password' => Hash::make('password'), 
+            'telefone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => Hash::make('password'),
         ];
     }
 }

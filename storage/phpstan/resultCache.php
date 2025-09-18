@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1757942176,
+	'lastFullAnalysisTime' => 1758166362,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.25',
@@ -20,7 +20,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    'C:/Users/faria/projeto-final/composer.lock' => '337af8b027550c9d25a75ae9144e81d5263ed0db',
+    'C:/Users/faria/projeto-final/composer.lock' => '89b1deffd3dfcaf36f1e87ea16bcf69ca9aa0d31',
   ),
   'composerInstalled' => 
   array (
@@ -40,11 +40,23 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'brianium/paratest' => 
+        array (
+          'pretty_version' => 'v7.8.4',
+          'version' => '7.8.4.0',
+          'reference' => '130a9bf0e269ee5f5b320108f794ad03e275cad4',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../brianium/paratest',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'brick/math' => 
         array (
-          'pretty_version' => '0.12.1',
-          'version' => '0.12.1.0',
-          'reference' => 'f510c0a40911935b77b86859eb5223d58d660df1',
+          'pretty_version' => '0.14.0',
+          'version' => '0.14.0.0',
+          'reference' => '113a8ee2656b882d4c3164fa31aa6e12cbb7aaa2',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../brick/math',
           'aliases' => 
@@ -104,11 +116,23 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'doctrine/deprecations' => 
+        array (
+          'pretty_version' => '1.1.5',
+          'version' => '1.1.5.0',
+          'reference' => '459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../doctrine/deprecations',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'doctrine/inflector' => 
         array (
-          'pretty_version' => '2.0.10',
-          'version' => '2.0.10.0',
-          'reference' => '5817d0659c5b50c9b950feb9af7b9668e2c436bc',
+          'pretty_version' => '2.1.0',
+          'version' => '2.1.0.0',
+          'reference' => '6d6c96277ea252fc1304627204c3d5e6e15faa3b',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../doctrine/inflector',
           'aliases' => 
@@ -142,9 +166,9 @@ return [
         ),
         'egulias/email-validator' => 
         array (
-          'pretty_version' => '4.0.2',
-          'version' => '4.0.2.0',
-          'reference' => 'ebaaf5be6c0286928352e054f2d5125608e5405e',
+          'pretty_version' => '4.0.4',
+          'version' => '4.0.4.0',
+          'reference' => 'd42c8731f0624ad6bdc8d3e5e9a4524f68801cfa',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../egulias/email-validator',
           'aliases' => 
@@ -164,11 +188,23 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'fidry/cpu-core-counter' => 
+        array (
+          'pretty_version' => '1.3.0',
+          'version' => '1.3.0.0',
+          'reference' => 'db9508f7b1474469d9d3c53b86f817e344732678',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../fidry/cpu-core-counter',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'filp/whoops' => 
         array (
-          'pretty_version' => '2.16.0',
-          'version' => '2.16.0.0',
-          'reference' => 'befcdc0e5dce67252aa6322d82424be928214fa2',
+          'pretty_version' => '2.18.4',
+          'version' => '2.18.4.0',
+          'reference' => 'd2102955e48b9fd9ab24280a7ad12ed552752c4d',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../filp/whoops',
           'aliases' => 
@@ -202,9 +238,9 @@ return [
         ),
         'guzzlehttp/guzzle' => 
         array (
-          'pretty_version' => '7.9.2',
-          'version' => '7.9.2.0',
-          'reference' => 'd281ed313b989f213357e3be1a179f02196ac99b',
+          'pretty_version' => '7.10.0',
+          'version' => '7.10.0.0',
+          'reference' => 'b51ac707cfa420b7bfd4e4d5e510ba8008e822b4',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../guzzlehttp/guzzle',
           'aliases' => 
@@ -214,9 +250,9 @@ return [
         ),
         'guzzlehttp/promises' => 
         array (
-          'pretty_version' => '2.0.4',
-          'version' => '2.0.4.0',
-          'reference' => 'f9c436286ab2892c7db7be8c8da4ef61ccf7b455',
+          'pretty_version' => '2.3.0',
+          'version' => '2.3.0.0',
+          'reference' => '481557b130ef3790cf82b713667b43030dc9c957',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../guzzlehttp/promises',
           'aliases' => 
@@ -226,9 +262,9 @@ return [
         ),
         'guzzlehttp/psr7' => 
         array (
-          'pretty_version' => '2.7.0',
-          'version' => '2.7.0.0',
-          'reference' => 'a70f5c95fb43bc83f07c9c948baa0dc1829bf201',
+          'pretty_version' => '2.8.0',
+          'version' => '2.8.0.0',
+          'reference' => '21dc724a0583619cd1652f673303492272778051',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../guzzlehttp/psr7',
           'aliases' => 
@@ -238,9 +274,9 @@ return [
         ),
         'guzzlehttp/uri-template' => 
         array (
-          'pretty_version' => 'v1.0.3',
-          'version' => '1.0.3.0',
-          'reference' => 'ecea8feef63bd4fef1f037ecb288386999ecc11c',
+          'pretty_version' => 'v1.0.5',
+          'version' => '1.0.5.0',
+          'reference' => '4f4bbd4e7172148801e76e3decc1e559bdee34e1',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../guzzlehttp/uri-template',
           'aliases' => 
@@ -265,7 +301,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/broadcasting' => 
@@ -273,7 +309,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/bus' => 
@@ -281,7 +317,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/cache' => 
@@ -289,7 +325,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/collections' => 
@@ -297,7 +333,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/concurrency' => 
@@ -305,7 +341,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/conditionable' => 
@@ -313,7 +349,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/config' => 
@@ -321,7 +357,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/console' => 
@@ -329,7 +365,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/container' => 
@@ -337,7 +373,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/contracts' => 
@@ -345,7 +381,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/cookie' => 
@@ -353,7 +389,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/database' => 
@@ -361,7 +397,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/encryption' => 
@@ -369,7 +405,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/events' => 
@@ -377,7 +413,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/filesystem' => 
@@ -385,7 +421,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/hashing' => 
@@ -393,7 +429,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/http' => 
@@ -401,7 +437,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/log' => 
@@ -409,7 +445,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/macroable' => 
@@ -417,7 +453,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/mail' => 
@@ -425,7 +461,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/notifications' => 
@@ -433,7 +469,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/pagination' => 
@@ -441,7 +477,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/pipeline' => 
@@ -449,7 +485,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/process' => 
@@ -457,7 +493,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/queue' => 
@@ -465,7 +501,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/redis' => 
@@ -473,7 +509,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/routing' => 
@@ -481,7 +517,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/session' => 
@@ -489,7 +525,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/support' => 
@@ -497,7 +533,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/testing' => 
@@ -505,7 +541,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/translation' => 
@@ -513,7 +549,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/validation' => 
@@ -521,7 +557,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
         ),
         'illuminate/view' => 
@@ -529,8 +565,20 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v11.34.2',
+            0 => 'v11.46.0',
           ),
+        ),
+        'jean85/pretty-package-versions' => 
+        array (
+          'pretty_version' => '2.1.1',
+          'version' => '2.1.1.0',
+          'reference' => '4d7aa5dab42e2a76d99559706022885de0e18e1a',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../jean85/pretty-package-versions',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'kodova/hamcrest-php' => 
         array (
@@ -566,9 +614,9 @@ return [
         ),
         'laravel/framework' => 
         array (
-          'pretty_version' => 'v11.34.2',
-          'version' => '11.34.2.0',
-          'reference' => '865da6d73dd353f07a7bcbd778c55966a620121f',
+          'pretty_version' => 'v11.46.0',
+          'version' => '11.46.0.0',
+          'reference' => '2c6d85f22d08123ad45aa3a6726b16f06e68eecd',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../laravel/framework',
           'aliases' => 
@@ -602,9 +650,9 @@ return [
         ),
         'laravel/prompts' => 
         array (
-          'pretty_version' => 'v0.3.2',
-          'version' => '0.3.2.0',
-          'reference' => '0e0535747c6b8d6d10adca8b68293cf4517abb0f',
+          'pretty_version' => 'v0.3.6',
+          'version' => '0.3.6.0',
+          'reference' => '86a8b692e8661d0fb308cec64f3d176821323077',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../laravel/prompts',
           'aliases' => 
@@ -626,9 +674,9 @@ return [
         ),
         'laravel/serializable-closure' => 
         array (
-          'pretty_version' => 'v2.0.0',
-          'version' => '2.0.0.0',
-          'reference' => '0d8d3d8086984996df86596a86dea60398093a81',
+          'pretty_version' => 'v2.0.4',
+          'version' => '2.0.4.0',
+          'reference' => 'b352cf0534aa1ae6b4d825d1e762e35d43f8a841',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../laravel/serializable-closure',
           'aliases' => 
@@ -650,9 +698,9 @@ return [
         ),
         'league/commonmark' => 
         array (
-          'pretty_version' => '2.6.0',
-          'version' => '2.6.0.0',
-          'reference' => 'd150f911e0079e90ae3c106734c93137c184f932',
+          'pretty_version' => '2.7.1',
+          'version' => '2.7.1.0',
+          'reference' => '10732241927d3971d28e7ea7b5712721fa2296ca',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../league/commonmark',
           'aliases' => 
@@ -674,9 +722,9 @@ return [
         ),
         'league/flysystem' => 
         array (
-          'pretty_version' => '3.29.1',
-          'version' => '3.29.1.0',
-          'reference' => 'edc1bb7c86fab0776c3287dbd19b5fa278347319',
+          'pretty_version' => '3.30.0',
+          'version' => '3.30.0.0',
+          'reference' => '2203e3151755d874bb2943649dae1eb8533ac93e',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../league/flysystem',
           'aliases' => 
@@ -686,9 +734,9 @@ return [
         ),
         'league/flysystem-local' => 
         array (
-          'pretty_version' => '3.29.0',
-          'version' => '3.29.0.0',
-          'reference' => 'e0e8d52ce4b2ed154148453d321e97c8e931bd27',
+          'pretty_version' => '3.30.0',
+          'version' => '3.30.0.0',
+          'reference' => '6691915f77c7fb69adfb87dcd550052dc184ee10',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../league/flysystem-local',
           'aliases' => 
@@ -708,6 +756,30 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'league/uri' => 
+        array (
+          'pretty_version' => '7.5.1',
+          'version' => '7.5.1.0',
+          'reference' => '81fb5145d2644324614cc532b28efd0215bda430',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../league/uri',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'league/uri-interfaces' => 
+        array (
+          'pretty_version' => '7.5.0',
+          'version' => '7.5.0.0',
+          'reference' => '08cfc6c4f3d811584fb09c37e2849e6a7f9b0742',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../league/uri-interfaces',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'mockery/mockery' => 
         array (
           'pretty_version' => '1.6.12',
@@ -722,9 +794,9 @@ return [
         ),
         'monolog/monolog' => 
         array (
-          'pretty_version' => '3.8.1',
-          'version' => '3.8.1.0',
-          'reference' => 'aef6ee73a77a66e404dd6540934a9ef1b3c855b4',
+          'pretty_version' => '3.9.0',
+          'version' => '3.9.0.0',
+          'reference' => '10d85740180ecba7896c87e06a166e0c95a0e3b6',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../monolog/monolog',
           'aliases' => 
@@ -742,9 +814,9 @@ return [
         ),
         'myclabs/deep-copy' => 
         array (
-          'pretty_version' => '1.12.1',
-          'version' => '1.12.1.0',
-          'reference' => '123267b2c49fbf30d78a7b2d333f6be754b94845',
+          'pretty_version' => '1.13.4',
+          'version' => '1.13.4.0',
+          'reference' => '07d290f0c47959fd5eed98c95ee5602db07e0b6a',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../myclabs/deep-copy',
           'aliases' => 
@@ -754,9 +826,9 @@ return [
         ),
         'nesbot/carbon' => 
         array (
-          'pretty_version' => '3.8.2',
-          'version' => '3.8.2.0',
-          'reference' => 'e1268cdbc486d97ce23fef2c666dc3c6b6de9947',
+          'pretty_version' => '3.10.3',
+          'version' => '3.10.3.0',
+          'reference' => '8e3643dcd149ae0fe1d2ff4f2c8e4bbfad7c165f',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../nesbot/carbon',
           'aliases' => 
@@ -778,9 +850,9 @@ return [
         ),
         'nette/utils' => 
         array (
-          'pretty_version' => 'v4.0.5',
-          'version' => '4.0.5.0',
-          'reference' => '736c567e257dbe0fcf6ce81b4d6dbe05c6899f96',
+          'pretty_version' => 'v4.0.8',
+          'version' => '4.0.8.0',
+          'reference' => 'c930ca4e3cf4f17dcfb03037703679d2396d2ede',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../nette/utils',
           'aliases' => 
@@ -790,9 +862,9 @@ return [
         ),
         'nikic/php-parser' => 
         array (
-          'pretty_version' => 'v5.3.1',
-          'version' => '5.3.1.0',
-          'reference' => '8eea230464783aa9671db8eea6f8c6ac5285794b',
+          'pretty_version' => 'v5.6.1',
+          'version' => '5.6.1.0',
+          'reference' => 'f103601b29efebd7ff4a1ca7b3eeea9e3336a2a2',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../nikic/php-parser',
           'aliases' => 
@@ -802,9 +874,9 @@ return [
         ),
         'nunomaduro/collision' => 
         array (
-          'pretty_version' => 'v8.5.0',
-          'version' => '8.5.0.0',
-          'reference' => 'f5c101b929c958e849a633283adff296ed5f38f5',
+          'pretty_version' => 'v8.8.2',
+          'version' => '8.8.2.0',
+          'reference' => '60207965f9b7b7a4ce15a0f75d57f9dadb105bdb',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../nunomaduro/collision',
           'aliases' => 
@@ -814,9 +886,9 @@ return [
         ),
         'nunomaduro/termwind' => 
         array (
-          'pretty_version' => 'v2.3.0',
-          'version' => '2.3.0.0',
-          'reference' => '52915afe6a1044e8b9cee1bcff836fb63acf9cda',
+          'pretty_version' => 'v2.3.1',
+          'version' => '2.3.1.0',
+          'reference' => 'dfa08f390e509967a15c22493dc0bac5733d9123',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../nunomaduro/termwind',
           'aliases' => 
@@ -835,6 +907,66 @@ return [
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'pestphp/pest' => 
+        array (
+          'pretty_version' => 'v3.8.4',
+          'version' => '3.8.4.0',
+          'reference' => '72cf695554420e21858cda831d5db193db102574',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../pestphp/pest',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'pestphp/pest-plugin' => 
+        array (
+          'pretty_version' => 'v3.0.0',
+          'version' => '3.0.0.0',
+          'reference' => 'e79b26c65bc11c41093b10150c1341cc5cdbea83',
+          'type' => 'composer-plugin',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../pestphp/pest-plugin',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'pestphp/pest-plugin-arch' => 
+        array (
+          'pretty_version' => 'v3.1.1',
+          'version' => '3.1.1.0',
+          'reference' => 'db7bd9cb1612b223e16618d85475c6f63b9c8daa',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../pestphp/pest-plugin-arch',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'pestphp/pest-plugin-laravel' => 
+        array (
+          'pretty_version' => 'v3.2.0',
+          'version' => '3.2.0.0',
+          'reference' => '6801be82fd92b96e82dd72e563e5674b1ce365fc',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../pestphp/pest-plugin-laravel',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'pestphp/pest-plugin-mutate' => 
+        array (
+          'pretty_version' => 'v3.0.5',
+          'version' => '3.0.5.0',
+          'reference' => 'e10dbdc98c9e2f3890095b4fe2144f63a5717e08',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../pestphp/pest-plugin-mutate',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'phar-io/manifest' => 
         array (
@@ -860,6 +992,42 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'phpdocumentor/reflection-common' => 
+        array (
+          'pretty_version' => '2.2.0',
+          'version' => '2.2.0.0',
+          'reference' => '1d01c49d4ed62f25aa84a747ad35d5a16924662b',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpdocumentor/reflection-common',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'phpdocumentor/reflection-docblock' => 
+        array (
+          'pretty_version' => '5.6.3',
+          'version' => '5.6.3.0',
+          'reference' => '94f8051919d1b0369a6bcc7931d679a511c03fe9',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpdocumentor/reflection-docblock',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'phpdocumentor/type-resolver' => 
+        array (
+          'pretty_version' => '1.10.0',
+          'version' => '1.10.0.0',
+          'reference' => '679e3ce485b99e84c775d28e2e96fade9a7fb50a',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpdocumentor/type-resolver',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'phpmyadmin/sql-parser' => 
         array (
           'pretty_version' => '5.11.1',
@@ -874,15 +1042,27 @@ return [
         ),
         'phpoption/phpoption' => 
         array (
-          'pretty_version' => '1.9.3',
-          'version' => '1.9.3.0',
-          'reference' => 'e3fac8b24f56113f7cb96af14958c0dd16330f54',
+          'pretty_version' => '1.9.4',
+          'version' => '1.9.4.0',
+          'reference' => '638a154f8d4ee6a5cfa96d6a34dfbe0cffa9566d',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpoption/phpoption',
           'aliases' => 
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'phpstan/phpdoc-parser' => 
+        array (
+          'pretty_version' => '2.3.0',
+          'version' => '2.3.0.0',
+          'reference' => '1e0cd5370df5dd2e556a36b9c62f62e555870495',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpstan/phpdoc-parser',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'phpstan/phpstan' => 
         array (
@@ -898,9 +1078,9 @@ return [
         ),
         'phpunit/php-code-coverage' => 
         array (
-          'pretty_version' => '11.0.7',
-          'version' => '11.0.7.0',
-          'reference' => 'f7f08030e8811582cc459871d28d6f5a1a4d35ca',
+          'pretty_version' => '11.0.11',
+          'version' => '11.0.11.0',
+          'reference' => '4f7722aa9a7b76aa775e2d9d4e95d1ea16eeeef4',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpunit/php-code-coverage',
           'aliases' => 
@@ -958,9 +1138,9 @@ return [
         ),
         'phpunit/phpunit' => 
         array (
-          'pretty_version' => '11.5.0',
-          'version' => '11.5.0.0',
-          'reference' => '0569902506a6c0878930b87ea79ec3b50ea563f7',
+          'pretty_version' => '11.5.33',
+          'version' => '11.5.33.0',
+          'reference' => '5965e9ff57546cb9137c0ff6aa78cb7442b05cf6',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../phpunit/phpunit',
           'aliases' => 
@@ -1179,9 +1359,9 @@ return [
         ),
         'ramsey/collection' => 
         array (
-          'pretty_version' => '2.0.0',
-          'version' => '2.0.0.0',
-          'reference' => 'a4b48764bfbb8f3a6a4d1aeb1a35bb5e9ecac4a5',
+          'pretty_version' => '2.1.1',
+          'version' => '2.1.1.0',
+          'reference' => '344572933ad0181accbf4ba763e85a0306a8c5e2',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../ramsey/collection',
           'aliases' => 
@@ -1191,9 +1371,9 @@ return [
         ),
         'ramsey/uuid' => 
         array (
-          'pretty_version' => '4.7.6',
-          'version' => '4.7.6.0',
-          'reference' => '91039bc1faa45ba123c4328958e620d382ec7088',
+          'pretty_version' => '4.9.1',
+          'version' => '4.9.1.0',
+          'reference' => '81f941f6f729b1e3ceea61d9d014f8b6c6800440',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../ramsey/uuid',
           'aliases' => 
@@ -1218,7 +1398,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => '4.7.6',
+            0 => '4.9.1',
           ),
         ),
         'sebastian/cli-parser' => 
@@ -1235,9 +1415,9 @@ return [
         ),
         'sebastian/code-unit' => 
         array (
-          'pretty_version' => '3.0.1',
-          'version' => '3.0.1.0',
-          'reference' => '6bb7d09d6623567178cf54126afa9c2310114268',
+          'pretty_version' => '3.0.3',
+          'version' => '3.0.3.0',
+          'reference' => '54391c61e4af8078e5b276ab082b6d3c54c9ad64',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../sebastian/code-unit',
           'aliases' => 
@@ -1259,9 +1439,9 @@ return [
         ),
         'sebastian/comparator' => 
         array (
-          'pretty_version' => '6.2.1',
-          'version' => '6.2.1.0',
-          'reference' => '43d129d6a0f81c78bee378b46688293eb7ea3739',
+          'pretty_version' => '6.3.2',
+          'version' => '6.3.2.0',
+          'reference' => '85c77556683e6eee4323e4c5468641ca0237e2e8',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../sebastian/comparator',
           'aliases' => 
@@ -1295,9 +1475,9 @@ return [
         ),
         'sebastian/environment' => 
         array (
-          'pretty_version' => '7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '855f3ae0ab316bbafe1ba4e16e9f3c078d24a0c5',
+          'pretty_version' => '7.2.1',
+          'version' => '7.2.1.0',
+          'reference' => 'a5c75038693ad2e8d4b6c15ba2403532647830c4',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../sebastian/environment',
           'aliases' => 
@@ -1367,9 +1547,9 @@ return [
         ),
         'sebastian/recursion-context' => 
         array (
-          'pretty_version' => '6.0.2',
-          'version' => '6.0.2.0',
-          'reference' => '694d156164372abbd149a4b85ccda2e4670c0e16',
+          'pretty_version' => '6.0.3',
+          'version' => '6.0.3.0',
+          'reference' => 'f6458abbf32a6c8174f8f26261475dc133b3d9dc',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../sebastian/recursion-context',
           'aliases' => 
@@ -1379,9 +1559,9 @@ return [
         ),
         'sebastian/type' => 
         array (
-          'pretty_version' => '5.1.0',
-          'version' => '5.1.0.0',
-          'reference' => '461b9c5da241511a2a0e8f240814fb23ce5c0aac',
+          'pretty_version' => '5.1.3',
+          'version' => '5.1.3.0',
+          'reference' => 'f77d2d4e78738c98d9a68d2596fe5e8fa380f449',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../sebastian/type',
           'aliases' => 
@@ -1423,8 +1603,8 @@ return [
         ),
         'symfony/clock' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
+          'pretty_version' => 'v7.3.0',
+          'version' => '7.3.0.0',
           'reference' => 'b81435fbd6648ea425d1ee96a2d8e68f4ceacd24',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/clock',
@@ -1435,9 +1615,9 @@ return [
         ),
         'symfony/console' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '23c8aae6d764e2bae02d2a99f7532a7f6ed619cf',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => 'cb0102a1c5ac3807cf3fdf8bea96007df7fdbea7',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/console',
           'aliases' => 
@@ -1447,8 +1627,8 @@ return [
         ),
         'symfony/css-selector' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
+          'pretty_version' => 'v7.3.0',
+          'version' => '7.3.0.0',
           'reference' => '601a5ce9aaad7bf10797e3663faefce9e26c24e2',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/css-selector',
@@ -1459,9 +1639,9 @@ return [
         ),
         'symfony/deprecation-contracts' => 
         array (
-          'pretty_version' => 'v3.5.1',
-          'version' => '3.5.1.0',
-          'reference' => '74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6',
+          'pretty_version' => 'v3.6.0',
+          'version' => '3.6.0.0',
+          'reference' => '63afe740e99a13ba87ec199bb07bbdee937a5b62',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/deprecation-contracts',
           'aliases' => 
@@ -1471,9 +1651,9 @@ return [
         ),
         'symfony/error-handler' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '672b3dd1ef8b87119b446d67c58c106c43f965fe',
+          'pretty_version' => 'v7.3.2',
+          'version' => '7.3.2.0',
+          'reference' => '0b31a944fcd8759ae294da4d2808cbc53aebd0c3',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/error-handler',
           'aliases' => 
@@ -1483,9 +1663,9 @@ return [
         ),
         'symfony/event-dispatcher' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '910c5db85a5356d0fea57680defec4e99eb9c8c1',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => 'b7dc69e71de420ac04bc9ab830cf3ffebba48191',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/event-dispatcher',
           'aliases' => 
@@ -1495,9 +1675,9 @@ return [
         ),
         'symfony/event-dispatcher-contracts' => 
         array (
-          'pretty_version' => 'v3.5.1',
-          'version' => '3.5.1.0',
-          'reference' => '7642f5e970b672283b7823222ae8ef8bbc160b9f',
+          'pretty_version' => 'v3.6.0',
+          'version' => '3.6.0.0',
+          'reference' => '59eb412e93815df44f05f342958efa9f46b1e586',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/event-dispatcher-contracts',
           'aliases' => 
@@ -1515,9 +1695,9 @@ return [
         ),
         'symfony/finder' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '6de263e5868b9a137602dd1e33e4d48bfae99c49',
+          'pretty_version' => 'v7.3.2',
+          'version' => '7.3.2.0',
+          'reference' => '2a6614966ba1074fa93dae0bc804227422df4dfe',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/finder',
           'aliases' => 
@@ -1527,9 +1707,9 @@ return [
         ),
         'symfony/http-foundation' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'e88a66c3997859532bc2ddd6dd8f35aba2711744',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => '7475561ec27020196c49bb7c4f178d33d7d3dc00',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/http-foundation',
           'aliases' => 
@@ -1539,9 +1719,9 @@ return [
         ),
         'symfony/http-kernel' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '6b4722a25e0aed1ccb4914b9bcbd493cc4676b4d',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => '72c304de37e1a1cec6d5d12b81187ebd4850a17b',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/http-kernel',
           'aliases' => 
@@ -1551,9 +1731,9 @@ return [
         ),
         'symfony/mailer' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'e4d358702fb66e4c8a2af08e90e7271a62de39cc',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => 'a32f3f45f1990db8c4341d5122a7d3a381c7e575',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/mailer',
           'aliases' => 
@@ -1563,9 +1743,9 @@ return [
         ),
         'symfony/mime' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'cc84a4b81f62158c3846ac7ff10f696aae2b524d',
+          'pretty_version' => 'v7.3.2',
+          'version' => '7.3.2.0',
+          'reference' => 'e0a0f859148daf1edf6c60b398eb40bfc96697d1',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/mime',
           'aliases' => 
@@ -1575,8 +1755,8 @@ return [
         ),
         'symfony/polyfill-ctype' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
           'reference' => 'a3cc8b044a6ea513310cbd48ef7333b384945638',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-ctype',
@@ -1587,9 +1767,9 @@ return [
         ),
         'symfony/polyfill-intl-grapheme' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
-          'reference' => 'b9123926e3b7bc2f98c02ad54f6a4b02b91a8abe',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '380872130d3a5dd3ace2f4010d95125fde5d5c70',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-intl-grapheme',
           'aliases' => 
@@ -1599,9 +1779,9 @@ return [
         ),
         'symfony/polyfill-intl-idn' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
-          'reference' => 'c36586dcf89a12315939e00ec9b4474adcb1d773',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '9614ac4d8061dc257ecc64cba1b140873dce8ad3',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-intl-idn',
           'aliases' => 
@@ -1611,8 +1791,8 @@ return [
         ),
         'symfony/polyfill-intl-normalizer' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
           'reference' => '3833d7255cc303546435cb650316bff708a1c75c',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-intl-normalizer',
@@ -1623,9 +1803,9 @@ return [
         ),
         'symfony/polyfill-mbstring' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
-          'reference' => '85181ba99b2345b0ef10ce42ecac37612d9fd341',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '6d857f4d76bd4b343eac26d6b539585d2bc56493',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-mbstring',
           'aliases' => 
@@ -1635,9 +1815,9 @@ return [
         ),
         'symfony/polyfill-php80' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
-          'reference' => '60328e362d4c2c802a54fcbf04f9d3fb892b4cf8',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '0cc9dd0f17f61d8131e7df6b84bd344899fe2608',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-php80',
           'aliases' => 
@@ -1647,9 +1827,9 @@ return [
         ),
         'symfony/polyfill-php83' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
-          'reference' => '2fb86d65e2d424369ad2905e83b236a8805ba491',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '17f6f9a6b1735c0f163024d959f700cfbc5155e5',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-php83',
           'aliases' => 
@@ -1659,8 +1839,8 @@ return [
         ),
         'symfony/polyfill-uuid' => 
         array (
-          'pretty_version' => 'v1.31.0',
-          'version' => '1.31.0.0',
+          'pretty_version' => 'v1.33.0',
+          'version' => '1.33.0.0',
           'reference' => '21533be36c24be3f4b1669c4725c7d1d2bab4ae2',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/polyfill-uuid',
@@ -1671,9 +1851,9 @@ return [
         ),
         'symfony/process' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'd34b22ba9390ec19d2dd966c40aa9e8462f27a7e',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => '32241012d521e2e8a9d713adb0812bb773b907f1',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/process',
           'aliases' => 
@@ -1683,9 +1863,9 @@ return [
         ),
         'symfony/routing' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'e10a2450fa957af6c448b9b93c9010a4e4c0725e',
+          'pretty_version' => 'v7.3.2',
+          'version' => '7.3.2.0',
+          'reference' => '7614b8ca5fa89b9cd233e21b627bfc5774f586e4',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/routing',
           'aliases' => 
@@ -1695,9 +1875,9 @@ return [
         ),
         'symfony/service-contracts' => 
         array (
-          'pretty_version' => 'v3.5.1',
-          'version' => '3.5.1.0',
-          'reference' => 'e53260aabf78fb3d63f8d79d69ece59f80d5eda0',
+          'pretty_version' => 'v3.6.0',
+          'version' => '3.6.0.0',
+          'reference' => 'f021b05a130d35510bd6b25fe9053c2a8a15d5d4',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/service-contracts',
           'aliases' => 
@@ -1707,9 +1887,9 @@ return [
         ),
         'symfony/string' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '446e0d146f991dde3e73f45f2c97a9faad773c82',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => '17a426cce5fd1f0901fefa9b2a490d0038fd3c9c',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/string',
           'aliases' => 
@@ -1719,9 +1899,9 @@ return [
         ),
         'symfony/translation' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'dc89e16b44048ceecc879054e5b7f38326ab6cc5',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => 'e0837b4cbcef63c754d89a4806575cada743a38d',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/translation',
           'aliases' => 
@@ -1731,9 +1911,9 @@ return [
         ),
         'symfony/translation-contracts' => 
         array (
-          'pretty_version' => 'v3.5.1',
-          'version' => '3.5.1.0',
-          'reference' => '4667ff3bd513750603a09c8dedbea942487fb07c',
+          'pretty_version' => 'v3.6.0',
+          'version' => '3.6.0.0',
+          'reference' => 'df210c7a2573f1913b2d17cc95f90f53a73d8f7d',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/translation-contracts',
           'aliases' => 
@@ -1751,9 +1931,9 @@ return [
         ),
         'symfony/uid' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => '2d294d0c48df244c71c105a169d0190bfb080426',
+          'pretty_version' => 'v7.3.1',
+          'version' => '7.3.1.0',
+          'reference' => 'a69f69f3159b852651a6bf45a9fdd149520525bb',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/uid',
           'aliases' => 
@@ -1763,9 +1943,9 @@ return [
         ),
         'symfony/var-dumper' => 
         array (
-          'pretty_version' => 'v7.2.0',
-          'version' => '7.2.0.0',
-          'reference' => 'c6a22929407dec8765d6e2b6ff85b800b245879c',
+          'pretty_version' => 'v7.3.3',
+          'version' => '7.3.3.0',
+          'reference' => '34d8d4c4b9597347306d1ec8eb4e1319b1e6986f',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../symfony/var-dumper',
           'aliases' => 
@@ -1785,6 +1965,18 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'ta-tikoma/phpunit-architecture-test' => 
+        array (
+          'pretty_version' => '0.8.5',
+          'version' => '0.8.5.0',
+          'reference' => 'cf6fb197b676ba716837c886baca842e4db29005',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../ta-tikoma/phpunit-architecture-test',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'theseer/tokenizer' => 
         array (
           'pretty_version' => '1.2.3',
@@ -1799,9 +1991,9 @@ return [
         ),
         'tijsverkoyen/css-to-inline-styles' => 
         array (
-          'pretty_version' => 'v2.2.7',
-          'version' => '2.2.7.0',
-          'reference' => '83ee6f38df0a63106a9e4536e3060458b74ccedb',
+          'pretty_version' => 'v2.3.0',
+          'version' => '2.3.0.0',
+          'reference' => '0d72ac1c00084279c1816675284073c5a337c20d',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../tijsverkoyen/css-to-inline-styles',
           'aliases' => 
@@ -1811,9 +2003,9 @@ return [
         ),
         'vlucas/phpdotenv' => 
         array (
-          'pretty_version' => 'v5.6.1',
-          'version' => '5.6.1.0',
-          'reference' => 'a59a13791077fe3d44f90e7133eb68e7d22eaff2',
+          'pretty_version' => 'v5.6.2',
+          'version' => '5.6.2.0',
+          'reference' => '24ac4c74f91ee2c193fa1aaa5c249cb0822809af',
           'type' => 'library',
           'install_path' => 'C:\\Users\\faria\\projeto-final\\vendor\\composer/../vlucas/phpdotenv',
           'aliases' => 
@@ -1990,13 +2182,34 @@ return [
       1 => 'propriedades.edit',
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
+  array (
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
+  array (
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
   array (
     'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
     array (
       0 => 
       array (
-        0 => 'Illuminate\\Notifications\\Notifiable',
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        1 => 'Illuminate\\Notifications\\Notifiable',
       ),
     ),
   ),
@@ -2061,7 +2274,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
   array (
-    'fileHash' => 'c71ff194697629d739f04abf566e63ae1c37a230',
+    'fileHash' => '8c9970af9339e4e6151898940b24647c9a18ef12',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
@@ -2070,7 +2283,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
   array (
-    'fileHash' => '755fdda587dc082dc197c898630d337c5488baa8',
+    'fileHash' => 'c2d3e9ab5dda97b05d9aebb5f8be939e56cd27dd',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
@@ -2080,7 +2293,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
   array (
-    'fileHash' => '17c25e172814e0af793f59bf8045fbeda6db97c3',
+    'fileHash' => '60953c88ceaf92134b9e7c889acc487ac306b7e5',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AccountSettingsController.php',
@@ -3113,6 +3326,7 @@ return [
       ),
        'usedTraits' => 
       array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
       ),
        'traitUseAdaptations' => 
       array (
@@ -3120,6 +3334,31 @@ return [
        'statements' => 
       array (
         0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'factory',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
@@ -3144,7 +3383,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
@@ -3169,7 +3408,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'propriedade',
            'phpDoc' => 
@@ -3182,7 +3421,8 @@ return [
             array (
               'model' => 'Illuminate\\Database\\Eloquent\\Model',
               'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'propriedade' => 'App\\Models\\Propriedade',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'imovelfactory' => 'Database\\Factories\\ImovelFactory',
             ),
              'constUses' => 
             array (
@@ -3222,6 +3462,7 @@ return [
       ),
        'usedTraits' => 
       array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
       ),
        'traitUseAdaptations' => 
       array (
@@ -3229,6 +3470,31 @@ return [
        'statements' => 
       array (
         0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'factory',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
@@ -3253,7 +3519,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'proprietario',
            'phpDoc' => 
@@ -3267,8 +3533,8 @@ return [
               'model' => 'Illuminate\\Database\\Eloquent\\Model',
               'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
               'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'proprietario' => 'App\\Models\\Proprietario',
-              'imovel' => 'App\\Models\\Imovel',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'propriedadefactory' => 'Database\\Factories\\PropriedadeFactory',
             ),
              'constUses' => 
             array (
@@ -3288,7 +3554,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'imoveis',
            'phpDoc' => 
@@ -3302,8 +3568,8 @@ return [
               'model' => 'Illuminate\\Database\\Eloquent\\Model',
               'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
               'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'proprietario' => 'App\\Models\\Proprietario',
-              'imovel' => 'App\\Models\\Imovel',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'propriedadefactory' => 'Database\\Factories\\PropriedadeFactory',
             ),
              'constUses' => 
             array (
@@ -3334,24 +3600,7 @@ return [
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
        'name' => 'App\\Models\\Proprietario',
-       'phpDoc' => 
-      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-         'phpDocString' => '/**
- * @property string $email
- * @property string|null $two_factor_secret
- */',
-         'namespace' => 'App\\Models',
-         'uses' => 
-        array (
-          'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-          'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-          'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
-          'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
-        ),
-         'constUses' => 
-        array (
-        ),
-      )),
+       'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
        'extends' => 'Illuminate\\Foundation\\Auth\\User',
@@ -3360,7 +3609,8 @@ return [
       ),
        'usedTraits' => 
       array (
-        0 => 'Illuminate\\Notifications\\Notifiable',
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        1 => 'Illuminate\\Notifications\\Notifiable',
       ),
        'traitUseAdaptations' => 
       array (
@@ -3368,6 +3618,31 @@ return [
        'statements' => 
       array (
         0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'factory',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
@@ -3392,7 +3667,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
@@ -3417,7 +3692,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'enableTwoFactorAuthentication',
            'phpDoc' => 
@@ -3428,44 +3703,12 @@ return [
              'namespace' => 'App\\Models',
              'uses' => 
             array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
               'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
               'notifiable' => 'Illuminate\\Notifications\\Notifiable',
               'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
               'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'disableTwoFactorAuthentication',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Desabilita a autenticação de dois fatores
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-              'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
-              'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
+              'proprietariofactory' => 'Database\\Factories\\ProprietarioFactory',
             ),
              'constUses' => 
             array (
@@ -3487,6 +3730,42 @@ return [
         )),
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'disableTwoFactorAuthentication',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Desabilita a autenticação de dois fatores
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+              'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
+              'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
+              'proprietariofactory' => 'Database\\Factories\\ProprietarioFactory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'verifyTwoFactorCode',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -3499,10 +3778,12 @@ return [
              'namespace' => 'App\\Models',
              'uses' => 
             array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
               'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
               'notifiable' => 'Illuminate\\Notifications\\Notifiable',
               'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
               'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
+              'proprietariofactory' => 'Database\\Factories\\ProprietarioFactory',
             ),
              'constUses' => 
             array (
@@ -3533,7 +3814,7 @@ return [
           array (
           ),
         )),
-        5 => 
+        6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTwoFactorQRCodeUrl',
            'phpDoc' => 
@@ -3546,10 +3827,12 @@ return [
              'namespace' => 'App\\Models',
              'uses' => 
             array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
               'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
               'notifiable' => 'Illuminate\\Notifications\\Notifiable',
               'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
               'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
+              'proprietariofactory' => 'Database\\Factories\\ProprietarioFactory',
             ),
              'constUses' => 
             array (

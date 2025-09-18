@@ -52,7 +52,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\ReflectionMapper.php' => 
     array (
-      0 => '5f05b6d1b2c8df45a359adb5fe759804be2c3b29',
+      0 => 'd129b85900d504988acd8dbea7b00b28fe3a7a15',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\reflectionmapper',
@@ -74,7 +74,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\type\\CallableType.php' => 
     array (
-      0 => '6bc5d9eb83a4b79327868a17fd739fdda69a791a',
+      0 => '27268483e8849882fec3c934907b5ab3d466087b',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\callabletype',
@@ -135,7 +135,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\type\\IntersectionType.php' => 
     array (
-      0 => 'a8d302515d0ecb2e91526284cc2c1e187b8fd57b',
+      0 => '38c89a518c905000c33c495ca3275e6ee60a19b3',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\intersectiontype',
@@ -312,7 +312,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\type\\Type.php' => 
     array (
-      0 => '164ba4ce5de99b1ae2c6c0a1c5ad2f140409279a',
+      0 => '92a80243a64bdbacbc9d912fe85b1f49523c5986',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\type',
@@ -347,7 +347,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\type\\UnionType.php' => 
     array (
-      0 => 'e00b10fc348196b3faa7f839c3e2c3d3ea328ef4',
+      0 => '66f02aa3de0415878ffac04cf14dd213631cafdd',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\uniontype',
@@ -408,7 +408,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\type\\src\\TypeName.php' => 
     array (
-      0 => '3542d9da97b5f6bc5238f7a0511251fb6c57afb5',
+      0 => '0d3563af5373e28882fdfff6004b030db3e32f5c',
       1 => 
       array (
         0 => 'sebastianbergmann\\type\\typename',

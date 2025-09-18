@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\environment\\src\\Console.php' => 
     array (
-      0 => '1ab1138f7b3619619292f9b657fa68872fae6046',
+      0 => '8dba4957948bc4e425c2c8eda096a82d61d75809',
       1 => 
       array (
         0 => 'sebastianbergmann\\environment\\console',
@@ -27,7 +27,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\environment\\src\\Runtime.php' => 
     array (
-      0 => '692bd98de23847dfab973a08267448975c0d9565',
+      0 => 'c3834066a86f1274440289f8a35b4ea8242b0536',
       1 => 
       array (
         0 => 'sebastianbergmann\\environment\\runtime',

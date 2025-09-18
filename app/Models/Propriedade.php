@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use \App\Models\Proprietario;
-use \App\Models\Imovel;
+use Database\Factories\PropriedadeFactory;
 
 class Propriedade extends Model
 {
+    /** @use HasFactory<PropriedadeFactory> */
     use HasFactory;
+
+    protected static string $factory = PropriedadeFactory::class;
     
     protected $fillable = [
         'nome',

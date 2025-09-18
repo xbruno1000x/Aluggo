@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
     array (
-      0 => 'c71ff194697629d739f04abf566e63ae1c37a230',
+      0 => '8c9970af9339e4e6151898940b24647c9a18ef12',
       1 => 
       array (
         0 => 'app\\models\\imovel',
@@ -22,7 +22,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
     array (
-      0 => '755fdda587dc082dc197c898630d337c5488baa8',
+      0 => 'c2d3e9ab5dda97b05d9aebb5f8be939e56cd27dd',
       1 => 
       array (
         0 => 'app\\models\\propriedade',
@@ -38,7 +38,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
     array (
-      0 => '17c25e172814e0af793f59bf8045fbeda6db97c3',
+      0 => '60953c88ceaf92134b9e7c889acc487ac306b7e5',
       1 => 
       array (
         0 => 'app\\models\\proprietario',

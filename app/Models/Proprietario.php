@@ -7,14 +7,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PragmaRX\Google2FA\Google2FA;
 use PragmaRX\Google2FAQRCode\Google2FA as Google2FAQrCode;
+use Database\Factories\ProprietarioFactory;
 
-/**
- * @property string $email
- * @property string|null $two_factor_secret
- */
 class Proprietario extends Authenticatable
 {
+    /** @use HasFactory<ProprietarioFactory> */
     use HasFactory, Notifiable;
+
+    protected static string $factory = ProprietarioFactory::class;
 
     protected $fillable = [
         'nome', 'cpf', 'telefone', 'email', 'password',

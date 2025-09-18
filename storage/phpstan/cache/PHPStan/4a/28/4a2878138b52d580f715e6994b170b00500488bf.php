@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Dispatcher\\CollectingDispatcher.php' => 
     array (
-      0 => '6279ec088efc0e8b75ebe1cb2033d43655c22864',
+      0 => '804a536d95cf27e356f8c75235ee80283ba41939',
       1 => 
       array (
         0 => 'phpunit\\event\\collectingdispatcher',
@@ -43,7 +43,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Dispatcher\\DirectDispatcher.php' => 
     array (
-      0 => '1466a378735a040da975f47d31b2a13d087efea3',
+      0 => '9044f59d59be5429cd1d6948836125cd44f35c66',
       1 => 
       array (
         0 => 'phpunit\\event\\directdispatcher',
@@ -94,7 +94,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Emitter\\DispatchingEmitter.php' => 
     array (
-      0 => '63669eaa451797b39fd4e6f8860ab800db6a5b90',
+      0 => 'b27f24adeb1620969c3cdb3809e01dc4f82f7a76',
       1 => 
       array (
         0 => 'phpunit\\event\\dispatchingemitter',
@@ -123,57 +123,62 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         19 => 'phpunit\\event\\testsuitestarted',
         20 => 'phpunit\\event\\testpreparationstarted',
         21 => 'phpunit\\event\\testpreparationfailed',
-        22 => 'phpunit\\event\\testbeforefirsttestmethodcalled',
-        23 => 'phpunit\\event\\testbeforefirsttestmethoderrored',
-        24 => 'phpunit\\event\\testbeforefirsttestmethodfinished',
-        25 => 'phpunit\\event\\testbeforetestmethodcalled',
-        26 => 'phpunit\\event\\testbeforetestmethodfinished',
-        27 => 'phpunit\\event\\testpreconditioncalled',
-        28 => 'phpunit\\event\\testpreconditionfinished',
-        29 => 'phpunit\\event\\testprepared',
-        30 => 'phpunit\\event\\testregisteredcomparator',
-        31 => 'phpunit\\event\\testcreatedmockobject',
-        32 => 'phpunit\\event\\testcreatedmockobjectforintersectionofinterfaces',
-        33 => 'phpunit\\event\\testcreatedmockobjectfortrait',
-        34 => 'phpunit\\event\\testcreatedmockobjectforabstractclass',
-        35 => 'phpunit\\event\\testcreatedmockobjectfromwsdl',
-        36 => 'phpunit\\event\\testcreatedpartialmockobject',
-        37 => 'phpunit\\event\\testcreatedtestproxy',
-        38 => 'phpunit\\event\\testcreatedstub',
-        39 => 'phpunit\\event\\testcreatedstubforintersectionofinterfaces',
-        40 => 'phpunit\\event\\testerrored',
-        41 => 'phpunit\\event\\testfailed',
-        42 => 'phpunit\\event\\testpassed',
-        43 => 'phpunit\\event\\testconsideredrisky',
-        44 => 'phpunit\\event\\testmarkedasincomplete',
-        45 => 'phpunit\\event\\testskipped',
-        46 => 'phpunit\\event\\testtriggeredphpunitdeprecation',
-        47 => 'phpunit\\event\\testtriggeredphpdeprecation',
-        48 => 'phpunit\\event\\testtriggereddeprecation',
-        49 => 'phpunit\\event\\testtriggerederror',
-        50 => 'phpunit\\event\\testtriggerednotice',
-        51 => 'phpunit\\event\\testtriggeredphpnotice',
-        52 => 'phpunit\\event\\testtriggeredwarning',
-        53 => 'phpunit\\event\\testtriggeredphpwarning',
-        54 => 'phpunit\\event\\testtriggeredphpuniterror',
-        55 => 'phpunit\\event\\testtriggeredphpunitwarning',
-        56 => 'phpunit\\event\\testprintedunexpectedoutput',
-        57 => 'phpunit\\event\\testfinished',
-        58 => 'phpunit\\event\\testpostconditioncalled',
-        59 => 'phpunit\\event\\testpostconditionfinished',
-        60 => 'phpunit\\event\\testaftertestmethodcalled',
-        61 => 'phpunit\\event\\testaftertestmethodfinished',
-        62 => 'phpunit\\event\\testafterlasttestmethodcalled',
-        63 => 'phpunit\\event\\testafterlasttestmethodfinished',
-        64 => 'phpunit\\event\\testsuitefinished',
-        65 => 'phpunit\\event\\testrunnertriggereddeprecation',
-        66 => 'phpunit\\event\\testrunnertriggeredwarning',
-        67 => 'phpunit\\event\\testrunnerenabledgarbagecollection',
-        68 => 'phpunit\\event\\testrunnerexecutionaborted',
-        69 => 'phpunit\\event\\testrunnerexecutionfinished',
-        70 => 'phpunit\\event\\testrunnerfinished',
-        71 => 'phpunit\\event\\applicationfinished',
-        72 => 'phpunit\\event\\telemetryinfo',
+        22 => 'phpunit\\event\\beforefirsttestmethodcalled',
+        23 => 'phpunit\\event\\beforefirsttestmethoderrored',
+        24 => 'phpunit\\event\\beforefirsttestmethodfinished',
+        25 => 'phpunit\\event\\beforetestmethodcalled',
+        26 => 'phpunit\\event\\beforetestmethoderrored',
+        27 => 'phpunit\\event\\beforetestmethodfinished',
+        28 => 'phpunit\\event\\preconditioncalled',
+        29 => 'phpunit\\event\\preconditionerrored',
+        30 => 'phpunit\\event\\preconditionfinished',
+        31 => 'phpunit\\event\\testprepared',
+        32 => 'phpunit\\event\\testregisteredcomparator',
+        33 => 'phpunit\\event\\testcreatedmockobject',
+        34 => 'phpunit\\event\\testcreatedmockobjectforintersectionofinterfaces',
+        35 => 'phpunit\\event\\testcreatedmockobjectfortrait',
+        36 => 'phpunit\\event\\testcreatedmockobjectforabstractclass',
+        37 => 'phpunit\\event\\testcreatedmockobjectfromwsdl',
+        38 => 'phpunit\\event\\testcreatedpartialmockobject',
+        39 => 'phpunit\\event\\testcreatedtestproxy',
+        40 => 'phpunit\\event\\testcreatedstub',
+        41 => 'phpunit\\event\\testcreatedstubforintersectionofinterfaces',
+        42 => 'phpunit\\event\\testerrored',
+        43 => 'phpunit\\event\\testfailed',
+        44 => 'phpunit\\event\\testpassed',
+        45 => 'phpunit\\event\\testconsideredrisky',
+        46 => 'phpunit\\event\\testmarkedasincomplete',
+        47 => 'phpunit\\event\\testskipped',
+        48 => 'phpunit\\event\\testtriggeredphpunitdeprecation',
+        49 => 'phpunit\\event\\testtriggeredphpdeprecation',
+        50 => 'phpunit\\event\\testtriggereddeprecation',
+        51 => 'phpunit\\event\\testtriggerederror',
+        52 => 'phpunit\\event\\testtriggerednotice',
+        53 => 'phpunit\\event\\testtriggeredphpnotice',
+        54 => 'phpunit\\event\\testtriggeredwarning',
+        55 => 'phpunit\\event\\testtriggeredphpwarning',
+        56 => 'phpunit\\event\\testtriggeredphpuniterror',
+        57 => 'phpunit\\event\\testtriggeredphpunitwarning',
+        58 => 'phpunit\\event\\testprintedunexpectedoutput',
+        59 => 'phpunit\\event\\testfinished',
+        60 => 'phpunit\\event\\postconditioncalled',
+        61 => 'phpunit\\event\\postconditionerrored',
+        62 => 'phpunit\\event\\postconditionfinished',
+        63 => 'phpunit\\event\\aftertestmethodcalled',
+        64 => 'phpunit\\event\\aftertestmethoderrored',
+        65 => 'phpunit\\event\\aftertestmethodfinished',
+        66 => 'phpunit\\event\\afterlasttestmethodcalled',
+        67 => 'phpunit\\event\\afterlasttestmethoderrored',
+        68 => 'phpunit\\event\\afterlasttestmethodfinished',
+        69 => 'phpunit\\event\\testsuitefinished',
+        70 => 'phpunit\\event\\testrunnertriggeredphpunitdeprecation',
+        71 => 'phpunit\\event\\testrunnertriggeredphpunitwarning',
+        72 => 'phpunit\\event\\testrunnerenabledgarbagecollection',
+        73 => 'phpunit\\event\\testrunnerexecutionaborted',
+        74 => 'phpunit\\event\\testrunnerexecutionfinished',
+        75 => 'phpunit\\event\\testrunnerfinished',
+        76 => 'phpunit\\event\\applicationfinished',
+        77 => 'phpunit\\event\\telemetryinfo',
       ),
       3 => 
       array (
@@ -181,7 +186,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Emitter\\Emitter.php' => 
     array (
-      0 => '0c64b2de8081b55af77970b4a5ba18d76be424e8',
+      0 => '3ff6bbe38e69e5b2207004593b613af79e46bfc6',
       1 => 
       array (
         0 => 'phpunit\\event\\emitter',
@@ -207,58 +212,63 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         16 => 'phpunit\\event\\testsuitestarted',
         17 => 'phpunit\\event\\testpreparationstarted',
         18 => 'phpunit\\event\\testpreparationfailed',
-        19 => 'phpunit\\event\\testbeforefirsttestmethodcalled',
-        20 => 'phpunit\\event\\testbeforefirsttestmethoderrored',
-        21 => 'phpunit\\event\\testbeforefirsttestmethodfinished',
-        22 => 'phpunit\\event\\testbeforetestmethodcalled',
-        23 => 'phpunit\\event\\testbeforetestmethodfinished',
-        24 => 'phpunit\\event\\testpreconditioncalled',
-        25 => 'phpunit\\event\\testpreconditionfinished',
-        26 => 'phpunit\\event\\testprepared',
-        27 => 'phpunit\\event\\testregisteredcomparator',
-        28 => 'phpunit\\event\\testcreatedmockobject',
-        29 => 'phpunit\\event\\testcreatedmockobjectforintersectionofinterfaces',
-        30 => 'phpunit\\event\\testcreatedmockobjectfortrait',
-        31 => 'phpunit\\event\\testcreatedmockobjectforabstractclass',
-        32 => 'phpunit\\event\\testcreatedmockobjectfromwsdl',
-        33 => 'phpunit\\event\\testcreatedpartialmockobject',
-        34 => 'phpunit\\event\\testcreatedtestproxy',
-        35 => 'phpunit\\event\\testcreatedstub',
-        36 => 'phpunit\\event\\testcreatedstubforintersectionofinterfaces',
-        37 => 'phpunit\\event\\testerrored',
-        38 => 'phpunit\\event\\testfailed',
-        39 => 'phpunit\\event\\testpassed',
-        40 => 'phpunit\\event\\testconsideredrisky',
-        41 => 'phpunit\\event\\testmarkedasincomplete',
-        42 => 'phpunit\\event\\testskipped',
-        43 => 'phpunit\\event\\testtriggeredphpunitdeprecation',
-        44 => 'phpunit\\event\\testtriggeredphpdeprecation',
-        45 => 'phpunit\\event\\testtriggereddeprecation',
-        46 => 'phpunit\\event\\testtriggerederror',
-        47 => 'phpunit\\event\\testtriggerednotice',
-        48 => 'phpunit\\event\\testtriggeredphpnotice',
-        49 => 'phpunit\\event\\testtriggeredwarning',
-        50 => 'phpunit\\event\\testtriggeredphpwarning',
-        51 => 'phpunit\\event\\testtriggeredphpuniterror',
-        52 => 'phpunit\\event\\testtriggeredphpunitwarning',
-        53 => 'phpunit\\event\\testprintedunexpectedoutput',
-        54 => 'phpunit\\event\\testfinished',
-        55 => 'phpunit\\event\\testpostconditioncalled',
-        56 => 'phpunit\\event\\testpostconditionfinished',
-        57 => 'phpunit\\event\\testaftertestmethodcalled',
-        58 => 'phpunit\\event\\testaftertestmethodfinished',
-        59 => 'phpunit\\event\\testafterlasttestmethodcalled',
-        60 => 'phpunit\\event\\testafterlasttestmethodfinished',
-        61 => 'phpunit\\event\\testsuitefinished',
-        62 => 'phpunit\\event\\testrunnerstartedchildprocess',
-        63 => 'phpunit\\event\\testrunnerfinishedchildprocess',
-        64 => 'phpunit\\event\\testrunnertriggereddeprecation',
-        65 => 'phpunit\\event\\testrunnertriggeredwarning',
-        66 => 'phpunit\\event\\testrunnerenabledgarbagecollection',
-        67 => 'phpunit\\event\\testrunnerexecutionaborted',
-        68 => 'phpunit\\event\\testrunnerexecutionfinished',
-        69 => 'phpunit\\event\\testrunnerfinished',
-        70 => 'phpunit\\event\\applicationfinished',
+        19 => 'phpunit\\event\\beforefirsttestmethodcalled',
+        20 => 'phpunit\\event\\beforefirsttestmethoderrored',
+        21 => 'phpunit\\event\\beforefirsttestmethodfinished',
+        22 => 'phpunit\\event\\beforetestmethodcalled',
+        23 => 'phpunit\\event\\beforetestmethoderrored',
+        24 => 'phpunit\\event\\beforetestmethodfinished',
+        25 => 'phpunit\\event\\preconditioncalled',
+        26 => 'phpunit\\event\\preconditionerrored',
+        27 => 'phpunit\\event\\preconditionfinished',
+        28 => 'phpunit\\event\\testprepared',
+        29 => 'phpunit\\event\\testregisteredcomparator',
+        30 => 'phpunit\\event\\testcreatedmockobject',
+        31 => 'phpunit\\event\\testcreatedmockobjectforintersectionofinterfaces',
+        32 => 'phpunit\\event\\testcreatedmockobjectfortrait',
+        33 => 'phpunit\\event\\testcreatedmockobjectforabstractclass',
+        34 => 'phpunit\\event\\testcreatedmockobjectfromwsdl',
+        35 => 'phpunit\\event\\testcreatedpartialmockobject',
+        36 => 'phpunit\\event\\testcreatedtestproxy',
+        37 => 'phpunit\\event\\testcreatedstub',
+        38 => 'phpunit\\event\\testcreatedstubforintersectionofinterfaces',
+        39 => 'phpunit\\event\\testerrored',
+        40 => 'phpunit\\event\\testfailed',
+        41 => 'phpunit\\event\\testpassed',
+        42 => 'phpunit\\event\\testconsideredrisky',
+        43 => 'phpunit\\event\\testmarkedasincomplete',
+        44 => 'phpunit\\event\\testskipped',
+        45 => 'phpunit\\event\\testtriggeredphpunitdeprecation',
+        46 => 'phpunit\\event\\testtriggeredphpdeprecation',
+        47 => 'phpunit\\event\\testtriggereddeprecation',
+        48 => 'phpunit\\event\\testtriggerederror',
+        49 => 'phpunit\\event\\testtriggerednotice',
+        50 => 'phpunit\\event\\testtriggeredphpnotice',
+        51 => 'phpunit\\event\\testtriggeredwarning',
+        52 => 'phpunit\\event\\testtriggeredphpwarning',
+        53 => 'phpunit\\event\\testtriggeredphpuniterror',
+        54 => 'phpunit\\event\\testtriggeredphpunitwarning',
+        55 => 'phpunit\\event\\testprintedunexpectedoutput',
+        56 => 'phpunit\\event\\testfinished',
+        57 => 'phpunit\\event\\postconditioncalled',
+        58 => 'phpunit\\event\\postconditionerrored',
+        59 => 'phpunit\\event\\postconditionfinished',
+        60 => 'phpunit\\event\\aftertestmethodcalled',
+        61 => 'phpunit\\event\\aftertestmethoderrored',
+        62 => 'phpunit\\event\\aftertestmethodfinished',
+        63 => 'phpunit\\event\\afterlasttestmethodcalled',
+        64 => 'phpunit\\event\\afterlasttestmethoderrored',
+        65 => 'phpunit\\event\\afterlasttestmethodfinished',
+        66 => 'phpunit\\event\\testsuitefinished',
+        67 => 'phpunit\\event\\testrunnerstartedchildprocess',
+        68 => 'phpunit\\event\\testrunnerfinishedchildprocess',
+        69 => 'phpunit\\event\\testrunnertriggeredphpunitdeprecation',
+        70 => 'phpunit\\event\\testrunnertriggeredphpunitwarning',
+        71 => 'phpunit\\event\\testrunnerenabledgarbagecollection',
+        72 => 'phpunit\\event\\testrunnerexecutionaborted',
+        73 => 'phpunit\\event\\testrunnerexecutionfinished',
+        74 => 'phpunit\\event\\testrunnerfinished',
+        75 => 'phpunit\\event\\applicationfinished',
       ),
       3 => 
       array (
@@ -898,7 +908,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\DeprecationTriggered.php' => 
     array (
-      0 => '0d5cb36b194faa0a90a2efe3f5ca180ad4c10fcf',
+      0 => '187ce73ca824696fbb0ca90d8905b715a7cf6809',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\deprecationtriggered',
@@ -939,7 +949,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\ErrorTriggered.php' => 
     array (
-      0 => '868e6ed3412c76a51a32821dbb4176d17d215cce',
+      0 => '80d45fc50eac5eec617d6a8ed985536b017b87a3',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\errortriggered',
@@ -976,7 +986,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\NoticeTriggered.php' => 
     array (
-      0 => '25cc3c098a7e48e12557e114dae226ea752133e5',
+      0 => '69d7ed82a7faa5dac1b68d026f5148e2c46559cc',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\noticetriggered',
@@ -1014,7 +1024,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\PhpDeprecationTriggered.php' => 
     array (
-      0 => '4c53d9e61c783e4d08e05b013ca82bc82b89abed',
+      0 => '8e870764980f471357718933fc990383c3ed4e62',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\phpdeprecationtriggered',
@@ -1054,7 +1064,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\PhpNoticeTriggered.php' => 
     array (
-      0 => 'cd46338af01948c20cc07f0265f159806a96a4e3',
+      0 => '93d2134f35cd8b30a88f16794004c2347eab14d4',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\phpnoticetriggered',
@@ -1194,7 +1204,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\PhpWarningTriggered.php' => 
     array (
-      0 => '35fce423bbfe81e99e1334ed398ba463ab1fc649',
+      0 => 'a29dd42aee9428cf6c8a0612b72a7ad5c4750e3c',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\phpwarningtriggered',
@@ -1232,7 +1242,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\Issue\\WarningTriggered.php' => 
     array (
-      0 => '79fd6c2f123e163081846afcf0ca474c80423bd4',
+      0 => '5f278d802d823f113904cb97b8bfc941f6b7f2ec',
       1 => 
       array (
         0 => 'phpunit\\event\\test\\warningtriggered',
@@ -2764,7 +2774,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Exception\\Exception.php' => 
     array (
-      0 => '71b54ecaf6e136baaf9aa53ec0d6485277d51703',
+      0 => '4440f1c270e5b6011c23e6361e2c3b92c15f8fbd',
       1 => 
       array (
         0 => 'phpunit\\event\\exception',
@@ -2975,7 +2985,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Facade.php' => 
     array (
-      0 => '68c20a530575e272d1d80d4d82fc2f1d7cd0a546',
+      0 => '98b621b96a552ff5ac79a46e5f3eae93aabd4382',
       1 => 
       array (
         0 => 'phpunit\\event\\facade',
@@ -3273,7 +3283,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Value\\Telemetry\\Info.php' => 
     array (
-      0 => '6613b4330aab5c78848f9fb32bc1ec9f8d175d12',
+      0 => 'e19086d11d97c1a8ad666e1ee81b456127d2d49f',
       1 => 
       array (
         0 => 'phpunit\\event\\telemetry\\info',
@@ -3411,7 +3421,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Value\\Telemetry\\SystemMemoryMeter.php' => 
     array (
-      0 => '41316410dac11b8092cc0258e23ccff73c915982',
+      0 => 'f6a2d240c47f08c9606b443c6e3b72ff0a027247',
       1 => 
       array (
         0 => 'phpunit\\event\\telemetry\\systemmemorymeter',
@@ -3751,7 +3761,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Value\\Test\\TestDoxBuilder.php' => 
     array (
-      0 => 'a55917f182bd014d13d66f6bf842e6aaf07cef19',
+      0 => '37c9ad507567f893db89b162ce444696e49b3d2b',
       1 => 
       array (
         0 => 'phpunit\\event\\code\\testdoxbuilder',
@@ -3760,6 +3770,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'phpunit\\event\\code\\fromtestcase',
         1 => 'phpunit\\event\\code\\fromclassnameandmethodname',
+        2 => 'phpunit\\event\\code\\nameprettifier',
       ),
       3 => 
       array (
@@ -3792,7 +3803,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Value\\Test\\TestMethodBuilder.php' => 
     array (
-      0 => '7fbb9aa559d2736bc328a0b2627a634fc15b7670',
+      0 => '1cf702782a0e2d50c37d53c573678809b46a078a',
       1 => 
       array (
         0 => 'phpunit\\event\\code\\testmethodbuilder',
@@ -3937,7 +3948,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Exception.php' => 
     array (
-      0 => 'e5000e38bae56fc2720fc6fef23404d4c205ae17',
+      0 => '2caf2b373d3499585ba222014d2e92c09b78412d',
       1 => 
       array (
         0 => 'phpunit\\exception',
@@ -3951,7 +3962,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Assert\\Functions.php' => 
     array (
-      0 => 'f10a5523292dc70ff536730c99e4afafeffeef00',
+      0 => '5b8223ce70850e63d7193d5b6be6f235d1a8e9f7',
       1 => 
       array (
       ),
@@ -4206,7 +4217,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Assert.php' => 
     array (
-      0 => 'df811299d7d30b0ce3cdcbe5da11ed353f7d61d5',
+      0 => 'b63695ae8fa4ecc2e85c25df25375b6bd9921879',
       1 => 
       array (
         0 => 'phpunit\\framework\\assert',
@@ -4454,7 +4465,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\After.php' => 
     array (
-      0 => '7ac4ce720ff6e86d7b01309ed292c1ee2b131917',
+      0 => 'f1e885413b23f131bf00dbacc4e03e663d9b7a0b',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\after',
@@ -4470,7 +4481,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\AfterClass.php' => 
     array (
-      0 => '5539f5654b3b4ea9db0fefabc0236b6e253dbed1',
+      0 => 'fdbbf99f1071e2ac4206e272df8e4c6e3110024d',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\afterclass',
@@ -4518,7 +4529,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\Before.php' => 
     array (
-      0 => '5bc63d71d169ca0ab31b6ef3c3631ffdac610ec0',
+      0 => 'fe687500400cf61cd18154ab859a232b5d33f57f',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\before',
@@ -4534,7 +4545,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\BeforeClass.php' => 
     array (
-      0 => '235dcc7406e2e44ca142e301ef2b3111a28b648e',
+      0 => '979ac21b3885e342ebcc06d05bb7e10c94b572a6',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\beforeclass',
@@ -4582,7 +4593,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\CoversMethod.php' => 
     array (
-      0 => '832276b9ea306897419177286cb0d5addaaa58fc',
+      0 => '9a008ac02e7e8df9ab89bead30d747112d32bb9a',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\coversmethod',
@@ -4613,7 +4624,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\CoversTrait.php' => 
     array (
-      0 => 'e86aa3add681184865a4ff20b4dc98468617343f',
+      0 => '44dc1689132aa3ab36a37fabcc2a0cc1b952acf5',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\coverstrait',
@@ -4942,7 +4953,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\PostCondition.php' => 
     array (
-      0 => 'e03757a37e19ab58f16efc9e3163ef09de5e8c21',
+      0 => 'ac1d0272475513dbc6f6840b29148b7bcf79166a',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\postcondition',
@@ -4958,7 +4969,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\PreCondition.php' => 
     array (
-      0 => 'c19c836f6ac268a21a9b426eaf1b8573c459bf69',
+      0 => '0a0d31723ff1fcc5da8f247f8bd8cca289e7c929',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\precondition',
@@ -5305,7 +5316,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\UsesMethod.php' => 
     array (
-      0 => 'f15bbdb9f09e677e8c6ea711a634c591c7e2984f',
+      0 => '93ae4aac7a3c1d36018f55ad31292e41072ab09a',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\usesmethod',
@@ -5322,7 +5333,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Attributes\\UsesTrait.php' => 
     array (
-      0 => 'fc74314a610f33c89a6592ba4378f9d63ad3e66c',
+      0 => 'a57b0508731c87f408d1d6b9eed38e3c0774faa2',
       1 => 
       array (
         0 => 'phpunit\\framework\\attributes\\usestrait',
@@ -5384,7 +5395,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\Callback.php' => 
     array (
-      0 => 'ee3082c9d00b981b130dfc436689190165800811',
+      0 => 'b34f5fc21cd4fa5813e182d8e8f42928dc5cb349',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\callback',
@@ -6028,7 +6039,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\String\\StringContains.php' => 
     array (
-      0 => '37fb984abc9a5b399c7bf5fcb88a00366db190a2',
+      0 => 'd61030afa389964a191a3dbd0911cc67bcb70c63',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\stringcontains',
@@ -6039,8 +6050,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'phpunit\\framework\\constraint\\tostring',
         2 => 'phpunit\\framework\\constraint\\failuredescription',
         3 => 'phpunit\\framework\\constraint\\matches',
-        4 => 'phpunit\\framework\\constraint\\getdetectedencoding',
-        5 => 'phpunit\\framework\\constraint\\gethaystacklength',
+        4 => 'phpunit\\framework\\constraint\\detectedencoding',
+        5 => 'phpunit\\framework\\constraint\\haystacklength',
         6 => 'phpunit\\framework\\constraint\\normalizelineendings',
       ),
       3 => 
@@ -6084,7 +6095,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\String\\StringMatchesFormatDescription.php' => 
     array (
-      0 => 'a52417ca5a531186ac369a1aa89ac28a3dbb341b',
+      0 => '7ed01da734479f6f2899f6328ec26570599811a3',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\stringmatchesformatdescription',
@@ -6123,7 +6134,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\Traversable\\ArrayHasKey.php' => 
     array (
-      0 => '77f2eb39d34bfa6b1f899d238039a6283c8b2054',
+      0 => 'b55eb50e86261a9a97b6f52d67eb502f9ccaeca4',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\arrayhaskey',
@@ -6176,7 +6187,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\Traversable\\TraversableContainsEqual.php' => 
     array (
-      0 => 'bd4af4a31456c28ba0647e3febb9376799e13ca7',
+      0 => '2212392350c9b81539baf16c7c535b105096c151',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\traversablecontainsequal',
@@ -6191,7 +6202,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\Traversable\\TraversableContainsIdentical.php' => 
     array (
-      0 => 'e2823d22154331378ab1dd10db3afe4939eacb2c',
+      0 => '7764c620d3641bf69f852b3375e291681cad3ea1',
       1 => 
       array (
         0 => 'phpunit\\framework\\constraint\\traversablecontainsidentical',
@@ -6352,7 +6363,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\Exception\\ExpectationFailedException.php' => 
     array (
-      0 => 'f9fc37f45187041b7439f4828481c47226ab70a5',
+      0 => '8cfa74af6ff176fcd080fc59f42df167bc7c321f',
       1 => 
       array (
         0 => 'phpunit\\framework\\expectationfailedexception',
@@ -7153,7 +7164,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Generator\\Generator.php' => 
     array (
-      0 => 'a66da62d4c8e98c6a225b4b4cb9c543093e576c1',
+      0 => 'd50f1d68821d6a0f23e7aa23e77d6fa5a2cdf944',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\generator\\generator',
@@ -7169,7 +7180,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         6 => 'phpunit\\framework\\mockobject\\generator\\generateclassfromwsdl',
         7 => 'phpunit\\framework\\mockobject\\generator\\mockclassmethods',
         8 => 'phpunit\\framework\\mockobject\\generator\\userdefinedinterfacemethods',
-        9 => 'phpunit\\framework\\mockobject\\generator\\getobject',
+        9 => 'phpunit\\framework\\mockobject\\generator\\instantiate',
         10 => 'phpunit\\framework\\mockobject\\generator\\generatecodefortestdoubleclass',
         11 => 'phpunit\\framework\\mockobject\\generator\\generateclassname',
         12 => 'phpunit\\framework\\mockobject\\generator\\generatetestdoubleclassdeclaration',
@@ -7447,7 +7458,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Runtime\\Api\\MockObjectApi.php' => 
     array (
-      0 => '7960eea2952c7a826985cda9dfea3efc4b0c89ae',
+      0 => '155b47c57dbf4ca22dffed8dde113368db87612b',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\mockobjectapi',
@@ -7556,7 +7567,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Runtime\\Builder\\InvocationMocker.php' => 
     array (
-      0 => 'c6c67ea06663493d7d213593dbb7bd92182c8786',
+      0 => '91a441a13f61948f0e857c44b88fe64b2c03e82b',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\builder\\invocationmocker',
@@ -7588,7 +7599,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Runtime\\Builder\\InvocationStubber.php' => 
     array (
-      0 => 'c7b43d5366c4323f2cbb9c221201f117c132a3ef',
+      0 => '999c7c8d3b0aea6ae112a995ba5692dff9259b3a',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\builder\\invocationstubber',
@@ -7626,7 +7637,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Runtime\\Builder\\ParametersMatch.php' => 
     array (
-      0 => '49a3d4c0e5b8181db134e2f8885d9967b6a6f5e2',
+      0 => '5879d8d7a4f7a91eb09005fc3942fcde602cc17d',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\builder\\parametersmatch',
@@ -8019,7 +8030,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Runtime\\Rule\\Parameters.php' => 
     array (
-      0 => '4bb631b3a709cd32383f99cd05795593e1b06e5c',
+      0 => '22e0c848806dc495db21246d28cae126eac2a853',
       1 => 
       array (
         0 => 'phpunit\\framework\\mockobject\\rule\\parameters',
@@ -8031,6 +8042,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'phpunit\\framework\\mockobject\\rule\\verify',
         3 => 'phpunit\\framework\\mockobject\\rule\\doverify',
         4 => 'phpunit\\framework\\mockobject\\rule\\guardagainstduplicateevaluationofparameterconstraints',
+        5 => 'phpunit\\framework\\mockobject\\rule\\incrementassertioncount',
       ),
       3 => 
       array (
@@ -8227,7 +8239,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\SelfDescribing.php' => 
     array (
-      0 => 'e0686366fd9c68a94bac36132eac1a68007926c0',
+      0 => 'cd07bd110bc581f7c3b5600bebcfe77762b666ad',
       1 => 
       array (
         0 => 'phpunit\\framework\\selfdescribing',
@@ -8279,7 +8291,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php' => 
     array (
-      0 => '3fdbd79f1ffdfcb0219bc1261aeb70820ed8527f',
+      0 => '2bf379a26988635f128f41280db2d570dedaa9cb',
       1 => 
       array (
         0 => 'phpunit\\framework\\testcase',
@@ -8363,20 +8375,20 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         74 => 'phpunit\\framework\\getmockbuilder',
         75 => 'phpunit\\framework\\registercomparator',
         76 => 'phpunit\\framework\\registerfailuretype',
-        77 => 'phpunit\\framework\\runtest',
-        78 => 'phpunit\\framework\\iniset',
-        79 => 'phpunit\\framework\\setlocale',
-        80 => 'phpunit\\framework\\createmock',
-        81 => 'phpunit\\framework\\createmockforintersectionofinterfaces',
-        82 => 'phpunit\\framework\\createconfiguredmock',
-        83 => 'phpunit\\framework\\createpartialmock',
-        84 => 'phpunit\\framework\\createtestproxy',
-        85 => 'phpunit\\framework\\getmockforabstractclass',
-        86 => 'phpunit\\framework\\getmockfromwsdl',
-        87 => 'phpunit\\framework\\getmockfortrait',
-        88 => 'phpunit\\framework\\getobjectfortrait',
-        89 => 'phpunit\\framework\\transformexception',
-        90 => 'phpunit\\framework\\onnotsuccessfultest',
+        77 => 'phpunit\\framework\\iniset',
+        78 => 'phpunit\\framework\\setlocale',
+        79 => 'phpunit\\framework\\createmock',
+        80 => 'phpunit\\framework\\createmockforintersectionofinterfaces',
+        81 => 'phpunit\\framework\\createconfiguredmock',
+        82 => 'phpunit\\framework\\createpartialmock',
+        83 => 'phpunit\\framework\\createtestproxy',
+        84 => 'phpunit\\framework\\getmockforabstractclass',
+        85 => 'phpunit\\framework\\getmockfromwsdl',
+        86 => 'phpunit\\framework\\getmockfortrait',
+        87 => 'phpunit\\framework\\getobjectfortrait',
+        88 => 'phpunit\\framework\\transformexception',
+        89 => 'phpunit\\framework\\onnotsuccessfultest',
+        90 => 'phpunit\\framework\\runtest',
         91 => 'phpunit\\framework\\verifydeprecationexpectations',
         92 => 'phpunit\\framework\\verifymockobjects',
         93 => 'phpunit\\framework\\checkrequirements',
@@ -8387,8 +8399,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         98 => 'phpunit\\framework\\stopoutputbuffering',
         99 => 'phpunit\\framework\\snapshotglobalerrorexceptionhandlers',
         100 => 'phpunit\\framework\\restoreglobalerrorexceptionhandlers',
-        101 => 'phpunit\\framework\\getactiveerrorhandlers',
-        102 => 'phpunit\\framework\\getactiveexceptionhandlers',
+        101 => 'phpunit\\framework\\activeerrorhandlers',
+        102 => 'phpunit\\framework\\activeexceptionhandlers',
         103 => 'phpunit\\framework\\snapshotglobalstate',
         104 => 'phpunit\\framework\\restoreglobalstate',
         105 => 'phpunit\\framework\\createglobalstatesnapshot',
@@ -8415,10 +8427,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         126 => 'phpunit\\framework\\isregisteredfailure',
         127 => 'phpunit\\framework\\hasexpectationonoutput',
         128 => 'phpunit\\framework\\requirementsnotsatisfied',
-        129 => 'phpunit\\framework\\createstub',
-        130 => 'phpunit\\framework\\createstubforintersectionofinterfaces',
-        131 => 'phpunit\\framework\\createconfiguredstub',
-        132 => 'phpunit\\framework\\generatereturnvaluesfortestdoubles',
+        129 => 'phpunit\\framework\\handleexceptionfrominvokedcountmockobjectrule',
+        130 => 'phpunit\\framework\\createstub',
+        131 => 'phpunit\\framework\\createstubforintersectionofinterfaces',
+        132 => 'phpunit\\framework\\createconfiguredstub',
+        133 => 'phpunit\\framework\\generatereturnvaluesfortestdoubles',
       ),
       3 => 
       array (
@@ -8457,7 +8470,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\TestRunner\\SeparateProcessTestRunner.php' => 
     array (
-      0 => '218ecaba221822fb2375d15875187052cebed2bc',
+      0 => '60379c4815008f7ba6d7d1f05d64695e2fbdb49e',
       1 => 
       array (
         0 => 'phpunit\\framework\\separateprocesstestrunner',
@@ -8465,9 +8478,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'phpunit\\framework\\run',
-        1 => 'phpunit\\framework\\runtestjob',
-        2 => 'phpunit\\framework\\processchildresult',
-        3 => 'phpunit\\framework\\saveconfigurationforchildprocess',
+        1 => 'phpunit\\framework\\saveconfigurationforchildprocess',
       ),
       3 => 
       array (
@@ -8475,7 +8486,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\TestRunner\\TestRunner.php' => 
     array (
-      0 => 'a5c7c677fca8faa338a0fd42ffbfd3347b90d4c5',
+      0 => 'c5e440c3c2fd6dbd5c53be4686c0990eb7a89d39',
       1 => 
       array (
         0 => 'phpunit\\framework\\testrunner',
@@ -8829,7 +8840,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\TestSuite.php' => 
     array (
-      0 => '04e264105ad3e98df76046a0dd95f37daa82f080',
+      0 => 'a1e5db0f9262471bd4c5e068217dbfab4d8510fd',
       1 => 
       array (
         0 => 'phpunit\\framework\\testsuite',
@@ -8911,7 +8922,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\JUnit\\JunitXmlLogger.php' => 
     array (
-      0 => '808b226a338ac26d36cf1ecebf49adc18fd3417b',
+      0 => '3b4e1871b8b78ddc05eb0cbcb8cb81bac704cafd',
       1 => 
       array (
         0 => 'phpunit\\logging\\junit\\junitxmllogger',
@@ -8925,19 +8936,20 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'phpunit\\logging\\junit\\testpreparationstarted',
         5 => 'phpunit\\logging\\junit\\testpreparationfailed',
         6 => 'phpunit\\logging\\junit\\testprepared',
-        7 => 'phpunit\\logging\\junit\\testfinished',
-        8 => 'phpunit\\logging\\junit\\testmarkedincomplete',
-        9 => 'phpunit\\logging\\junit\\testskipped',
-        10 => 'phpunit\\logging\\junit\\testerrored',
-        11 => 'phpunit\\logging\\junit\\testfailed',
-        12 => 'phpunit\\logging\\junit\\handlefinish',
-        13 => 'phpunit\\logging\\junit\\registersubscribers',
-        14 => 'phpunit\\logging\\junit\\createdocument',
-        15 => 'phpunit\\logging\\junit\\handlefault',
-        16 => 'phpunit\\logging\\junit\\handleincompleteorskipped',
-        17 => 'phpunit\\logging\\junit\\testasstring',
-        18 => 'phpunit\\logging\\junit\\name',
-        19 => 'phpunit\\logging\\junit\\createtestcase',
+        7 => 'phpunit\\logging\\junit\\testprintedunexpectedoutput',
+        8 => 'phpunit\\logging\\junit\\testfinished',
+        9 => 'phpunit\\logging\\junit\\testmarkedincomplete',
+        10 => 'phpunit\\logging\\junit\\testskipped',
+        11 => 'phpunit\\logging\\junit\\testerrored',
+        12 => 'phpunit\\logging\\junit\\testfailed',
+        13 => 'phpunit\\logging\\junit\\handlefinish',
+        14 => 'phpunit\\logging\\junit\\registersubscribers',
+        15 => 'phpunit\\logging\\junit\\createdocument',
+        16 => 'phpunit\\logging\\junit\\handlefault',
+        17 => 'phpunit\\logging\\junit\\handleincompleteorskipped',
+        18 => 'phpunit\\logging\\junit\\testasstring',
+        19 => 'phpunit\\logging\\junit\\name',
+        20 => 'phpunit\\logging\\junit\\createtestcase',
       ),
       3 => 
       array (
@@ -9292,7 +9304,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\TeamCity\\TeamCityLogger.php' => 
     array (
-      0 => '34ae6ddab698fcc656c091df62a5b74374ccc9b4',
+      0 => 'c1cf100d38ff107afbb8ff904c09f73e04af6708',
       1 => 
       array (
         0 => 'phpunit\\logging\\teamcity\\teamcitylogger',
@@ -9305,18 +9317,20 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         3 => 'phpunit\\logging\\teamcity\\testprepared',
         4 => 'phpunit\\logging\\teamcity\\testmarkedincomplete',
         5 => 'phpunit\\logging\\teamcity\\testskipped',
-        6 => 'phpunit\\logging\\teamcity\\testerrored',
-        7 => 'phpunit\\logging\\teamcity\\testfailed',
-        8 => 'phpunit\\logging\\teamcity\\testconsideredrisky',
-        9 => 'phpunit\\logging\\teamcity\\testfinished',
-        10 => 'phpunit\\logging\\teamcity\\flush',
-        11 => 'phpunit\\logging\\teamcity\\registersubscribers',
-        12 => 'phpunit\\logging\\teamcity\\setflowid',
-        13 => 'phpunit\\logging\\teamcity\\writemessage',
-        14 => 'phpunit\\logging\\teamcity\\duration',
-        15 => 'phpunit\\logging\\teamcity\\escape',
-        16 => 'phpunit\\logging\\teamcity\\message',
-        17 => 'phpunit\\logging\\teamcity\\details',
+        6 => 'phpunit\\logging\\teamcity\\testsuiteskipped',
+        7 => 'phpunit\\logging\\teamcity\\beforefirsttestmethoderrored',
+        8 => 'phpunit\\logging\\teamcity\\testerrored',
+        9 => 'phpunit\\logging\\teamcity\\testfailed',
+        10 => 'phpunit\\logging\\teamcity\\testconsideredrisky',
+        11 => 'phpunit\\logging\\teamcity\\testfinished',
+        12 => 'phpunit\\logging\\teamcity\\flush',
+        13 => 'phpunit\\logging\\teamcity\\registersubscribers',
+        14 => 'phpunit\\logging\\teamcity\\setflowid',
+        15 => 'phpunit\\logging\\teamcity\\writemessage',
+        16 => 'phpunit\\logging\\teamcity\\duration',
+        17 => 'phpunit\\logging\\teamcity\\escape',
+        18 => 'phpunit\\logging\\teamcity\\message',
+        19 => 'phpunit\\logging\\teamcity\\details',
       ),
       3 => 
       array (
@@ -9340,7 +9354,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\TestDox\\NamePrettifier.php' => 
     array (
-      0 => '47ca6c5e596da83b84719f99fdb724918c334709',
+      0 => 'ed8002d3e32d911c44c82455846738835771a045',
       1 => 
       array (
         0 => 'phpunit\\logging\\testdox\\nameprettifier',
@@ -9740,7 +9754,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\After.php' => 
     array (
-      0 => 'e77ee3890289200536f69959b17b596182a7dd98',
+      0 => '4d3503af8792ecf291c94951ab0be5b680d5e0e3',
       1 => 
       array (
         0 => 'phpunit\\metadata\\after',
@@ -9757,7 +9771,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\AfterClass.php' => 
     array (
-      0 => 'b86aeffbb9630c276a7486fff8cda8e0f751103b',
+      0 => '04b3a023d35cd87efee0ca08a220e50a8d022790',
       1 => 
       array (
         0 => 'phpunit\\metadata\\afterclass',
@@ -9774,7 +9788,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Api\\CodeCoverage.php' => 
     array (
-      0 => 'bd09619575272229f6e2cba5defd8b09074b26bc',
+      0 => '338d002db4a249b960070ae266a0ee353ae74267',
       1 => 
       array (
         0 => 'phpunit\\metadata\\api\\codecoverage',
@@ -9793,7 +9807,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Api\\DataProvider.php' => 
     array (
-      0 => '9b37a44bbb61c7624dc6e8880889e91ad5aff098',
+      0 => '15cf91e4709a5c1d6ef7e29c88ec426e0f0ef9b3',
       1 => 
       array (
         0 => 'phpunit\\metadata\\api\\dataprovider',
@@ -9826,7 +9840,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Api\\Groups.php' => 
     array (
-      0 => '4b9571f8257cb556c120f21bdb6b3039400658fa',
+      0 => 'fd963878df8ea74502e7b0bf38f02f5fb4752f72',
       1 => 
       array (
         0 => 'phpunit\\metadata\\api\\groups',
@@ -9908,7 +9922,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Before.php' => 
     array (
-      0 => '86f2501393f42b32bca87e0ddf4347f52f200545',
+      0 => 'd42b05c3b04c31438ee2f460cf119c551940570b',
       1 => 
       array (
         0 => 'phpunit\\metadata\\before',
@@ -9925,7 +9939,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\BeforeClass.php' => 
     array (
-      0 => '35cc21a394c580b66c1d3bd40144c0e798d526e5',
+      0 => '93e0221da44eca04b35af00b09d309e202ac01d9',
       1 => 
       array (
         0 => 'phpunit\\metadata\\beforeclass',
@@ -10166,7 +10180,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Exception\\Exception.php' => 
     array (
-      0 => '07470204cc4cc5fb672463fae706beb5a7b7907c',
+      0 => '3f7b6b5be892cc9a9c306238e1a51f5d3d4c26c3',
       1 => 
       array (
         0 => 'phpunit\\metadata\\exception',
@@ -10180,7 +10194,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Exception\\InvalidVersionRequirementException.php' => 
     array (
-      0 => 'e62ba4e9fec73b10bae23917147c91d8094d5341',
+      0 => 'feebefcc2bb574e2ef80a50bb0514eebdb113b50',
       1 => 
       array (
         0 => 'phpunit\\metadata\\invalidversionrequirementexception',
@@ -10194,7 +10208,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Exception\\NoVersionRequirementException.php' => 
     array (
-      0 => 'cc7a64f2fce8f852a7861cfc34875b20b4370d4c',
+      0 => '90ef9fe1cec8a892ec6c920ecc3d256812cd809c',
       1 => 
       array (
         0 => 'phpunit\\metadata\\noversionrequirementexception',
@@ -10304,7 +10318,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Metadata.php' => 
     array (
-      0 => 'ad325fc75af713894590a888e15b22b0a29017d8',
+      0 => 'e4e9794a9ca43591c189875a3807f50613b92504',
       1 => 
       array (
         0 => 'phpunit\\metadata\\metadata',
@@ -10570,7 +10584,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Parser\\AnnotationParser.php' => 
     array (
-      0 => 'a9b172a26d151b691f819c2eef833bfab4b77168',
+      0 => '65ebcde3add117e2e325049b9e8ea86ed2f89efe',
       1 => 
       array (
         0 => 'phpunit\\metadata\\parser\\annotationparser',
@@ -10590,7 +10604,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Parser\\AttributeParser.php' => 
     array (
-      0 => '5087d8f595a4778c1ae8a564372c4ada0ece7720',
+      0 => '1da5e7a8447cc0d333f4a69f4445e0faab9d1b17',
       1 => 
       array (
         0 => 'phpunit\\metadata\\parser\\attributeparser',
@@ -10677,7 +10691,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\PostCondition.php' => 
     array (
-      0 => '570bfdf869d7a10bf1a84e1b646a4933475e855c',
+      0 => '84aad3ee24d595f1dc5aabb667a7ae5b6706078a',
       1 => 
       array (
         0 => 'phpunit\\metadata\\postcondition',
@@ -10694,7 +10708,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\PreCondition.php' => 
     array (
-      0 => 'd9fa6ffdfdd69d6c64b0b4999c9aadfb99040912',
+      0 => '930897e368ce55732fd1e4c1826235359bc01eb4',
       1 => 
       array (
         0 => 'phpunit\\metadata\\precondition',
@@ -10962,7 +10976,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\TestWith.php' => 
     array (
-      0 => '8385a9bd1a369e2305a6bc55258626611897861c',
+      0 => '351be790e8a01703122784c34e1a9bc9a303298d',
       1 => 
       array (
         0 => 'phpunit\\metadata\\testwith',
@@ -11201,7 +11215,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Baseline\\Generator.php' => 
     array (
-      0 => 'd32d2a7d03a4d74da3cf00e2e4dbd89981d03a4c',
+      0 => '8f9212a72834847119a36d4828c1f70d6f3b4c5f',
       1 => 
       array (
         0 => 'phpunit\\runner\\baseline\\generator',
@@ -11242,7 +11256,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Baseline\\Reader.php' => 
     array (
-      0 => 'c033517087f2f720b4090b203504e88f56e7d900',
+      0 => '5bf30b2f38f3a3660cd5e8b728671352c9139d99',
       1 => 
       array (
         0 => 'phpunit\\runner\\baseline\\reader',
@@ -11380,7 +11394,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Baseline\\Writer.php' => 
     array (
-      0 => 'ab4cd7e9909cf22f722a46aaa34b91bd167587bc',
+      0 => '67b62814150a71e3a6e4a267320d75de11b68c0f',
       1 => 
       array (
         0 => 'phpunit\\runner\\baseline\\writer',
@@ -11395,7 +11409,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\CodeCoverage.php' => 
     array (
-      0 => '5a223f27093078f6dfe564d8018f9138e14763dc',
+      0 => '103e1f1238ea658d65353d88d105dba367851d34',
       1 => 
       array (
         0 => 'phpunit\\runner\\codecoverage',
@@ -11406,18 +11420,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'phpunit\\runner\\init',
         2 => 'phpunit\\runner\\isactive',
         3 => 'phpunit\\runner\\codecoverage',
-        4 => 'phpunit\\runner\\driver',
+        4 => 'phpunit\\runner\\drivernameandversion',
         5 => 'phpunit\\runner\\start',
         6 => 'phpunit\\runner\\stop',
         7 => 'phpunit\\runner\\deactivate',
         8 => 'phpunit\\runner\\generatereports',
-        9 => 'phpunit\\runner\\ignorelines',
-        10 => 'phpunit\\runner\\linestobeignored',
-        11 => 'phpunit\\runner\\activate',
-        12 => 'phpunit\\runner\\codecoveragegenerationstart',
-        13 => 'phpunit\\runner\\codecoveragegenerationsucceeded',
-        14 => 'phpunit\\runner\\codecoveragegenerationfailed',
-        15 => 'phpunit\\runner\\timer',
+        9 => 'phpunit\\runner\\activate',
+        10 => 'phpunit\\runner\\codecoveragegenerationstart',
+        11 => 'phpunit\\runner\\codecoveragegenerationsucceeded',
+        12 => 'phpunit\\runner\\codecoveragegenerationfailed',
+        13 => 'phpunit\\runner\\timer',
       ),
       3 => 
       array (
@@ -11425,7 +11437,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\DeprecationCollector\\Collector.php' => 
     array (
-      0 => '5c6be9404c7443483725a5b40e33bf90a80bb3e6',
+      0 => '1239a4a4158a4b68efce3d1f16686c0ecc024555',
       1 => 
       array (
         0 => 'phpunit\\runner\\deprecationcollector\\collector',
@@ -11434,8 +11446,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'phpunit\\runner\\deprecationcollector\\__construct',
         1 => 'phpunit\\runner\\deprecationcollector\\deprecations',
-        2 => 'phpunit\\runner\\deprecationcollector\\testprepared',
-        3 => 'phpunit\\runner\\deprecationcollector\\testtriggereddeprecation',
+        2 => 'phpunit\\runner\\deprecationcollector\\filtereddeprecations',
+        3 => 'phpunit\\runner\\deprecationcollector\\testprepared',
+        4 => 'phpunit\\runner\\deprecationcollector\\testtriggereddeprecation',
       ),
       3 => 
       array (
@@ -11443,7 +11456,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\DeprecationCollector\\Facade.php' => 
     array (
-      0 => 'e61b544c7aea1c99a1703f31355aceda7a79516f',
+      0 => 'c686328e40760583e35f751cf7ac8433ccb142f5',
       1 => 
       array (
         0 => 'phpunit\\runner\\deprecationcollector\\facade',
@@ -11451,8 +11464,10 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'phpunit\\runner\\deprecationcollector\\init',
-        1 => 'phpunit\\runner\\deprecationcollector\\deprecations',
-        2 => 'phpunit\\runner\\deprecationcollector\\collector',
+        1 => 'phpunit\\runner\\deprecationcollector\\initforisolation',
+        2 => 'phpunit\\runner\\deprecationcollector\\deprecations',
+        3 => 'phpunit\\runner\\deprecationcollector\\filtereddeprecations',
+        4 => 'phpunit\\runner\\deprecationcollector\\collector',
       ),
       3 => 
       array (
@@ -11460,7 +11475,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\DeprecationCollector\\Subscriber\\Subscriber.php' => 
     array (
-      0 => 'c9a5f0e04e15c99e68f8372202f771df0c8f30e8',
+      0 => '4ad67587f7f22b591ce92b079a07d54a1665c8c5',
       1 => 
       array (
         0 => 'phpunit\\runner\\deprecationcollector\\subscriber',
@@ -11506,7 +11521,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ErrorHandler.php' => 
     array (
-      0 => 'ec31dccf80bcd09221af713d853822b812856616',
+      0 => 'dc15174a848b5ede6a99a38346856f1e01f37482',
       1 => 
       array (
         0 => 'phpunit\\runner\\errorhandler',
@@ -11726,7 +11741,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Extension\\ExtensionBootstrapper.php' => 
     array (
-      0 => '3984e78877408e818d70ce669cb9ab3a59605efc',
+      0 => 'd2de962841fc90888e065e32567bf7b6c73229b7',
       1 => 
       array (
         0 => 'phpunit\\runner\\extension\\extensionbootstrapper',
@@ -11785,7 +11800,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Extension\\PharLoader.php' => 
     array (
-      0 => '26ea05d2b686e69ccf75cca884348aac86ce76ec',
+      0 => '763092772a7de545b6736e684c2dc9d655977ae4',
       1 => 
       array (
         0 => 'phpunit\\runner\\extension\\pharloader',
@@ -12012,7 +12027,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\HookMethod\\HookMethod.php' => 
     array (
-      0 => 'e50648610e6b9647b7dc8745730a277e79f50a8f',
+      0 => '0a5fe4a26e2a0c075bec0866151998e3028b2cb3',
       1 => 
       array (
         0 => 'phpunit\\runner\\hookmethod',
@@ -12052,7 +12067,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\IssueFilter.php' => 
     array (
-      0 => '4f3d8abe60453f250d22a4ba2e79754dc3cc05ed',
+      0 => '850ea4938a1b2994019fb4fea66b836fc056c5fd',
       1 => 
       array (
         0 => 'phpunit\\testrunner\\issuefilter',
@@ -12068,7 +12083,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\PHPT\\PhptTestCase.php' => 
     array (
-      0 => '850adf3127d28dfc0d9e38baf0a025b8e8e04216',
+      0 => 'e4e29c1b3cd34c0ab22c6cd14d4df58b8e4a7c2b',
       1 => 
       array (
         0 => 'phpunit\\runner\\phpttestcase',
@@ -12099,13 +12114,13 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         21 => 'phpunit\\runner\\parseexternal',
         22 => 'phpunit\\runner\\validate',
         23 => 'phpunit\\runner\\render',
-        24 => 'phpunit\\runner\\getcoveragefiles',
+        24 => 'phpunit\\runner\\coveragefiles',
         25 => 'phpunit\\runner\\renderforcoverage',
         26 => 'phpunit\\runner\\cleanupforcoverage',
         27 => 'phpunit\\runner\\stringifyini',
-        28 => 'phpunit\\runner\\getlocationhintfromdiff',
-        29 => 'phpunit\\runner\\getcleandiffline',
-        30 => 'phpunit\\runner\\getlocationhint',
+        28 => 'phpunit\\runner\\locationhintfromdiff',
+        29 => 'phpunit\\runner\\cleandiffline',
+        30 => 'phpunit\\runner\\locationhint',
         31 => 'phpunit\\runner\\settings',
       ),
       3 => 
@@ -12114,7 +12129,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ResultCache\\DefaultResultCache.php' => 
     array (
-      0 => 'b750302c8ea7e36470a7c4167ffefa317d3d6ad9',
+      0 => '73de6133fdd325f6ea8231b25c27984e01b7b23f',
       1 => 
       array (
         0 => 'phpunit\\runner\\resultcache\\defaultresultcache',
@@ -12126,8 +12141,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'phpunit\\runner\\resultcache\\status',
         3 => 'phpunit\\runner\\resultcache\\settime',
         4 => 'phpunit\\runner\\resultcache\\time',
-        5 => 'phpunit\\runner\\resultcache\\load',
-        6 => 'phpunit\\runner\\resultcache\\persist',
+        5 => 'phpunit\\runner\\resultcache\\mergewith',
+        6 => 'phpunit\\runner\\resultcache\\load',
+        7 => 'phpunit\\runner\\resultcache\\persist',
       ),
       3 => 
       array (
@@ -12135,7 +12151,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ResultCache\\NullResultCache.php' => 
     array (
-      0 => '852c36e0ef2992e7d3535a612db5bc505e5c3a3b',
+      0 => '56715ee15b2becbab40d67e621739636e60eeb48',
       1 => 
       array (
         0 => 'phpunit\\runner\\resultcache\\nullresultcache',
@@ -12155,7 +12171,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ResultCache\\ResultCache.php' => 
     array (
-      0 => '3996b78a4f441ae7508b3632069bda66bba1e595',
+      0 => '7c13140f77317bbd8f45d2321b5135ab076e3167',
       1 => 
       array (
         0 => 'phpunit\\runner\\resultcache\\resultcache',
@@ -12175,7 +12191,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ResultCache\\ResultCacheHandler.php' => 
     array (
-      0 => 'ef1e42c6cd8556a02132b39bbb56f776b92910fd',
+      0 => '8c91ab6f898742542efd3efd715b0abf4c384162',
       1 => 
       array (
         0 => 'phpunit\\runner\\resultcache\\resultcachehandler',
@@ -12352,7 +12368,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestResult\\Collector.php' => 
     array (
-      0 => 'af7f4f286ec7929e73346b06a51fa10479c402cf',
+      0 => 'e622f1d3168e6ff54ccc254d53fc52c472c290dc',
       1 => 
       array (
         0 => 'phpunit\\testrunner\\testresult\\collector',
@@ -12368,32 +12384,33 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         6 => 'phpunit\\testrunner\\testresult\\testprepared',
         7 => 'phpunit\\testrunner\\testresult\\testfinished',
         8 => 'phpunit\\testrunner\\testresult\\beforetestclassmethoderrored',
-        9 => 'phpunit\\testrunner\\testresult\\testerrored',
-        10 => 'phpunit\\testrunner\\testresult\\testfailed',
-        11 => 'phpunit\\testrunner\\testresult\\testmarkedincomplete',
-        12 => 'phpunit\\testrunner\\testresult\\testskipped',
-        13 => 'phpunit\\testrunner\\testresult\\testconsideredrisky',
-        14 => 'phpunit\\testrunner\\testresult\\testtriggereddeprecation',
-        15 => 'phpunit\\testrunner\\testresult\\testtriggeredphpdeprecation',
-        16 => 'phpunit\\testrunner\\testresult\\testtriggeredphpunitdeprecation',
-        17 => 'phpunit\\testrunner\\testresult\\testtriggerederror',
-        18 => 'phpunit\\testrunner\\testresult\\testtriggerednotice',
-        19 => 'phpunit\\testrunner\\testresult\\testtriggeredphpnotice',
-        20 => 'phpunit\\testrunner\\testresult\\testtriggeredwarning',
-        21 => 'phpunit\\testrunner\\testresult\\testtriggeredphpwarning',
-        22 => 'phpunit\\testrunner\\testresult\\testtriggeredphpuniterror',
-        23 => 'phpunit\\testrunner\\testresult\\testtriggeredphpunitwarning',
-        24 => 'phpunit\\testrunner\\testresult\\testrunnertriggereddeprecation',
-        25 => 'phpunit\\testrunner\\testresult\\testrunnertriggeredwarning',
-        26 => 'phpunit\\testrunner\\testresult\\haserroredtests',
-        27 => 'phpunit\\testrunner\\testresult\\hasfailedtests',
-        28 => 'phpunit\\testrunner\\testresult\\hasriskytests',
-        29 => 'phpunit\\testrunner\\testresult\\hasskippedtests',
-        30 => 'phpunit\\testrunner\\testresult\\hasincompletetests',
-        31 => 'phpunit\\testrunner\\testresult\\hasdeprecations',
-        32 => 'phpunit\\testrunner\\testresult\\hasnotices',
-        33 => 'phpunit\\testrunner\\testresult\\haswarnings',
-        34 => 'phpunit\\testrunner\\testresult\\issueid',
+        9 => 'phpunit\\testrunner\\testresult\\aftertestclassmethoderrored',
+        10 => 'phpunit\\testrunner\\testresult\\testerrored',
+        11 => 'phpunit\\testrunner\\testresult\\testfailed',
+        12 => 'phpunit\\testrunner\\testresult\\testmarkedincomplete',
+        13 => 'phpunit\\testrunner\\testresult\\testskipped',
+        14 => 'phpunit\\testrunner\\testresult\\testconsideredrisky',
+        15 => 'phpunit\\testrunner\\testresult\\testtriggereddeprecation',
+        16 => 'phpunit\\testrunner\\testresult\\testtriggeredphpdeprecation',
+        17 => 'phpunit\\testrunner\\testresult\\testtriggeredphpunitdeprecation',
+        18 => 'phpunit\\testrunner\\testresult\\testtriggerederror',
+        19 => 'phpunit\\testrunner\\testresult\\testtriggerednotice',
+        20 => 'phpunit\\testrunner\\testresult\\testtriggeredphpnotice',
+        21 => 'phpunit\\testrunner\\testresult\\testtriggeredwarning',
+        22 => 'phpunit\\testrunner\\testresult\\testtriggeredphpwarning',
+        23 => 'phpunit\\testrunner\\testresult\\testtriggeredphpuniterror',
+        24 => 'phpunit\\testrunner\\testresult\\testtriggeredphpunitwarning',
+        25 => 'phpunit\\testrunner\\testresult\\testrunnertriggereddeprecation',
+        26 => 'phpunit\\testrunner\\testresult\\testrunnertriggeredwarning',
+        27 => 'phpunit\\testrunner\\testresult\\haserroredtests',
+        28 => 'phpunit\\testrunner\\testresult\\hasfailedtests',
+        29 => 'phpunit\\testrunner\\testresult\\hasriskytests',
+        30 => 'phpunit\\testrunner\\testresult\\hasskippedtests',
+        31 => 'phpunit\\testrunner\\testresult\\hasincompletetests',
+        32 => 'phpunit\\testrunner\\testresult\\hasdeprecations',
+        33 => 'phpunit\\testrunner\\testresult\\hasnotices',
+        34 => 'phpunit\\testrunner\\testresult\\haswarnings',
+        35 => 'phpunit\\testrunner\\testresult\\issueid',
       ),
       3 => 
       array (
@@ -12401,7 +12418,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestResult\\Facade.php' => 
     array (
-      0 => '9f56ac360565987dc6ac71e43946010f13ab142b',
+      0 => '8bd536dc20d1f336aa09cddf78fae8e03dfab777',
       1 => 
       array (
         0 => 'phpunit\\testrunner\\testresult\\facade',
@@ -12444,7 +12461,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestResult\\PassedTests.php' => 
     array (
-      0 => '8ab13036866b58448baa6ea7b9813c06caff5b2d',
+      0 => '50468da341d59951c758687f5af50707c37fa8be',
       1 => 
       array (
         0 => 'phpunit\\testrunner\\testresult\\passedtests',
@@ -12458,7 +12475,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'phpunit\\testrunner\\testresult\\hastestclasspassed',
         5 => 'phpunit\\testrunner\\testresult\\hastestmethodpassed',
         6 => 'phpunit\\testrunner\\testresult\\isgreaterthan',
-        7 => 'phpunit\\testrunner\\testresult\\returnvalue',
+        7 => 'phpunit\\testrunner\\testresult\\hasreturnvalue',
+        8 => 'phpunit\\testrunner\\testresult\\returnvalue',
       ),
       3 => 
       array (
@@ -12842,7 +12860,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestResult\\TestResult.php' => 
     array (
-      0 => 'dd6eb03cf61582e9355fd5561300c50361a305e7',
+      0 => '6e17ade6ee4f752be6997c4702358787a466382d',
       1 => 
       array (
         0 => 'phpunit\\testrunner\\testresult\\testresult',
@@ -12886,34 +12904,35 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         34 => 'phpunit\\testrunner\\testresult\\numberoftestrunnertriggeredwarningevents',
         35 => 'phpunit\\testrunner\\testresult\\hastestrunnertriggeredwarningevents',
         36 => 'phpunit\\testrunner\\testresult\\wassuccessful',
-        37 => 'phpunit\\testrunner\\testresult\\wassuccessfulignoringphpunitwarnings',
-        38 => 'phpunit\\testrunner\\testresult\\wassuccessfulandnotesthasissues',
-        39 => 'phpunit\\testrunner\\testresult\\hastestswithissues',
-        40 => 'phpunit\\testrunner\\testresult\\errors',
-        41 => 'phpunit\\testrunner\\testresult\\deprecations',
-        42 => 'phpunit\\testrunner\\testresult\\notices',
-        43 => 'phpunit\\testrunner\\testresult\\warnings',
-        44 => 'phpunit\\testrunner\\testresult\\phpdeprecations',
-        45 => 'phpunit\\testrunner\\testresult\\phpnotices',
-        46 => 'phpunit\\testrunner\\testresult\\phpwarnings',
-        47 => 'phpunit\\testrunner\\testresult\\hastests',
-        48 => 'phpunit\\testrunner\\testresult\\haserrors',
-        49 => 'phpunit\\testrunner\\testresult\\numberoferrors',
-        50 => 'phpunit\\testrunner\\testresult\\hasdeprecations',
-        51 => 'phpunit\\testrunner\\testresult\\hasphporuserdeprecations',
-        52 => 'phpunit\\testrunner\\testresult\\numberofphporuserdeprecations',
-        53 => 'phpunit\\testrunner\\testresult\\hasphpunitdeprecations',
-        54 => 'phpunit\\testrunner\\testresult\\numberofphpunitdeprecations',
-        55 => 'phpunit\\testrunner\\testresult\\numberofdeprecations',
-        56 => 'phpunit\\testrunner\\testresult\\hasnotices',
-        57 => 'phpunit\\testrunner\\testresult\\numberofnotices',
-        58 => 'phpunit\\testrunner\\testresult\\haswarnings',
-        59 => 'phpunit\\testrunner\\testresult\\numberofwarnings',
-        60 => 'phpunit\\testrunner\\testresult\\hasincompletetests',
-        61 => 'phpunit\\testrunner\\testresult\\hasriskytests',
-        62 => 'phpunit\\testrunner\\testresult\\hasskippedtests',
-        63 => 'phpunit\\testrunner\\testresult\\hasissuesignoredbybaseline',
-        64 => 'phpunit\\testrunner\\testresult\\numberofissuesignoredbybaseline',
+        37 => 'phpunit\\testrunner\\testresult\\hasissues',
+        38 => 'phpunit\\testrunner\\testresult\\hastestswithissues',
+        39 => 'phpunit\\testrunner\\testresult\\errors',
+        40 => 'phpunit\\testrunner\\testresult\\deprecations',
+        41 => 'phpunit\\testrunner\\testresult\\notices',
+        42 => 'phpunit\\testrunner\\testresult\\warnings',
+        43 => 'phpunit\\testrunner\\testresult\\phpdeprecations',
+        44 => 'phpunit\\testrunner\\testresult\\phpnotices',
+        45 => 'phpunit\\testrunner\\testresult\\phpwarnings',
+        46 => 'phpunit\\testrunner\\testresult\\hastests',
+        47 => 'phpunit\\testrunner\\testresult\\haserrors',
+        48 => 'phpunit\\testrunner\\testresult\\numberoferrors',
+        49 => 'phpunit\\testrunner\\testresult\\hasdeprecations',
+        50 => 'phpunit\\testrunner\\testresult\\hasphporuserdeprecations',
+        51 => 'phpunit\\testrunner\\testresult\\numberofphporuserdeprecations',
+        52 => 'phpunit\\testrunner\\testresult\\hasphpunitdeprecations',
+        53 => 'phpunit\\testrunner\\testresult\\numberofphpunitdeprecations',
+        54 => 'phpunit\\testrunner\\testresult\\hasphpunitwarnings',
+        55 => 'phpunit\\testrunner\\testresult\\numberofphpunitwarnings',
+        56 => 'phpunit\\testrunner\\testresult\\numberofdeprecations',
+        57 => 'phpunit\\testrunner\\testresult\\hasnotices',
+        58 => 'phpunit\\testrunner\\testresult\\numberofnotices',
+        59 => 'phpunit\\testrunner\\testresult\\haswarnings',
+        60 => 'phpunit\\testrunner\\testresult\\numberofwarnings',
+        61 => 'phpunit\\testrunner\\testresult\\hasincompletetests',
+        62 => 'phpunit\\testrunner\\testresult\\hasriskytests',
+        63 => 'phpunit\\testrunner\\testresult\\hasskippedtests',
+        64 => 'phpunit\\testrunner\\testresult\\hasissuesignoredbybaseline',
+        65 => 'phpunit\\testrunner\\testresult\\numberofissuesignoredbybaseline',
       ),
       3 => 
       array (
@@ -12938,7 +12957,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestSuiteSorter.php' => 
     array (
-      0 => '08bc237662d814bacb6c8ad6657e3dd37b842527',
+      0 => '5a34c592c035bb0aeda66e40601b41567056c1e9',
       1 => 
       array (
         0 => 'phpunit\\runner\\testsuitesorter',
@@ -12968,7 +12987,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Version.php' => 
     array (
-      0 => '90161ce2391e7e0436f80e590ba17435e4308249',
+      0 => '1ca7b2538ec5c49ade3614d97551838edd299f47',
       1 => 
       array (
         0 => 'phpunit\\runner\\version',
@@ -12986,7 +13005,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php' => 
     array (
-      0 => 'f12414e2f75785979bf8a505c6487b6ac0826c0d',
+      0 => '531cf19c986dd7c12735d9e7e2b6b0a895f7c2f9',
       1 => 
       array (
         0 => 'phpunit\\textui\\application',
@@ -13069,7 +13088,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Command\\Commands\\ListGroupsCommand.php' => 
     array (
-      0 => '99a2edbaf173e88d07cc17bc661e2c7ff94e30a5',
+      0 => '04db0cd699b49ddaa9953d341e3524bfce74100a',
       1 => 
       array (
         0 => 'phpunit\\textui\\command\\listgroupscommand',
@@ -13117,7 +13136,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Command\\Commands\\ListTestsAsXmlCommand.php' => 
     array (
-      0 => '665d59a381af5eee30a7a3766a6d7447160f3f72',
+      0 => 'cb1518c8e3c82b2e1b07483f90d22c54639a3b0b',
       1 => 
       array (
         0 => 'phpunit\\textui\\command\\listtestsasxmlcommand',
@@ -13133,7 +13152,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Command\\Commands\\ListTestSuitesCommand.php' => 
     array (
-      0 => '67faf7f9c2ad3912ec917375e07f100c5893f6dd',
+      0 => '54c4e2084a7231661fc33b9980e33431f91343b9',
       1 => 
       array (
         0 => 'phpunit\\textui\\command\\listtestsuitescommand',
@@ -13262,7 +13281,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Cli\\Builder.php' => 
     array (
-      0 => '299d1c598668b0ea5ed4622ca3fcfbb3dcca9357',
+      0 => '71701489130524965e140d9cdd88c2ba60fe71e9',
       1 => 
       array (
         0 => 'phpunit\\textui\\cliarguments\\builder',
@@ -13271,6 +13290,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'phpunit\\textui\\cliarguments\\fromparameters',
         1 => 'phpunit\\textui\\cliarguments\\markprocessed',
+        2 => 'phpunit\\textui\\cliarguments\\warnwhenoptionsconflict',
       ),
       3 => 
       array (
@@ -13278,7 +13298,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Cli\\Configuration.php' => 
     array (
-      0 => '4390757920a44f504441e433391d0dacfb894f15',
+      0 => '558ae43461644aff0bdc4508fbd1d9e577ed93f8',
       1 => 
       array (
         0 => 'phpunit\\textui\\cliarguments\\configuration',
@@ -13301,185 +13321,210 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         13 => 'phpunit\\textui\\cliarguments\\cachedirectory',
         14 => 'phpunit\\textui\\cliarguments\\hascacheresult',
         15 => 'phpunit\\textui\\cliarguments\\cacheresult',
-        16 => 'phpunit\\textui\\cliarguments\\checkversion',
-        17 => 'phpunit\\textui\\cliarguments\\hascolors',
-        18 => 'phpunit\\textui\\cliarguments\\colors',
-        19 => 'phpunit\\textui\\cliarguments\\hascolumns',
-        20 => 'phpunit\\textui\\cliarguments\\columns',
-        21 => 'phpunit\\textui\\cliarguments\\hasconfigurationfile',
-        22 => 'phpunit\\textui\\cliarguments\\configurationfile',
-        23 => 'phpunit\\textui\\cliarguments\\hascoveragefilter',
-        24 => 'phpunit\\textui\\cliarguments\\coveragefilter',
-        25 => 'phpunit\\textui\\cliarguments\\hascoverageclover',
-        26 => 'phpunit\\textui\\cliarguments\\coverageclover',
-        27 => 'phpunit\\textui\\cliarguments\\hascoveragecobertura',
-        28 => 'phpunit\\textui\\cliarguments\\coveragecobertura',
-        29 => 'phpunit\\textui\\cliarguments\\hascoveragecrap4j',
-        30 => 'phpunit\\textui\\cliarguments\\coveragecrap4j',
-        31 => 'phpunit\\textui\\cliarguments\\hascoveragehtml',
-        32 => 'phpunit\\textui\\cliarguments\\coveragehtml',
-        33 => 'phpunit\\textui\\cliarguments\\hascoveragephp',
-        34 => 'phpunit\\textui\\cliarguments\\coveragephp',
-        35 => 'phpunit\\textui\\cliarguments\\hascoveragetext',
-        36 => 'phpunit\\textui\\cliarguments\\coveragetext',
-        37 => 'phpunit\\textui\\cliarguments\\hascoveragetextshowuncoveredfiles',
-        38 => 'phpunit\\textui\\cliarguments\\coveragetextshowuncoveredfiles',
-        39 => 'phpunit\\textui\\cliarguments\\hascoveragetextshowonlysummary',
-        40 => 'phpunit\\textui\\cliarguments\\coveragetextshowonlysummary',
-        41 => 'phpunit\\textui\\cliarguments\\hascoveragexml',
-        42 => 'phpunit\\textui\\cliarguments\\coveragexml',
-        43 => 'phpunit\\textui\\cliarguments\\haspathcoverage',
-        44 => 'phpunit\\textui\\cliarguments\\pathcoverage',
-        45 => 'phpunit\\textui\\cliarguments\\warmcoveragecache',
-        46 => 'phpunit\\textui\\cliarguments\\hasdefaulttimelimit',
-        47 => 'phpunit\\textui\\cliarguments\\defaulttimelimit',
-        48 => 'phpunit\\textui\\cliarguments\\hasdisablecodecoverageignore',
-        49 => 'phpunit\\textui\\cliarguments\\disablecodecoverageignore',
-        50 => 'phpunit\\textui\\cliarguments\\hasdisallowtestoutput',
-        51 => 'phpunit\\textui\\cliarguments\\disallowtestoutput',
-        52 => 'phpunit\\textui\\cliarguments\\hasenforcetimelimit',
-        53 => 'phpunit\\textui\\cliarguments\\enforcetimelimit',
-        54 => 'phpunit\\textui\\cliarguments\\hasexcludegroups',
-        55 => 'phpunit\\textui\\cliarguments\\excludegroups',
-        56 => 'phpunit\\textui\\cliarguments\\hasexecutionorder',
-        57 => 'phpunit\\textui\\cliarguments\\executionorder',
-        58 => 'phpunit\\textui\\cliarguments\\hasexecutionorderdefects',
-        59 => 'phpunit\\textui\\cliarguments\\executionorderdefects',
-        60 => 'phpunit\\textui\\cliarguments\\hasfailondeprecation',
-        61 => 'phpunit\\textui\\cliarguments\\failondeprecation',
-        62 => 'phpunit\\textui\\cliarguments\\hasfailonphpunitdeprecation',
-        63 => 'phpunit\\textui\\cliarguments\\failonphpunitdeprecation',
-        64 => 'phpunit\\textui\\cliarguments\\hasfailonemptytestsuite',
-        65 => 'phpunit\\textui\\cliarguments\\failonemptytestsuite',
-        66 => 'phpunit\\textui\\cliarguments\\hasfailonincomplete',
-        67 => 'phpunit\\textui\\cliarguments\\failonincomplete',
-        68 => 'phpunit\\textui\\cliarguments\\hasfailonnotice',
-        69 => 'phpunit\\textui\\cliarguments\\failonnotice',
-        70 => 'phpunit\\textui\\cliarguments\\hasfailonrisky',
-        71 => 'phpunit\\textui\\cliarguments\\failonrisky',
-        72 => 'phpunit\\textui\\cliarguments\\hasfailonskipped',
-        73 => 'phpunit\\textui\\cliarguments\\failonskipped',
-        74 => 'phpunit\\textui\\cliarguments\\hasfailonwarning',
-        75 => 'phpunit\\textui\\cliarguments\\failonwarning',
-        76 => 'phpunit\\textui\\cliarguments\\hasstopondefect',
-        77 => 'phpunit\\textui\\cliarguments\\stopondefect',
-        78 => 'phpunit\\textui\\cliarguments\\hasstopondeprecation',
-        79 => 'phpunit\\textui\\cliarguments\\stopondeprecation',
-        80 => 'phpunit\\textui\\cliarguments\\hasspecificdeprecationtostopon',
-        81 => 'phpunit\\textui\\cliarguments\\specificdeprecationtostopon',
-        82 => 'phpunit\\textui\\cliarguments\\hasstoponerror',
-        83 => 'phpunit\\textui\\cliarguments\\stoponerror',
-        84 => 'phpunit\\textui\\cliarguments\\hasstoponfailure',
-        85 => 'phpunit\\textui\\cliarguments\\stoponfailure',
-        86 => 'phpunit\\textui\\cliarguments\\hasstoponincomplete',
-        87 => 'phpunit\\textui\\cliarguments\\stoponincomplete',
-        88 => 'phpunit\\textui\\cliarguments\\hasstoponnotice',
-        89 => 'phpunit\\textui\\cliarguments\\stoponnotice',
-        90 => 'phpunit\\textui\\cliarguments\\hasstoponrisky',
-        91 => 'phpunit\\textui\\cliarguments\\stoponrisky',
-        92 => 'phpunit\\textui\\cliarguments\\hasstoponskipped',
-        93 => 'phpunit\\textui\\cliarguments\\stoponskipped',
-        94 => 'phpunit\\textui\\cliarguments\\hasstoponwarning',
-        95 => 'phpunit\\textui\\cliarguments\\stoponwarning',
-        96 => 'phpunit\\textui\\cliarguments\\hasexcludefilter',
-        97 => 'phpunit\\textui\\cliarguments\\excludefilter',
-        98 => 'phpunit\\textui\\cliarguments\\hasfilter',
-        99 => 'phpunit\\textui\\cliarguments\\filter',
-        100 => 'phpunit\\textui\\cliarguments\\hasgeneratebaseline',
-        101 => 'phpunit\\textui\\cliarguments\\generatebaseline',
-        102 => 'phpunit\\textui\\cliarguments\\hasusebaseline',
-        103 => 'phpunit\\textui\\cliarguments\\usebaseline',
-        104 => 'phpunit\\textui\\cliarguments\\ignorebaseline',
-        105 => 'phpunit\\textui\\cliarguments\\generateconfiguration',
-        106 => 'phpunit\\textui\\cliarguments\\migrateconfiguration',
-        107 => 'phpunit\\textui\\cliarguments\\hasgroups',
-        108 => 'phpunit\\textui\\cliarguments\\groups',
-        109 => 'phpunit\\textui\\cliarguments\\hastestscovering',
-        110 => 'phpunit\\textui\\cliarguments\\testscovering',
-        111 => 'phpunit\\textui\\cliarguments\\hastestsusing',
-        112 => 'phpunit\\textui\\cliarguments\\testsusing',
-        113 => 'phpunit\\textui\\cliarguments\\hastestsrequiringphpextension',
-        114 => 'phpunit\\textui\\cliarguments\\testsrequiringphpextension',
-        115 => 'phpunit\\textui\\cliarguments\\help',
-        116 => 'phpunit\\textui\\cliarguments\\hasincludepath',
-        117 => 'phpunit\\textui\\cliarguments\\includepath',
-        118 => 'phpunit\\textui\\cliarguments\\hasinisettings',
-        119 => 'phpunit\\textui\\cliarguments\\inisettings',
-        120 => 'phpunit\\textui\\cliarguments\\hasjunitlogfile',
-        121 => 'phpunit\\textui\\cliarguments\\junitlogfile',
-        122 => 'phpunit\\textui\\cliarguments\\listgroups',
-        123 => 'phpunit\\textui\\cliarguments\\listsuites',
-        124 => 'phpunit\\textui\\cliarguments\\listtestfiles',
-        125 => 'phpunit\\textui\\cliarguments\\listtests',
-        126 => 'phpunit\\textui\\cliarguments\\haslisttestsxml',
-        127 => 'phpunit\\textui\\cliarguments\\listtestsxml',
-        128 => 'phpunit\\textui\\cliarguments\\hasnocoverage',
-        129 => 'phpunit\\textui\\cliarguments\\nocoverage',
-        130 => 'phpunit\\textui\\cliarguments\\hasnoextensions',
-        131 => 'phpunit\\textui\\cliarguments\\noextensions',
-        132 => 'phpunit\\textui\\cliarguments\\hasnooutput',
-        133 => 'phpunit\\textui\\cliarguments\\nooutput',
-        134 => 'phpunit\\textui\\cliarguments\\hasnoprogress',
-        135 => 'phpunit\\textui\\cliarguments\\noprogress',
-        136 => 'phpunit\\textui\\cliarguments\\hasnoresults',
-        137 => 'phpunit\\textui\\cliarguments\\noresults',
-        138 => 'phpunit\\textui\\cliarguments\\hasnologging',
-        139 => 'phpunit\\textui\\cliarguments\\nologging',
-        140 => 'phpunit\\textui\\cliarguments\\hasprocessisolation',
-        141 => 'phpunit\\textui\\cliarguments\\processisolation',
-        142 => 'phpunit\\textui\\cliarguments\\hasrandomorderseed',
-        143 => 'phpunit\\textui\\cliarguments\\randomorderseed',
-        144 => 'phpunit\\textui\\cliarguments\\hasreportuselesstests',
-        145 => 'phpunit\\textui\\cliarguments\\reportuselesstests',
-        146 => 'phpunit\\textui\\cliarguments\\hasresolvedependencies',
-        147 => 'phpunit\\textui\\cliarguments\\resolvedependencies',
-        148 => 'phpunit\\textui\\cliarguments\\hasreverselist',
-        149 => 'phpunit\\textui\\cliarguments\\reverselist',
-        150 => 'phpunit\\textui\\cliarguments\\hasstderr',
-        151 => 'phpunit\\textui\\cliarguments\\stderr',
-        152 => 'phpunit\\textui\\cliarguments\\hasstrictcoverage',
-        153 => 'phpunit\\textui\\cliarguments\\strictcoverage',
-        154 => 'phpunit\\textui\\cliarguments\\hasteamcitylogfile',
-        155 => 'phpunit\\textui\\cliarguments\\teamcitylogfile',
-        156 => 'phpunit\\textui\\cliarguments\\hasteamcityprinter',
-        157 => 'phpunit\\textui\\cliarguments\\teamcityprinter',
-        158 => 'phpunit\\textui\\cliarguments\\hastestdoxhtmlfile',
-        159 => 'phpunit\\textui\\cliarguments\\testdoxhtmlfile',
-        160 => 'phpunit\\textui\\cliarguments\\hastestdoxtextfile',
-        161 => 'phpunit\\textui\\cliarguments\\testdoxtextfile',
-        162 => 'phpunit\\textui\\cliarguments\\hastestdoxprinter',
-        163 => 'phpunit\\textui\\cliarguments\\testdoxprinter',
-        164 => 'phpunit\\textui\\cliarguments\\hastestdoxprintersummary',
-        165 => 'phpunit\\textui\\cliarguments\\testdoxprintersummary',
-        166 => 'phpunit\\textui\\cliarguments\\hastestsuffixes',
-        167 => 'phpunit\\textui\\cliarguments\\testsuffixes',
-        168 => 'phpunit\\textui\\cliarguments\\hastestsuite',
-        169 => 'phpunit\\textui\\cliarguments\\testsuite',
-        170 => 'phpunit\\textui\\cliarguments\\hasexcludedtestsuite',
-        171 => 'phpunit\\textui\\cliarguments\\excludedtestsuite',
-        172 => 'phpunit\\textui\\cliarguments\\usedefaultconfiguration',
-        173 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonincompletetests',
-        174 => 'phpunit\\textui\\cliarguments\\displaydetailsonincompletetests',
-        175 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonskippedtests',
-        176 => 'phpunit\\textui\\cliarguments\\displaydetailsonskippedtests',
-        177 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggerdeprecations',
-        178 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggerdeprecations',
-        179 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonphpunitdeprecations',
-        180 => 'phpunit\\textui\\cliarguments\\displaydetailsonphpunitdeprecations',
-        181 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggererrors',
-        182 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggererrors',
-        183 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggernotices',
-        184 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggernotices',
-        185 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggerwarnings',
-        186 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggerwarnings',
-        187 => 'phpunit\\textui\\cliarguments\\version',
-        188 => 'phpunit\\textui\\cliarguments\\haslogeventstext',
-        189 => 'phpunit\\textui\\cliarguments\\logeventstext',
-        190 => 'phpunit\\textui\\cliarguments\\haslogeventsverbosetext',
-        191 => 'phpunit\\textui\\cliarguments\\logeventsverbosetext',
-        192 => 'phpunit\\textui\\cliarguments\\debug',
-        193 => 'phpunit\\textui\\cliarguments\\hasextensions',
-        194 => 'phpunit\\textui\\cliarguments\\extensions',
+        16 => 'phpunit\\textui\\cliarguments\\checkphpconfiguration',
+        17 => 'phpunit\\textui\\cliarguments\\checkversion',
+        18 => 'phpunit\\textui\\cliarguments\\hascolors',
+        19 => 'phpunit\\textui\\cliarguments\\colors',
+        20 => 'phpunit\\textui\\cliarguments\\hascolumns',
+        21 => 'phpunit\\textui\\cliarguments\\columns',
+        22 => 'phpunit\\textui\\cliarguments\\hasconfigurationfile',
+        23 => 'phpunit\\textui\\cliarguments\\configurationfile',
+        24 => 'phpunit\\textui\\cliarguments\\hascoveragefilter',
+        25 => 'phpunit\\textui\\cliarguments\\coveragefilter',
+        26 => 'phpunit\\textui\\cliarguments\\hascoverageclover',
+        27 => 'phpunit\\textui\\cliarguments\\coverageclover',
+        28 => 'phpunit\\textui\\cliarguments\\hascoveragecobertura',
+        29 => 'phpunit\\textui\\cliarguments\\coveragecobertura',
+        30 => 'phpunit\\textui\\cliarguments\\hascoveragecrap4j',
+        31 => 'phpunit\\textui\\cliarguments\\coveragecrap4j',
+        32 => 'phpunit\\textui\\cliarguments\\hascoveragehtml',
+        33 => 'phpunit\\textui\\cliarguments\\coveragehtml',
+        34 => 'phpunit\\textui\\cliarguments\\hascoveragephp',
+        35 => 'phpunit\\textui\\cliarguments\\coveragephp',
+        36 => 'phpunit\\textui\\cliarguments\\hascoveragetext',
+        37 => 'phpunit\\textui\\cliarguments\\coveragetext',
+        38 => 'phpunit\\textui\\cliarguments\\hascoveragetextshowuncoveredfiles',
+        39 => 'phpunit\\textui\\cliarguments\\coveragetextshowuncoveredfiles',
+        40 => 'phpunit\\textui\\cliarguments\\hascoveragetextshowonlysummary',
+        41 => 'phpunit\\textui\\cliarguments\\coveragetextshowonlysummary',
+        42 => 'phpunit\\textui\\cliarguments\\hascoveragexml',
+        43 => 'phpunit\\textui\\cliarguments\\coveragexml',
+        44 => 'phpunit\\textui\\cliarguments\\haspathcoverage',
+        45 => 'phpunit\\textui\\cliarguments\\pathcoverage',
+        46 => 'phpunit\\textui\\cliarguments\\warmcoveragecache',
+        47 => 'phpunit\\textui\\cliarguments\\hasdefaulttimelimit',
+        48 => 'phpunit\\textui\\cliarguments\\defaulttimelimit',
+        49 => 'phpunit\\textui\\cliarguments\\hasdisablecodecoverageignore',
+        50 => 'phpunit\\textui\\cliarguments\\disablecodecoverageignore',
+        51 => 'phpunit\\textui\\cliarguments\\hasdisallowtestoutput',
+        52 => 'phpunit\\textui\\cliarguments\\disallowtestoutput',
+        53 => 'phpunit\\textui\\cliarguments\\hasenforcetimelimit',
+        54 => 'phpunit\\textui\\cliarguments\\enforcetimelimit',
+        55 => 'phpunit\\textui\\cliarguments\\hasexcludegroups',
+        56 => 'phpunit\\textui\\cliarguments\\excludegroups',
+        57 => 'phpunit\\textui\\cliarguments\\hasexecutionorder',
+        58 => 'phpunit\\textui\\cliarguments\\executionorder',
+        59 => 'phpunit\\textui\\cliarguments\\hasexecutionorderdefects',
+        60 => 'phpunit\\textui\\cliarguments\\executionorderdefects',
+        61 => 'phpunit\\textui\\cliarguments\\hasfailonallissues',
+        62 => 'phpunit\\textui\\cliarguments\\failonallissues',
+        63 => 'phpunit\\textui\\cliarguments\\hasfailondeprecation',
+        64 => 'phpunit\\textui\\cliarguments\\failondeprecation',
+        65 => 'phpunit\\textui\\cliarguments\\hasfailonphpunitdeprecation',
+        66 => 'phpunit\\textui\\cliarguments\\failonphpunitdeprecation',
+        67 => 'phpunit\\textui\\cliarguments\\hasfailonphpunitwarning',
+        68 => 'phpunit\\textui\\cliarguments\\failonphpunitwarning',
+        69 => 'phpunit\\textui\\cliarguments\\hasfailonemptytestsuite',
+        70 => 'phpunit\\textui\\cliarguments\\failonemptytestsuite',
+        71 => 'phpunit\\textui\\cliarguments\\hasfailonincomplete',
+        72 => 'phpunit\\textui\\cliarguments\\failonincomplete',
+        73 => 'phpunit\\textui\\cliarguments\\hasfailonnotice',
+        74 => 'phpunit\\textui\\cliarguments\\failonnotice',
+        75 => 'phpunit\\textui\\cliarguments\\hasfailonrisky',
+        76 => 'phpunit\\textui\\cliarguments\\failonrisky',
+        77 => 'phpunit\\textui\\cliarguments\\hasfailonskipped',
+        78 => 'phpunit\\textui\\cliarguments\\failonskipped',
+        79 => 'phpunit\\textui\\cliarguments\\hasfailonwarning',
+        80 => 'phpunit\\textui\\cliarguments\\failonwarning',
+        81 => 'phpunit\\textui\\cliarguments\\hasdonotfailondeprecation',
+        82 => 'phpunit\\textui\\cliarguments\\donotfailondeprecation',
+        83 => 'phpunit\\textui\\cliarguments\\hasdonotfailonphpunitdeprecation',
+        84 => 'phpunit\\textui\\cliarguments\\donotfailonphpunitdeprecation',
+        85 => 'phpunit\\textui\\cliarguments\\hasdonotfailonphpunitwarning',
+        86 => 'phpunit\\textui\\cliarguments\\donotfailonphpunitwarning',
+        87 => 'phpunit\\textui\\cliarguments\\hasdonotfailonemptytestsuite',
+        88 => 'phpunit\\textui\\cliarguments\\donotfailonemptytestsuite',
+        89 => 'phpunit\\textui\\cliarguments\\hasdonotfailonincomplete',
+        90 => 'phpunit\\textui\\cliarguments\\donotfailonincomplete',
+        91 => 'phpunit\\textui\\cliarguments\\hasdonotfailonnotice',
+        92 => 'phpunit\\textui\\cliarguments\\donotfailonnotice',
+        93 => 'phpunit\\textui\\cliarguments\\hasdonotfailonrisky',
+        94 => 'phpunit\\textui\\cliarguments\\donotfailonrisky',
+        95 => 'phpunit\\textui\\cliarguments\\hasdonotfailonskipped',
+        96 => 'phpunit\\textui\\cliarguments\\donotfailonskipped',
+        97 => 'phpunit\\textui\\cliarguments\\hasdonotfailonwarning',
+        98 => 'phpunit\\textui\\cliarguments\\donotfailonwarning',
+        99 => 'phpunit\\textui\\cliarguments\\hasstopondefect',
+        100 => 'phpunit\\textui\\cliarguments\\stopondefect',
+        101 => 'phpunit\\textui\\cliarguments\\hasstopondeprecation',
+        102 => 'phpunit\\textui\\cliarguments\\stopondeprecation',
+        103 => 'phpunit\\textui\\cliarguments\\hasspecificdeprecationtostopon',
+        104 => 'phpunit\\textui\\cliarguments\\specificdeprecationtostopon',
+        105 => 'phpunit\\textui\\cliarguments\\hasstoponerror',
+        106 => 'phpunit\\textui\\cliarguments\\stoponerror',
+        107 => 'phpunit\\textui\\cliarguments\\hasstoponfailure',
+        108 => 'phpunit\\textui\\cliarguments\\stoponfailure',
+        109 => 'phpunit\\textui\\cliarguments\\hasstoponincomplete',
+        110 => 'phpunit\\textui\\cliarguments\\stoponincomplete',
+        111 => 'phpunit\\textui\\cliarguments\\hasstoponnotice',
+        112 => 'phpunit\\textui\\cliarguments\\stoponnotice',
+        113 => 'phpunit\\textui\\cliarguments\\hasstoponrisky',
+        114 => 'phpunit\\textui\\cliarguments\\stoponrisky',
+        115 => 'phpunit\\textui\\cliarguments\\hasstoponskipped',
+        116 => 'phpunit\\textui\\cliarguments\\stoponskipped',
+        117 => 'phpunit\\textui\\cliarguments\\hasstoponwarning',
+        118 => 'phpunit\\textui\\cliarguments\\stoponwarning',
+        119 => 'phpunit\\textui\\cliarguments\\hasexcludefilter',
+        120 => 'phpunit\\textui\\cliarguments\\excludefilter',
+        121 => 'phpunit\\textui\\cliarguments\\hasfilter',
+        122 => 'phpunit\\textui\\cliarguments\\filter',
+        123 => 'phpunit\\textui\\cliarguments\\hasgeneratebaseline',
+        124 => 'phpunit\\textui\\cliarguments\\generatebaseline',
+        125 => 'phpunit\\textui\\cliarguments\\hasusebaseline',
+        126 => 'phpunit\\textui\\cliarguments\\usebaseline',
+        127 => 'phpunit\\textui\\cliarguments\\ignorebaseline',
+        128 => 'phpunit\\textui\\cliarguments\\generateconfiguration',
+        129 => 'phpunit\\textui\\cliarguments\\migrateconfiguration',
+        130 => 'phpunit\\textui\\cliarguments\\hasgroups',
+        131 => 'phpunit\\textui\\cliarguments\\groups',
+        132 => 'phpunit\\textui\\cliarguments\\hastestscovering',
+        133 => 'phpunit\\textui\\cliarguments\\testscovering',
+        134 => 'phpunit\\textui\\cliarguments\\hastestsusing',
+        135 => 'phpunit\\textui\\cliarguments\\testsusing',
+        136 => 'phpunit\\textui\\cliarguments\\hastestsrequiringphpextension',
+        137 => 'phpunit\\textui\\cliarguments\\testsrequiringphpextension',
+        138 => 'phpunit\\textui\\cliarguments\\help',
+        139 => 'phpunit\\textui\\cliarguments\\hasincludepath',
+        140 => 'phpunit\\textui\\cliarguments\\includepath',
+        141 => 'phpunit\\textui\\cliarguments\\hasinisettings',
+        142 => 'phpunit\\textui\\cliarguments\\inisettings',
+        143 => 'phpunit\\textui\\cliarguments\\hasjunitlogfile',
+        144 => 'phpunit\\textui\\cliarguments\\junitlogfile',
+        145 => 'phpunit\\textui\\cliarguments\\listgroups',
+        146 => 'phpunit\\textui\\cliarguments\\listsuites',
+        147 => 'phpunit\\textui\\cliarguments\\listtestfiles',
+        148 => 'phpunit\\textui\\cliarguments\\listtests',
+        149 => 'phpunit\\textui\\cliarguments\\haslisttestsxml',
+        150 => 'phpunit\\textui\\cliarguments\\listtestsxml',
+        151 => 'phpunit\\textui\\cliarguments\\hasnocoverage',
+        152 => 'phpunit\\textui\\cliarguments\\nocoverage',
+        153 => 'phpunit\\textui\\cliarguments\\hasnoextensions',
+        154 => 'phpunit\\textui\\cliarguments\\noextensions',
+        155 => 'phpunit\\textui\\cliarguments\\hasnooutput',
+        156 => 'phpunit\\textui\\cliarguments\\nooutput',
+        157 => 'phpunit\\textui\\cliarguments\\hasnoprogress',
+        158 => 'phpunit\\textui\\cliarguments\\noprogress',
+        159 => 'phpunit\\textui\\cliarguments\\hasnoresults',
+        160 => 'phpunit\\textui\\cliarguments\\noresults',
+        161 => 'phpunit\\textui\\cliarguments\\hasnologging',
+        162 => 'phpunit\\textui\\cliarguments\\nologging',
+        163 => 'phpunit\\textui\\cliarguments\\hasprocessisolation',
+        164 => 'phpunit\\textui\\cliarguments\\processisolation',
+        165 => 'phpunit\\textui\\cliarguments\\hasrandomorderseed',
+        166 => 'phpunit\\textui\\cliarguments\\randomorderseed',
+        167 => 'phpunit\\textui\\cliarguments\\hasreportuselesstests',
+        168 => 'phpunit\\textui\\cliarguments\\reportuselesstests',
+        169 => 'phpunit\\textui\\cliarguments\\hasresolvedependencies',
+        170 => 'phpunit\\textui\\cliarguments\\resolvedependencies',
+        171 => 'phpunit\\textui\\cliarguments\\hasreverselist',
+        172 => 'phpunit\\textui\\cliarguments\\reverselist',
+        173 => 'phpunit\\textui\\cliarguments\\hasstderr',
+        174 => 'phpunit\\textui\\cliarguments\\stderr',
+        175 => 'phpunit\\textui\\cliarguments\\hasstrictcoverage',
+        176 => 'phpunit\\textui\\cliarguments\\strictcoverage',
+        177 => 'phpunit\\textui\\cliarguments\\hasteamcitylogfile',
+        178 => 'phpunit\\textui\\cliarguments\\teamcitylogfile',
+        179 => 'phpunit\\textui\\cliarguments\\hasteamcityprinter',
+        180 => 'phpunit\\textui\\cliarguments\\teamcityprinter',
+        181 => 'phpunit\\textui\\cliarguments\\hastestdoxhtmlfile',
+        182 => 'phpunit\\textui\\cliarguments\\testdoxhtmlfile',
+        183 => 'phpunit\\textui\\cliarguments\\hastestdoxtextfile',
+        184 => 'phpunit\\textui\\cliarguments\\testdoxtextfile',
+        185 => 'phpunit\\textui\\cliarguments\\hastestdoxprinter',
+        186 => 'phpunit\\textui\\cliarguments\\testdoxprinter',
+        187 => 'phpunit\\textui\\cliarguments\\hastestdoxprintersummary',
+        188 => 'phpunit\\textui\\cliarguments\\testdoxprintersummary',
+        189 => 'phpunit\\textui\\cliarguments\\hastestsuffixes',
+        190 => 'phpunit\\textui\\cliarguments\\testsuffixes',
+        191 => 'phpunit\\textui\\cliarguments\\hastestsuite',
+        192 => 'phpunit\\textui\\cliarguments\\testsuite',
+        193 => 'phpunit\\textui\\cliarguments\\hasexcludedtestsuite',
+        194 => 'phpunit\\textui\\cliarguments\\excludedtestsuite',
+        195 => 'phpunit\\textui\\cliarguments\\usedefaultconfiguration',
+        196 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonallissues',
+        197 => 'phpunit\\textui\\cliarguments\\displaydetailsonallissues',
+        198 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonincompletetests',
+        199 => 'phpunit\\textui\\cliarguments\\displaydetailsonincompletetests',
+        200 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonskippedtests',
+        201 => 'phpunit\\textui\\cliarguments\\displaydetailsonskippedtests',
+        202 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggerdeprecations',
+        203 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggerdeprecations',
+        204 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonphpunitdeprecations',
+        205 => 'phpunit\\textui\\cliarguments\\displaydetailsonphpunitdeprecations',
+        206 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggererrors',
+        207 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggererrors',
+        208 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggernotices',
+        209 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggernotices',
+        210 => 'phpunit\\textui\\cliarguments\\hasdisplaydetailsonteststhattriggerwarnings',
+        211 => 'phpunit\\textui\\cliarguments\\displaydetailsonteststhattriggerwarnings',
+        212 => 'phpunit\\textui\\cliarguments\\version',
+        213 => 'phpunit\\textui\\cliarguments\\haslogeventstext',
+        214 => 'phpunit\\textui\\cliarguments\\logeventstext',
+        215 => 'phpunit\\textui\\cliarguments\\haslogeventsverbosetext',
+        216 => 'phpunit\\textui\\cliarguments\\logeventsverbosetext',
+        217 => 'phpunit\\textui\\cliarguments\\debug',
+        218 => 'phpunit\\textui\\cliarguments\\hasextensions',
+        219 => 'phpunit\\textui\\cliarguments\\extensions',
       ),
       3 => 
       array (
@@ -13535,7 +13580,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Configuration.php' => 
     array (
-      0 => '7cd839fe7bce66b251c52f7c89cf30960a989549',
+      0 => '92a978fb6f902267ea48483fa70315f382745b3a',
       1 => 
       array (
         0 => 'phpunit\\textui\\configuration\\configuration',
@@ -13586,103 +13631,115 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         41 => 'phpunit\\textui\\configuration\\coveragetextshowonlysummary',
         42 => 'phpunit\\textui\\configuration\\hascoveragexml',
         43 => 'phpunit\\textui\\configuration\\coveragexml',
-        44 => 'phpunit\\textui\\configuration\\failondeprecation',
-        45 => 'phpunit\\textui\\configuration\\failonphpunitdeprecation',
-        46 => 'phpunit\\textui\\configuration\\failonemptytestsuite',
-        47 => 'phpunit\\textui\\configuration\\failonincomplete',
-        48 => 'phpunit\\textui\\configuration\\failonnotice',
-        49 => 'phpunit\\textui\\configuration\\failonrisky',
-        50 => 'phpunit\\textui\\configuration\\failonskipped',
-        51 => 'phpunit\\textui\\configuration\\failonwarning',
-        52 => 'phpunit\\textui\\configuration\\stopondefect',
-        53 => 'phpunit\\textui\\configuration\\stopondeprecation',
-        54 => 'phpunit\\textui\\configuration\\hasspecificdeprecationtostopon',
-        55 => 'phpunit\\textui\\configuration\\specificdeprecationtostopon',
-        56 => 'phpunit\\textui\\configuration\\stoponerror',
-        57 => 'phpunit\\textui\\configuration\\stoponfailure',
-        58 => 'phpunit\\textui\\configuration\\stoponincomplete',
-        59 => 'phpunit\\textui\\configuration\\stoponnotice',
-        60 => 'phpunit\\textui\\configuration\\stoponrisky',
-        61 => 'phpunit\\textui\\configuration\\stoponskipped',
-        62 => 'phpunit\\textui\\configuration\\stoponwarning',
-        63 => 'phpunit\\textui\\configuration\\outputtostandarderrorstream',
-        64 => 'phpunit\\textui\\configuration\\columns',
-        65 => 'phpunit\\textui\\configuration\\noextensions',
-        66 => 'phpunit\\textui\\configuration\\haspharextensiondirectory',
-        67 => 'phpunit\\textui\\configuration\\pharextensiondirectory',
-        68 => 'phpunit\\textui\\configuration\\extensionbootstrappers',
-        69 => 'phpunit\\textui\\configuration\\backupglobals',
-        70 => 'phpunit\\textui\\configuration\\backupstaticproperties',
-        71 => 'phpunit\\textui\\configuration\\bestrictaboutchangestoglobalstate',
-        72 => 'phpunit\\textui\\configuration\\colors',
-        73 => 'phpunit\\textui\\configuration\\processisolation',
-        74 => 'phpunit\\textui\\configuration\\enforcetimelimit',
-        75 => 'phpunit\\textui\\configuration\\defaulttimelimit',
-        76 => 'phpunit\\textui\\configuration\\timeoutforsmalltests',
-        77 => 'phpunit\\textui\\configuration\\timeoutformediumtests',
-        78 => 'phpunit\\textui\\configuration\\timeoutforlargetests',
-        79 => 'phpunit\\textui\\configuration\\reportuselesstests',
-        80 => 'phpunit\\textui\\configuration\\strictcoverage',
-        81 => 'phpunit\\textui\\configuration\\disallowtestoutput',
-        82 => 'phpunit\\textui\\configuration\\displaydetailsonincompletetests',
-        83 => 'phpunit\\textui\\configuration\\displaydetailsonskippedtests',
-        84 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggerdeprecations',
-        85 => 'phpunit\\textui\\configuration\\displaydetailsonphpunitdeprecations',
-        86 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggererrors',
-        87 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggernotices',
-        88 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggerwarnings',
-        89 => 'phpunit\\textui\\configuration\\reversedefectlist',
-        90 => 'phpunit\\textui\\configuration\\requirecoveragemetadata',
-        91 => 'phpunit\\textui\\configuration\\noprogress',
-        92 => 'phpunit\\textui\\configuration\\noresults',
-        93 => 'phpunit\\textui\\configuration\\nooutput',
-        94 => 'phpunit\\textui\\configuration\\executionorder',
-        95 => 'phpunit\\textui\\configuration\\executionorderdefects',
-        96 => 'phpunit\\textui\\configuration\\resolvedependencies',
-        97 => 'phpunit\\textui\\configuration\\haslogfileteamcity',
-        98 => 'phpunit\\textui\\configuration\\logfileteamcity',
-        99 => 'phpunit\\textui\\configuration\\haslogfilejunit',
-        100 => 'phpunit\\textui\\configuration\\logfilejunit',
-        101 => 'phpunit\\textui\\configuration\\haslogfiletestdoxhtml',
-        102 => 'phpunit\\textui\\configuration\\logfiletestdoxhtml',
-        103 => 'phpunit\\textui\\configuration\\haslogfiletestdoxtext',
-        104 => 'phpunit\\textui\\configuration\\logfiletestdoxtext',
-        105 => 'phpunit\\textui\\configuration\\haslogeventstext',
-        106 => 'phpunit\\textui\\configuration\\logeventstext',
-        107 => 'phpunit\\textui\\configuration\\haslogeventsverbosetext',
-        108 => 'phpunit\\textui\\configuration\\logeventsverbosetext',
-        109 => 'phpunit\\textui\\configuration\\outputisteamcity',
-        110 => 'phpunit\\textui\\configuration\\outputistestdox',
-        111 => 'phpunit\\textui\\configuration\\testdoxoutputwithsummary',
-        112 => 'phpunit\\textui\\configuration\\hastestscovering',
-        113 => 'phpunit\\textui\\configuration\\testscovering',
-        114 => 'phpunit\\textui\\configuration\\hastestsusing',
-        115 => 'phpunit\\textui\\configuration\\testsusing',
-        116 => 'phpunit\\textui\\configuration\\hastestsrequiringphpextension',
-        117 => 'phpunit\\textui\\configuration\\testsrequiringphpextension',
-        118 => 'phpunit\\textui\\configuration\\hasfilter',
-        119 => 'phpunit\\textui\\configuration\\filter',
-        120 => 'phpunit\\textui\\configuration\\hasexcludefilter',
-        121 => 'phpunit\\textui\\configuration\\excludefilter',
-        122 => 'phpunit\\textui\\configuration\\hasgroups',
-        123 => 'phpunit\\textui\\configuration\\groups',
-        124 => 'phpunit\\textui\\configuration\\hasexcludegroups',
-        125 => 'phpunit\\textui\\configuration\\excludegroups',
-        126 => 'phpunit\\textui\\configuration\\randomorderseed',
-        127 => 'phpunit\\textui\\configuration\\includeuncoveredfiles',
-        128 => 'phpunit\\textui\\configuration\\testsuite',
-        129 => 'phpunit\\textui\\configuration\\includetestsuite',
-        130 => 'phpunit\\textui\\configuration\\excludetestsuite',
-        131 => 'phpunit\\textui\\configuration\\hasdefaulttestsuite',
-        132 => 'phpunit\\textui\\configuration\\defaulttestsuite',
-        133 => 'phpunit\\textui\\configuration\\testsuffixes',
-        134 => 'phpunit\\textui\\configuration\\php',
-        135 => 'phpunit\\textui\\configuration\\controlgarbagecollector',
-        136 => 'phpunit\\textui\\configuration\\numberoftestsbeforegarbagecollection',
-        137 => 'phpunit\\textui\\configuration\\hasgeneratebaseline',
-        138 => 'phpunit\\textui\\configuration\\generatebaseline',
-        139 => 'phpunit\\textui\\configuration\\debug',
-        140 => 'phpunit\\textui\\configuration\\shortenarraysforexportthreshold',
+        44 => 'phpunit\\textui\\configuration\\failonallissues',
+        45 => 'phpunit\\textui\\configuration\\failondeprecation',
+        46 => 'phpunit\\textui\\configuration\\failonphpunitdeprecation',
+        47 => 'phpunit\\textui\\configuration\\failonphpunitwarning',
+        48 => 'phpunit\\textui\\configuration\\failonemptytestsuite',
+        49 => 'phpunit\\textui\\configuration\\failonincomplete',
+        50 => 'phpunit\\textui\\configuration\\failonnotice',
+        51 => 'phpunit\\textui\\configuration\\failonrisky',
+        52 => 'phpunit\\textui\\configuration\\failonskipped',
+        53 => 'phpunit\\textui\\configuration\\failonwarning',
+        54 => 'phpunit\\textui\\configuration\\donotfailondeprecation',
+        55 => 'phpunit\\textui\\configuration\\donotfailonphpunitdeprecation',
+        56 => 'phpunit\\textui\\configuration\\donotfailonphpunitwarning',
+        57 => 'phpunit\\textui\\configuration\\donotfailonemptytestsuite',
+        58 => 'phpunit\\textui\\configuration\\donotfailonincomplete',
+        59 => 'phpunit\\textui\\configuration\\donotfailonnotice',
+        60 => 'phpunit\\textui\\configuration\\donotfailonrisky',
+        61 => 'phpunit\\textui\\configuration\\donotfailonskipped',
+        62 => 'phpunit\\textui\\configuration\\donotfailonwarning',
+        63 => 'phpunit\\textui\\configuration\\stopondefect',
+        64 => 'phpunit\\textui\\configuration\\stopondeprecation',
+        65 => 'phpunit\\textui\\configuration\\hasspecificdeprecationtostopon',
+        66 => 'phpunit\\textui\\configuration\\specificdeprecationtostopon',
+        67 => 'phpunit\\textui\\configuration\\stoponerror',
+        68 => 'phpunit\\textui\\configuration\\stoponfailure',
+        69 => 'phpunit\\textui\\configuration\\stoponincomplete',
+        70 => 'phpunit\\textui\\configuration\\stoponnotice',
+        71 => 'phpunit\\textui\\configuration\\stoponrisky',
+        72 => 'phpunit\\textui\\configuration\\stoponskipped',
+        73 => 'phpunit\\textui\\configuration\\stoponwarning',
+        74 => 'phpunit\\textui\\configuration\\outputtostandarderrorstream',
+        75 => 'phpunit\\textui\\configuration\\columns',
+        76 => 'phpunit\\textui\\configuration\\noextensions',
+        77 => 'phpunit\\textui\\configuration\\haspharextensiondirectory',
+        78 => 'phpunit\\textui\\configuration\\pharextensiondirectory',
+        79 => 'phpunit\\textui\\configuration\\extensionbootstrappers',
+        80 => 'phpunit\\textui\\configuration\\backupglobals',
+        81 => 'phpunit\\textui\\configuration\\backupstaticproperties',
+        82 => 'phpunit\\textui\\configuration\\bestrictaboutchangestoglobalstate',
+        83 => 'phpunit\\textui\\configuration\\colors',
+        84 => 'phpunit\\textui\\configuration\\processisolation',
+        85 => 'phpunit\\textui\\configuration\\enforcetimelimit',
+        86 => 'phpunit\\textui\\configuration\\defaulttimelimit',
+        87 => 'phpunit\\textui\\configuration\\timeoutforsmalltests',
+        88 => 'phpunit\\textui\\configuration\\timeoutformediumtests',
+        89 => 'phpunit\\textui\\configuration\\timeoutforlargetests',
+        90 => 'phpunit\\textui\\configuration\\reportuselesstests',
+        91 => 'phpunit\\textui\\configuration\\strictcoverage',
+        92 => 'phpunit\\textui\\configuration\\disallowtestoutput',
+        93 => 'phpunit\\textui\\configuration\\displaydetailsonallissues',
+        94 => 'phpunit\\textui\\configuration\\displaydetailsonincompletetests',
+        95 => 'phpunit\\textui\\configuration\\displaydetailsonskippedtests',
+        96 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggerdeprecations',
+        97 => 'phpunit\\textui\\configuration\\displaydetailsonphpunitdeprecations',
+        98 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggererrors',
+        99 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggernotices',
+        100 => 'phpunit\\textui\\configuration\\displaydetailsonteststhattriggerwarnings',
+        101 => 'phpunit\\textui\\configuration\\reversedefectlist',
+        102 => 'phpunit\\textui\\configuration\\requirecoveragemetadata',
+        103 => 'phpunit\\textui\\configuration\\noprogress',
+        104 => 'phpunit\\textui\\configuration\\noresults',
+        105 => 'phpunit\\textui\\configuration\\nooutput',
+        106 => 'phpunit\\textui\\configuration\\executionorder',
+        107 => 'phpunit\\textui\\configuration\\executionorderdefects',
+        108 => 'phpunit\\textui\\configuration\\resolvedependencies',
+        109 => 'phpunit\\textui\\configuration\\haslogfileteamcity',
+        110 => 'phpunit\\textui\\configuration\\logfileteamcity',
+        111 => 'phpunit\\textui\\configuration\\haslogfilejunit',
+        112 => 'phpunit\\textui\\configuration\\logfilejunit',
+        113 => 'phpunit\\textui\\configuration\\haslogfiletestdoxhtml',
+        114 => 'phpunit\\textui\\configuration\\logfiletestdoxhtml',
+        115 => 'phpunit\\textui\\configuration\\haslogfiletestdoxtext',
+        116 => 'phpunit\\textui\\configuration\\logfiletestdoxtext',
+        117 => 'phpunit\\textui\\configuration\\haslogeventstext',
+        118 => 'phpunit\\textui\\configuration\\logeventstext',
+        119 => 'phpunit\\textui\\configuration\\haslogeventsverbosetext',
+        120 => 'phpunit\\textui\\configuration\\logeventsverbosetext',
+        121 => 'phpunit\\textui\\configuration\\outputisteamcity',
+        122 => 'phpunit\\textui\\configuration\\outputistestdox',
+        123 => 'phpunit\\textui\\configuration\\testdoxoutputwithsummary',
+        124 => 'phpunit\\textui\\configuration\\hastestscovering',
+        125 => 'phpunit\\textui\\configuration\\testscovering',
+        126 => 'phpunit\\textui\\configuration\\hastestsusing',
+        127 => 'phpunit\\textui\\configuration\\testsusing',
+        128 => 'phpunit\\textui\\configuration\\hastestsrequiringphpextension',
+        129 => 'phpunit\\textui\\configuration\\testsrequiringphpextension',
+        130 => 'phpunit\\textui\\configuration\\hasfilter',
+        131 => 'phpunit\\textui\\configuration\\filter',
+        132 => 'phpunit\\textui\\configuration\\hasexcludefilter',
+        133 => 'phpunit\\textui\\configuration\\excludefilter',
+        134 => 'phpunit\\textui\\configuration\\hasgroups',
+        135 => 'phpunit\\textui\\configuration\\groups',
+        136 => 'phpunit\\textui\\configuration\\hasexcludegroups',
+        137 => 'phpunit\\textui\\configuration\\excludegroups',
+        138 => 'phpunit\\textui\\configuration\\randomorderseed',
+        139 => 'phpunit\\textui\\configuration\\includeuncoveredfiles',
+        140 => 'phpunit\\textui\\configuration\\testsuite',
+        141 => 'phpunit\\textui\\configuration\\includetestsuite',
+        142 => 'phpunit\\textui\\configuration\\excludetestsuite',
+        143 => 'phpunit\\textui\\configuration\\hasdefaulttestsuite',
+        144 => 'phpunit\\textui\\configuration\\defaulttestsuite',
+        145 => 'phpunit\\textui\\configuration\\testsuffixes',
+        146 => 'phpunit\\textui\\configuration\\php',
+        147 => 'phpunit\\textui\\configuration\\controlgarbagecollector',
+        148 => 'phpunit\\textui\\configuration\\numberoftestsbeforegarbagecollection',
+        149 => 'phpunit\\textui\\configuration\\hasgeneratebaseline',
+        150 => 'phpunit\\textui\\configuration\\generatebaseline',
+        151 => 'phpunit\\textui\\configuration\\debug',
+        152 => 'phpunit\\textui\\configuration\\shortenarraysforexportthreshold',
       ),
       3 => 
       array (
@@ -13900,7 +13957,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Merger.php' => 
     array (
-      0 => 'c28507b3167d4736bcfe4f740aec9258904d556c',
+      0 => '62785f8e5809d5d09845cc9e25b19144e8f5f1ac',
       1 => 
       array (
         0 => 'phpunit\\textui\\configuration\\merger',
@@ -13955,14 +14012,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\SourceFilter.php' => 
     array (
-      0 => 'b78678f05406d958e11ace7da5edfe774071dbb6',
+      0 => 'c47b9d57618df1a1818375dca2f7036aa58a1b13',
       1 => 
       array (
         0 => 'phpunit\\textui\\configuration\\sourcefilter',
       ),
       2 => 
       array (
-        0 => 'phpunit\\textui\\configuration\\includes',
+        0 => 'phpunit\\textui\\configuration\\instance',
+        1 => 'phpunit\\textui\\configuration\\__construct',
+        2 => 'phpunit\\textui\\configuration\\includes',
       ),
       3 => 
       array (
@@ -13970,7 +14029,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\SourceMapper.php' => 
     array (
-      0 => '511e052b59d4f437b985f45bfee12e25964be4bd',
+      0 => '783317bf05e7b414a64688dd7e95703c6c497e58',
       1 => 
       array (
         0 => 'phpunit\\textui\\configuration\\sourcemapper',
@@ -13978,6 +14037,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'phpunit\\textui\\configuration\\map',
+        1 => 'phpunit\\textui\\configuration\\aggregatedirectories',
       ),
       3 => 
       array (
@@ -14876,7 +14936,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\DefaultConfiguration.php' => 
     array (
-      0 => '55a65ff37a7e039c42594fa1552074295bbc8964',
+      0 => 'eebf51a7cb98d786312cd2b04d6d425d29b648d1',
       1 => 
       array (
         0 => 'phpunit\\textui\\xmlconfiguration\\defaultconfiguration',
@@ -14959,7 +15019,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\Loader.php' => 
     array (
-      0 => 'f83d5d2eb6dbd3fcca0e58821efec5cabca3d897',
+      0 => 'b7e5c6492871c4f2342ba383658e6ccee8559862',
       1 => 
       array (
         0 => 'phpunit\\textui\\xmlconfiguration\\loader',
@@ -14972,22 +15032,22 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         3 => 'phpunit\\textui\\xmlconfiguration\\toabsolutepath',
         4 => 'phpunit\\textui\\xmlconfiguration\\source',
         5 => 'phpunit\\textui\\xmlconfiguration\\codecoverage',
-        6 => 'phpunit\\textui\\xmlconfiguration\\getboolean',
-        7 => 'phpunit\\textui\\xmlconfiguration\\getvalue',
+        6 => 'phpunit\\textui\\xmlconfiguration\\booleanfromstring',
+        7 => 'phpunit\\textui\\xmlconfiguration\\valuefromstring',
         8 => 'phpunit\\textui\\xmlconfiguration\\readfilterdirectories',
         9 => 'phpunit\\textui\\xmlconfiguration\\readfilterfiles',
         10 => 'phpunit\\textui\\xmlconfiguration\\groups',
-        11 => 'phpunit\\textui\\xmlconfiguration\\getbooleanattribute',
-        12 => 'phpunit\\textui\\xmlconfiguration\\getintegerattribute',
-        13 => 'phpunit\\textui\\xmlconfiguration\\getstringattribute',
-        14 => 'phpunit\\textui\\xmlconfiguration\\getstringattributewithdefault',
-        15 => 'phpunit\\textui\\xmlconfiguration\\getinteger',
+        11 => 'phpunit\\textui\\xmlconfiguration\\parsebooleanattribute',
+        12 => 'phpunit\\textui\\xmlconfiguration\\parseintegerattribute',
+        13 => 'phpunit\\textui\\xmlconfiguration\\parsestringattribute',
+        14 => 'phpunit\\textui\\xmlconfiguration\\parsestringattributewithdefault',
+        15 => 'phpunit\\textui\\xmlconfiguration\\parseinteger',
         16 => 'phpunit\\textui\\xmlconfiguration\\php',
         17 => 'phpunit\\textui\\xmlconfiguration\\phpunit',
-        18 => 'phpunit\\textui\\xmlconfiguration\\getcolors',
-        19 => 'phpunit\\textui\\xmlconfiguration\\getcolumns',
+        18 => 'phpunit\\textui\\xmlconfiguration\\parsecolors',
+        19 => 'phpunit\\textui\\xmlconfiguration\\parsecolumns',
         20 => 'phpunit\\textui\\xmlconfiguration\\testsuite',
-        21 => 'phpunit\\textui\\xmlconfiguration\\gettestsuiteelements',
+        21 => 'phpunit\\textui\\xmlconfiguration\\parsetestsuiteelements',
         22 => 'phpunit\\textui\\xmlconfiguration\\element',
       ),
       3 => 
@@ -15083,7 +15143,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\Migration\\MigrationBuilder.php' => 
     array (
-      0 => 'a2d45d9fe85ba8351a554409e0ccfaf62f50dd15',
+      0 => '0a7632e58f04c2a06d1ab203da04a493d3e39ec5',
       1 => 
       array (
         0 => 'phpunit\\textui\\xmlconfiguration\\migrationbuilder',
@@ -15450,21 +15510,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\Migration\\Migrations\\RemoveCoverageElementIncludeUncoveredFilesAttribute.php' => 
-    array (
-      0 => 'c64db44c3f8781d6612042fc16c03b8063afc350',
-      1 => 
-      array (
-        0 => 'phpunit\\textui\\xmlconfiguration\\removecoverageelementincludeuncoveredfilesattribute',
-      ),
-      2 => 
-      array (
-        0 => 'phpunit\\textui\\xmlconfiguration\\migrate',
-      ),
-      3 => 
-      array (
-      ),
-    ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\Migration\\Migrations\\RemoveCoverageElementProcessUncoveredFilesAttribute.php' => 
     array (
       0 => 'c15b6868e4409b1d49158796fc133b3b07f2219a',
@@ -15742,7 +15787,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\PHPUnit.php' => 
     array (
-      0 => 'efb7383dafd872d4d733e4326dbe8372afddf3f1',
+      0 => 'f2b308c1f31006a5030a0e483a38121aad33d560',
       1 => 
       array (
         0 => 'phpunit\\textui\\xmlconfiguration\\phpunit',
@@ -15756,58 +15801,61 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'phpunit\\textui\\xmlconfiguration\\columns',
         5 => 'phpunit\\textui\\xmlconfiguration\\colors',
         6 => 'phpunit\\textui\\xmlconfiguration\\stderr',
-        7 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonincompletetests',
-        8 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonskippedtests',
-        9 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggerdeprecations',
-        10 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonphpunitdeprecations',
-        11 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggererrors',
-        12 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggernotices',
-        13 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggerwarnings',
-        14 => 'phpunit\\textui\\xmlconfiguration\\reversedefectlist',
-        15 => 'phpunit\\textui\\xmlconfiguration\\requirecoveragemetadata',
-        16 => 'phpunit\\textui\\xmlconfiguration\\hasbootstrap',
-        17 => 'phpunit\\textui\\xmlconfiguration\\bootstrap',
-        18 => 'phpunit\\textui\\xmlconfiguration\\processisolation',
-        19 => 'phpunit\\textui\\xmlconfiguration\\failondeprecation',
-        20 => 'phpunit\\textui\\xmlconfiguration\\failonphpunitdeprecation',
-        21 => 'phpunit\\textui\\xmlconfiguration\\failonemptytestsuite',
-        22 => 'phpunit\\textui\\xmlconfiguration\\failonincomplete',
-        23 => 'phpunit\\textui\\xmlconfiguration\\failonnotice',
-        24 => 'phpunit\\textui\\xmlconfiguration\\failonrisky',
-        25 => 'phpunit\\textui\\xmlconfiguration\\failonskipped',
-        26 => 'phpunit\\textui\\xmlconfiguration\\failonwarning',
-        27 => 'phpunit\\textui\\xmlconfiguration\\stopondefect',
-        28 => 'phpunit\\textui\\xmlconfiguration\\stopondeprecation',
-        29 => 'phpunit\\textui\\xmlconfiguration\\stoponerror',
-        30 => 'phpunit\\textui\\xmlconfiguration\\stoponfailure',
-        31 => 'phpunit\\textui\\xmlconfiguration\\stoponincomplete',
-        32 => 'phpunit\\textui\\xmlconfiguration\\stoponnotice',
-        33 => 'phpunit\\textui\\xmlconfiguration\\stoponrisky',
-        34 => 'phpunit\\textui\\xmlconfiguration\\stoponskipped',
-        35 => 'phpunit\\textui\\xmlconfiguration\\stoponwarning',
-        36 => 'phpunit\\textui\\xmlconfiguration\\hasextensionsdirectory',
-        37 => 'phpunit\\textui\\xmlconfiguration\\extensionsdirectory',
-        38 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutchangestoglobalstate',
-        39 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutoutputduringtests',
-        40 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutteststhatdonottestanything',
-        41 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutcoveragemetadata',
-        42 => 'phpunit\\textui\\xmlconfiguration\\enforcetimelimit',
-        43 => 'phpunit\\textui\\xmlconfiguration\\defaulttimelimit',
-        44 => 'phpunit\\textui\\xmlconfiguration\\timeoutforsmalltests',
-        45 => 'phpunit\\textui\\xmlconfiguration\\timeoutformediumtests',
-        46 => 'phpunit\\textui\\xmlconfiguration\\timeoutforlargetests',
-        47 => 'phpunit\\textui\\xmlconfiguration\\hasdefaulttestsuite',
-        48 => 'phpunit\\textui\\xmlconfiguration\\defaulttestsuite',
-        49 => 'phpunit\\textui\\xmlconfiguration\\executionorder',
-        50 => 'phpunit\\textui\\xmlconfiguration\\resolvedependencies',
-        51 => 'phpunit\\textui\\xmlconfiguration\\defectsfirst',
-        52 => 'phpunit\\textui\\xmlconfiguration\\backupglobals',
-        53 => 'phpunit\\textui\\xmlconfiguration\\backupstaticproperties',
-        54 => 'phpunit\\textui\\xmlconfiguration\\testdoxprinter',
-        55 => 'phpunit\\textui\\xmlconfiguration\\testdoxprintersummary',
-        56 => 'phpunit\\textui\\xmlconfiguration\\controlgarbagecollector',
-        57 => 'phpunit\\textui\\xmlconfiguration\\numberoftestsbeforegarbagecollection',
-        58 => 'phpunit\\textui\\xmlconfiguration\\shortenarraysforexportthreshold',
+        7 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonallissues',
+        8 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonincompletetests',
+        9 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonskippedtests',
+        10 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggerdeprecations',
+        11 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonphpunitdeprecations',
+        12 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggererrors',
+        13 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggernotices',
+        14 => 'phpunit\\textui\\xmlconfiguration\\displaydetailsonteststhattriggerwarnings',
+        15 => 'phpunit\\textui\\xmlconfiguration\\reversedefectlist',
+        16 => 'phpunit\\textui\\xmlconfiguration\\requirecoveragemetadata',
+        17 => 'phpunit\\textui\\xmlconfiguration\\hasbootstrap',
+        18 => 'phpunit\\textui\\xmlconfiguration\\bootstrap',
+        19 => 'phpunit\\textui\\xmlconfiguration\\processisolation',
+        20 => 'phpunit\\textui\\xmlconfiguration\\failonallissues',
+        21 => 'phpunit\\textui\\xmlconfiguration\\failondeprecation',
+        22 => 'phpunit\\textui\\xmlconfiguration\\failonphpunitdeprecation',
+        23 => 'phpunit\\textui\\xmlconfiguration\\failonphpunitwarning',
+        24 => 'phpunit\\textui\\xmlconfiguration\\failonemptytestsuite',
+        25 => 'phpunit\\textui\\xmlconfiguration\\failonincomplete',
+        26 => 'phpunit\\textui\\xmlconfiguration\\failonnotice',
+        27 => 'phpunit\\textui\\xmlconfiguration\\failonrisky',
+        28 => 'phpunit\\textui\\xmlconfiguration\\failonskipped',
+        29 => 'phpunit\\textui\\xmlconfiguration\\failonwarning',
+        30 => 'phpunit\\textui\\xmlconfiguration\\stopondefect',
+        31 => 'phpunit\\textui\\xmlconfiguration\\stopondeprecation',
+        32 => 'phpunit\\textui\\xmlconfiguration\\stoponerror',
+        33 => 'phpunit\\textui\\xmlconfiguration\\stoponfailure',
+        34 => 'phpunit\\textui\\xmlconfiguration\\stoponincomplete',
+        35 => 'phpunit\\textui\\xmlconfiguration\\stoponnotice',
+        36 => 'phpunit\\textui\\xmlconfiguration\\stoponrisky',
+        37 => 'phpunit\\textui\\xmlconfiguration\\stoponskipped',
+        38 => 'phpunit\\textui\\xmlconfiguration\\stoponwarning',
+        39 => 'phpunit\\textui\\xmlconfiguration\\hasextensionsdirectory',
+        40 => 'phpunit\\textui\\xmlconfiguration\\extensionsdirectory',
+        41 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutchangestoglobalstate',
+        42 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutoutputduringtests',
+        43 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutteststhatdonottestanything',
+        44 => 'phpunit\\textui\\xmlconfiguration\\bestrictaboutcoveragemetadata',
+        45 => 'phpunit\\textui\\xmlconfiguration\\enforcetimelimit',
+        46 => 'phpunit\\textui\\xmlconfiguration\\defaulttimelimit',
+        47 => 'phpunit\\textui\\xmlconfiguration\\timeoutforsmalltests',
+        48 => 'phpunit\\textui\\xmlconfiguration\\timeoutformediumtests',
+        49 => 'phpunit\\textui\\xmlconfiguration\\timeoutforlargetests',
+        50 => 'phpunit\\textui\\xmlconfiguration\\hasdefaulttestsuite',
+        51 => 'phpunit\\textui\\xmlconfiguration\\defaulttestsuite',
+        52 => 'phpunit\\textui\\xmlconfiguration\\executionorder',
+        53 => 'phpunit\\textui\\xmlconfiguration\\resolvedependencies',
+        54 => 'phpunit\\textui\\xmlconfiguration\\defectsfirst',
+        55 => 'phpunit\\textui\\xmlconfiguration\\backupglobals',
+        56 => 'phpunit\\textui\\xmlconfiguration\\backupstaticproperties',
+        57 => 'phpunit\\textui\\xmlconfiguration\\testdoxprinter',
+        58 => 'phpunit\\textui\\xmlconfiguration\\testdoxprintersummary',
+        59 => 'phpunit\\textui\\xmlconfiguration\\controlgarbagecollector',
+        60 => 'phpunit\\textui\\xmlconfiguration\\numberoftestsbeforegarbagecollection',
+        61 => 'phpunit\\textui\\xmlconfiguration\\shortenarraysforexportthreshold',
       ),
       3 => 
       array (
@@ -15894,7 +15942,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Configuration\\Xml\\TestSuiteMapper.php' => 
     array (
-      0 => 'aad9d4aefc6912c778b1e5e81272e7ea703563d1',
+      0 => '58f6cea95089dc06acce239e5bdad1e5fe6a6514',
       1 => 
       array (
         0 => 'phpunit\\textui\\xmlconfiguration\\testsuitemapper',
@@ -16030,7 +16078,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Help.php' => 
     array (
-      0 => '4b25c744de98e9a375e8fc3ef109118966d3d75b',
+      0 => '33dab4bad702303917d6fd6184e62c9b573a1286',
       1 => 
       array (
         0 => 'phpunit\\textui\\help',
@@ -16049,7 +16097,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\Default\\ProgressPrinter\\ProgressPrinter.php' => 
     array (
-      0 => '66ca8e3c6bc4e09b36d7dd4dd8987427c97c1cc5',
+      0 => 'c6253e963b32d23beb00e5fc45542934d7264100',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\default\\progressprinter\\progressprinter',
@@ -16381,7 +16429,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\Default\\ResultPrinter.php' => 
     array (
-      0 => '6cc47c0cc7121afd82378de2f3cc2c2e51836480',
+      0 => 'a6594c75d1eb88abbd77f8e87ddaa5c80d6311b4',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\default\\resultprinter',
@@ -16420,7 +16468,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\Default\\UnexpectedOutputPrinter.php' => 
     array (
-      0 => '7186aeda6a72cbff8a47d9e2effcd881218870ce',
+      0 => 'e5c52b39da860a0b7edb0bfbf17c40f505a32403',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\default\\unexpectedoutputprinter',
@@ -16436,7 +16484,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\Facade.php' => 
     array (
-      0 => 'efc851751b3003dcecc4be9e98e119c077f23fdb',
+      0 => 'b78e36ed48ebe06da3fa142ba78a1729b55694ff',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\facade',
@@ -16511,7 +16559,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\SummaryPrinter.php' => 
     array (
-      0 => '456278667ed14af9ad5e56133dc94c8bb2479fa3',
+      0 => '3b8d86c210ee90d5b74b2f8c08dc9b08a1274461',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\summaryprinter',
@@ -16530,7 +16578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Output\\TestDox\\ResultPrinter.php' => 
     array (
-      0 => '1ca7bf0eecfbb0368c9c7529fe939db74019b86e',
+      0 => '0f276bc46d11d80002193baa5fc58c6374b58a5d',
       1 => 
       array (
         0 => 'phpunit\\textui\\output\\testdox\\resultprinter',
@@ -16554,6 +16602,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         14 => 'phpunit\\textui\\output\\testdox\\colorfor',
         15 => 'phpunit\\textui\\output\\testdox\\messagecolorfor',
         16 => 'phpunit\\textui\\output\\testdox\\symbolfor',
+        17 => 'phpunit\\textui\\output\\testdox\\printbeforeclassorafterclasserrors',
       ),
       3 => 
       array (
@@ -16561,7 +16610,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\ShellExitCodeCalculator.php' => 
     array (
-      0 => '5f0d811831cb5f7ce1d0b9822a019152eb8f3b84',
+      0 => '3ae4fb5791b4614d014ce11d53275af1e313c241',
       1 => 
       array (
         0 => 'phpunit\\textui\\shellexitcodecalculator',
@@ -16868,7 +16917,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Util\\PHP\\DefaultJobRunner.php' => 
     array (
-      0 => 'e42fc65b7be79cd323869790a34e84d50faae438',
+      0 => '5a528b0a94f6aa4e2c3a39266ad40e977c92209e',
       1 => 
       array (
         0 => 'phpunit\\util\\php\\defaultjobrunner',
@@ -16910,14 +16959,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Util\\PHP\\JobRunner.php' => 
     array (
-      0 => 'd02afed30bfc3dcb5e64ce4382613d40d0b97a3e',
+      0 => '13ecafda77c589ab8f5ed62d48255b3c5b976492',
       1 => 
       array (
         0 => 'phpunit\\util\\php\\jobrunner',
       ),
       2 => 
       array (
-        0 => 'phpunit\\util\\php\\run',
+        0 => 'phpunit\\util\\php\\__construct',
+        1 => 'phpunit\\util\\php\\runtestjob',
+        2 => 'phpunit\\util\\php\\run',
       ),
       3 => 
       array (
@@ -16925,7 +16976,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Util\\PHP\\JobRunnerRegistry.php' => 
     array (
-      0 => '22283b12bdc032fa494dfa83ed35890010d3aa67',
+      0 => '995b1ab846cf9f5dc72147e5a5ac4cffa4bd8e93',
       1 => 
       array (
         0 => 'phpunit\\util\\php\\jobrunnerregistry',
@@ -16933,7 +16984,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'phpunit\\util\\php\\run',
-        1 => 'phpunit\\util\\php\\set',
+        1 => 'phpunit\\util\\php\\runtestjob',
+        2 => 'phpunit\\util\\php\\set',
+        3 => 'phpunit\\util\\php\\runner',
       ),
       3 => 
       array (
@@ -16976,14 +17029,15 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Util\\Test.php' => 
     array (
-      0 => '9389c4d65ed2ce61831a799a9d0059a9ffd5043a',
+      0 => '0cee5c34885908e13865d3870f65a09e03be644a',
       1 => 
       array (
         0 => 'phpunit\\util\\test',
       ),
       2 => 
       array (
-        0 => 'phpunit\\util\\istestmethod',
+        0 => 'phpunit\\util\\currenttestcase',
+        1 => 'phpunit\\util\\istestmethod',
       ),
       3 => 
       array (
@@ -17023,7 +17077,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Util\\Xml\\Loader.php' => 
     array (
-      0 => '934e15e88625d0fccf057d9bc3ae3ebfa9b4d990',
+      0 => 'c95283aa3b237d6b0dd8d56e35edd7c81c2eb664',
       1 => 
       array (
         0 => 'phpunit\\util\\xml\\loader',
@@ -17049,6 +17103,357 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'phpunit\\util\\preparestring',
         1 => 'phpunit\\util\\converttoutf8',
         2 => 'phpunit\\util\\isutf8',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\AfterLastTestMethodErrored.php' => 
+    array (
+      0 => '6dd9f2f31969c08bd4ae8e606af3d85b86f932c6',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\afterlasttestmethoderrored',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\__construct',
+        1 => 'phpunit\\event\\test\\telemetryinfo',
+        2 => 'phpunit\\event\\test\\testclassname',
+        3 => 'phpunit\\event\\test\\calledmethod',
+        4 => 'phpunit\\event\\test\\throwable',
+        5 => 'phpunit\\event\\test\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\AfterLastTestMethodErroredSubscriber.php' => 
+    array (
+      0 => 'd06d71d0709cb91b117a63233dd8580dd65af6c8',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\afterlasttestmethoderroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\AfterTestMethodErrored.php' => 
+    array (
+      0 => '75fb19bfb5a7a77d64b9b3c1153d1b28b1bede1a',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\aftertestmethoderrored',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\__construct',
+        1 => 'phpunit\\event\\test\\telemetryinfo',
+        2 => 'phpunit\\event\\test\\testclassname',
+        3 => 'phpunit\\event\\test\\calledmethod',
+        4 => 'phpunit\\event\\test\\throwable',
+        5 => 'phpunit\\event\\test\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\AfterTestMethodErroredSubscriber.php' => 
+    array (
+      0 => '1cc609c3d58bfad41fc21c72e0bd488b91dc5f68',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\aftertestmethoderroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\BeforeTestMethodErrored.php' => 
+    array (
+      0 => 'e1e83119d0f52837eacda9fd73be85e3617c3ac7',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\beforetestmethoderrored',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\__construct',
+        1 => 'phpunit\\event\\test\\telemetryinfo',
+        2 => 'phpunit\\event\\test\\testclassname',
+        3 => 'phpunit\\event\\test\\calledmethod',
+        4 => 'phpunit\\event\\test\\throwable',
+        5 => 'phpunit\\event\\test\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\BeforeTestMethodErroredSubscriber.php' => 
+    array (
+      0 => '6f0a629fff8a3f5ba1eb6bf7e6b4fb98792e9e77',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\beforetestmethoderroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\PostConditionErrored.php' => 
+    array (
+      0 => '93dc7112458cbfb62dc249e09956a211e2f23783',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\postconditionerrored',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\__construct',
+        1 => 'phpunit\\event\\test\\telemetryinfo',
+        2 => 'phpunit\\event\\test\\testclassname',
+        3 => 'phpunit\\event\\test\\calledmethod',
+        4 => 'phpunit\\event\\test\\throwable',
+        5 => 'phpunit\\event\\test\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\PostConditionErroredSubscriber.php' => 
+    array (
+      0 => 'd97da07aa3e8f1347523b363a860e723225b1214',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\postconditionerroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\PreConditionErrored.php' => 
+    array (
+      0 => '582b4aba8137c74c4528c97abcdb334956e4bacd',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\preconditionerrored',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\__construct',
+        1 => 'phpunit\\event\\test\\telemetryinfo',
+        2 => 'phpunit\\event\\test\\testclassname',
+        3 => 'phpunit\\event\\test\\calledmethod',
+        4 => 'phpunit\\event\\test\\throwable',
+        5 => 'phpunit\\event\\test\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Event\\Events\\Test\\HookMethod\\PreConditionErroredSubscriber.php' => 
+    array (
+      0 => '9a55c0470576989bdff50075d40f077116f82f74',
+      1 => 
+      array (
+        0 => 'phpunit\\event\\test\\preconditionerroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\event\\test\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\MockObject\\Generator\\Exception\\UnknownInterfaceException.php' => 
+    array (
+      0 => 'c9ce1722a1694ae45787c513b0cc08c60e99d9b8',
+      1 => 
+      array (
+        0 => 'phpunit\\framework\\mockobject\\generator\\unknowninterfaceexception',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\framework\\mockobject\\generator\\__construct',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Framework\\TestRunner\\ChildProcessResultProcessor.php' => 
+    array (
+      0 => 'b520b339b480dc3fab82992241285e69fa270c84',
+      1 => 
+      array (
+        0 => 'phpunit\\framework\\childprocessresultprocessor',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\framework\\__construct',
+        1 => 'phpunit\\framework\\process',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\JUnit\\Subscriber\\TestPrintedUnexpectedOutputSubscriber.php' => 
+    array (
+      0 => '24262943213ecb70a776510c79b68d0644cd6800',
+      1 => 
+      array (
+        0 => 'phpunit\\logging\\junit\\testprintedunexpectedoutputsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\logging\\junit\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\TeamCity\\Subscriber\\TestSuiteBeforeFirstTestMethodErroredSubscriber.php' => 
+    array (
+      0 => '9422313954cdc7baeabed70671ab42dfdc663bdf',
+      1 => 
+      array (
+        0 => 'phpunit\\logging\\teamcity\\testsuitebeforefirsttestmethoderroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\logging\\teamcity\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Logging\\TeamCity\\Subscriber\\TestSuiteSkippedSubscriber.php' => 
+    array (
+      0 => '3d5f5792cc425b419000298846201917d40b8c5b',
+      1 => 
+      array (
+        0 => 'phpunit\\logging\\teamcity\\testsuiteskippedsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\logging\\teamcity\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Metadata\\Exception\\InvalidAttributeException.php' => 
+    array (
+      0 => '13244d61de84ccf2e172a5099b41a4465490ced9',
+      1 => 
+      array (
+        0 => 'phpunit\\metadata\\invalidattributeexception',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\metadata\\__construct',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\Baseline\\Exception\\CannotWriteBaselineException.php' => 
+    array (
+      0 => 'fd5520126cfaa14e03690871ed4582acfd0b6525',
+      1 => 
+      array (
+        0 => 'phpunit\\runner\\baseline\\cannotwritebaselineexception',
+      ),
+      2 => 
+      array (
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\DeprecationCollector\\InIsolationCollector.php' => 
+    array (
+      0 => '4f8b6846047848177a66018d3153a4c5fd23c2ab',
+      1 => 
+      array (
+        0 => 'phpunit\\runner\\deprecationcollector\\inisolationcollector',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\runner\\deprecationcollector\\__construct',
+        1 => 'phpunit\\runner\\deprecationcollector\\deprecations',
+        2 => 'phpunit\\runner\\deprecationcollector\\filtereddeprecations',
+        3 => 'phpunit\\runner\\deprecationcollector\\testtriggereddeprecation',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\ResultCache\\ResultCacheId.php' => 
+    array (
+      0 => 'aebff43ccbf0dd2956402d125b5cc6bc8680d45c',
+      1 => 
+      array (
+        0 => 'phpunit\\runner\\resultcache\\resultcacheid',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\runner\\resultcache\\fromtest',
+        1 => 'phpunit\\runner\\resultcache\\fromreorderable',
+        2 => 'phpunit\\runner\\resultcache\\fromtestclassandmethodname',
+        3 => 'phpunit\\runner\\resultcache\\__construct',
+        4 => 'phpunit\\runner\\resultcache\\asstring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\Runner\\TestResult\\Subscriber\\AfterTestClassMethodErroredSubscriber.php' => 
+    array (
+      0 => 'cd8e69ea7e7ab8c44d4132ccdfae594102bda2a2',
+      1 => 
+      array (
+        0 => 'phpunit\\testrunner\\testresult\\aftertestclassmethoderroredsubscriber',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\testrunner\\testresult\\notify',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\vendor\\phpunit\\phpunit\\src\\TextUI\\Command\\Commands\\CheckPhpConfigurationCommand.php' => 
+    array (
+      0 => '24bec527bbfa9850196aa6ab6dccc7efb9f29792',
+      1 => 
+      array (
+        0 => 'phpunit\\textui\\command\\checkphpconfigurationcommand',
+      ),
+      2 => 
+      array (
+        0 => 'phpunit\\textui\\command\\__construct',
+        1 => 'phpunit\\textui\\command\\execute',
+        2 => 'phpunit\\textui\\command\\ok',
+        3 => 'phpunit\\textui\\command\\notok',
+        4 => 'phpunit\\textui\\command\\settings',
       ),
       3 => 
       array (

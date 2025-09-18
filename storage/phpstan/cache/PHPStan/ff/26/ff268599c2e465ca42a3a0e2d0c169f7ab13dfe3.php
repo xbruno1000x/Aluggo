@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\vendor\\sebastian\\recursion-context\\src\\Context.php' => 
     array (
-      0 => '59cb254cf2efe5b02ba944e9d3c027041902c199',
+      0 => '658ae4dc165ae4bf9cd210b51e1e21608c82007e',
       1 => 
       array (
         0 => 'sebastianbergmann\\recursioncontext\\context',
