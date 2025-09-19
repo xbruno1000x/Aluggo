@@ -1,6 +1,10 @@
 {{-- resources/views/imoveis/index.blade.php --}}
 @extends('layouts.app')
 
+@push('scripts-body')
+    @vite(['resources/ts/delete-confirm.ts'])
+@endpush
+
 @section('title', 'Gestão de Imóveis')
 @section('header', 'Gestão de Imóveis')
 
@@ -35,11 +39,14 @@
                     <td class="d-flex gap-2">
                         <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-sm btn-warning">Editar</a>
 
-                        <form action="{{ route('imoveis.destroy', $imovel) }}" method="POST">
+                        <form action="{{ route('imoveis.destroy', $imovel) }}" 
+                            method="POST" 
+                            data-confirm 
+                            data-confirm-title="Confirmação"
+                            data-confirm-text="Deseja realmente excluir o imóvel {{ $imovel->nome }}?">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger"
-                                    onclick="return confirm('Tem certeza que deseja excluir este imóvel?')">
+                            <button type="submit" class="btn btn-sm btn-danger">
                                 Excluir
                             </button>
                         </form>

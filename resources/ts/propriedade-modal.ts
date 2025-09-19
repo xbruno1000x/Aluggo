@@ -1,5 +1,4 @@
-import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
+import { showAlert } from './utils/alert';
 declare const bootstrap: any;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await postForm(fd);
 
             if (!res.ok) {
-                // tenta ler JSON de erro, mas com fallback
                 let body: any = null;
                 try {
                     const ct = res.headers.get('content-type') ?? '';
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Resposta OK: tenta parsear JSON, mas se falhar continua (não quebra fluxo)
             let json: any = null;
             try {
                 const ct = res.headers.get('content-type') ?? '';
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 json = null;
             }
 
-            // Se tivermos dados, adiciona ao select
             if (json && json.id !== undefined) {
                 const opt = document.createElement('option');
                 opt.value = String(json.id);
@@ -63,9 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 select.appendChild(opt);
             }
 
-            // Fecha modal (pega ou cria instância para garantir funcionamento)
             try {
-                // Prefer getOrCreateInstance quando disponível
                 const bsModal = (bootstrap?.Modal?.getOrCreateInstance && bootstrap.Modal.getOrCreateInstance(modalEl))
                     || (bootstrap?.Modal?.getInstance && bootstrap.Modal.getInstance(modalEl))
                     || new bootstrap.Modal(modalEl);
@@ -74,12 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 console.warn('[propriedade-modal] fallback para fechar modal', err);
-                // Fallback: aciona botão de dismiss ou remove classes/backdrop manualmente
                 const dismissBtn = modalEl.querySelector('[data-bs-dismiss="modal"]') as HTMLElement | null;
                 if (dismissBtn) {
                     dismissBtn.click();
                 } else {
-                    // remove state de modal aberto
                     modalEl.classList.remove('show');
                     modalEl.style.display = 'none';
                     document.body.classList.remove('modal-open');
@@ -87,10 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Reseta formulário
             form.reset();
-            
-            // Mostra alerta de sucesso
             showAlert('success', 'Propriedade criada com sucesso', 2000);
 
         } catch (err) {
@@ -98,21 +87,4 @@ document.addEventListener('DOMContentLoaded', () => {
             showAlert('error', 'Erro de rede. Tente novamente.');
         }
     });
-
-    function showAlert(icon: 'success' | 'error' | 'info' | 'warning', message: string, timer = 0) {
-        Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon,
-            title: message,
-            showConfirmButton: false,
-            timer: timer || 3000,
-            timerProgressBar: !!timer,
-            customClass: { container: 'sa-container' },
-            didOpen: () => {
-                const c = document.querySelector('.sa-container') as HTMLElement | null;
-                if (c) c.style.zIndex = '20000';
-            }
-        });
-    }
 });

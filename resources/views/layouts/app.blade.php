@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Meu App')</title>
     @vite(['resources/scss/app.scss', 'resources/ts/app.ts'])
+    {{-- Scripts adicionais --}}
+    @stack('scripts-body')
 </head>
 <body class="bg-dark text-light">
 
@@ -30,8 +32,8 @@
                         Gestão de Patrimônio
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="patrimonioDropdown">
-                        <li><a class="dropdown-item" href="{{ route('propriedades.index') }}">Gestão de Propriedades</a></li>
                         <li><a class="dropdown-item" href="{{ route('imoveis.index') }}">Gestão de Imóveis</a></li>
+                        <li><a class="dropdown-item" href="{{ route('propriedades.index') }}">Gestão de Propriedades</a></li>
                         <li><a class="dropdown-item" href="#">Gestão de Obras e Manutenções</a></li>
                     </ul>
                 </li>
@@ -42,6 +44,7 @@
                         Controle Financeiro
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
+                        <li><a class="dropdown-item" href="#">Gestão de Alugueis</a></li>
                         <li><a class="dropdown-item" href="#">Cadastro de Transações de Compra e Venda</a></li>
                         <li><a class="dropdown-item" href="#">Relatórios e Rentabilidade</a></li>
                     </ul>

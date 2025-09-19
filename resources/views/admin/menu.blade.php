@@ -20,7 +20,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Gestão de Imóveis</h5>
                         <p class="card-text flex-grow-1">Acesse o cadastro e gestão de propriedades e imóveis.</p>
-                        <a href="{{ route('propriedades.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <a href="{{ route('imoveis.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,10 @@
 {{-- resources/views/propriedades/index.blade.php --}}
 @extends('layouts.app')
 
+@push('scripts-body')
+    @vite(['resources/ts/delete-confirm.ts'])
+@endpush
+
 @section('title', 'Gestão de Propriedades')
 @section('header', 'Gestão de Propriedades')
 
@@ -19,7 +23,7 @@
                         <th>Nome</th>
                         <th>Endereço</th>
                         <th>Descrição</th>
-                        <th class="text-center">Ações</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,11 +32,15 @@
                             <td>{{ $propriedade->nome }}</td>
                             <td>{{ $propriedade->endereco }}</td>
                             <td>{{ $propriedade->descricao }}</td>
-                            <td class="text-center">
+                            <td class="d-flex gap-2">
                                 <a href="{{ route('propriedades.edit', $propriedade) }}" class="btn btn-sm btn-warning">
                                     Editar
                                 </a>
-                                <form action="{{ route('propriedades.destroy', $propriedade) }}" method="POST" class="d-inline">
+                                <form action="{{ route('propriedades.destroy', $propriedade) }}" 
+                                    method="POST" 
+                                    data-confirm 
+                                    data-confirm-title="Confirmação"
+                                    data-confirm-text="Deseja realmente excluir a propriedade {{ $propriedade->nome }}? Essa ação irá excluir todos os imóveis associados a esta propriedade.">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">
