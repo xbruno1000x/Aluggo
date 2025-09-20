@@ -28,7 +28,7 @@
 
             <div class="col-12">
                 <label for="descricao" class="form-label">Descrição:</label>
-                <textarea id="descricao" name="descricao" rows="4" required class="form-control">{{ $propriedade->descricao }}</textarea>
+                <textarea id="descricao" name="descricao" rows="4" class="form-control">{{ $propriedade->descricao }}</textarea>
             </div>
 
             <div class="col-12">

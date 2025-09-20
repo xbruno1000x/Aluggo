@@ -182,5 +182,56 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
+    array (
+      0 => 'e638400d3d8e61e4bc1e670f43fd1f9cdc3c458d',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\locatariocontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\create',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\edit',
+        4 => 'app\\http\\controllers\\update',
+        5 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php' => 
+    array (
+      0 => '3228fc626015e4540619cbe75541ead59b64e06a',
+      1 => 
+      array (
+        0 => 'app\\models\\aluguel',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\imovel',
+        1 => 'app\\models\\locatario',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php' => 
+    array (
+      0 => 'f0c25c261a8549999a4a4d44e4356cb853883a3b',
+      1 => 
+      array (
+        0 => 'app\\models\\locatario',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\alugueis',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));
