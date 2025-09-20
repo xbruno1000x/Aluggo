@@ -12,11 +12,7 @@ class LocatarioController extends Controller
 {
     public function index(): View
     {
-        // Lista apenas os locatários vinculados às propriedades do usuário logado (via alugueis)
-        $locatarios = Locatario::whereHas('alugueis.imovel.propriedade', function ($query) {
-            $query->where('proprietario_id', Auth::id());
-        })->orderBy('nome')->get();
-
+        $locatarios = Locatario::orderBy('nome')->get();
         return view('locatarios.index', compact('locatarios'));
     }
 
@@ -41,7 +37,6 @@ class LocatarioController extends Controller
 
     public function edit(Locatario $locatario): View
     {
-        // Aqui não tem vínculo direto com usuário, mas poderíamos validar pelo relacionamento com aluguel
         return view('locatarios.edit', compact('locatario'));
     }
 
@@ -61,7 +56,6 @@ class LocatarioController extends Controller
 
     public function destroy(Locatario $locatario): RedirectResponse
     {
-        // Antes de excluir, poderia validar se pertence a algum aluguel do usuário logado
         $locatario->delete();
 
         return redirect()->route('locatarios.index')

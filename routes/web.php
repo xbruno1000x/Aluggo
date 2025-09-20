@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AccountSettingsController;
 use App\Http\Controllers\PropriedadeController;
 use App\Http\Controllers\ImovelController;
+use App\Http\Controllers\LocatarioController;
 use Illuminate\Support\Facades\Auth;
 
 // Rotas de Login
@@ -51,6 +52,13 @@ Route::middleware(['auth:proprietario'])->group(function () {
 
     Route::resource('imoveis', ImovelController::class)->parameters([
         'imoveis' => 'imovel'
+    ]);
+});
+
+// Rotas protegidas para Locatários
+Route::middleware(['auth:proprietario'])->group(function () {
+    Route::resource('locatarios', LocatarioController::class)->parameters([
+        'locatarios' => 'locatario'
     ]);
 });
 

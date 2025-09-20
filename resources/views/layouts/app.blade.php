@@ -53,11 +53,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="locatariosDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Locatários
+                        Alugueis
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="locatariosDropdown">
-                        <li><a class="dropdown-item" href="#">Cadastro de Locatários</a></li>
-                        <li><a class="dropdown-item" href="#">Gestão de Contratos de Aluguel</a></li>
+                        <li><a class="dropdown-item" href="{{ route('locatarios.index') }}">Meus Inquilinos</a></li>
+                        <li><a class="dropdown-item" href="#">Cadastro de Contratos de Aluguel</a></li>
                     </ul>
                 </li>
 

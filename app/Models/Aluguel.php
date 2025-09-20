@@ -14,7 +14,7 @@ class Aluguel extends Model
 
     protected static string $factory = AluguelFactory::class;
 
-    protected $table = 'aluguels';
+    protected $table = 'alugueis';
 
     protected $fillable = [
         'valor_mensal',
