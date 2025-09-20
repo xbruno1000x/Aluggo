@@ -2,35 +2,30 @@ import { showAlert } from './utils/alert';
 declare const bootstrap: any;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('propriedade-form') as HTMLFormElement | null;
-    const modalEl = document.getElementById('propriedadeModal') as HTMLElement | null;
-    const select = document.getElementById('propriedade_id') as HTMLSelectElement | null;
+    const form = document.getElementById('password-form') as HTMLFormElement | null;
+    const modalEl = document.getElementById('passwordModal') as HTMLElement | null;
 
-    if (!form || !modalEl || !select) return;
-
-    const endpoint = form.dataset.endpoint ?? '';
-    const csrf = form.dataset.csrf ?? '';
+    if (!form || !modalEl) return;
 
     async function postForm(fd: FormData) {
-        return fetch(endpoint, {
+        return fetch(form!.action, { 
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': csrf,
+                'X-CSRF-TOKEN': form!.querySelector<HTMLInputElement>('input[name="_token"]')?.value ?? '',
                 'Accept': 'application/json',
             },
             body: fd
         });
     }
 
-    form.addEventListener('submit', async (e) => {
+    form!.addEventListener('submit', async (e) => { // <--- "!" aqui também
         e.preventDefault();
-        const fd = new FormData(form);
+        const fd = new FormData(form!);
 
-        const submitBtn = document.getElementById('btn-submit-propriedade') as HTMLButtonElement | null;
+        const submitBtn = document.getElementById('btn-submit-password') as HTMLButtonElement | null;
         const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement | null;
         const spinner = submitBtn?.querySelector('.spinner-border') as HTMLElement | null;
 
-        // Ativar spinner
         if (submitBtn && btnText && spinner) {
             submitBtn.disabled = true;
             btnText.classList.add('d-none');
@@ -46,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const ct = res.headers.get('content-type') ?? '';
                     if (ct.includes('application/json')) body = await res.json();
                 } catch {}
-                const msg = (body && body.message) || 'Erro ao criar propriedade';
+                const msg = (body && body.message) || 'Erro ao alterar senha';
                 showAlert('error', msg);
                 return;
             }
@@ -54,21 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let json: any = null;
             try {
                 const ct = res.headers.get('content-type') ?? '';
-                if (ct.includes('application/json')) {
-                    json = await res.json();
-                }
+                if (ct.includes('application/json')) json = await res.json();
             } catch (err) {
-                console.warn('[propriedade-modal] não foi possível parsear JSON da resposta', err);
+                console.warn('[password-modal] não foi possível parsear JSON da resposta', err);
             }
 
-            if (json && json.id !== undefined) {
-                const opt = document.createElement('option');
-                opt.value = String(json.id);
-                opt.text = String(json.nome ?? `Propriedade ${json.id}`);
-                opt.selected = true;
-                select.appendChild(opt);
-            }
-            
+            // Fecha modal
             try {
                 const bsModal =
                     (bootstrap?.Modal?.getOrCreateInstance && bootstrap.Modal.getOrCreateInstance(modalEl)) ||
@@ -76,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     new bootstrap.Modal(modalEl);
                 bsModal?.hide();
             } catch (err) {
-                console.warn('[propriedade-modal] fallback para fechar modal', err);
+                console.warn('[password-modal] fallback para fechar modal', err);
             }
 
-            form.reset();
-            showAlert('success', 'Propriedade criada com sucesso', 2000);
+            form!.reset();
+            showAlert('success', json?.status ?? 'Senha alterada com sucesso!', 2000);
 
         } catch (err) {
-            console.error('[propriedade-modal] submit error', err);
+            console.error('[password-modal] submit error', err);
             showAlert('error', 'Erro de rede. Tente novamente.');
         } finally {
             if (submitBtn && btnText && spinner) {
@@ -93,5 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
 });

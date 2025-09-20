@@ -88,7 +88,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => 'ac1a6c093e375248fc63d1a9b3a009d94904420e',
+      0 => '866ef8f69f5db7996d1d5770a5463effa9a9b205',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',
@@ -96,7 +96,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\http\\controllers\\show',
-        1 => 'app\\http\\controllers\\toggletwofactorauthentication',
+        1 => 'app\\http\\controllers\\updatepassword',
+        2 => 'app\\http\\controllers\\toggletwofactorauthentication',
       ),
       3 => 
       array (

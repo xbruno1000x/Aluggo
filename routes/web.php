@@ -38,6 +38,7 @@ Route::middleware(['auth:proprietario'])->group(function () {
 Route::middleware(['auth:proprietario'])->group(function () {
     Route::get('/account/settings', [AccountSettingsController::class, 'show'])->name('account.settings');
     Route::post('/account/settings/toggle-2fa', [AccountSettingsController::class, 'toggleTwoFactorAuthentication'])->name('account.toggle2fa');
+    Route::put('/account/password', [AccountSettingsController::class, 'updatePassword'])->name('account.password.update');
 });
 
 // Rotas para autenticação de 2 fatores no login

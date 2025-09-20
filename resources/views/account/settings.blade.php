@@ -1,4 +1,3 @@
-{{-- resources/views/account/settings.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Configurações da Conta')
@@ -16,6 +15,11 @@
                 {{ session('status') }}
             </div>
         @endif
+
+        <!-- Botão para abrir modal de alteração de senha -->
+        <button type="button" class="btn btn-success w-100 mb-4" data-bs-toggle="modal" data-bs-target="#passwordModal">
+            Alterar Senha
+        </button>
 
         <!-- Formulário de ativação/desativação 2FA -->
         <form method="POST" action="{{ route('account.toggle2fa') }}" class="mb-4">
@@ -41,4 +45,49 @@
 
     </div>
 </div>
+
+<!-- Modal de Alteração de Senha -->
+<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="password-form" method="POST" action="{{ route('account.password.update') }}">
+                @csrf
+                @method('PUT')
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordModalLabel">Alterar Senha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="password-form-alert" class="alert d-none" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label for="current_password" class="form-label">Senha Atual</label>
+                        <input type="password" name="current_password" id="current_password" required class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Nova Senha</label>
+                        <input type="password" name="password" id="password" required class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Confirmar Nova Senha</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" required class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btn-submit-password">
+                        <span class="btn-text">Alterar Senha</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@vite(['resources/ts/account-password-modal.ts'])
 @endsection

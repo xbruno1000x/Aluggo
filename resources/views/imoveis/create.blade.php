@@ -114,7 +114,10 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Criar Propriedade</button>
+                    <button type="submit" class="btn btn-success" id="btn-submit-propriedade">
+                        <span class="btn-text">Criar Propriedade</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
                 </div>
             </form>
         </div>

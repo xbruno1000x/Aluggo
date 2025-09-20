@@ -2235,7 +2235,7 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => 'ac1a6c093e375248fc63d1a9b3a009d94904420e',
+    'fileHash' => '866ef8f69f5db7996d1d5770a5463effa9a9b205',
     'dependentFiles' => 
     array (
     ),
@@ -2356,6 +2356,35 @@ return [
           ),
         )),
         1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updatePassword',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'toggleTwoFactorAuthentication',
            'phpDoc' => NULL,
