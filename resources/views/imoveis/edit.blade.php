@@ -44,15 +44,26 @@
                 <input type="date" id="data_aquisicao" name="data_aquisicao" value="{{ old('data_aquisicao', $imovel->data_aquisicao) }}" class="form-control">
             </div>
 
+            <!-- SELECT com botão que abre modal para criar nova Propriedade -->
             <div class="col-12">
                 <label for="propriedade_id" class="form-label">Propriedade:</label>
-                <select id="propriedade_id" name="propriedade_id" required class="form-select">
-                    @foreach ($propriedades as $propriedade)
-                        <option value="{{ $propriedade->id }}" {{ $imovel->propriedade_id === $propriedade->id ? 'selected' : '' }}>
-                            {{ $propriedade->nome }}
-                        </option>
-                    @endforeach
-                </select>
+                <div class="input-group">
+                    <select id="propriedade_id" name="propriedade_id" required class="form-select">
+                        @foreach ($propriedades as $propriedade)
+                            <option value="{{ $propriedade->id }}" {{ $imovel->propriedade_id === $propriedade->id ? 'selected' : '' }}>
+                                {{ $propriedade->nome }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <button
+                        type="button"
+                        class="btn btn-outline-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#propriedadeModal"
+                        title="Adicionar Propriedade">
+                        <span class="fw-bold">+</span>
+                    </button>
+                </div>
             </div>
 
             <div class="col-12">
@@ -61,4 +72,50 @@
         </form>
     </div>
 </div>
+
+<!-- Modal: Criar Propriedade (mesmo do create.blade.php) -->
+<div class="modal fade" id="propriedadeModal" tabindex="-1" aria-labelledby="propriedadeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="propriedade-form" class="needs-validation" novalidate
+                  data-endpoint="{{ route('propriedades.store') }}"
+                  data-csrf="{{ csrf_token() }}">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="propriedadeModalLabel">Nova Propriedade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="propriedade-form-alert" class="alert d-none" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label for="p_nome" class="form-label">Nome</label>
+                        <input type="text" id="p_nome" name="nome" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_endereco" class="form-label">Endereço</label>
+                        <input type="text" id="p_endereco" name="endereco" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_descricao" class="form-label">Descrição</label>
+                        <textarea id="p_descricao" name="descricao" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btn-submit-propriedade">
+                        <span class="btn-text">Criar Propriedade</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Script do modal -->
+@vite(['resources/ts/propriedade-modal.ts'])
 @endsection
