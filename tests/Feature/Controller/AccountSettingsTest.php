@@ -12,7 +12,7 @@ it('mostra configurações de conta', function () {
         ->assertViewHas(['is2FAEnabled', 'qrCodeUrl']);
 });
 
-/*
+
 it('ativa e desativa 2FA', function () {
     actingAs($this->user)
         ->post(route('account.toggle2fa'))
@@ -28,4 +28,3 @@ it('ativa e desativa 2FA', function () {
     $this->user->refresh();
     expect($this->user->two_factor_secret)->toBeNull();
 });
-*/

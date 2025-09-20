@@ -2,10 +2,10 @@
 
 use App\Models\Propriedade;
 use App\Models\Proprietario;
-use function Pest\Laravel\{actingAs, get, post};
+use function Pest\Laravel\{actingAs};
 
 beforeEach(fn () => $this->user = Proprietario::factory()->create());
-/*
+
 it('lista propriedades do usuário', function () {
     Propriedade::factory()->count(2)->create(['proprietario_id' => $this->user->id]);
 
@@ -21,4 +21,4 @@ it('cria uma propriedade via JSON', function () {
             'nome' => 'Casa Teste',
             'endereco' => 'Rua Teste, 123',
         ])->assertJsonStructure(['id', 'nome']);
-});*/
+});

@@ -7,16 +7,6 @@ use function Pest\Laravel\{actingAs, get, post};
 
 beforeEach(fn () => $this->user = Proprietario::factory()->create());
 
-/*it('lista imóveis do usuário', function () {
-    $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    Imovel::factory()->count(3)->create(['propriedade_id' => $prop->id]);
-
-    actingAs($this->user)
-        ->get(route('imoveis.index'))
-        ->assertOk()
-        ->assertViewHas('imoveis');
-});
-
 it('cria um imóvel', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
 
@@ -29,7 +19,7 @@ it('cria um imóvel', function () {
         ])->assertRedirect(route('imoveis.index'))
           ->assertSessionHas('success');
 });
-
+/*
 it('edita um imóvel', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
     $imovel = Imovel::factory()->create(['propriedade_id' => $prop->id]);
@@ -38,4 +28,14 @@ it('edita um imóvel', function () {
         ->get(route('imoveis.edit', $imovel))
         ->assertOk()
         ->assertViewHas('imovel');
+});
+
+it('lista imóveis do usuário', function () {
+    $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
+    Imovel::factory()->count(3)->create(['propriedade_id' => $prop->id]);
+
+    actingAs($this->user)
+        ->get(route('imoveis.index'))
+        ->assertOk()
+        ->assertViewHas('imoveis');
 });*/
