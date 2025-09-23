@@ -22,7 +22,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
     array (
-      0 => 'c2d3e9ab5dda97b05d9aebb5f8be939e56cd27dd',
+      0 => 'f0a5b90af7acf4c378ee39fba1ba88a894fa8a12',
       1 => 
       array (
         0 => 'app\\models\\propriedade',
@@ -165,7 +165,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
     array (
-      0 => 'c70600a211d7539732aafae373451ee280b7e3a7',
+      0 => 'cb06ad147bf5db2ab30dd1e5eaebe23ec3f889b9',
       1 => 
       array (
         0 => 'app\\http\\controllers\\propriedadecontroller',
@@ -184,7 +184,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
     array (
-      0 => 'e638400d3d8e61e4bc1e670f43fd1f9cdc3c458d',
+      0 => '5918ece68f747102c2ba2d4614ccec2fcdbf6647',
       1 => 
       array (
         0 => 'app\\http\\controllers\\locatariocontroller',
@@ -204,7 +204,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php' => 
     array (
-      0 => '3228fc626015e4540619cbe75541ead59b64e06a',
+      0 => '3482ab8ab27a7be9952361caac6fd96806bd995d',
       1 => 
       array (
         0 => 'app\\models\\aluguel',

@@ -2094,60 +2094,6 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $view of function view expects view-string|null, string given.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'line' => 20,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 20,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $view of function view expects view-string|null, string given.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'line' => 25,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 25,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $view of function view expects view-string|null, string given.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'line' => 45,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 45,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
 ); },
@@ -2242,7 +2188,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 36,
+        2 => 32,
       ),
     ),
   ),
@@ -2360,21 +2306,21 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => 'e638400d3d8e61e4bc1e670f43fd1f9cdc3c458d',
+    'fileHash' => '5918ece68f747102c2ba2d4614ccec2fcdbf6647',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
   array (
-    'fileHash' => 'c70600a211d7539732aafae373451ee280b7e3a7',
+    'fileHash' => 'cb06ad147bf5db2ab30dd1e5eaebe23ec3f889b9',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php' => 
   array (
-    'fileHash' => '3228fc626015e4540619cbe75541ead59b64e06a',
+    'fileHash' => '3482ab8ab27a7be9952361caac6fd96806bd995d',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
@@ -2401,7 +2347,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
   array (
-    'fileHash' => 'c2d3e9ab5dda97b05d9aebb5f8be939e56cd27dd',
+    'fileHash' => 'f0a5b90af7acf4c378ee39fba1ba88a894fa8a12',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',

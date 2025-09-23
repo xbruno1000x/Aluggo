@@ -20,5 +20,7 @@ it('cria uma propriedade via JSON', function () {
         ->postJson(route('propriedades.store'), [
             'nome' => 'Casa Teste',
             'endereco' => 'Rua Teste, 123',
+            'bairro' => 'Bairro Teste',
+            'descricao' => 'Descrição da casa teste',
         ])->assertJsonStructure(['id', 'nome']);
 });

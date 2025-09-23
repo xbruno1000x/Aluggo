@@ -23,6 +23,7 @@ class PropriedadeController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
+            'bairro' => 'required|string|max:255',
             'descricao' => 'nullable|string',
         ]);
 
@@ -47,6 +48,7 @@ class PropriedadeController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
+            'bairro' => 'required|string|max:255',
             'descricao' => 'nullable|string',
         ]);
 

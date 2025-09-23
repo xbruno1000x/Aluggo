@@ -18,6 +18,7 @@ class Propriedade extends Model
     protected $fillable = [
         'nome',
         'endereco',
+        'bairro',
         'descricao',
         'proprietario_id',
     ];

@@ -54,7 +54,7 @@
                 <div class="input-group">
                     <select id="propriedade_id" name="propriedade_id" required class="form-select">
                         @foreach($propriedades as $propriedade)
-                            <option value="{{ $propriedade->id }}">{{ $propriedade->nome }}</option>
+                        <option value="{{ $propriedade->id }}">{{ $propriedade->nome }}</option>
                         @endforeach
                     </select>
                     <button
@@ -86,8 +86,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="propriedade-form" class="needs-validation" novalidate
-                  data-endpoint="{{ route('propriedades.store') }}"
-                  data-csrf="{{ csrf_token() }}">
+                data-endpoint="{{ route('propriedades.store') }}"
+                data-csrf="{{ csrf_token() }}">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="propriedadeModalLabel">Nova Propriedade</h5>
@@ -104,6 +104,11 @@
                     <div class="mb-3">
                         <label for="p_endereco" class="form-label">Endereço</label>
                         <input type="text" id="p_endereco" name="endereco" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_bairro" class="form-label">Bairro</label>
+                        <input type="text" id="p_bairro" name="bairro" class="form-control" required>
                     </div>
 
                     <div class="mb-3">

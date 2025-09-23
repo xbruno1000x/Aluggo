@@ -20,7 +20,6 @@
             <table class="table table-striped table-hover table-dark align-middle">
                 <thead class="table-primary text-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Nome</th>
                         <th>Telefone</th>
                         <th>Email</th>
@@ -30,7 +29,6 @@
                 <tbody>
                     @forelse($locatarios as $locatario)
                         <tr>
-                            <td>{{ $locatario->id }}</td>
                             <td>{{ $locatario->nome }}</td>
                             <td>{{ $locatario->telefone }}</td>
                             <td>{{ $locatario->email }}</td>
