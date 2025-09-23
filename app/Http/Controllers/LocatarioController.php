@@ -10,9 +10,21 @@ use Illuminate\Http\RedirectResponse;
 
 class LocatarioController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $locatarios = Locatario::orderBy('nome')->get();
+        $query = Locatario::query();
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('nome', 'like', "%{$search}%")
+                    ->orWhere('telefone', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        $locatarios = $query->orderBy('nome')->get();
+
         return view('locatarios.index', compact('locatarios'));
     }
 

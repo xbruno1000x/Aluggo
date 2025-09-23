@@ -14,6 +14,21 @@
     <a href="{{ route('locatarios.create') }}" class="btn btn-success">Novo Locatário</a>
 </div>
 
+{{-- Barra de pesquisa --}}
+<form method="GET" action="{{ route('locatarios.index') }}" class="mb-3">
+    <div class="input-group">
+        <input type="text" 
+               name="search" 
+               class="form-control" 
+               placeholder="Pesquisar por nome, telefone ou email"
+               value="{{ request('search') }}">
+        <button class="btn btn-outline-danger" type="submit">Pesquisar</button>
+        @if(request('search'))
+            <a href="{{ route('locatarios.index') }}" class="btn btn-outline-danger">Limpar</a>
+        @endif
+    </div>
+</form>
+
 <div class="d-flex justify-content-center">
     <div class="w-100">
         <div class="table-responsive">

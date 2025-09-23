@@ -35,7 +35,7 @@
                     <td>
                         {{ $imovel->valor_compra ? 'R$ ' . number_format($imovel->valor_compra, 2, ',', '.') : 'N/A' }}
                     </td>
-                    <td>{{ $imovel->propriedade->nome }}</td>
+                    <td>{{ $imovel->propriedade->nome }} ({{ $imovel->propriedade->endereco }}, {{ $imovel->propriedade->bairro }})</td>
                     <td class="d-flex gap-2">
                         <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-sm btn-warning">Editar</a>
 
