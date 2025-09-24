@@ -2151,17 +2151,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 55,
+        1 => 76,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 67,
+        1 => 88,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 93,
+        1 => 114,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2170,7 +2170,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 47,
+        2 => 68,
       ),
     ),
   ),
@@ -2299,7 +2299,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
   array (
-    'fileHash' => '41169b83f0bb097ad095d9a926381f8070556e95',
+    'fileHash' => 'd62f5d270aa0b47e41b9e55a8881a01cfca72bd5',
     'dependentFiles' => 
     array (
     ),
@@ -3078,6 +3078,17 @@ return [
            'returnType' => 'Illuminate\\View\\View',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (

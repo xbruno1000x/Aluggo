@@ -11,9 +11,20 @@ use Illuminate\Http\JsonResponse;
 
 class PropriedadeController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $propriedades = Propriedade::where('proprietario_id', Auth::id())->get();
+        $query = Propriedade::where('proprietario_id', Auth::id());
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('nome', 'like', "%{$search}%")
+                    ->orWhere('endereco', 'like', "%{$search}%")
+                    ->orWhere('bairro', 'like', "%{$search}%");
+            });
+        }
+
+        $propriedades = $query->orderBy('nome')->get();
 
         return view('propriedades.index', ['propriedades' => $propriedades]);
     }

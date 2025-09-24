@@ -12,6 +12,21 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="text-warning">@yield('header')</h2>
 </div>
+
+<form method="GET" action="{{ route('propriedades.index') }}" class="mb-3">
+    <div class="input-group">
+        <input type="text" 
+               name="search" 
+               class="form-control" 
+               placeholder="Pesquisar por nome, endereço ou bairro"
+               value="{{ request('search') }}">
+        <button class="btn btn-outline-danger" type="submit">Pesquisar</button>
+        @if(request('search'))
+            <a href="{{ route('propriedades.index') }}" class="btn btn-outline-danger">Limpar</a>
+        @endif
+    </div>
+</form>
+
 <div class="d-flex justify-content-center">
     <div class="w-100">
         <thead class=>
