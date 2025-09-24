@@ -26,6 +26,8 @@
                     <option value="apartamento">Apartamento</option>
                     <option value="terreno">Terreno</option>
                     <option value="loja">Loja</option>
+                    <option value="casa">Casa</option>
+                    <option value="garagem">Garagem</option>
                 </select>
             </div>
 

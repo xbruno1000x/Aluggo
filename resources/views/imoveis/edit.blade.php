@@ -22,6 +22,8 @@
                     <option value="apartamento" {{ $imovel->tipo === 'apartamento' ? 'selected' : '' }}>Apartamento</option>
                     <option value="terreno" {{ $imovel->tipo === 'terreno' ? 'selected' : '' }}>Terreno</option>
                     <option value="loja" {{ $imovel->tipo === 'loja' ? 'selected' : '' }}>Loja</option>
+                    <option value="casa" {{ $imovel->tipo === 'casa' ? 'selected' : '' }}>Casa</option>
+                    <option value="garagem" {{ $imovel->tipo === 'garagem' ? 'selected' : '' }}>Garagem</option>
                 </select>
             </div>
 

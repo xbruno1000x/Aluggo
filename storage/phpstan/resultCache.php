@@ -2188,7 +2188,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 32,
+        2 => 44,
       ),
     ),
   ),
@@ -2306,7 +2306,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => '5918ece68f747102c2ba2d4614ccec2fcdbf6647',
+    'fileHash' => 'c6980ce3b7504ddd5912cff5174803d47d2ee7ce',
     'dependentFiles' => 
     array (
     ),
@@ -3267,6 +3267,17 @@ return [
            'returnType' => 'Illuminate\\View\\View',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (

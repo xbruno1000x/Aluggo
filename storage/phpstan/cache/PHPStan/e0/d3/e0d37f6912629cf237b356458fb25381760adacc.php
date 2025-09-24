@@ -184,7 +184,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
     array (
-      0 => '5918ece68f747102c2ba2d4614ccec2fcdbf6647',
+      0 => 'c6980ce3b7504ddd5912cff5174803d47d2ee7ce',
       1 => 
       array (
         0 => 'app\\http\\controllers\\locatariocontroller',

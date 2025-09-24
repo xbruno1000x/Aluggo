@@ -14,6 +14,48 @@
     <a href="{{ route('imoveis.create') }}" class="btn btn-success">Cadastrar Novo Imóvel</a>
 </div>
 
+<form method="GET" action="{{ route('imoveis.index') }}" class="mb-3">
+    <div class="row g-2">
+        <div class="col-md-3">
+            <input type="text" name="nome" class="form-control" placeholder="Nome do imóvel" value="{{ request('nome') }}">
+        </div>
+
+        <div class="col-md-2">
+            <select name="tipo" class="form-select">
+                <option value="">Todos os tipos</option>
+                @foreach(['apartamento','terreno','loja','casa','garagem'] as $tipo)
+                    <option value="{{ $tipo }}" {{ request('tipo') === $tipo ? 'selected' : '' }}>{{ ucfirst($tipo) }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <select name="status" class="form-select">
+                <option value="">Todos os status</option>
+                @foreach(['disponível','vendido','alugado'] as $status)
+                    <option value="{{ $status }}" {{ request('status') === $status ? 'selected' : '' }}>{{ ucfirst($status) }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <select name="propriedade_id" class="form-select">
+                <option value="">Todas as propriedades</option>
+                @foreach($propriedades as $prop)
+                    <option value="{{ $prop->id }}" {{ request('propriedade_id') == $prop->id ? 'selected' : '' }}>
+                        {{ $prop->nome }} ({{ $prop->bairro }})
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-2 d-flex gap-2">
+            <button class="btn btn-outline-danger flex-fill" type="submit">Filtrar</button>
+            <a href="{{ route('imoveis.index') }}" class="btn btn-outline-danger flex-fill">Limpar</a>
+        </div>
+    </div>
+</form>
+
 <div class="table-responsive">
     <table class="table table-dark table-striped table-hover align-middle">
         <thead class="table-primary text-dark">
