@@ -165,7 +165,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
     array (
-      0 => 'cb06ad147bf5db2ab30dd1e5eaebe23ec3f889b9',
+      0 => '70485d35ca75804c62c55d1173c3dbb3abf10869',
       1 => 
       array (
         0 => 'app\\http\\controllers\\propriedadecontroller',

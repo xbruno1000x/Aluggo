@@ -21,7 +21,8 @@ export function showAlert(
         didOpen: () => {
             const c = document.querySelector('.sa-container') as HTMLElement | null;
             if (c) c.style.zIndex = '20000';
-        }
+        },
+        theme: 'dark'
     });
 }
 
@@ -43,6 +44,7 @@ export function showConfirm(
         confirmButtonText,
         cancelButtonText,
         reverseButtons: true,
-        focusCancel: true
+        focusCancel: true,
+        theme: 'dark'
     }).then(result => result.isConfirmed);
 }

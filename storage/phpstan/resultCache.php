@@ -2313,7 +2313,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
   array (
-    'fileHash' => 'cb06ad147bf5db2ab30dd1e5eaebe23ec3f889b9',
+    'fileHash' => '70485d35ca75804c62c55d1173c3dbb3abf10869',
     'dependentFiles' => 
     array (
     ),
@@ -3478,6 +3478,17 @@ return [
            'returnType' => 'Illuminate\\View\\View',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
