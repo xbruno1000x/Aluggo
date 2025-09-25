@@ -75,13 +75,13 @@
     </div>
 </div>
 
-<!-- Modal: Criar Propriedade (mesmo do create.blade.php) -->
+<!-- Modal: Criar Propriedade -->
 <div class="modal fade" id="propriedadeModal" tabindex="-1" aria-labelledby="propriedadeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="propriedade-form" class="needs-validation" novalidate
-                  data-endpoint="{{ route('propriedades.store') }}"
-                  data-csrf="{{ csrf_token() }}">
+                data-endpoint="{{ route('propriedades.store') }}"
+                data-csrf="{{ csrf_token() }}">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="propriedadeModalLabel">Nova Propriedade</h5>
@@ -92,17 +92,26 @@
 
                     <div class="mb-3">
                         <label for="p_nome" class="form-label">Nome</label>
-                        <input type="text" id="p_nome" name="nome" class="form-control" required>
+                        <input type="text" id="p_nome" name="nome" class="form-control" required
+                               placeholder="Ex: Condominio das Flores">
                     </div>
 
                     <div class="mb-3">
                         <label for="p_endereco" class="form-label">Endereço</label>
-                        <input type="text" id="p_endereco" name="endereco" class="form-control" required>
+                        <input type="text" id="p_endereco" name="endereco" class="form-control" required
+                               placeholder="Ex: Rua das Palmeiras, 123">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_bairro" class="form-label">Bairro</label>
+                        <input type="text" id="p_bairro" name="bairro" class="form-control" required
+                               placeholder="Informe o bairro">
                     </div>
 
                     <div class="mb-3">
                         <label for="p_descricao" class="form-label">Descrição</label>
-                        <textarea id="p_descricao" name="descricao" rows="3" class="form-control"></textarea>
+                        <textarea id="p_descricao" name="descricao" rows="3" class="form-control"
+                                  placeholder="Adicione uma breve descrição da propriedade"></textarea>
                     </div>
                 </div>
 

@@ -42,7 +42,8 @@
 
             <div class="col-12">
                 <label for="valor_compra" class="form-label">Valor de Compra:</label>
-                <input type="number" step="1000" min="0" id="valor_compra" name="valor_compra" class="form-control">
+                <input type="number" step="1000" min="0" id="valor_compra" name="valor_compra" class="form-control"
+                       placeholder="Ex: 250000">
             </div>
 
             <div class="col-12">
@@ -100,22 +101,26 @@
 
                     <div class="mb-3">
                         <label for="p_nome" class="form-label">Nome</label>
-                        <input type="text" id="p_nome" name="nome" class="form-control" required>
+                        <input type="text" id="p_nome" name="nome" class="form-control" required
+                               placeholder="Digite o nome da propriedade">
                     </div>
 
                     <div class="mb-3">
                         <label for="p_endereco" class="form-label">Endereço</label>
-                        <input type="text" id="p_endereco" name="endereco" class="form-control" required>
+                        <input type="text" id="p_endereco" name="endereco" class="form-control" required
+                               placeholder="Ex: Rua das Palmeiras, 123">
                     </div>
 
                     <div class="mb-3">
                         <label for="p_bairro" class="form-label">Bairro</label>
-                        <input type="text" id="p_bairro" name="bairro" class="form-control" required>
+                        <input type="text" id="p_bairro" name="bairro" class="form-control" required
+                               placeholder="Informe o bairro">
                     </div>
 
                     <div class="mb-3">
                         <label for="p_descricao" class="form-label">Descrição</label>
-                        <textarea id="p_descricao" name="descricao" rows="3" class="form-control"></textarea>
+                        <textarea id="p_descricao" name="descricao" rows="3" class="form-control"
+                                  placeholder="Adicione uma breve descrição da propriedade"></textarea>
                     </div>
                 </div>
 
