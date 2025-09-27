@@ -6,6 +6,7 @@ use App\Http\Controllers\AccountSettingsController;
 use App\Http\Controllers\PropriedadeController;
 use App\Http\Controllers\ImovelController;
 use App\Http\Controllers\LocatarioController;
+use App\Http\Controllers\AluguelController;
 use Illuminate\Support\Facades\Auth;
 
 // Rotas de Login
@@ -29,34 +30,32 @@ Route::post('/admin/reset/verify-2fa', [AdminController::class, 'verifyTwoFactor
 Route::get('/admin/reset/password/{token}', [AdminController::class, 'showResetPasswordForm'])->name('admin.reset.password.form');
 Route::post('/admin/reset/password', [AdminController::class, 'resetPassword'])->name('admin.reset.password.post');
 
-// Rotas protegidas com o guard 'proprietario'
+// Rotas protegidas com o guard 'proprietario' — unificadas
 Route::middleware(['auth:proprietario'])->group(function () {
+    // Admin
     Route::get('/admin/menu', [AdminController::class, 'menu'])->name('admin.menu');
     Route::get('/admin/settings', [AdminController::class, 'settings'])->name('admin.settings');
-});
 
-// Rotas protegidas para configurações da conta com o guard 'proprietario'
-Route::middleware(['auth:proprietario'])->group(function () {
+    // Account settings
     Route::get('/account/settings', [AccountSettingsController::class, 'show'])->name('account.settings');
     Route::post('/account/settings/toggle-2fa', [AccountSettingsController::class, 'toggleTwoFactorAuthentication'])->name('account.toggle2fa');
     Route::put('/account/password', [AccountSettingsController::class, 'updatePassword'])->name('account.password.update');
-});
 
-// Rotas para autenticação de 2 fatores no login
-Route::middleware('auth:proprietario')->get('/admin/twofactor', [AdminController::class, 'showTwoFactorForm'])->name('admin.twofactor');
-Route::middleware('auth:proprietario')->post('/admin/twofactor', [AdminController::class, 'verifyTwoFactor'])->name('admin.twofactor.verify');
+    // Two-factor auth (login)
+    Route::get('/admin/twofactor', [AdminController::class, 'showTwoFactorForm'])->name('admin.twofactor');
+    Route::post('/admin/twofactor', [AdminController::class, 'verifyTwoFactor'])->name('admin.twofactor.verify');
 
-// Rotas protegidas para Propriedades e Imóveis
-Route::middleware(['auth:proprietario'])->group(function () {
+    // Recursos da aplicação
     Route::resource('propriedades', PropriedadeController::class);
 
     Route::resource('imoveis', ImovelController::class)->parameters([
         'imoveis' => 'imovel'
     ]);
-});
 
-// Rotas protegidas para Locatários
-Route::middleware(['auth:proprietario'])->group(function () {
+    Route::resource('alugueis', AluguelController::class)->parameters([
+        'alugueis' => 'aluguel'
+    ]);
+
     Route::resource('locatarios', LocatarioController::class)->parameters([
         'locatarios' => 'locatario'
     ]);

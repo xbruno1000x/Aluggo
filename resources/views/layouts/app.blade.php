@@ -44,7 +44,7 @@
                         Controle Financeiro
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
-                        <li><a class="dropdown-item" href="#">Gestão de Alugueis</a></li>
+                        <li><a class="dropdown-item" href="{{ route('alugueis.index') }}">Gestão de Aluguéis</a></li>
                         <li><a class="dropdown-item" href="#">Cadastro de Transações de Compra e Venda</a></li>
                         <li><a class="dropdown-item" href="#">Relatórios e Rentabilidade</a></li>
                     </ul>
@@ -57,7 +57,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="locatariosDropdown">
                         <li><a class="dropdown-item" href="{{ route('locatarios.index') }}">Meus Inquilinos</a></li>
-                        <li><a class="dropdown-item" href="#">Cadastro de Contratos de Aluguel</a></li>
+                        <li><a class="dropdown-item" href="{{ route('alugueis.create') }}">Cadastro de Contratos de Aluguel</a></li>
                     </ul>
                 </li>
 

@@ -86,7 +86,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Contratos</h5>
                         <p class="card-text flex-grow-1">Gerencie contratos de aluguel ativos e históricos.</p>
-                        <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <a href="{{ route('alugueis.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>
