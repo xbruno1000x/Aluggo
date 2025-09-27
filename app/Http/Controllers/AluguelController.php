@@ -53,14 +53,14 @@ class AluguelController extends Controller
             'locatario_id' => ['required', 'exists:locatarios,id'],
         ]);
 
-        $imovelId = $data['imovel_id'];
+        $imovelId = (int) $data['imovel_id'];
         $newStart = Carbon::parse($data['data_inicio'])->startOfDay();
         $newEnd = isset($data['data_fim']) ? Carbon::parse($data['data_fim'])->endOfDay() : Carbon::createFromDate(9999, 12, 31)->endOfDay();
 
         // verificar sobreposição de contratos no mesmo imóvel
         $overlap = Aluguel::where('imovel_id', $imovelId)
             ->where(function ($q) use ($newStart, $newEnd) {
-                // contratos sem data_fim (abertos) que começam antes do fim do novo contrato
+                // contratos sem data_fim que começam antes do fim do novo contrato
                 $q->whereNull('data_fim')
                     ->where('data_inicio', '<=', $newEnd->toDateString());
                 // ou contratos com data_fim que se intersectam [data_inicio, data_fim] com [newStart, newEnd]
@@ -83,7 +83,7 @@ class AluguelController extends Controller
             $aluguel = Aluguel::create($data);
 
             // Atualizar status do imóvel se o contrato estiver ativo hoje
-            $today = Carbon::today();
+            $today = Carbon::today()->startOfDay();
             $isActiveNow = ($newStart->lte($today) && $today->lte($newEnd));
 
             if ($isActiveNow) {
@@ -105,20 +105,36 @@ class AluguelController extends Controller
 
     /**
      * Remove um contrato de aluguel.
-     * Após exclusão, atualiza status do imóvel para 'disponível' caso não exista
+     * Após exclusão, atualiza status do imóvel para 'disponivel' caso não exista
      * outro contrato ativo cobrindo a data atual.
      */
     public function destroy(Aluguel $aluguel): RedirectResponse
     {
         DB::beginTransaction();
         try {
-            $imovel = $aluguel->imovel; // relação existente no modelo
-            $aluguel->delete();
+            $aluguelId = $aluguel->id;
+            $imovelId = $aluguel->imovel_id;
+
+            // tenta remover via Eloquent (respeita soft deletes se existirem)
+            $deleted = Aluguel::destroy($aluguelId);
+
+            // fallback direto caso não tenha sido removido (ex.: hooks/observers impedindo)
+            if (! $deleted) {
+                DB::table('alugueis')->where('id', $aluguelId)->delete();
+            }
+
+            // garantir que não exista mais (só para lógica subsequente)
+            $stillExists = DB::table('alugueis')->where('id', $aluguelId)->exists();
+
+            if ($stillExists) {
+                DB::rollBack();
+                return redirect()->route('alugueis.index')->with('error', 'Falha ao excluir o contrato. Tente novamente.');
+            }
 
             // verificar se existe outro contrato ativo para este imóvel hoje
             $today = Carbon::today()->toDateString();
 
-            $hasActive = Aluguel::where('imovel_id', $imovel->id)
+            $hasActive = Aluguel::where('imovel_id', $imovelId)
                 ->where('data_inicio', '<=', $today)
                 ->where(function ($q) use ($today) {
                     $q->whereNull('data_fim')
@@ -127,8 +143,11 @@ class AluguelController extends Controller
                 ->exists();
 
             if (! $hasActive) {
-                $imovel->status = 'disponível';
-                $imovel->save();
+                $im = Imovel::find($imovelId);
+                if ($im) {
+                    $im->status = 'disponivel';
+                    $im->save();
+                }
             }
 
             DB::commit();
