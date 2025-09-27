@@ -2138,6 +2138,14 @@ return [
       ),
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+  array (
+    'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
+    array (
+      0 => 'alugueis.index',
+      1 => 'alugueis.create',
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
@@ -2285,6 +2293,13 @@ return [
     array (
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+  array (
+    'fileHash' => 'e740149648590f36a01eb77d9cdd73f1271122f2',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\Controller.php' => 
   array (
     'fileHash' => 'a33a5105f92c73a309c9f8a549905dcdf6dccbae',
@@ -2292,9 +2307,10 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AccountSettingsController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AdminController.php',
-      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
-      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-      4 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
+      4 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
+      5 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
@@ -2323,7 +2339,8 @@ return [
     'fileHash' => '3482ab8ab27a7be9952361caac6fd96806bd995d',
     'dependentFiles' => 
     array (
-      0 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
@@ -2331,9 +2348,10 @@ return [
     'fileHash' => '8c9970af9339e4e6151898940b24647c9a18ef12',
     'dependentFiles' => 
     array (
-      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
-      1 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
-      2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php',
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php' => 
@@ -2341,8 +2359,9 @@ return [
     'fileHash' => 'f0c25c261a8549999a4a4d44e4356cb853883a3b',
     'dependentFiles' => 
     array (
-      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
-      1 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
@@ -3001,6 +3020,223 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'request',
                'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\AluguelController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Lista contratos de aluguel.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Mostrar formulário de criação de aluguel.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'store',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Persistir novo aluguel.
+     *
+     * Regras adicionais:
+     * - Não permite contratos que se sobreponham no mesmo imóvel.
+     * - Atualiza status do imóvel para \'alugado\' se o contrato estiver ativo hoje.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'destroy',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Remove um contrato de aluguel.
+     * Após exclusão, atualiza status do imóvel para \'disponível\' caso não exista
+     * outro contrato ativo cobrindo a data atual.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'aluguel',
+               'type' => 'App\\Models\\Aluguel',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

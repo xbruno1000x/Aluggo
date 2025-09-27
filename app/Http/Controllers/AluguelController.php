@@ -8,13 +8,15 @@ use App\Models\Locatario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class AluguelController extends Controller
 {
     /**
      * Lista contratos de aluguel.
      */
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $alugueis = Aluguel::with(['imovel.propriedade', 'locatario'])
             ->orderByDesc('data_inicio')
@@ -26,7 +28,7 @@ class AluguelController extends Controller
     /**
      * Mostrar formulário de criação de aluguel.
      */
-    public function create()
+    public function create(): View
     {
         $imoveis = Imovel::orderBy('nome')->get();
         $locatarios = Locatario::orderBy('nome')->get();
@@ -41,7 +43,7 @@ class AluguelController extends Controller
      * - Não permite contratos que se sobreponham no mesmo imóvel.
      * - Atualiza status do imóvel para 'alugado' se o contrato estiver ativo hoje.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
             'valor_mensal' => ['required', 'numeric', 'min:0'],
@@ -106,7 +108,7 @@ class AluguelController extends Controller
      * Após exclusão, atualiza status do imóvel para 'disponível' caso não exista
      * outro contrato ativo cobrindo a data atual.
      */
-    public function destroy(Aluguel $aluguel)
+    public function destroy(Aluguel $aluguel): RedirectResponse
     {
         DB::beginTransaction();
         try {

@@ -233,5 +233,23 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+    array (
+      0 => 'e740149648590f36a01eb77d9cdd73f1271122f2',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\aluguelcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\create',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));
