@@ -37,7 +37,7 @@ class Imovel extends Model
     /**
      * Relação 1:N para obras no imóvel.
      *
-     * @return HasMany<Obra>
+     * @return HasMany<Obra, $this>
      */
     public function obras(): HasMany
     {

@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
     array (
-      0 => '8c9970af9339e4e6151898940b24647c9a18ef12',
+      0 => '691b5d9321e1df351ed8878db9a7e16bf3bb6f0b',
       1 => 
       array (
         0 => 'app\\models\\imovel',
@@ -15,6 +15,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\models\\propriedade',
+        1 => 'app\\models\\obras',
       ),
       3 => 
       array (
@@ -246,6 +247,41 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'app\\http\\controllers\\create',
         2 => 'app\\http\\controllers\\store',
         3 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php' => 
+    array (
+      0 => '52860adb5b18821ebac444387363ee474f57b58c',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\obracontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\create',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\edit',
+        4 => 'app\\http\\controllers\\update',
+        5 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Obra.php' => 
+    array (
+      0 => '49d9f12b8e690a575e4f73e8b2e743aab35708a6',
+      1 => 
+      array (
+        0 => 'app\\models\\obra',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\imovel',
       ),
       3 => 
       array (

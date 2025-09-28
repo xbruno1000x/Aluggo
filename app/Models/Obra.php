@@ -9,6 +9,7 @@ use Database\Factories\ObraFactory;
 
 class Obra extends Model
 {
+    /** @use HasFactory<ObraFactory> */
     use HasFactory;
 
     protected static string $factory = ObraFactory::class;
