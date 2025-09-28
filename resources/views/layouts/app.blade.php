@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="patrimonioDropdown">
                         <li><a class="dropdown-item" href="{{ route('imoveis.index') }}">Gestão de Imóveis</a></li>
                         <li><a class="dropdown-item" href="{{ route('propriedades.index') }}">Gestão de Propriedades</a></li>
-                        <li><a class="dropdown-item" href="#">Gestão de Obras e Manutenções</a></li>
+                        <li><a class="dropdown-item" href="{{ route('obras.index') }}">Gestão de Obras e Manutenções</a></li>
                     </ul>
                 </li>
 

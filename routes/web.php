@@ -7,6 +7,7 @@ use App\Http\Controllers\PropriedadeController;
 use App\Http\Controllers\ImovelController;
 use App\Http\Controllers\LocatarioController;
 use App\Http\Controllers\AluguelController;
+use App\Http\Controllers\ObraController;
 use Illuminate\Support\Facades\Auth;
 
 // Rotas de Login
@@ -54,6 +55,10 @@ Route::middleware(['auth:proprietario'])->group(function () {
 
     Route::resource('alugueis', AluguelController::class)->parameters([
         'alugueis' => 'aluguel'
+    ]);
+
+    Route::resource('obras', ObraController::class)->parameters([
+        'obras' => 'obra'
     ]);
 
     Route::resource('locatarios', LocatarioController::class)->parameters([

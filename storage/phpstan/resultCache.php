@@ -2295,7 +2295,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'e740149648590f36a01eb77d9cdd73f1271122f2',
+    'fileHash' => 'f09843cc45619719ad09e4de329afe7522456c16',
     'dependentFiles' => 
     array (
     ),
@@ -3205,7 +3205,7 @@ return [
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
      * Remove um contrato de aluguel.
-     * Após exclusão, atualiza status do imóvel para \'disponível\' caso não exista
+     * Após exclusão, atualiza status do imóvel para \'disponivel\' caso não exista
      * outro contrato ativo cobrindo a data atual.
      */',
              'namespace' => 'App\\Http\\Controllers',

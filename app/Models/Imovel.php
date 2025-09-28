@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Database\Factories\ImovelFactory;
 
@@ -31,5 +32,15 @@ class Imovel extends Model
     public function propriedade(): BelongsTo
     {
         return $this->belongsTo(Propriedade::class);
+    }
+
+    /**
+     * Relação 1:N para obras no imóvel.
+     *
+     * @return HasMany<Obra>
+     */
+    public function obras(): HasMany
+    {
+        return $this->hasMany(Obra::class, 'imovel_id');
     }
 }

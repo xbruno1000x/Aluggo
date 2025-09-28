@@ -31,7 +31,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Gestão de Obras</h5>
                         <p class="card-text flex-grow-1">Controle obras e manutenções de imóveis.</p>
-                        <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <a href="{{ route('obras.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -47,12 +47,12 @@
                 </div>
             </div>
 
-            <!-- Cadastro de Transações de Compra e Venda -->
+            <!-- Cadastro de Transações de Venda -->
             <div class="col-md-3">
                 <div class="card bg-secondary text-light h-100">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Transações</h5>
-                        <p class="card-text flex-grow-1">Cadastre compras e vendas de imóveis.</p>
+                        <p class="card-text flex-grow-1">Cadastre vendas de imóveis.</p>
                         <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
