@@ -41,7 +41,7 @@
                 <select name="imovel_id" id="imovel_id" class="form-select @error('imovel_id') is-invalid @enderror" required>
                     <option value="">Selecione um imóvel</option>
                     @foreach($imoveis as $imovel)
-                        <option value="{{ $imovel->id }}" {{ old('imovel_id', $obra->imovel_id) == $imovel->id ? 'selected' : '' }}>{{ $imovel->nome }} — {{ $imovel->propriedade->nome ?? '' }}</option>
+                        <option value="{{ $imovel->id }}" {{ old('imovel_id', $obra->imovel_id) == $imovel->id ? 'selected' : '' }}>{{ $imovel->nome }}{{ $imovel->numero ? ' (nº ' . $imovel->numero . ')' : '' }} — {{ $imovel->propriedade->nome ?? '' }}</option>
                     @endforeach
                 </select>
                 @error('imovel_id')<div class="invalid-feedback">{{ $message }}</div>@enderror

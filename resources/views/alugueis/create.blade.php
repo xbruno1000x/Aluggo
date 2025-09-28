@@ -15,7 +15,7 @@
                     <option value="">Selecione um imóvel</option>
                     @foreach($imoveis as $imovel)
                         <option value="{{ $imovel->id }}" {{ old('imovel_id') == $imovel->id ? 'selected' : '' }}>
-                            {{ $imovel->nome }} — {{ $imovel->propriedade->nome ?? '' }}
+                            {{ $imovel->nome }}{{ $imovel->numero ? ' (nº ' . $imovel->numero . ')' : '' }} — {{ $imovel->propriedade->nome ?? '' }}
                         </option>
                     @endforeach
                 </select>

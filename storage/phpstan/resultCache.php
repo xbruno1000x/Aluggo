@@ -2159,17 +2159,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 76,
+        1 => 81,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 88,
+        1 => 93,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 114,
+        1 => 120,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2178,7 +2178,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 68,
+        2 => 73,
       ),
     ),
   ),
@@ -2344,7 +2344,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
   array (
-    'fileHash' => 'd62f5d270aa0b47e41b9e55a8881a01cfca72bd5',
+    'fileHash' => '921ac146ca9c14d155896f310a55c70f1069ad09',
     'dependentFiles' => 
     array (
     ),
@@ -2381,7 +2381,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
   array (
-    'fileHash' => '691b5d9321e1df351ed8878db9a7e16bf3bb6f0b',
+    'fileHash' => 'bd58b4ae3ab28ce7f1970113f2777fd89b21ec2a',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',

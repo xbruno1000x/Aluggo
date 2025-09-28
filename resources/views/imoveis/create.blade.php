@@ -21,6 +21,11 @@
             </div>
 
             <div class="col-12">
+                <label for="numero" class="form-label">Número:</label>
+                <input type="text" id="numero" name="numero" class="form-control" placeholder="Ex: 101, Bloco A - 12">
+            </div>
+
+            <div class="col-12">
                 <label for="tipo" class="form-label">Tipo:</label>
                 <select id="tipo" name="tipo" required class="form-select">
                     <option value="apartamento">Apartamento</option>

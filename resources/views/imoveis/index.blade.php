@@ -16,8 +16,12 @@
 
 <form method="GET" action="{{ route('imoveis.index') }}" class="mb-3">
     <div class="row g-2">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <input type="text" name="nome" class="form-control" placeholder="Nome do imóvel" value="{{ request('nome') }}">
+        </div>
+
+        <div class="col-md-1">
+            <input type="text" name="numero" class="form-control" placeholder="Número" value="{{ request('numero') }}">
         </div>
 
         <div class="col-md-2">
@@ -71,7 +75,7 @@
         <tbody>
             @foreach ($imoveis as $imovel)
                 <tr>
-                    <td>{{ $imovel->nome }}</td>
+                    <td>{{ $imovel->nome }}{{ $imovel->numero ? ' (nº ' . $imovel->numero . ')' : '' }}</td>
                     <td>{{ ucfirst($imovel->tipo) }}</td>
                     <td>{{ ucfirst($imovel->status) }}</td>
                     <td>

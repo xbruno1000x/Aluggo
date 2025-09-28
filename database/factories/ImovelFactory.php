@@ -14,6 +14,7 @@ class ImovelFactory extends Factory
     {
         return [
             'nome' => $this->faker->word() . ' ' . $this->faker->randomNumber(3),
+            'numero' => (string) $this->faker->numberBetween(1, 9999),
             'tipo' => $this->faker->randomElement(['Apartamento', 'Loja', 'Terreno']),
             'valor_compra' => $this->faker->numberBetween(100000, 1000000),
             'status' => $this->faker->randomElement(['disponivel', 'alugado', 'vendido']),

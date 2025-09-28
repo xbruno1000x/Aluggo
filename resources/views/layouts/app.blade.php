@@ -45,7 +45,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
                         <li><a class="dropdown-item" href="{{ route('alugueis.index') }}">Gestão de Aluguéis</a></li>
-                        <li><a class="dropdown-item" href="#">Cadastro de Transações de Compra e Venda</a></li>
+                        <li><a class="dropdown-item" href="#">Cadastro de Transações de Venda</a></li>
                         <li><a class="dropdown-item" href="#">Relatórios e Rentabilidade</a></li>
                     </ul>
                 </li>

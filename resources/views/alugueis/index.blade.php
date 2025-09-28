@@ -30,7 +30,7 @@
         <tbody>
             @forelse($alugueis as $aluguel)
                 <tr>
-                    <td>{{ $aluguel->imovel->nome ?? 'N/D' }}</td>
+                    <td>{{ $aluguel->imovel->nome ?? 'N/D' }}{{ isset($aluguel->imovel->numero) && $aluguel->imovel->numero ? ' (nº ' . $aluguel->imovel->numero . ')' : '' }}</td>
                     <td>{{ $aluguel->imovel->propriedade->nome ?? 'N/D' }}</td>
                     <td>{{ $aluguel->locatario->nome ?? 'N/D' }}</td>
                     <td>

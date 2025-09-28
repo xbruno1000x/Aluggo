@@ -22,6 +22,10 @@ class ImovelController extends Controller
             $query->where('nome', 'like', '%' . $request->nome . '%');
         }
 
+        if ($request->filled('numero')) {
+            $query->where('numero', 'like', '%' . $request->numero . '%');
+        }
+
         if ($request->filled('tipo')) {
             $query->where('tipo', $request->tipo);
         }
@@ -53,6 +57,7 @@ class ImovelController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
+            'numero' => 'nullable|string|max:50',
             'tipo' => 'required|in:apartamento,terreno,loja,casa,garagem',
             'valor_compra' => 'nullable|numeric',
             'status' => 'required|in:disponível,vendido,alugado',
@@ -90,6 +95,7 @@ class ImovelController extends Controller
 
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
+            'numero' => 'nullable|string|max:50',
             'tipo' => 'required|in:apartamento,terreno,loja,casa,garagem',
             'valor_compra' => 'nullable|numeric',
             'status' => 'required|in:disponível,vendido,alugado',

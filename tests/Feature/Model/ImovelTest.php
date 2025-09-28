@@ -56,3 +56,9 @@ test('imovel pertence a uma propriedade e proprietario', function () {
         ->and($imovel->propriedade->proprietario)->toBeInstanceOf(Proprietario::class)
         ->and($imovel->propriedade->proprietario->id)->toBe($this->proprietario->id);
 });
+
+test('imovel factory gera numero', function () {
+    $imovel = Imovel::factory()->create(['propriedade_id' => $this->propriedade->id]);
+
+    expect($imovel->numero)->not->toBeEmpty();
+});

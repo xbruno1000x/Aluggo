@@ -5,13 +5,13 @@
     @vite(['resources/ts/delete-confirm.ts'])
 @endpush
 
-@section('title', 'Gestão de Obras')
-@section('header', 'Gestão de Obras')
+@section('title', 'Gestão de Obras e Manutenções')
+@section('header', 'Gestão de Obras e Manutenções')
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="text-warning">@yield('header')</h2>
-    <a href="{{ route('obras.create') }}" class="btn btn-success">Nova Obra</a>
+    <a href="{{ route('obras.create') }}" class="btn btn-success">Nova Obra ou Manutenção</a>
 </div>
 
 <div class="table-responsive">
@@ -32,8 +32,8 @@
                     <td>{{ Str::limit($obra->descricao, 80) }}</td>
                     <td>R$ {{ number_format($obra->valor, 2, ',', '.') }}</td>
                     <td>{{ $obra->data_inicio ? \Carbon\Carbon::parse($obra->data_inicio)->format('d/m/Y') : '-' }}</td>
-                    <td>{{ $obra->data_fim ? \Carbon\Carbon::parse($obra->data_fim)->format('d/m/Y') : '-' }}</td>
-                    <td>{{ $obra->imovel->nome ?? 'N/D' }}</td>
+                    <td>{{ $obra->data_fim ? \Carbon\Carbon::parse($obra->data_fim)->format('d/m/Y') : 'N/A' }}</td>
+                    <td>{{ $obra->imovel->nome ?? 'N/D' }}{{ isset($obra->imovel->numero) && $obra->imovel->numero ? ' (nº ' . $obra->imovel->numero . ')' : '' }}</td>
                     <td class="text-center d-flex gap-2 justify-content-center">
                         <a href="{{ route('obras.edit', $obra) }}" class="btn btn-sm btn-warning">Editar</a>
 

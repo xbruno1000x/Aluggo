@@ -19,6 +19,7 @@ class Imovel extends Model
 
     protected $fillable = [
         'nome',
+        'numero',
         'tipo',
         'valor_compra',
         'status',

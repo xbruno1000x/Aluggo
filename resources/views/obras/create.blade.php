@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="data_fim" class="form-label">Data de Fim</label>
+                    <label for="data_fim" class="form-label">Data de Fim (Opcional)</label>
                     <input type="date" name="data_fim" id="data_fim" class="form-control @error('data_fim') is-invalid @enderror" value="{{ old('data_fim') }}">
                     @error('data_fim')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
@@ -40,7 +40,7 @@
                 <select name="imovel_id" id="imovel_id" class="form-select @error('imovel_id') is-invalid @enderror" required>
                     <option value="">Selecione um imóvel</option>
                     @foreach($imoveis as $imovel)
-                        <option value="{{ $imovel->id }}" {{ old('imovel_id') == $imovel->id ? 'selected' : '' }}>{{ $imovel->nome }} — {{ $imovel->propriedade->nome ?? '' }}</option>
+                        <option value="{{ $imovel->id }}" {{ old('imovel_id') == $imovel->id ? 'selected' : '' }}>{{ $imovel->nome }}{{ $imovel->numero ? ' (nº ' . $imovel->numero . ')' : '' }} — {{ $imovel->propriedade->nome ?? '' }}</option>
                     @endforeach
                 </select>
                 @error('imovel_id')<div class="invalid-feedback">{{ $message }}</div>@enderror

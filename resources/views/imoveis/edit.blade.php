@@ -16,6 +16,11 @@
                 <input type="text" id="nome" name="nome" value="{{ old('nome', $imovel->nome) }}" required class="form-control">
             </div>
 
+            <div class="col-12">
+                <label for="numero" class="form-label">Número:</label>
+                <input type="text" id="numero" name="numero" value="{{ old('numero', $imovel->numero) }}" class="form-control">
+            </div>
+
             <div class="col-md-6">
                 <label for="tipo" class="form-label">Tipo:</label>
                 <select id="tipo" name="tipo" required class="form-select">
