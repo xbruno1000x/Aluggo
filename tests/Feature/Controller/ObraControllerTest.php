@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\ObraController;
 use App\Models\Imovel;
 use App\Models\Obra;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use function Pest\Laravel\{get, post, put, delete};
 
 uses(RefreshDatabase::class);
 
@@ -213,5 +216,72 @@ test('destroy exclui obra e redireciona', function () {
     $response = $this->delete(route('obras.destroy', $obra));
 
     $response->assertRedirect(route('obras.index'));
+    $this->assertDatabaseMissing('obras', ['id' => $obra->id]);
+});
+
+// Direct controller invocation tests
+test('controlador de obra: chamadas diretas cobrem store, update e destroy', function () {
+    $controller = new ObraController();
+
+    $imovel = Imovel::factory()->create();
+
+    // store normal
+    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Direct', 'valor' => 100, 'imovel_id' => $imovel->id]);
+    $resStore = $controller->store($reqStore);
+    expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('obras', ['descricao' => 'Direct']);
+
+    $obra = Obra::first();
+
+    // update normal
+    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated', 'valor' => 200, 'imovel_id' => $imovel->id]);
+    $resUpdate = $controller->update($reqUpdate, $obra);
+    expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated']);
+
+    // destroy normal
+    $resDestroy = $controller->destroy($obra);
+    expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+
+    // (DB failure simulation covered in other tests)
+});
+
+test('controlador de obra: index e create (invocação direta) retornam views', function () {
+    $controller = new ObraController();
+
+    $req = Request::create('/obras', 'GET');
+    $res = $controller->index($req);
+    expect($res)->toBeInstanceOf(Illuminate\View\View::class);
+
+    $resCreate = $controller->create();
+    expect($resCreate)->toBeInstanceOf(Illuminate\View\View::class);
+});
+
+test('controlador de obra: store, update e destroy via métodos do controller (invocação direta)', function () {
+    $controller = new ObraController();
+
+    $imovel = Imovel::factory()->create();
+
+    // store
+    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Extra Direct', 'valor' => 500, 'imovel_id' => $imovel->id]);
+    $resStore = $controller->store($reqStore);
+    expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('obras', ['descricao' => 'Extra Direct']);
+
+    $obra = Obra::where('descricao', 'Extra Direct')->first();
+
+    // update
+    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated Extra', 'valor' => 600, 'imovel_id' => $imovel->id]);
+    $resUpdate = $controller->update($reqUpdate, $obra);
+    expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated Extra']);
+
+    // edit
+    $resEdit = $controller->edit($obra);
+    expect($resEdit)->toBeInstanceOf(Illuminate\View\View::class);
+
+    // destroy
+    $resDestroy = $controller->destroy($obra);
+    expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseMissing('obras', ['id' => $obra->id]);
 });

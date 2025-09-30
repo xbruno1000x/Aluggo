@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\LocatarioController;
 use App\Models\Locatario;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use function Pest\Laravel\{get, post, put, delete};
 
 uses(RefreshDatabase::class);
 
@@ -81,5 +84,41 @@ test('destroy exclui locatário', function () {
     $response = $this->delete(route('locatarios.destroy', $loc));
 
     $response->assertRedirect(route('locatarios.index'));
+    $this->assertDatabaseMissing('locatarios', ['id' => $loc->id]);
+});
+
+test('controlador de locatário: chamadas diretas cobrem index, create, store, edit, update e destroy', function () {
+    $controller = new LocatarioController();
+
+    Locatario::factory()->count(2)->create();
+    $req = Request::create('/locatarios', 'GET', []);
+    $res = $controller->index($req);
+    expect($res)->toBeInstanceOf(Illuminate\View\View::class);
+
+    $req2 = Request::create('/locatarios', 'GET', ['search' => 'nome']);
+    $res2 = $controller->index($req2);
+    expect($res2)->toBeInstanceOf(Illuminate\View\View::class);
+
+    $res3 = $controller->create();
+    expect($res3)->toBeInstanceOf(Illuminate\View\View::class);
+
+    $payload = ['nome' => 'Direct Loc', 'telefone' => '119', 'email' => 'direct@example.com'];
+    $reqPost = Request::create('/locatarios', 'POST', $payload);
+    $resPost = $controller->store($reqPost);
+    expect($resPost)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('locatarios', ['nome' => 'Direct Loc']);
+
+    $loc = Locatario::first();
+
+    $resEdit = $controller->edit($loc);
+    expect($resEdit)->toBeInstanceOf(Illuminate\View\View::class);
+
+    $reqPut = Request::create('/locatarios/' . $loc->id, 'PUT', ['nome' => 'Alterado', 'telefone' => $loc->telefone, 'email' => $loc->email]);
+    $resPut = $controller->update($reqPut, $loc);
+    expect($resPut)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
+    $this->assertDatabaseHas('locatarios', ['id' => $loc->id, 'nome' => 'Alterado']);
+
+    $resDel = $controller->destroy($loc);
+    expect($resDel)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseMissing('locatarios', ['id' => $loc->id]);
 });

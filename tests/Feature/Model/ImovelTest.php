@@ -3,6 +3,9 @@
 use App\Models\Imovel;
 use App\Models\Propriedade;
 use App\Models\Proprietario;
+use App\Models\Transacao;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
@@ -76,4 +79,31 @@ test('imovel pode ter obras e retorna relacionamentos corretamente', function ()
     expect($imovel->obras)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class)
         ->and($imovel->obras->contains($obra))->toBeTrue()
         ->and($imovel->propriedade)->toBeInstanceOf(Propriedade::class);
+});
+
+test('imovel pode ter transacoes e retorna relacionamentos corretamente', function () {
+    $imovel = Imovel::factory()->create(['propriedade_id' => $this->propriedade->id]);
+
+    $transacao = Transacao::factory()->create([
+        'imovel_id' => $imovel->id,
+        'valor_venda' => 100000,
+    ]);
+
+    $imovel->refresh();
+
+    expect($imovel->transacoes)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class)
+        ->and($imovel->transacoes->contains($transacao))->toBeTrue();
+});
+
+test('metodos de relacao retornam instancias corretas', function () {
+    $imovel = Imovel::factory()->make();
+
+    // chamar os métodos de relação para cobrir as linhas e garantir tipos
+    $propRel = $imovel->propriedade();
+    $obrasRel = $imovel->obras();
+    $transRel = $imovel->transacoes();
+
+    expect($propRel)->toBeInstanceOf(BelongsTo::class)
+        ->and($obrasRel)->toBeInstanceOf(HasMany::class)
+        ->and($transRel)->toBeInstanceOf(HasMany::class);
 });
