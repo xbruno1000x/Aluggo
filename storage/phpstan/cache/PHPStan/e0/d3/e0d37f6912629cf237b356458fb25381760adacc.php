@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
     array (
-      0 => 'bd58b4ae3ab28ce7f1970113f2777fd89b21ec2a',
+      0 => '3dad7ca3b6b3a33864648cc20a9b1b224e2194e6',
       1 => 
       array (
         0 => 'app\\models\\imovel',
@@ -16,6 +16,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\models\\propriedade',
         1 => 'app\\models\\obras',
+        2 => 'app\\models\\transacoes',
       ),
       3 => 
       array (
@@ -278,6 +279,42 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       1 => 
       array (
         0 => 'app\\models\\obra',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\imovel',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
+    array (
+      0 => 'dbd8c4537efd187f645940100ccc82a8267f6c96',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\transacaocontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\create',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\show',
+        4 => 'app\\http\\controllers\\edit',
+        5 => 'app\\http\\controllers\\update',
+        6 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php' => 
+    array (
+      0 => 'b8b5adbd937bc685b373633fea0f1a722ca65a9b',
+      1 => 
+      array (
+        0 => 'app\\models\\transacao',
       ),
       2 => 
       array (

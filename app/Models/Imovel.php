@@ -44,4 +44,14 @@ class Imovel extends Model
     {
         return $this->hasMany(Obra::class, 'imovel_id');
     }
+
+    /**
+     * Relação 1:N para transações de venda do imóvel.
+     *
+     * @return HasMany<\App\Models\Transacao, $this>
+     */
+    public function transacoes(): HasMany
+    {
+        return $this->hasMany(\App\Models\Transacao::class, 'imovel_id');
+    }
 }

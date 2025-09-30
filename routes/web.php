@@ -8,6 +8,7 @@ use App\Http\Controllers\ImovelController;
 use App\Http\Controllers\LocatarioController;
 use App\Http\Controllers\AluguelController;
 use App\Http\Controllers\ObraController;
+use App\Http\Controllers\TransacaoController;
 use Illuminate\Support\Facades\Auth;
 
 // Rotas de Login
@@ -63,6 +64,10 @@ Route::middleware(['auth:proprietario'])->group(function () {
 
     Route::resource('locatarios', LocatarioController::class)->parameters([
         'locatarios' => 'locatario'
+    ]);
+
+    Route::resource('transacoes', TransacaoController::class)->parameters([
+        'transacoes' => 'transacao'
     ]);
 });
 

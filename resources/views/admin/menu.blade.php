@@ -53,7 +53,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Transações</h5>
                         <p class="card-text flex-grow-1">Cadastre vendas de imóveis.</p>
-                        <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <a href="{{ route('transacoes.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>
