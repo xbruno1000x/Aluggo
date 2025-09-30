@@ -6,8 +6,15 @@ $warning: #FFA586;         // cor-destaque (textos ou highlights)
 $info:#f5f7fa;    // fundo claro do body
 $light:#ffffff;    // elementos claros (inputs, cards)
 $dark: #161E2F;            // cor-borda / dark secundário (borders ou headers escuros)
+$dolar: #85bb65;         // cor para valores em dólar (verde)
 
 $body-bg: $info;           // define o fundo padrão do body
 $font-color: $light;       // define cor do texto padrão
+
+// Utilities customizadas
+// Classe para texto com a cor de 'dólar' (usada para exibir lucro/ganho)
+.text-dolar {
+	color: $dolar !important;
+}
 
 @import "bootstrap/scss/bootstrap";

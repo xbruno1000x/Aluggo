@@ -290,7 +290,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
     array (
-      0 => 'dbd8c4537efd187f645940100ccc82a8267f6c96',
+      0 => 'c75a88211b5bbe0a8666f17e6f42eea00d95a0de',
       1 => 
       array (
         0 => 'app\\http\\controllers\\transacaocontroller',
@@ -319,6 +319,26 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\models\\imovel',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Services\\FinanceRateService.php' => 
+    array (
+      0 => '663e421f6dfc53c5678a8bae2b3b8632aace31ba',
+      1 => 
+      array (
+        0 => 'app\\services\\financerateservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\getcumulativereturn',
+        2 => 'app\\services\\getseriesidfor',
+        3 => 'app\\services\\splitintochunks',
+        4 => 'app\\services\\fetchseriesvalues',
+        5 => 'app\\services\\cumulativefromvalues',
       ),
       3 => 
       array (

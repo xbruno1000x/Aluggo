@@ -5,13 +5,20 @@ use App\Models\Transacao;
 use App\Models\Proprietario;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
+use App\Services\FinanceRateService;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // create a proprietario and act as them to pass auth:proprietario middleware
     $this->proprietario = Proprietario::factory()->create();
     $this->actingAs($this->proprietario, 'proprietario');
+
+    app()->instance(FinanceRateService::class, new class {
+        public function getCumulativeReturn(string $start, string $end, string $which): ?array
+        {
+            return ['value' => 0.0, 'type' => 'cumulative'];
+        }
+    });
 });
 
 test('cria transacao e marca imovel como vendido', function () {
@@ -117,7 +124,6 @@ test('update altera transacao e redireciona', function () {
 });
 
 test('store trata excecao e faz rollback quando criar falha', function () {
-    // força excecao durante a criação via evento creating
     Transacao::creating(function ($model) {
         throw new \Exception('simulated failure');
     });
@@ -135,13 +141,11 @@ test('store trata excecao e faz rollback quando criar falha', function () {
     $response->assertSessionHasErrors('general');
     $this->assertDatabaseMissing('transacoes', ['imovel_id' => $imovel->id, 'valor_venda' => 12345]);
 
-    // limpar listeners para não interferir em outros testes
     Transacao::flushEventListeners();
 });
 
 test('destroy trata falha de exclusao e retorna erro', function () {
     $t = Transacao::factory()->create();
-    // For simplicity, throw an exception in deleting event to hit the catch branch
     Transacao::deleting(function ($model) {
         throw new \Exception('simulated delete failure');
     });
@@ -150,7 +154,6 @@ test('destroy trata falha de exclusao e retorna erro', function () {
     $response->assertRedirect(route('transacoes.index'));
     $response->assertSessionHas('error');
 
-    // garantir que a transacao ainda exista
     $this->assertTrue(Transacao::where('id', $t->id)->exists());
 
     Transacao::flushEventListeners();

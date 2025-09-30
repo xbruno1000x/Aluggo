@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Transacao;
 use App\Models\Imovel;
+use App\Services\FinanceRateService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class TransacaoController extends Controller
 {
@@ -57,7 +60,80 @@ class TransacaoController extends Controller
 
     public function show(Transacao $transacao): View
     {
-        return view('transacoes.show', compact('transacao'));
+        // carregar relação imovel
+        $transacao->load('imovel');
+
+        $imovel = $transacao->imovel ?? null;
+        $valorCompra = $imovel->valor_compra ?? null;
+        $valorVenda = $transacao->valor_venda ?? null;
+
+        $lucro = null;
+        $porcentagem = null;
+        $periodText = null;
+        $selicText = null;
+        $ipcaText = null;
+
+        if ($valorCompra !== null && $valorVenda !== null) {
+            $vc = (float) $valorCompra;
+            $vv = (float) $valorVenda;
+            $lucro = $vv - $vc;
+            if ($vc != 0) {
+                $porcentagem = ($lucro / $vc) * 100;
+            }
+
+            if (!empty($imovel->data_aquisicao)) {
+                try {
+                    $dtCompra = Carbon::parse($imovel->data_aquisicao);
+                    // Use null coalescing and parse; avoids strict comparison/instanceof warnings in static analysis
+                    $dtVenda = Carbon::parse($transacao->data_venda ?? now());
+                    $diffDays = $dtCompra->diffInDays($dtVenda);
+                    $periodYears = $diffDays > 0 ? ($diffDays / 365.0) : 0.0;
+                    $periodText = $dtCompra->format('d/m/Y') . ' — ' . $dtVenda->format('d/m/Y') . " ({$diffDays} dias)";
+
+                    $svc = app(FinanceRateService::class);
+                    $startYmd = $dtCompra->format('Y-m-d');
+                    $endYmd = $dtVenda->format('Y-m-d');
+
+                    /** @var array{value:float,type:'cumulative'|'annual'}|null $selicResult */
+                    $selicResult = $svc->getCumulativeReturn($startYmd, $endYmd, 'selic');
+                    if ($selicResult !== null) {
+                        $selicType = $selicResult['type'];
+                        $selicValue = (float) $selicResult['value'];
+                        if ($selicType === 'cumulative') {
+                            $selicCumulative = $selicValue;
+                        } else {
+                            $selicCumulative = pow(1 + $selicValue, $periodYears) - 1;
+                        }
+                        $selicText = 'Se você tivesse investido no SELIC/CDI no mesmo período, teria rendido ' . number_format($selicCumulative * 100, 2, ',', '.') . '%';
+                    }
+
+                    /** @var array{value:float,type:'cumulative'|'annual'}|null $ipcaResult */
+                    $ipcaResult = $svc->getCumulativeReturn($startYmd, $endYmd, 'ipca');
+                    if ($ipcaResult !== null) {
+                        $ipcaType = $ipcaResult['type'];
+                        $ipcaValue = (float) $ipcaResult['value'];
+                        if ($ipcaType === 'cumulative') {
+                            $ipcaCumulative = $ipcaValue;
+                        } else {
+                            $ipcaCumulative = pow(1 + $ipcaValue, $periodYears) - 1;
+                        }
+                        $ipcaText = 'Inflação (IPCA) no período: ' . number_format($ipcaCumulative * 100, 2, ',', '.') . '%';
+                    }
+
+                    if ($porcentagem !== null && isset($ipcaCumulative)) {
+                        $gainDecimal = $porcentagem / 100.0;
+                        $realGainDecimal = (1 + $gainDecimal) / (1 + $ipcaCumulative) - 1;
+                        $realGainPercent = $realGainDecimal * 100;
+                        $ipcaText .= ' | Seu lucro real, descontada a inflação no período, foi de ' . number_format($realGainPercent, 2, ',', '.') . '%';
+                    }
+                } catch (\Throwable $e) {
+                    // log and ignore; view will simply not show comparative texts
+                    Log::debug('FinanceRateService error: ' . $e->getMessage());
+                }
+            }
+        }
+
+        return view('transacoes.show', compact('transacao', 'lucro', 'porcentagem', 'periodText', 'selicText', 'ipcaText'));
     }
 
     public function edit(Transacao $transacao): View
