@@ -12,50 +12,47 @@
         <h2 class="mb-4 text-warning text-center">@yield('header')</h2>
 
         <!-- Formulário centralizado -->
-        <form action="{{ route('locatarios.update', $locatario) }}" method="POST" class="row g-3">
+        <form action="{{ route('locatarios.update', ['locatario' => $locatario->id]) }}" method="POST" class="row g-3">
             @csrf
             @method('PUT')
 
             <div class="col-12">
                 <label for="nome" class="form-label">Nome:</label>
-                <input 
-                    type="text" 
-                    id="nome" 
-                    name="nome" 
-                    value="{{ old('nome', $locatario->nome) }}" 
-                    required 
-                    class="form-control @error('nome') is-invalid @enderror"
-                >
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    value="{{ old('nome', $locatario->nome) }}"
+                    required
+                    class="form-control @error('nome') is-invalid @enderror">
                 @error('nome')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="col-12">
                 <label for="telefone" class="form-label">Telefone:</label>
-                <input 
-                    type="text" 
-                    id="telefone" 
-                    name="telefone" 
-                    value="{{ old('telefone', $locatario->telefone) }}" 
-                    class="form-control @error('telefone') is-invalid @enderror"
-                >
+                <input
+                    type="text"
+                    id="telefone"
+                    name="telefone"
+                    value="{{ old('telefone', $locatario->telefone) }}"
+                    class="form-control @error('telefone') is-invalid @enderror">
                 @error('telefone')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="col-12">
                 <label for="email" class="form-label">Email:</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value="{{ old('email', $locatario->email) }}" 
-                    class="form-control @error('email') is-invalid @enderror"
-                >
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="{{ old('email', $locatario->email) }}"
+                    class="form-control @error('email') is-invalid @enderror">
                 @error('email')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 

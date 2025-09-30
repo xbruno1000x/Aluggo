@@ -62,3 +62,18 @@ test('imovel factory gera numero', function () {
 
     expect($imovel->numero)->not->toBeEmpty();
 });
+
+test('imovel pode ter obras e retorna relacionamentos corretamente', function () {
+    $imovel = Imovel::factory()->create(['propriedade_id' => $this->propriedade->id]);
+
+    $obra = \App\Models\Obra::factory()->create([
+        'imovel_id' => $imovel->id,
+        'descricao' => 'Pequena reforma',
+    ]);
+
+    $imovel->refresh();
+
+    expect($imovel->obras)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class)
+        ->and($imovel->obras->contains($obra))->toBeTrue()
+        ->and($imovel->propriedade)->toBeInstanceOf(Propriedade::class);
+});

@@ -3,7 +3,10 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+    "prepare": "husky install",
+    "check-coverage": "node scripts/verificar-cobertura.cjs",
+    "verificar-cobertura": "node scripts/verificar-cobertura.cjs"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",

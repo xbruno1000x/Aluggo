@@ -1,2 +1,6 @@
 [15-Sep-2025 03:50:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php on line 451
 [15-Sep-2025 03:50:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Log\Context\Repository.php on line 106
+[30-Sep-2025 18:01:06 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "," or ";" in Command line code on line 1
+[30-Sep-2025 18:54:08 UTC] PHP Parse error:  syntax error, unexpected token "=>" in Command line code on line 1
+[30-Sep-2025 18:54:13 UTC] PHP Parse error:  syntax error, unexpected token "=", expecting end of file in Command line code on line 1
+[30-Sep-2025 18:55:43 UTC] PHP Parse error:  syntax error, unexpected token "=", expecting end of file in Command line code on line 1

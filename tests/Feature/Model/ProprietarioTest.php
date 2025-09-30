@@ -35,3 +35,29 @@ test('proprietario pode habilitar e desabilitar 2FA', function () {
     $proprietario->disableTwoFactorAuthentication();
     expect($proprietario->two_factor_secret)->toBeNull();
 });
+
+test('proprietario gera qr code e verifica codigo 2fa corretamente', function () {
+    $proprietario = Proprietario::create([
+        'nome' => 'Teste 2FA Verifica',
+        'cpf' => '20987654321',
+        'telefone' => '11977777777',
+        'email' => 'test_2fa_verify_' . uniqid() . '@example.com',
+        'password' => bcrypt('password123'),
+    ]);
+
+    // Habilita 2FA
+    $proprietario->enableTwoFactorAuthentication();
+    $proprietario->refresh();
+
+    // Gera um código TOTP usando a mesma biblioteca para validação
+    $google2fa = new \PragmaRX\Google2FA\Google2FA();
+    $secret = decrypt($proprietario->two_factor_secret);
+    $code = $google2fa->getCurrentOtp($secret);
+
+    // Verifica o código através do método do modelo
+    expect($proprietario->verifyTwoFactorCode($code))->toBeTrue();
+
+    // Também garante que a URL do QR Code é uma string não vazia
+    $qr = $proprietario->getTwoFactorQRCodeUrl();
+    expect($qr)->toBeString()->not->toBeEmpty();
+});

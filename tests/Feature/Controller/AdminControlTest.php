@@ -6,11 +6,11 @@ use function Pest\Laravel\{get, post, actingAs};
 
 beforeEach(fn () => $this->user = Proprietario::factory()->create());
 
-it('exibe o formulário de login', function () {
+test('exibe o formulário de login', function () {
     get(route('admin.login'))->assertOk()->assertViewIs('admin.login');
 });
 
-it('faz login com credenciais válidas', function () {
+test('faz login com credenciais válidas', function () {
     $user = Proprietario::factory()->create(['password' => Hash::make('password')]);
 
     post(route('admin.login.post'), [
@@ -19,25 +19,25 @@ it('faz login com credenciais válidas', function () {
     ])->assertRedirect(route('admin.menu'));
 });
 
-it('não faz login com credenciais inválidas', function () {
+test('não faz login com credenciais inválidas', function () {
     post(route('admin.login.post'), [
         'email' => 'errado@email.com',
         'password' => 'senha',
     ])->assertSessionHasErrors('email');
 });
 
-it('faz logout corretamente', function () {
+test('faz logout corretamente', function () {
     actingAs($this->user, 'proprietario');
 
     post(route('admin.logout'))
         ->assertRedirect(route('admin.login'));
 });
 
-it('exibe formulário de registro', function () {
+test('exibe formulário de registro', function () {
     get(route('admin.register'))->assertOk()->assertViewIs('admin.register');
 });
 
-it('registra um novo proprietário', function () {
+test('registra um novo proprietário', function () {
     $data = Proprietario::factory()->make()->toArray();
     $data['password'] = 'password';
     $data['password_confirmation'] = 'password';
@@ -47,13 +47,13 @@ it('registra um novo proprietário', function () {
         ->assertSessionHas('success');
 });
 
-it('exibe menu do administrador quando logado', function () {
+test('exibe menu do administrador quando logado', function () {
     actingAs($this->user, 'proprietario');
 
     get(route('admin.menu'))->assertOk()->assertViewIs('admin.menu');
 });
 
-it('exibe formulário de 2FA', function () {
+test('exibe formulário de 2FA', function () {
     actingAs($this->user, 'proprietario');
 
     get(route('admin.twofactor'))

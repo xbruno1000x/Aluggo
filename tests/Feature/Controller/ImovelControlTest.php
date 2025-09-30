@@ -7,7 +7,7 @@ use function Pest\Laravel\{actingAs, get, post};
 
 beforeEach(fn () => $this->user = Proprietario::factory()->create());
 
-it('cria um imóvel', function () {
+test('cria um imóvel', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
 
     actingAs($this->user)
@@ -20,7 +20,7 @@ it('cria um imóvel', function () {
           ->assertSessionHas('success');
 });
 
-it('edita um imóvel', function () {
+test('edita um imóvel', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
     $imovel = Imovel::factory()->create(['propriedade_id' => $prop->id]);
 
@@ -30,7 +30,7 @@ it('edita um imóvel', function () {
         ->assertViewHas('imovel');
 });
 
-it('lista imóveis do usuário', function () {
+test('lista imóveis do usuário', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
     Imovel::factory()->count(3)->create(['propriedade_id' => $prop->id]);
 

@@ -42,3 +42,21 @@ test('propriedade pertence a um proprietario', function () {
     expect($propriedade->proprietario)->toBeInstanceOf(Proprietario::class)
         ->and($propriedade->proprietario->id)->toBe($this->proprietario->id);
 });
+
+test('propriedade pode ter varios imoveis e bairro pode ser salvo', function () {
+    $propriedade = Propriedade::create([
+        'nome' => 'Imobiliária Central',
+        'endereco' => 'Rua Falsa, 123',
+        'descricao' => 'Descrição de teste',
+        'bairro' => 'Centro',
+        'proprietario_id' => $this->proprietario->id,
+    ]);
+
+    $imovel = \App\Models\Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
+
+    $propriedade->refresh();
+
+    expect($propriedade->imoveis)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class)
+        ->and($propriedade->imoveis->contains($imovel))->toBeTrue()
+        ->and($propriedade->bairro)->toBe('Centro');
+});
