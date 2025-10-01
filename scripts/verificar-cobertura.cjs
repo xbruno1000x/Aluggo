@@ -29,11 +29,11 @@ try {
 
   const threshold = 80.0;
   if (percent < threshold) {
-    console.error(`Cobertura ${percent}% está abaixo do mínimo exigido de ${threshold}% — commit bloqueado.`);
+    console.error(`❌ Cobertura ${percent}% está abaixo do mínimo exigido de ${threshold}% — commit bloqueado.`);
     process.exit(1);
   }
 
-  console.log(`Cobertura ${percent}% atende ao mínimo de ${threshold}% — commit permitido.`);
+  console.log(`✅ Cobertura ${percent}% atende ao mínimo de ${threshold}% — commit permitido.`);
   process.exit(0);
 } catch (err) {
   if (err.stdout) console.error(err.stdout.toString());

@@ -10,3 +10,7 @@
 Stack trace:
 #0 {main}
   thrown in Command line code on line 1
+[01-Oct-2025 19:55:17 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in phar://C:/Users/faria/projeto-final/vendor/phpstan/phpstan/phpstan.phar/vendor/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php on line 356
+[01-Oct-2025 19:55:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Database\Grammar.php on line 276
+[01-Oct-2025 19:58:50 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in phar://C:/Users/faria/projeto-final/vendor/phpstan/phpstan/phpstan.phar/vendor/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php on line 356
+[01-Oct-2025 19:58:50 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Database\Grammar.php on line 276

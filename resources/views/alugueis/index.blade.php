@@ -41,6 +41,13 @@
                     <td class="text-center d-flex gap-2 justify-content-center">
                         <a href="{{ route('alugueis.edit', $aluguel) }}" class="btn btn-sm btn-warning">Editar</a>
 
+                        <a href="{{ route('pagamentos.index', ['month' => now()->startOfMonth()->toDateString(), 'aluguel_id' => $aluguel->id]) }}" class="btn btn-sm btn-info">Pagamentos</a>
+
+                        <form method="POST" action="{{ route('alugueis.renew', $aluguel) }}" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-secondary">Renovar</button>
+                        </form>
+
                         <form action="{{ route('alugueis.destroy', $aluguel) }}" method="POST" class="d-inline" data-confirm data-confirm-text="Deseja realmente excluir este contrato?">
                             @csrf
                             @method('DELETE')

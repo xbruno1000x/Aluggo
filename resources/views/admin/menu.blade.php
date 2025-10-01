@@ -80,13 +80,13 @@
                 </div>
             </div>
 
-            <!-- Gestão de Contratos de Aluguel -->
+            <!-- Confirmação de Pagamentos -->
             <div class="col-md-3">
                 <div class="card bg-secondary text-light h-100">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Contratos</h5>
-                        <p class="card-text flex-grow-1">Gerencie contratos de aluguel ativos e históricos.</p>
-                        <a href="{{ route('alugueis.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <h5 class="card-title">Confirmação de Pagamentos</h5>
+                        <p class="card-text flex-grow-1">Confirme os recebimentos mensais e verifique inadimplência.</p>
+                        <a href="{{ route('pagamentos.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>

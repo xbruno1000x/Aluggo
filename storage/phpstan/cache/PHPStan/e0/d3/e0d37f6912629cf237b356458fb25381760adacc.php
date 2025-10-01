@@ -344,5 +344,41 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php' => 
+    array (
+      0 => '110fd78b52faccd0c67e99bb95e67b6970832e50',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\pagamentocontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\normalizemonthtostart',
+        2 => 'app\\http\\controllers\\markpaid',
+        3 => 'app\\http\\controllers\\revert',
+        4 => 'app\\http\\controllers\\renew',
+        5 => 'app\\http\\controllers\\markallpaid',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php' => 
+    array (
+      0 => '3e797e96ce3519740c15526e659ebae257ead0b7',
+      1 => 
+      array (
+        0 => 'app\\models\\pagamento',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\aluguel',
+        1 => 'app\\models\\markpaid',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

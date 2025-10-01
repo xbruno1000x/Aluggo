@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Meu App')</title>
     @vite(['resources/scss/app.scss', 'resources/ts/app.ts'])
-    {{-- Scripts adicionais --}}
-    @stack('scripts-body')
+    {{-- CSRF token for JS fetch requests --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="bg-dark text-light">
 
@@ -44,7 +44,6 @@
                         Controle Financeiro
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
-                        <li><a class="dropdown-item" href="{{ route('alugueis.index') }}">Gestão de Aluguéis</a></li>
                         <li><a class="dropdown-item" href="{{ route('transacoes.index') }}">Cadastro de Transações de Venda</a></li>
                         <li><a class="dropdown-item" href="#">Relatórios e Rentabilidade</a></li>
                     </ul>
@@ -57,6 +56,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="locatariosDropdown">
                         <li><a class="dropdown-item" href="{{ route('locatarios.index') }}">Meus Inquilinos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('alugueis.index') }}">Gestão de Aluguéis</a></li>
+                        <li><a class="dropdown-item" href="{{ route('pagamentos.index') }}">Confirmação de Pagamentos</a></li>
                         <li><a class="dropdown-item" href="{{ route('alugueis.create') }}">Cadastro de Contratos de Aluguel</a></li>
                     </ul>
                 </li>
@@ -84,6 +85,10 @@
 <main class="container-fluid px-4 py-4 bg-dark text-light">
     @yield('content')
 </main>
+</main>
+
+    {{-- Scripts adicionais colocados pelas views (carregar depois do DOM) --}}
+    @stack('scripts-body')
 
 </body>
 </html>

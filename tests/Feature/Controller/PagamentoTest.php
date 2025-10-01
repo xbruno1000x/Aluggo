@@ -5,6 +5,7 @@ use App\Models\Imovel;
 use App\Models\Locatario;
 use App\Models\Pagamento;
 use App\Models\Proprietario;
+use App\Models\Propriedade;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
 
@@ -105,8 +106,9 @@ test('reverte pagamento para pendente e limpa campos', function () {
 });
 
 test('mark all paid marca todos pagamentos pendentes e parciais', function () {
-    $imovel1 = Imovel::factory()->create();
-    $imovel2 = Imovel::factory()->create();
+    // create properties tied to the current proprietario to ensure controller scopes match
+    $imovel1 = Imovel::factory()->for(Propriedade::factory()->for($this->proprietario, 'proprietario'))->create();
+    $imovel2 = Imovel::factory()->for(Propriedade::factory()->for($this->proprietario, 'proprietario'))->create();
     $loc1 = Locatario::factory()->create();
     $loc2 = Locatario::factory()->create();
 
@@ -115,12 +117,14 @@ test('mark all paid marca todos pagamentos pendentes e parciais', function () {
         'locatario_id' => $loc1->id,
         'valor_mensal' => 800,
         'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_fim' => null,
     ]);
     $al2 = Aluguel::factory()->create([
         'imovel_id' => $imovel2->id,
         'locatario_id' => $loc2->id,
         'valor_mensal' => 1200,
         'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_fim' => null,
     ]);
 
     $ref = Carbon::now()->startOfMonth()->toDateString();

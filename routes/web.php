@@ -69,6 +69,13 @@ Route::middleware(['auth:proprietario'])->group(function () {
     Route::resource('transacoes', TransacaoController::class)->parameters([
         'transacoes' => 'transacao'
     ]);
+
+    // Pagamentos - MVP manual confirmation
+    Route::get('pagamentos', [\App\Http\Controllers\PagamentoController::class, 'index'])->name('pagamentos.index');
+    Route::post('pagamentos/{pagamento}/mark-paid', [\App\Http\Controllers\PagamentoController::class, 'markPaid'])->name('pagamentos.markPaid');
+    Route::post('pagamentos/{pagamento}/revert', [\App\Http\Controllers\PagamentoController::class, 'revert'])->name('pagamentos.revert');
+    Route::post('pagamentos/mark-all', [\App\Http\Controllers\PagamentoController::class, 'markAllPaid'])->name('pagamentos.markAll');
+    Route::post('alugueis/{aluguel}/renew', [\App\Http\Controllers\PagamentoController::class, 'renew'])->name('alugueis.renew');
 });
 
 // Redirecionamento para login padrão
