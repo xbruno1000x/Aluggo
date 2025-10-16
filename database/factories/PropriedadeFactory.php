@@ -14,7 +14,10 @@ class PropriedadeFactory extends Factory
     {
         return [
             'nome' => $this->faker->company(),
-            'endereco' => $this->faker->address(),
+            'endereco' => $this->faker->streetAddress(),
+            'cep' => $this->faker->postcode(),
+            'cidade' => $this->faker->city(),
+            'estado' => $this->faker->state(),
             'descricao' => $this->faker->sentence(),
             'proprietario_id' => Proprietario::factory(),
         ];

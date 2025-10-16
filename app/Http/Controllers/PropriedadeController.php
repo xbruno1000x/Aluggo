@@ -20,7 +20,10 @@ class PropriedadeController extends Controller
             $query->where(function ($q) use ($search) {
                 $q->where('nome', 'like', "%{$search}%")
                     ->orWhere('endereco', 'like', "%{$search}%")
-                    ->orWhere('bairro', 'like', "%{$search}%");
+                    ->orWhere('bairro', 'like', "%{$search}%")
+                    ->orWhere('cidade', 'like', "%{$search}%")
+                    ->orWhere('estado', 'like', "%{$search}%")
+                    ->orWhere('cep', 'like', "%{$search}%");
             });
         }
 
@@ -35,6 +38,9 @@ class PropriedadeController extends Controller
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
             'bairro' => 'required|string|max:255',
+            'cep' => 'nullable|string|max:20',
+            'cidade' => 'nullable|string|max:100',
+            'estado' => 'nullable|string|max:100',
             'descricao' => 'nullable|string',
         ]);
 
@@ -59,7 +65,10 @@ class PropriedadeController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
-            'bairro' => 'required|string|max:255',
+                'bairro' => 'required|string|max:255',
+                'cep' => 'nullable|string|max:20',
+                'cidade' => 'nullable|string|max:100',
+                'estado' => 'nullable|string|max:100',
             'descricao' => 'nullable|string',
         ]);
 

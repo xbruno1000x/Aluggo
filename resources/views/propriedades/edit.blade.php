@@ -26,6 +26,21 @@
                 <input type="text" id="endereco" name="endereco" value="{{ $propriedade->endereco }}" required class="form-control">
             </div>
 
+            <div class="col-6">
+                <label for="cep" class="form-label">CEP:</label>
+                <input type="text" id="cep" name="cep" value="{{ $propriedade->cep }}" class="form-control">
+            </div>
+
+            <div class="col-6">
+                <label for="cidade" class="form-label">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" value="{{ $propriedade->cidade }}" class="form-control">
+            </div>
+
+            <div class="col-6">
+                <label for="estado" class="form-label">Estado:</label>
+                <input type="text" id="estado" name="estado" value="{{ $propriedade->estado }}" class="form-control">
+            </div>
+
             <div class="col-12">
                 <label for="bairro" class="form-label">Bairro:</label>
                 <input type="text" id="bairro" name="bairro" value="{{ $propriedade->bairro }}" required class="form-control">

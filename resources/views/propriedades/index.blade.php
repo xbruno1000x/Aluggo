@@ -38,6 +38,9 @@
                         <th>Nome</th>
                         <th>Endereço</th>
                         <th>Bairro</th>
+                        <th>CEP</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
                         <th>Descrição</th>
                         <th>Ações</th>
                     </tr>
@@ -48,6 +51,9 @@
                             <td>{{ $propriedade->nome }}</td>
                             <td>{{ $propriedade->endereco }}</td>
                             <td>{{ $propriedade->bairro }}</td>
+                            <td>{{ $propriedade->cep }}</td>
+                            <td>{{ $propriedade->cidade }}</td>
+                            <td>{{ $propriedade->estado }}</td>
                             <td>{{ $propriedade->descricao }}</td>
                             <td class="d-flex gap-2">
                                 <a href="{{ route('propriedades.edit', $propriedade) }}" class="btn btn-sm btn-warning">

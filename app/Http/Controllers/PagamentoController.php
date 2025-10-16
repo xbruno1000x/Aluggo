@@ -18,24 +18,17 @@ class PagamentoController extends Controller
     public function index(Request $request): View|JsonResponse
     {
         $month = $request->query('month', Carbon::now()->startOfMonth()->toDateString());
-        // Accept multiple month formats: 'Y-m', 'Y-m-d', 'm/Y' or 'd/m/Y'
         $ref = $this->normalizeMonthToStart($month);
         $refDate = Carbon::parse($ref)->startOfMonth()->toDateString();
-
-        // We'll build the pagamentos query after ensuring pagamentos exist for active alugueis.
 
         $aluguelFilter = null;
         if ($request->has('aluguel_id')) {
             $aluguelFilter = (int)$request->query('aluguel_id');
         }
 
-        // Always ensure pagamentos exist for active alugueis in the requested month.
-        // Using firstOrCreate makes this idempotent and avoids racey existence checks.
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-                        // For lazy-creation we include all active alugueis (creation should be permissive);
-                        // the $query above prevents pagamentos listing for months after sale.
                         $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
                             ->where(function ($q) use ($start) {
                                 $q->whereNull('data_fim')
@@ -47,7 +40,6 @@ class PagamentoController extends Controller
         }
 
         $alugueis = $alugueisQuery->get();
-        // record which alugueis were considered for lazy-creation (light logging)
         try {
             $logData = [
                 'requested_month_normalized' => $refDate,
@@ -55,34 +47,31 @@ class PagamentoController extends Controller
             ];
             Log::debug('PagamentoController::index alugueis considered', $logData);
         } catch (\Exception $e) {
-            // swallow logging errors
         }
         $alugueisIds = $alugueis->pluck('id')->all();
+        $now = now();
+        $inserts = [];
         foreach ($alugueis as $a) {
-            // create pagamento only if not exists (unique constraint protects duplicates)
-            $pag = Pagamento::firstOrCreate([
+            $inserts[] = [
                 'aluguel_id' => $a->id,
                 'referencia_mes' => $refDate,
-            ], [
                 'valor_devido' => $a->valor_mensal ?? 0,
                 'valor_recebido' => 0,
                 'status' => 'pending',
-            ]);
-            // minimal debug: only log when a pagamento was newly created
+                'created_at' => $now,
+                'updated_at' => $now,
+            ];
+        }
+        if (!empty($inserts)) {
             try {
-                if (!empty($pag->wasRecentlyCreated)) {
-                    Log::debug('Pagamento created', ['aluguel_id' => $a->id, 'pagamento_id' => $pag->id]);
-                }
+                DB::table('pagamentos')->insertOrIgnore($inserts);
             } catch (\Exception $e) {
-                // swallow
+                Log::warning('Pagamento bulk insertOrIgnore failed: ' . $e->getMessage());
             }
         }
 
-
-        // Build the pagamentos query after lazy-creation to ensure created records are included
         $query = Pagamento::with('aluguel.imovel', 'aluguel.locatario')
             ->whereDate('referencia_mes', $refDate)
-            // Exclude pagamentos for alugueis whose imóvel was sold on or before this month
             ->whereNotExists(function ($q) use ($refDate) {
                 $q->select(DB::raw('1'))
                   ->from('transacoes')
@@ -99,7 +88,6 @@ class PagamentoController extends Controller
         $pagamentos = $query->paginate(20);
         $pagamentos->appends($request->query());
 
-        // pass normalized month start to the view
         $ref = $refDate;
         return view('pagamentos.index', compact('pagamentos', 'ref'));
     }
@@ -107,27 +95,22 @@ class PagamentoController extends Controller
     protected function normalizeMonthToStart(string $input): string
     {
         $input = trim($input);
-        // format MM/YYYY
         if (preg_match('/^\d{2}\/\d{4}$/', $input)) {
             try {
                 $dt = Carbon::createFromFormat('m/Y', $input)->startOfMonth();
                 return $dt->toDateString();
             } catch (\Exception $e) {
-                // fallthrough
             }
         }
 
-        // format DD/MM/YYYY
         if (preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $input)) {
             try {
                 $dt = Carbon::createFromFormat('d/m/Y', $input)->startOfMonth();
                 return $dt->toDateString();
             } catch (\Exception $e) {
-                // fallthrough
             }
         }
 
-        // try generic parse (handles Y-m, Y-m-d, etc.)
         try {
             $dt = Carbon::parse($input)->startOfMonth();
             return $dt->toDateString();
@@ -151,7 +134,6 @@ class PagamentoController extends Controller
 
     public function revert(Pagamento $pagamento): RedirectResponse
     {
-        // Reverter o pagamento: voltar ao estado pendente e limpar informações de pagamento
         $pagamento->valor_recebido = 0;
         $pagamento->status = 'pending';
         $pagamento->data_pago = null;
@@ -163,7 +145,6 @@ class PagamentoController extends Controller
 
     public function renew(Aluguel $aluguel): RedirectResponse
     {
-        // renovação simples: estende data_fim por mesmo período (se existir) ou 1 ano se indefinido
         if ($aluguel->data_fim) {
             $start = Carbon::parse($aluguel->data_inicio);
             $end = Carbon::parse($aluguel->data_fim);
@@ -184,7 +165,6 @@ class PagamentoController extends Controller
 
         $aluguelId = $request->input('aluguel_id');
 
-        // Ensure pagamentos exist for the month (lazy creation)
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
@@ -199,22 +179,30 @@ class PagamentoController extends Controller
         }
 
         $alugueis = $alugueisQuery->get();
+        $now = now();
+        $inserts = [];
         foreach ($alugueis as $a) {
-            Pagamento::firstOrCreate([
+            $inserts[] = [
                 'aluguel_id' => $a->id,
                 'referencia_mes' => $refDate,
-            ], [
                 'valor_devido' => $a->valor_mensal ?? 0,
                 'valor_recebido' => 0,
                 'status' => 'pending',
-            ]);
+                'created_at' => $now,
+                'updated_at' => $now,
+            ];
+        }
+        if (!empty($inserts)) {
+            try {
+                DB::table('pagamentos')->insertOrIgnore($inserts);
+            } catch (\Exception $e) {
+                Log::warning('Pagamento bulk insertOrIgnore failed (markAllPaid): ' . $e->getMessage());
+            }
         }
 
-        // Mark each pagamento as paid explicitly to avoid edge cases with bulk updates
         $now = now();
         $pagQuery = Pagamento::whereDate('referencia_mes', $refDate)
             ->whereIn('status', ['pending', 'partial'])
-            // Do not mark pagamentos for alugueis whose imóvel was sold on or before this month
             ->whereNotExists(function ($q) use ($refDate) {
                 $q->select(DB::raw('1'))
                   ->from('transacoes')

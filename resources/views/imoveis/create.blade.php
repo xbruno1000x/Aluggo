@@ -117,6 +117,24 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="p_cep" class="form-label">CEP</label>
+                        <input type="text" id="p_cep" name="cep" class="form-control"
+                               placeholder="Ex: 28000-000">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_cidade" class="form-label">Cidade</label>
+                        <input type="text" id="p_cidade" name="cidade" class="form-control"
+                               placeholder="Informe a cidade">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="p_estado" class="form-label">Estado</label>
+                        <input type="text" id="p_estado" name="estado" class="form-control"
+                               placeholder="Ex: RJ">
+                    </div>
+
+                    <div class="mb-3">
                         <label for="p_bairro" class="form-label">Bairro</label>
                         <input type="text" id="p_bairro" name="bairro" class="form-control" required
                                placeholder="Informe o bairro">
@@ -141,6 +159,5 @@
     </div>
 </div>
 
-<!-- Antes: script inline removido -->
 @vite(['resources/ts/propriedade-modal.ts'])
 @endsection
