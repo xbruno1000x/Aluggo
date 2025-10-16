@@ -2196,7 +2196,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 44,
+        2 => 60,
       ),
     ),
   ),
@@ -2223,15 +2223,6 @@ return [
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
     array (
       0 => 'pagamentos.index',
-    ),
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Builder',
-        1 => 'firstOrCreate',
-        2 => 203,
-      ),
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
@@ -2401,7 +2392,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => 'c6980ce3b7504ddd5912cff5174803d47d2ee7ce',
+    'fileHash' => 'bc8b105894866ed3c0ce4ea19131a1ab8b42020c',
     'dependentFiles' => 
     array (
     ),
@@ -2415,14 +2406,14 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => '216f5eb6e70008fac70b9055a8860567f4737be0',
+    'fileHash' => 'ead87aa04f51411a1e7243f9cd83d927c0b016b6',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php' => 
   array (
-    'fileHash' => '70485d35ca75804c62c55d1173c3dbb3abf10869',
+    'fileHash' => '0216ea060667eeb85b668cd43cccbb5e87a9367a',
     'dependentFiles' => 
     array (
     ),
@@ -2492,7 +2483,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
   array (
-    'fileHash' => 'f0a5b90af7acf4c378ee39fba1ba88a894fa8a12',
+    'fileHash' => '7f05e0989c054aa46b2ce624efa24ddfa67ff06e',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',

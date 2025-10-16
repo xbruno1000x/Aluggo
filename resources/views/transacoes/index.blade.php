@@ -29,8 +29,8 @@
                         <td>{{ $t->imovel->nome ?? '-' }}{{ $t->imovel && $t->imovel->numero ? ' (nº ' . $t->imovel->numero . ')' : '' }}</td>
                         <td>R$ {{ number_format($t->valor_venda, 2, ',', '.') }}</td>
                         <td>{{ optional($t->data_venda) ? $t->data_venda->format('d/m/Y') : '' }}</td>
-                        <td class="d-flex gap-2">
-                            <a href="{{ route('transacoes.show', $t) }}" class="btn btn-sm btn-info">Detalhes</a>
+                            <td class="d-flex gap-2">
+                            <a href="{{ route('transacoes.show', $t) }}" class="btn btn-sm btn-info btn-details">Detalhes</a>
                             <a href="{{ route('transacoes.edit', $t) }}" class="btn btn-sm btn-warning">Editar</a>
                             <form action="{{ route('transacoes.destroy', $t) }}" method="POST" data-confirm
                                   data-confirm-title="Confirmação"
@@ -47,6 +47,10 @@
     </div>
 
     {{ $transacoes->links() }}
+
+@push('scripts-body')
+    @vite(['resources/ts/transacoes-details.ts'])
+@endpush
 
     @if($transacoes->isEmpty())
         <p class="text-center text-light mt-4">Nenhuma transação registrada ainda.</p>
