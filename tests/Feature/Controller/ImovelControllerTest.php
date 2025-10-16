@@ -7,12 +7,11 @@ use App\Models\Proprietario;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
-use function Pest\Laravel\{actingAs, get, post, put, delete};
+use function Pest\Laravel\{actingAs};
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // disable auth middleware but still set an authenticated user
     $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
     $this->user = Proprietario::factory()->create();
     $this->be($this->user, 'proprietario');

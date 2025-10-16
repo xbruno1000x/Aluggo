@@ -29,7 +29,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="patrimonioDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Gestão de Patrimônio
+                        💸 Gestão de Patrimônio
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="patrimonioDropdown">
                         <li><a class="dropdown-item" href="{{ route('imoveis.index') }}">Gestão de Imóveis</a></li>
@@ -41,7 +41,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="financeiroDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Controle Financeiro
+                        📊 Controle Financeiro
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
                         <li><a class="dropdown-item" href="{{ route('transacoes.index') }}">Cadastro de Transações de Venda</a></li>
@@ -52,10 +52,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="locatariosDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Alugueis
+                       🏠 Alugueis
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="locatariosDropdown">
-                        <li><a class="dropdown-item" href="{{ route('locatarios.index') }}">Meus Inquilinos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('locatarios.index') }}">Meus Locatários</a></li>
                         <li><a class="dropdown-item" href="{{ route('alugueis.index') }}">Gestão de Aluguéis</a></li>
                         <li><a class="dropdown-item" href="{{ route('pagamentos.index') }}">Confirmação de Pagamentos</a></li>
                         <li><a class="dropdown-item" href="{{ route('alugueis.create') }}">Cadastro de Contratos de Aluguel</a></li>
@@ -65,7 +65,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="configDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Configurações
+                       ⚙️ Configurações
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="configDropdown">
                         <li><a class="dropdown-item" href="{{ route('account.settings') }}">Configurações da Conta</a></li>

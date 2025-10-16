@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Transacao;
 use App\Models\Imovel;
+use App\Models\Aluguel;
+use App\Models\Pagamento;
+use App\Models\Obra;
 use App\Services\FinanceRateService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -67,13 +70,18 @@ class TransacaoController extends Controller
         $valorCompra = $imovel->valor_compra ?? null;
         $valorVenda = $transacao->valor_venda ?? null;
 
-        $lucro = null;
+        $lucro = 0.0;
         $porcentagem = null;
         $periodText = null;
         $selicText = null;
         $ipcaText = null;
+        $selicCumulative = null;
+        $ipcaCumulative = null;
+        $rentalIncome = 0.0;
+        $obraExpenses = 0.0;
+        $adjustedProfit = 0.0;
 
-        if ($valorCompra !== null && $valorVenda !== null) {
+    if ($valorCompra !== null && $valorVenda !== null) {
             $vc = (float) $valorCompra;
             $vv = (float) $valorVenda;
             $lucro = $vv - $vc;
@@ -84,11 +92,38 @@ class TransacaoController extends Controller
             if (!empty($imovel->data_aquisicao)) {
                 try {
                     $dtCompra = Carbon::parse($imovel->data_aquisicao);
-                    // Use null coalescing and parse; avoids strict comparison/instanceof warnings in static analysis
                     $dtVenda = Carbon::parse($transacao->data_venda ?? now());
                     $diffDays = $dtCompra->diffInDays($dtVenda);
                     $periodYears = $diffDays > 0 ? ($diffDays / 365.0) : 0.0;
                     $periodText = $dtCompra->format('d/m/Y') . ' — ' . $dtVenda->format('d/m/Y') . " ({$diffDays} dias)";
+
+                    $start = Carbon::parse($imovel->data_aquisicao)->startOfMonth();
+                    $end = Carbon::parse($transacao->data_venda ?? now())->startOfMonth();
+
+                    $alugueis = Aluguel::where('imovel_id', $imovel->id)
+                        ->whereDate('data_inicio', '<=', $end->toDateString())
+                        ->where(function ($q) use ($start) {
+                            $q->whereNull('data_fim')
+                              ->orWhereDate('data_fim', '>=', $start->toDateString());
+                        })->get();
+
+                    $rentalIncome = 0.0;
+                    foreach ($alugueis as $a) {
+                        $sum = Pagamento::where('aluguel_id', $a->id)
+                            ->whereDate('referencia_mes', '>=', $start->toDateString())
+                            ->whereDate('referencia_mes', '<=', $end->toDateString())
+                            ->sum('valor_recebido');
+                        $rentalIncome += (float) $sum;
+                    }
+
+                    $obraExpenses = (float) Obra::where('imovel_id', $imovel->id)
+                        ->whereDate('data_inicio', '<=', $end->toDateString())
+                        ->where(function ($q) use ($start) {
+                            $q->whereNull('data_fim')
+                              ->orWhereDate('data_fim', '>=', $start->toDateString());
+                        })->sum('valor');
+
+                    $adjustedProfit = $lucro + $rentalIncome - $obraExpenses;
 
                     $svc = app(FinanceRateService::class);
                     $startYmd = $dtCompra->format('Y-m-d');
@@ -109,31 +144,36 @@ class TransacaoController extends Controller
 
                     /** @var array{value:float,type:'cumulative'|'annual'}|null $ipcaResult */
                     $ipcaResult = $svc->getCumulativeReturn($startYmd, $endYmd, 'ipca');
-                    if ($ipcaResult !== null) {
+                        if ($ipcaResult !== null) {
                         $ipcaType = $ipcaResult['type'];
                         $ipcaValue = (float) $ipcaResult['value'];
                         if ($ipcaType === 'cumulative') {
-                            $ipcaCumulative = $ipcaValue;
+                                $ipcaCumulative = $ipcaValue;
                         } else {
                             $ipcaCumulative = pow(1 + $ipcaValue, $periodYears) - 1;
                         }
-                        $ipcaText = 'Inflação (IPCA) no período: ' . number_format($ipcaCumulative * 100, 2, ',', '.') . '%';
+                            $ipcaText = 'Inflação (IPCA) no período: ' . number_format($ipcaCumulative * 100, 2, ',', '.') . '%';
+
+                            if ($ipcaCumulative < -0.5) {
+                                $ipcaCumulative = abs($ipcaCumulative);
+                            }
                     }
 
-                    if ($porcentagem !== null && isset($ipcaCumulative)) {
-                        $gainDecimal = $porcentagem / 100.0;
+                    if ($vc != 0 && $ipcaCumulative !== null) {
+                        $gainDecimal = $adjustedProfit / (float) $vc;
                         $realGainDecimal = (1 + $gainDecimal) / (1 + $ipcaCumulative) - 1;
                         $realGainPercent = $realGainDecimal * 100;
-                        $ipcaText .= ' | Seu lucro real, descontada a inflação no período, foi de ' . number_format($realGainPercent, 2, ',', '.') . '%';
+
+                        $ipcaPercent = $ipcaCumulative * 100;
+                        $ipcaText .= ' | Seu lucro real, descontada a inflação no período, foi de: ' . number_format($realGainPercent, 2, ',', '.') . '%';
                     }
                 } catch (\Throwable $e) {
-                    // log and ignore; view will simply not show comparative texts
                     Log::debug('FinanceRateService error: ' . $e->getMessage());
                 }
             }
         }
 
-        return view('transacoes.show', compact('transacao', 'lucro', 'porcentagem', 'periodText', 'selicText', 'ipcaText'));
+        return view('transacoes.show', compact('transacao', 'lucro', 'porcentagem', 'periodText', 'selicText', 'ipcaText', 'rentalIncome', 'obraExpenses', 'adjustedProfit'));
     }
 
     public function edit(Transacao $transacao): View

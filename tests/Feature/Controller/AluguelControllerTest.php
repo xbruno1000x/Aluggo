@@ -9,8 +9,6 @@ use function Pest\Laravel\{post, delete, get};
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // Desabilita apenas o middleware de autenticação para manter sessão/erro
-    // (útil para asserções que dependem de session/errors) durante os testes.
     $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
 });
 
@@ -102,7 +100,6 @@ test('destroy fallback quando não é removido e ainda existe retorna erro', fun
 
     $aluguelId = $aluguel->id;
 
-    // simulate a deletion failure by throwing in the deleting model event
     \App\Models\Aluguel::deleting(function () {
         throw new \Exception('delete fail');
     });

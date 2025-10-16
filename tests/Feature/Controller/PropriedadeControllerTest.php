@@ -5,12 +5,11 @@ use App\Models\Propriedade;
 use App\Models\Proprietario;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use function Pest\Laravel\{actingAs, get, postJson, post, put, delete};
+use function Pest\Laravel\{actingAs};
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // keep tests consistent: create a proprietario when needed
     $this->user = Proprietario::factory()->create();
 });
 
@@ -33,9 +32,7 @@ test('cria uma propriedade via JSON', function () {
         ])->assertJsonStructure(['id', 'nome']);
 });
 
-// HTTP/Pest style tests
 beforeEach(function () {
-    // remove authentication middleware for route-based tests where appropriate
     $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
     $this->be($this->user, 'proprietario');
 });
@@ -92,7 +89,6 @@ test('destroy remove propriedade do usuário', function () {
     $this->assertDatabaseMissing('propriedades', ['id' => $prop->id]);
 });
 
-// Direct controller invocation tests
 test('controlador de propriedade: cobre editar, atualizar, excluir e autorização do proprietário', function () {
     /** @var \App\Models\Proprietario $user */
     $user = Proprietario::factory()->create();

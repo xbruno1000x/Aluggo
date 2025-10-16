@@ -9,8 +9,6 @@ use function Pest\Laravel\{get, post, put, delete};
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // Disable only the authentication middleware so session and other web middleware
-    // (which provide the $errors variable and sessions) remain active during tests.
     $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
 });
 

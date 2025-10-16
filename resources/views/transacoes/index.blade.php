@@ -30,7 +30,7 @@
                         <td>R$ {{ number_format($t->valor_venda, 2, ',', '.') }}</td>
                         <td>{{ optional($t->data_venda) ? $t->data_venda->format('d/m/Y') : '' }}</td>
                         <td class="d-flex gap-2">
-                            <a href="{{ route('transacoes.show', $t) }}" class="btn btn-sm btn-info">Ver</a>
+                            <a href="{{ route('transacoes.show', $t) }}" class="btn btn-sm btn-info">Detalhes</a>
                             <a href="{{ route('transacoes.edit', $t) }}" class="btn btn-sm btn-warning">Editar</a>
                             <form action="{{ route('transacoes.destroy', $t) }}" method="POST" data-confirm
                                   data-confirm-title="Confirmação"

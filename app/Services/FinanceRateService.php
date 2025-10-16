@@ -13,35 +13,23 @@ class FinanceRateService
 
     public function __construct()
     {
-        // Use only config() here; env() must not be called outside config files (cache-safe)
         $this->provider = config('finance.provider', 'bacen');
         $this->baseUrl = rtrim(config('finance.bacen_base', 'https://api.bcb.gov.br/dados/serie/bcdata.sgs'), '/');
     }
 
     /**
-     * Retorna o retorno acumulado (decimal) para o período entre duas datas.
-     * Se o provider for 'bacen' tenta buscar as séries do Bacen, respeitando o limite de 10 anos por chamada
-     * e usando cache. Se falhar ou provider for 'config', usa taxa anual do config como fallback (retornando taxa anual).
+     * Obtém o retorno cumulativo ou anual para uma série.
      *
-     * @param string $startYmd  yyyy-mm-dd
-     * @param string $endYmd    yyyy-mm-dd
-     * @param string $which     'selic'|'ipca'
-     * @return float|null       se retornado valor entre 0 e 1 => cumulativo; se retornado >1 => taxa anual (decimal) fallback; null se indisponível
-     */
-    /**
-     * Retorna um array com formato ['value' => float, 'type' => 'cumulative'|'annual'] ou null se indisponível.
-     *
-     * @param string $startYmd
-     * @param string $endYmd
-     * @param string $which
-     * @return array{value:float,type:'cumulative'|'annual'}|null
+     * @param string $startYmd Data inicial no formato Y-m-d
+     * @param string $endYmd Data final no formato Y-m-d
+     * @param string $which Identificador da série ('selic' ou 'ipca')
+     * @return array{value:float,type:'cumulative'|'annual'}|null Retorna um array com 'value' e 'type' ou null se indisponível
      */
     public function getCumulativeReturn(string $startYmd, string $endYmd, string $which): ?array
     {
         if ($this->provider === 'bacen') {
             $seriesId = $this->getSeriesIdFor($which);
             if ($seriesId) {
-                // Bacen limit: max 10 years per request. Vamos fragmentar em chunks de 10 anos
                 try {
                     $start = \Carbon\Carbon::parse($startYmd);
                     $end = \Carbon\Carbon::parse($endYmd);
@@ -49,7 +37,7 @@ class FinanceRateService
                     return null;
                 }
 
-                $chunks = $this->splitIntoChunks($start, $end, 3650); // 10 anos ~ 3650 dias
+                $chunks = $this->splitIntoChunks($start, $end, 3650); 
                 $allValues = [];
                 foreach ($chunks as $c) {
                     [$s, $e] = $c;
@@ -60,7 +48,6 @@ class FinanceRateService
                             return $this->fetchSeriesValues($seriesId, $s->format('Y-m-d'), $e->format('Y-m-d'));
                         });
                     } catch (\Exception $ex) {
-                        // se cache falhar (ex.: driver não configurado), buscar diretamente
                         $vals = $this->fetchSeriesValues($seriesId, $s->format('Y-m-d'), $e->format('Y-m-d'));
                     }
                     if (!empty($vals)) {
@@ -74,7 +61,6 @@ class FinanceRateService
             }
         }
 
-        // fallback: retornar taxa anual do config
         $annual = null;
         if ($which === 'selic') {
             $annual = config('finance.selic_annual');
@@ -88,7 +74,6 @@ class FinanceRateService
     protected function getSeriesIdFor(string $which): ?string
     {
         if ($which === 'selic') {
-            /** @psalm-suppress MixedReturnStatement */
             return (string) config('finance.selic_series', '11');
         }
         if ($which === 'ipca') {
@@ -98,13 +83,12 @@ class FinanceRateService
     }
 
     /**
-     * Split period into chunks with maxDays each (inclusive)
-     */
-    /**
-     * @param \Carbon\Carbon $start
-     * @param \Carbon\Carbon $end
-     * @param int $maxDays
-     * @return array<int,array{\Carbon\Carbon,\Carbon\Carbon}>
+     * Divide um intervalo de datas em pedaços (chunks) com até $maxDays cada.
+     *
+     * @param \Carbon\Carbon $start Data inicial
+     * @param \Carbon\Carbon $end Data final
+     * @param int $maxDays Máximo de dias por chunk
+     * @return array<int,array{0:\Carbon\Carbon,1:\Carbon\Carbon}> Lista de pares [start,end] como objetos Carbon
      */
     protected function splitIntoChunks(\Carbon\Carbon $start, \Carbon\Carbon $end, int $maxDays): array
     {
@@ -122,14 +106,12 @@ class FinanceRateService
     }
 
     /**
-     * Busca valores da série no Bacen (SGS). Retorna array de floats.
-     * Espera datas no formato yyyy-mm-dd.
-     */
-    /**
-     * @param string $seriesId
-     * @param string $startYmd
-     * @param string $endYmd
-     * @return float[] parsed decimal return values
+     * Busca os valores da série e retorna um array de decimais normalizados (float) para cada entrada.
+     *
+     * @param string $seriesId Identificador da série no Bacen
+     * @param string $startYmd Data inicial no formato Y-m-d
+     * @param string $endYmd Data final no formato Y-m-d
+     * @return float[] Valores normalizados como decimais (por exemplo 0.0123 para 1,23%)
      */
     protected function fetchSeriesValues(string $seriesId, string $startYmd, string $endYmd): array
     {
@@ -140,11 +122,8 @@ class FinanceRateService
             return [];
         }
 
-    // BCData/SGS expects the series in the form `bcdata.sgs.{seriesId}` (dot before id)
-    // e.g. https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados
     $base = $this->baseUrl . '.' . $seriesId . '/dados';
 
-        // tentar via Http facade (Guzzle). Se houver erro de SSL/cURL no ambiente local, capturamos e fazemos fallback
         $data = null;
         try {
             $resp = Http::acceptJson()->get($base, [
@@ -160,13 +139,11 @@ class FinanceRateService
                 Log::warning("FinanceRateService: Http fetch for series {$seriesId} returned status {$resp->status()} for {$startYmd} to {$endYmd}");
             }
         } catch (\Exception $e) {
-            // falha na requisição via Guzzle (ex.: cURL SSL). Tentaremos fallback com file_get_contents
             Log::warning('FinanceRateService: Http exception: ' . $e->getMessage());
             $data = null;
         }
 
         if ($data === null) {
-            // tentar construir a URL e usar file_get_contents (funciona mesmo sem CA bundle em muitas setups locais)
             $query = http_build_query([
                 'formato' => 'json',
                 'dataInicial' => $start,
@@ -189,10 +166,8 @@ class FinanceRateService
             }
         }
 
-        // se ainda não temos dados, tentar fallback /ultimos/20 via Http (ou file_get_contents)
         if ($data === null) {
             try {
-                // use the same dot notation for the ultimos endpoint
                 $u2 = $this->baseUrl . '.' . $seriesId . '/dados/ultimos/20';
                 $resp2 = Http::acceptJson()->get($u2, ['formato' => 'json']);
                 if ($resp2->ok()) {
@@ -202,7 +177,6 @@ class FinanceRateService
                     Log::warning("FinanceRateService: ultimos/20 Http fetch returned status {$resp2->status()} for series {$seriesId}");
                 }
             } catch (\Exception $e) {
-                // fallback via file_get_contents
                 $full2 = $this->baseUrl . '.' . $seriesId . '/dados/ultimos/20?formato=json';
                 $res2 = @file_get_contents($full2);
                 if ($res2 !== false) {
@@ -219,7 +193,6 @@ class FinanceRateService
             }
         }
 
-        // At this point $data should be an array or null; enforce array shape for parsing
         if (!is_array($data)) {
             return [];
         }
@@ -233,20 +206,15 @@ class FinanceRateService
             if ($raw === '') {
                 continue;
             }
-            // remover símbolo de percent caso exista
             $raw = str_replace('%', '', $raw);
 
-            // Se o valor vem no formato brasileiro com vírgula como separador decimal
             if (strpos($raw, ',') !== false) {
-                // remover separador de milhares (pontos) e trocar vírgula por ponto
                 $raw = str_replace('.', '', $raw);
                 $raw = str_replace(',', '.', $raw);
             } else {
-                // caso não haja vírgula, assumimos ponto decimal (ex: 0.050788) e mantemos
                 $raw = $raw;
             }
 
-            // garantir que agora é um número válido
             if ($raw === '' || !is_numeric($raw)) {
                 continue;
             }
@@ -260,7 +228,6 @@ class FinanceRateService
                 if ((string)$seriesId === (string)$selicSeries && $f < 1.0) {
                     $f = $f / 100.0;
                 } else {
-                    // valores entre 0.01 e 1000 são prováveis percentuais (ex: 0.40 => 0.40%), portanto dividimos por 100
                     if ($f >= 0.01 && $f <= 1000) {
                         $f = $f / 100.0;
                     }
@@ -269,7 +236,6 @@ class FinanceRateService
             $values[] = $f;
         }
 
-        // debug: if any parsed value looks abnormal (> 1), log the first few raw entries and parsed values
         $abnormal = array_filter($values, function ($v) { return $v > 1.0 || $v < -1.0; });
         if (count($abnormal) > 0) {
             $sampleRaw = array_slice($data, 0, 8);
@@ -282,11 +248,10 @@ class FinanceRateService
     }
 
     /**
-     * Calcula retorno acumulado a partir de uma série de valores (assume que cada valor é um período de retorno)
-     */
-    /**
-     * @param float[] $values
-     * @return float
+     * Calcula o retorno cumulativo a partir de uma lista de retornos periódicos em decimais.
+     *
+     * @param float[] $values Valores periódicos em decimal (por exemplo 0.01 para 1%)
+     * @return float Retorno cumulativo (por exemplo 0.1234 para 12,34%)
      */
     protected function cumulativeFromValues(array $values): float
     {

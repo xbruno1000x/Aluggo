@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Proprietario;
-use function Pest\Laravel\{actingAs, get, post};
+use function Pest\Laravel\{actingAs};
 
 beforeEach(fn () => $this->user = Proprietario::factory()->create());
 

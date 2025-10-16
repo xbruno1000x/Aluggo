@@ -11,7 +11,6 @@ use function Pest\Laravel\{get, post, put, delete};
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    // Keep session/web middleware active
     $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
 });
 
@@ -72,7 +71,6 @@ test('create e edit apresentam imoveis para seleção', function () {
 test('store retorna erro generico quando DB falha', function () {
     $imovel = Imovel::factory()->create();
 
-    // simulate a DB failure during create by using a model event that throws
     \App\Models\Obra::creating(function () {
         throw new \Exception('fail');
     });

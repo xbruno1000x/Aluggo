@@ -5,27 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Pagamento;
 use App\Models\Aluguel;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class PagamentoController extends Controller
 {
-    public function index(Request $request): View
+    public function index(Request $request): View|JsonResponse
     {
         $month = $request->query('month', Carbon::now()->startOfMonth()->toDateString());
         // Accept multiple month formats: 'Y-m', 'Y-m-d', 'm/Y' or 'd/m/Y'
         $ref = $this->normalizeMonthToStart($month);
         $refDate = Carbon::parse($ref)->startOfMonth()->toDateString();
 
-        $query = Pagamento::with('aluguel.imovel', 'aluguel.locatario')
-            ->whereDate('referencia_mes', $refDate);
+        // We'll build the pagamentos query after ensuring pagamentos exist for active alugueis.
 
         $aluguelFilter = null;
         if ($request->has('aluguel_id')) {
             $aluguelFilter = (int)$request->query('aluguel_id');
-            $query->where('aluguel_id', $aluguelFilter);
         }
 
         // Always ensure pagamentos exist for active alugueis in the requested month.
@@ -33,20 +34,33 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
-            ->where(function ($q) use ($start) {
-                $q->whereNull('data_fim')
-                  ->orWhereDate('data_fim', '>=', $start->toDateString());
-            });
+                        // For lazy-creation we include all active alugueis (creation should be permissive);
+                        // the $query above prevents pagamentos listing for months after sale.
+                        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
+                            ->where(function ($q) use ($start) {
+                                $q->whereNull('data_fim')
+                                  ->orWhereDate('data_fim', '>=', $start->toDateString());
+                            });
 
         if ($aluguelFilter) {
             $alugueisQuery->where('id', $aluguelFilter);
         }
 
         $alugueis = $alugueisQuery->get();
+        // record which alugueis were considered for lazy-creation (light logging)
+        try {
+            $logData = [
+                'requested_month_normalized' => $refDate,
+                'alugueis_count' => $alugueis->count(),
+            ];
+            Log::debug('PagamentoController::index alugueis considered', $logData);
+        } catch (\Exception $e) {
+            // swallow logging errors
+        }
+        $alugueisIds = $alugueis->pluck('id')->all();
         foreach ($alugueis as $a) {
             // create pagamento only if not exists (unique constraint protects duplicates)
-            Pagamento::firstOrCreate([
+            $pag = Pagamento::firstOrCreate([
                 'aluguel_id' => $a->id,
                 'referencia_mes' => $refDate,
             ], [
@@ -54,6 +68,32 @@ class PagamentoController extends Controller
                 'valor_recebido' => 0,
                 'status' => 'pending',
             ]);
+            // minimal debug: only log when a pagamento was newly created
+            try {
+                if (!empty($pag->wasRecentlyCreated)) {
+                    Log::debug('Pagamento created', ['aluguel_id' => $a->id, 'pagamento_id' => $pag->id]);
+                }
+            } catch (\Exception $e) {
+                // swallow
+            }
+        }
+
+
+        // Build the pagamentos query after lazy-creation to ensure created records are included
+        $query = Pagamento::with('aluguel.imovel', 'aluguel.locatario')
+            ->whereDate('referencia_mes', $refDate)
+            // Exclude pagamentos for alugueis whose imóvel was sold on or before this month
+            ->whereNotExists(function ($q) use ($refDate) {
+                $q->select(DB::raw('1'))
+                  ->from('transacoes')
+                  ->join('imoveis', 'transacoes.imovel_id', '=', 'imoveis.id')
+                  ->join('alugueis', 'alugueis.imovel_id', '=', 'imoveis.id')
+                  ->whereColumn('alugueis.id', 'pagamentos.aluguel_id')
+                  ->whereDate('transacoes.data_venda', '<=', $refDate);
+            });
+
+        if ($aluguelFilter) {
+            $query->where('aluguel_id', $aluguelFilter);
         }
 
         $pagamentos = $query->paginate(20);
@@ -148,7 +188,7 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
+                $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
             ->where(function ($q) use ($start) {
                 $q->whereNull('data_fim')
                   ->orWhereDate('data_fim', '>=', $start->toDateString());
@@ -172,7 +212,17 @@ class PagamentoController extends Controller
 
         // Mark each pagamento as paid explicitly to avoid edge cases with bulk updates
         $now = now();
-        $pagQuery = Pagamento::whereDate('referencia_mes', $refDate)->whereIn('status', ['pending', 'partial']);
+        $pagQuery = Pagamento::whereDate('referencia_mes', $refDate)
+            ->whereIn('status', ['pending', 'partial'])
+            // Do not mark pagamentos for alugueis whose imóvel was sold on or before this month
+            ->whereNotExists(function ($q) use ($refDate) {
+                $q->select(DB::raw('1'))
+                  ->from('transacoes')
+                  ->join('imoveis', 'transacoes.imovel_id', '=', 'imoveis.id')
+                  ->join('alugueis', 'alugueis.imovel_id', '=', 'imoveis.id')
+                  ->whereColumn('alugueis.id', 'pagamentos.aluguel_id')
+                  ->whereDate('transacoes.data_venda', '<=', $refDate);
+            });
         if ($aluguelId) $pagQuery->where('aluguel_id', (int)$aluguelId);
 
         $pagamentos = $pagQuery->get();

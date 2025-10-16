@@ -16,7 +16,7 @@
                 <p class="text-muted mb-0">Insira suas informações</p>
             </header>
 
-            {{-- Login com Google --}}
+            <!-- Login com Google 
             <div class="d-grid gap-2 mb-3">
                 <button type="button" class="btn btn-outline-danger">
                     <img src="{{ asset('images/google-logo.png') }}" alt="Google Logo" style="height:20px; margin-right:8px;">
@@ -24,7 +24,7 @@
                 </button>
             </div>
 
-            <p class="text-center text-muted mb-3">ou</p>
+            <p class="text-center text-muted mb-3">ou</p>-->
 
             <form action="{{ route('admin.login.post') }}" method="POST">
                 @csrf

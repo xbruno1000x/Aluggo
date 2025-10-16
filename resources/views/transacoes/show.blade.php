@@ -37,6 +37,36 @@
                     </div>
                 </div>
 
+                <div class="d-flex justify-content-between align-items-start flex-wrap mt-3">
+                    <div class="me-3 text-center mb-2">
+                        <strong>Lucros com Aluguel:</strong>
+                        @if(isset($rentalIncome) && $rentalIncome !== null)
+                            <div><span class="{{ $rentalIncome >= 0 ? 'text-dolar' : 'text-danger' }}">R$ {{ number_format($rentalIncome, 2, ',', '.') }}</span></div>
+                        @else
+                            <div>-</div>
+                        @endif
+                    </div>
+
+                    <div class="me-3 text-center mb-2">
+                        <strong>Gastos com Obras:</strong>
+                        @if(isset($obraExpenses) && $obraExpenses !== null)
+                            <div><span class="{{ $obraExpenses > 0 ? 'text-danger' : 'text-dolar' }}">R$ {{ number_format($obraExpenses, 2, ',', '.') }}</span></div>
+                        @else
+                            <div>-</div>
+                        @endif
+                    </div>
+
+                    <div class="text-center mb-2">
+                        <strong>Lucro Ajustado:</strong>
+                        @if(isset($adjustedProfit) && $adjustedProfit !== null)
+                            <div><span class="{{ $adjustedProfit >= 0 ? 'text-dolar' : 'text-danger' }}">R$ {{ number_format($adjustedProfit, 2, ',', '.') }}</span></div>
+                            <div class="small">(venda + alugueis - obras)</div>
+                        @else
+                            <div>-</div>
+                        @endif
+                    </div>
+                </div>
+
                 <div class="mt-2 text-center d-flex flex-column gap-1">
                     @if(!empty($periodText))
                         <div class="small">Período de posse: {{ $periodText }}</div>

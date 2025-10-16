@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1759348827,
+	'lastFullAnalysisTime' => 1760651256,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.25',
@@ -2230,13 +2230,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'firstOrCreate',
-        2 => 49,
-      ),
-      1 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Builder',
-        1 => 'firstOrCreate',
-        2 => 163,
+        2 => 203,
       ),
     ),
   ),
@@ -2395,8 +2389,7 @@ return [
       5 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php',
       6 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
       7 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
-      8 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\Proprietario\\PagamentoController.php',
-      9 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      8 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
@@ -2422,7 +2415,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => '110fd78b52faccd0c67e99bb95e67b6970832e50',
+    'fileHash' => '216f5eb6e70008fac70b9055a8860567f4737be0',
     'dependentFiles' => 
     array (
     ),
@@ -2436,7 +2429,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => 'c75a88211b5bbe0a8666f17e6f42eea00d95a0de',
+    'fileHash' => '0e1cc1be28de5037dfd6676e603bd6e03f72c746',
     'dependentFiles' => 
     array (
     ),
@@ -2448,7 +2441,7 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
-      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\Proprietario\\PagamentoController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
       3 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
       4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php',
     ),
@@ -2484,7 +2477,8 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php',
-      1 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php' => 
@@ -2493,7 +2487,7 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
-      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\Proprietario\\PagamentoController.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
@@ -2541,7 +2535,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Services\\FinanceRateService.php' => 
   array (
-    'fileHash' => '663e421f6dfc53c5678a8bae2b3b8632aace31ba',
+    'fileHash' => 'a296546561109a5f320c45ce63d3876950a78504',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
@@ -4168,7 +4162,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'Illuminate\\View\\View',
+           'returnType' => 'Illuminate\\View\\View|Illuminate\\Http\\JsonResponse',
            'parameters' => 
           array (
             0 => 
@@ -6468,12 +6462,12 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Retorna um array com formato [\'value\' => float, \'type\' => \'cumulative\'|\'annual\'] ou null se indisponível.
+     * Obtém o retorno cumulativo ou anual para uma série.
      *
-     * @param string $startYmd
-     * @param string $endYmd
-     * @param string $which
-     * @return array{value:float,type:\'cumulative\'|\'annual\'}|null
+     * @param string $startYmd Data inicial no formato Y-m-d
+     * @param string $endYmd Data final no formato Y-m-d
+     * @param string $which Identificador da série (\'selic\' ou \'ipca\')
+     * @return array{value:float,type:\'cumulative\'|\'annual\'}|null Retorna um array com \'value\' e \'type\' ou null se indisponível
      */',
              'namespace' => 'App\\Services',
              'uses' => 
@@ -6568,10 +6562,12 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @param \\Carbon\\Carbon $start
-     * @param \\Carbon\\Carbon $end
-     * @param int $maxDays
-     * @return array<int,array{\\Carbon\\Carbon,\\Carbon\\Carbon}>
+     * Divide um intervalo de datas em pedaços (chunks) com até $maxDays cada.
+     *
+     * @param \\Carbon\\Carbon $start Data inicial
+     * @param \\Carbon\\Carbon $end Data final
+     * @param int $maxDays Máximo de dias por chunk
+     * @return array<int,array{0:\\Carbon\\Carbon,1:\\Carbon\\Carbon}> Lista de pares [start,end] como objetos Carbon
      */',
              'namespace' => 'App\\Services',
              'uses' => 
@@ -6637,10 +6633,12 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @param string $seriesId
-     * @param string $startYmd
-     * @param string $endYmd
-     * @return float[] parsed decimal return values
+     * Busca os valores da série e retorna um array de decimais normalizados (float) para cada entrada.
+     *
+     * @param string $seriesId Identificador da série no Bacen
+     * @param string $startYmd Data inicial no formato Y-m-d
+     * @param string $endYmd Data final no formato Y-m-d
+     * @return float[] Valores normalizados como decimais (por exemplo 0.0123 para 1,23%)
      */',
              'namespace' => 'App\\Services',
              'uses' => 
@@ -6706,8 +6704,10 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @param float[] $values
-     * @return float
+     * Calcula o retorno cumulativo a partir de uma lista de retornos periódicos em decimais.
+     *
+     * @param float[] $values Valores periódicos em decimal (por exemplo 0.01 para 1%)
+     * @return float Retorno cumulativo (por exemplo 0.1234 para 12,34%)
      */',
              'namespace' => 'App\\Services',
              'uses' => 

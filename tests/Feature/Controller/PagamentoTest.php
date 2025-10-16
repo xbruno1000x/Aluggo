@@ -129,7 +129,6 @@ test('mark all paid marca todos pagamentos pendentes e parciais', function () {
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
 
-    // no pagamentos exist initially; markAll should create and mark paid
     $this->post(route('pagamentos.markAll'), ['month' => $ref])->assertRedirect();
 
     $p1 = Pagamento::where('aluguel_id', $al1->id)->where('referencia_mes', $ref)->first();

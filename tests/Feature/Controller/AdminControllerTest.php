@@ -62,7 +62,6 @@ test('exibe formulário de 2FA', function () {
         ->assertViewIs('admin.twofactor');
 });
 
-// Extra tests
 test('mostrar login redireciona quando já autenticado', function () {
     $user = Proprietario::factory()->create();
     /** @var \App\Models\Proprietario $user */
@@ -91,7 +90,6 @@ test('verifyTwoFactorRecovery seta sessão e redireciona para reset quando códi
     post(route('admin.reset.twofactor.verify'), ['email' => $user->email, 'two_factor_code' => $code])
         ->assertRedirect();
 
-    // session should have reset_email and reset_token
     $this->assertNotNull(session('reset_email'));
     $this->assertNotNull(session('reset_token'));
 });

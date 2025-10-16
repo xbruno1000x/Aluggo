@@ -17,7 +17,8 @@ class ImovelFactory extends Factory
             'numero' => (string) $this->faker->numberBetween(1, 9999),
             'tipo' => $this->faker->randomElement(['Apartamento', 'Loja', 'Terreno']),
             'valor_compra' => $this->faker->numberBetween(100000, 1000000),
-            'status' => $this->faker->randomElement(['disponivel', 'alugado', 'vendido']),
+            // Default to 'disponivel' for deterministic tests; tests can override when needed
+            'status' => 'disponivel',
             'data_aquisicao' => $this->faker->date(),
             'propriedade_id' => Propriedade::factory(),
         ];
