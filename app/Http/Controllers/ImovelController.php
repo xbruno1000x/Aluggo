@@ -17,7 +17,6 @@ class ImovelController extends Controller
             $q->where('proprietario_id', Auth::id());
         });
 
-        // Filtros
         if ($request->filled('nome')) {
             $query->where('nome', 'like', '%' . $request->nome . '%');
         }
@@ -40,7 +39,6 @@ class ImovelController extends Controller
 
         $imoveis = $query->orderBy('tipo')->get();
 
-        // Para popular o filtro de propriedades
         $propriedades = Propriedade::where('proprietario_id', Auth::id())->get();
 
         return view('imoveis.index', compact('imoveis', 'propriedades'));
@@ -48,7 +46,6 @@ class ImovelController extends Controller
 
     public function create(): View
     {
-        // Buscar todas as propriedades do usuário logado
         $propriedades = Propriedade::where('proprietario_id', Auth::id())->get();
         return view('imoveis.create', compact('propriedades'));
     }
@@ -65,7 +62,6 @@ class ImovelController extends Controller
             'propriedade_id' => 'required|exists:propriedades,id',
         ]);
 
-        // Verificar se a propriedade pertence ao usuário logado
         $propriedade = Propriedade::where('id', $validated['propriedade_id'])
             ->where('proprietario_id', Auth::id())
             ->firstOrFail();
@@ -76,19 +72,16 @@ class ImovelController extends Controller
 
     public function edit(Imovel $imovel): View
     {
-        // Verificar se o imóvel pertence ao usuário logado
         if ($imovel->propriedade->proprietario_id !== Auth::id()) {
             abort(403, 'Acesso não autorizado');
         }
 
-        // Buscar todas as propriedades do usuário logado
         $propriedades = Propriedade::where('proprietario_id', Auth::id())->get();
         return view('imoveis.edit', compact('imovel', 'propriedades'));
     }
 
     public function update(Request $request, Imovel $imovel): RedirectResponse
     {
-        // Verificar se o imóvel pertence ao usuário logado
         if ($imovel->propriedade->proprietario_id !== Auth::id()) {
             abort(403, 'Acesso não autorizado');
         }
@@ -103,7 +96,6 @@ class ImovelController extends Controller
             'propriedade_id' => 'required|exists:propriedades,id',
         ]);
 
-        // Verificar se a propriedade pertence ao usuário logado
         $propriedade = Propriedade::where('id', $validated['propriedade_id'])
             ->where('proprietario_id', Auth::id())
             ->firstOrFail();
@@ -115,7 +107,6 @@ class ImovelController extends Controller
 
     public function destroy(Imovel $imovel): RedirectResponse
     {
-        // Verificar se o imóvel pertence ao usuário logado
         if ($imovel->propriedade->proprietario_id !== Auth::id()) {
             abort(403, 'Acesso não autorizado');
         }

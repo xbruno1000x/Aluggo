@@ -19,3 +19,6 @@ Stack trace:
 [17-Oct-2025 03:35:38 UTC] PHP Parse error:  syntax error, unexpected token "=", expecting end of file in Command line code on line 1
 [17-Oct-2025 04:59:26 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in phar://C:/Users/faria/projeto-final/vendor/phpstan/phpstan/phpstan.phar/vendor/phpstan/phpdoc-parser/src/Lexer/Lexer.php on line 77
 [17-Oct-2025 04:59:26 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in phar://C:/Users/faria/projeto-final/vendor/phpstan/phpstan/phpstan.phar/vendor/symfony/string/AbstractString.php on line 28
+[17-Oct-2025 22:17:19 UTC] PHP Parse error:  syntax error, unexpected token "=>" in Command line code on line 1
+[17-Oct-2025 22:34:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in phar://C:/Users/faria/projeto-final/vendor/phpstan/phpstan/phpstan.phar/vendor/phpstan/phpdoc-parser/src/Lexer/Lexer.php on line 72
+[17-Oct-2025 22:34:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65536 bytes) in C:\Users\faria\projeto-final\vendor\laravel\framework\src\Illuminate\Database\Connection.php on line 359

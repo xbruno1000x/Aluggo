@@ -2096,8 +2096,71 @@ return [
 	'errorsCallback' => static function (): array { return array (
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_null() with float will always evaluate to false.',
+       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'line' => 293,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 293,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.impossibleType',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_null() with float will always evaluate to false.',
+       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'line' => 338,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 338,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.impossibleType',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_null() with float will always evaluate to false.',
+       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'line' => 349,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 349,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.impossibleType',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+  ),
 ); },
 	'linesToIgnore' => array (
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+  array (
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
+    array (
+      293 => NULL,
+      338 => NULL,
+      349 => NULL,
+    ),
+  ),
 ),
 	'unmatchedLineIgnores' => array (
 ),
@@ -2144,6 +2207,7 @@ return [
     array (
       0 => 'alugueis.index',
       1 => 'alugueis.create',
+      2 => 'alugueis.edit',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
@@ -2159,17 +2223,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 81,
+        1 => 76,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 93,
+        1 => 86,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 120,
+        1 => 111,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2178,7 +2242,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 73,
+        2 => 69,
       ),
     ),
   ),
@@ -2214,7 +2278,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 48,
+        2 => 69,
       ),
     ),
   ),
@@ -2253,27 +2317,27 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 100,
+        1 => 95,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 139,
+        1 => 134,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 188,
+        1 => 180,
       ),
       3 => 
       array (
         0 => 'abort',
-        1 => 204,
+        1 => 196,
       ),
       4 => 
       array (
         0 => 'abort',
-        1 => 211,
+        1 => 203,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2282,7 +2346,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 105,
+        2 => 100,
       ),
     ),
   ),
@@ -2425,7 +2489,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'f09843cc45619719ad09e4de329afe7522456c16',
+    'fileHash' => 'c81018dd2278fefe1ab55bfb3e408eb09e70a0c7',
     'dependentFiles' => 
     array (
     ),
@@ -2450,7 +2514,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
   array (
-    'fileHash' => '921ac146ca9c14d155896f310a55c70f1069ad09',
+    'fileHash' => '747a81e1c2a48b7c24915d355e30f5922c6b4a81',
     'dependentFiles' => 
     array (
     ),
@@ -2464,7 +2528,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php' => 
   array (
-    'fileHash' => '52860adb5b18821ebac444387363ee474f57b58c',
+    'fileHash' => '79012a34790bde53649956e0ca99a75f5fd49d6e',
     'dependentFiles' => 
     array (
     ),
@@ -2492,14 +2556,14 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
   array (
-    'fileHash' => '9f28e831bb62dafc421fe1a667ba0e31766e27bd',
+    'fileHash' => '91b67230e1e1e6ce5e7d08b87d7b39b5462d2cd0',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => '0e1cc1be28de5037dfd6676e603bd6e03f72c746',
+    'fileHash' => '3858842b4d31ddeeec72b8fdcbb3562f3f7eb6da',
     'dependentFiles' => 
     array (
     ),
@@ -2631,6 +2695,14 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Services\\IgpmService.php' => 
+  array (
+    'fileHash' => '2af01d687ef1066df5b8a67e3edb39b372b932aa',
+    'dependentFiles' => 
+    array (
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
@@ -3315,10 +3387,12 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3364,10 +3438,12 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3390,6 +3466,57 @@ return [
         )),
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'edit',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Mostrar formulário de edição de aluguel.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'aluguel',
+               'type' => 'App\\Models\\Aluguel',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'store',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -3406,10 +3533,12 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3441,7 +3570,69 @@ return [
           array (
           ),
         )),
-        3 => 
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Atualiza um contrato existente.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'aluguel',
+               'type' => 'App\\Models\\Aluguel',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'destroy',
            'phpDoc' => 
@@ -3457,10 +3648,12 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3480,6 +3673,79 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'aluguel',
                'type' => 'App\\Models\\Aluguel',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'adjust',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Reajusta o valor do aluguel manualmente ou via IGP-M acumulado.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'igpmservice' => 'App\\Services\\IgpmService',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'aluguel',
+               'type' => 'App\\Models\\Aluguel',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'igpmService',
+               'type' => 'App\\Services\\IgpmService',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -3950,7 +4216,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Display a listing of the resource.
+    * Exibe uma listagem do recurso.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -3997,7 +4263,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Show the form for creating a new resource.
+    * Exibe o formulário para criar um novo recurso.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -4033,7 +4299,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Store a newly created resource in storage.
+    * Armazena um novo recurso.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -4080,7 +4346,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Show the form for editing the specified resource.
+    * Exibe o formulário para editar o recurso especificado.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -4127,7 +4393,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Update the specified resource in storage.
+    * Atualiza o recurso especificado no armazenamento.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -4185,7 +4451,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Remove the specified resource from storage.
+    * Remove o recurso especificado do armazenamento.
      */',
              'namespace' => 'App\\Http\\Controllers',
              'uses' => 
@@ -7370,6 +7636,108 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'values',
                'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Services\\IgpmService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\IgpmService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'accumulatedPercent',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Retorna o percentual acumulado do IGP-M entre duas datas (inclusive).
+     *
+     * @return array{percent:float,from:Carbon,to:Carbon}
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'carbon' => 'Carbon\\Carbon',
+              'cache' => 'Illuminate\\Support\\Facades\\Cache',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'runtimeexception' => 'RuntimeException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'start',
+               'type' => 'Carbon\\Carbon',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'end',
+               'type' => 'Carbon\\Carbon',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

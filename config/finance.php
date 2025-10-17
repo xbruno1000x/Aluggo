@@ -8,6 +8,7 @@ return [
     // Example: SELIC (series 11), IPCA (series 10844)
     'selic_series' => env('FINANCE_SELIC_SERIES', '11'),
     'ipca_series' => env('FINANCE_IPCA_SERIES', '10844'),
+    'igpm_series' => env('FINANCE_IGPM_SERIES', '189'),
 
     // Bacen base URL (default BCData/SGS)
     'bacen_base' => env('FINANCE_API_BASE_URL', 'https://api.bcb.gov.br/dados/serie/bcdata.sgs'),

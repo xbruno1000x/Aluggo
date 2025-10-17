@@ -147,7 +147,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
     array (
-      0 => '921ac146ca9c14d155896f310a55c70f1069ad09',
+      0 => '747a81e1c2a48b7c24915d355e30f5922c6b4a81',
       1 => 
       array (
         0 => 'app\\http\\controllers\\imovelcontroller',
@@ -237,7 +237,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => 'f09843cc45619719ad09e4de329afe7522456c16',
+      0 => 'c81018dd2278fefe1ab55bfb3e408eb09e70a0c7',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -246,8 +246,12 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\http\\controllers\\index',
         1 => 'app\\http\\controllers\\create',
-        2 => 'app\\http\\controllers\\store',
-        3 => 'app\\http\\controllers\\destroy',
+        2 => 'app\\http\\controllers\\edit',
+        3 => 'app\\http\\controllers\\store',
+        4 => 'app\\http\\controllers\\update',
+        5 => 'app\\http\\controllers\\destroy',
+        6 => 'app\\http\\controllers\\adjust',
+        7 => 'app\\http\\controllers\\normalizedecimal',
       ),
       3 => 
       array (
@@ -255,7 +259,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php' => 
     array (
-      0 => '52860adb5b18821ebac444387363ee474f57b58c',
+      0 => '79012a34790bde53649956e0ca99a75f5fd49d6e',
       1 => 
       array (
         0 => 'app\\http\\controllers\\obracontroller',
@@ -290,7 +294,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
     array (
-      0 => '0e1cc1be28de5037dfd6676e603bd6e03f72c746',
+      0 => '3858842b4d31ddeeec72b8fdcbb3562f3f7eb6da',
       1 => 
       array (
         0 => 'app\\http\\controllers\\transacaocontroller',
@@ -397,7 +401,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
     array (
-      0 => '9f28e831bb62dafc421fe1a667ba0e31766e27bd',
+      0 => '91b67230e1e1e6ce5e7d08b87d7b39b5462d2cd0',
       1 => 
       array (
         0 => 'app\\http\\controllers\\taxacontroller',
@@ -444,6 +448,25 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\services\\getreport',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Services\\IgpmService.php' => 
+    array (
+      0 => '2af01d687ef1066df5b8a67e3edb39b372b932aa',
+      1 => 
+      array (
+        0 => 'app\\services\\igpmservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\accumulatedpercent',
+        2 => 'app\\services\\fetchrange',
+        3 => 'app\\services\\normalizepercent',
+        4 => 'app\\services\\parsedate',
       ),
       3 => 
       array (

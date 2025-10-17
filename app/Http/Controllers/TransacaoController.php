@@ -38,7 +38,6 @@ class TransacaoController extends Controller
 
         $imovel = Imovel::find($data['imovel_id']);
 
-        // Regra de negócio: não permite registrar venda se imóvel já estiver vendido
         if ($imovel && $imovel->status === 'vendido') {
             return redirect()->back()->withInput()->withErrors(['imovel_id' => 'Este imóvel já está marcado como vendido.']);
         }
@@ -47,7 +46,6 @@ class TransacaoController extends Controller
         try {
             $transacao = Transacao::create($data);
 
-            // Marca o imovel como vendido
             if ($imovel) {
                 $imovel->status = 'vendido';
                 $imovel->save();
@@ -63,7 +61,6 @@ class TransacaoController extends Controller
 
     public function show(Transacao $transacao): View
     {
-        // carregar relação imovel
         $transacao->load('imovel');
 
         $imovel = $transacao->imovel ?? null;
@@ -207,14 +204,12 @@ class TransacaoController extends Controller
                 \Illuminate\Support\Facades\DB::table('transacoes')->where('id', $transacaoId)->delete();
             }
 
-            // garantir que não exista mais (para lógica subsequente)
             $stillExists = \Illuminate\Support\Facades\DB::table('transacoes')->where('id', $transacaoId)->exists();
             if ($stillExists) {
                 \Illuminate\Support\Facades\DB::rollBack();
                 return redirect()->route('transacoes.index')->with('error', 'Falha ao excluir a transação. Tente novamente.');
             }
 
-            // Se não existirem outras transações para este imóvel, reverte status para disponivel
             $hasOther = Transacao::where('imovel_id', $imovelId)->exists();
             if (! $hasOther) {
                 $im = Imovel::find($imovelId);

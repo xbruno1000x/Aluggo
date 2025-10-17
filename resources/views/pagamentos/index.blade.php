@@ -13,10 +13,10 @@
             @if($aluguelId)
                 <input type="hidden" name="aluguel_id" value="{{ $aluguelId }}">
             @endif
-                <a href="{{ route('pagamentos.index', array_merge(request()->query(), ['month' => \Carbon\Carbon::parse($ref)->subMonth()->format('m/Y')])) }}" class="btn btn-outline-danger">&laquo; Mês anterior</a>
-                <input type="text" name="month" value="{{ \Carbon\Carbon::parse($ref)->format('m/Y') }}" class="form-control form-control-sm" placeholder="MM/YYYY">
+            <a href="{{ route('pagamentos.index', array_merge(request()->query(), ['month' => \Carbon\Carbon::parse($ref)->subMonth()->format('m/Y')])) }}" class="btn btn-outline-danger">&laquo; Mês anterior</a>
+            <input type="text" name="month" value="{{ \Carbon\Carbon::parse($ref)->format('m/Y') }}" class="form-control form-control-sm" placeholder="MM/YYYY">
             <button class="btn btn-outline-danger">Ir</button>
-                <a href="{{ route('pagamentos.index', array_merge(request()->query(), ['month' => \Carbon\Carbon::parse($ref)->addMonth()->format('m/Y')])) }}" class="btn btn-outline-danger">Próximo mês &raquo;</a>
+            <a href="{{ route('pagamentos.index', array_merge(request()->query(), ['month' => \Carbon\Carbon::parse($ref)->addMonth()->format('m/Y')])) }}" class="btn btn-outline-danger">Próximo mês &raquo;</a>
         </form>
     </div>
 </div>
@@ -29,6 +29,7 @@
                 <th>Locatário</th>
                 <th>Valor devido</th>
                 <th>Valor recebido</th>
+                <th>Vencimento</th>
                 <th>Status</th>
                 <th class="text-center">Ações</th>
             </tr>
@@ -40,10 +41,33 @@
                     <td>{{ $p->aluguel->locatario->nome ?? '—' }}</td>
                     <td>R$ {{ number_format($p->valor_devido,2,',','.') }}</td>
                     <td>R$ {{ number_format($p->valor_recebido,2,',','.') }}</td>
+                    @php
+                        $dueDate = null;
+                        try {
+                            $refMonth = \Carbon\Carbon::parse($p->referencia_mes)->startOfMonth();
+                            if (!empty($p->aluguel) && !empty($p->aluguel->data_inicio)) {
+                                $startDay = \Carbon\Carbon::parse($p->aluguel->data_inicio)->day;
+                                $lastDay = $refMonth->copy()->endOfMonth()->day;
+                                $day = min($startDay, $lastDay);
+                                $dueDate = $refMonth->copy()->day($day);
+                            } else {
+                                $dueDate = $refMonth->copy()->endOfMonth();
+                            }
+                        } catch (\Exception $e) {
+                            $dueDate = null;
+                        }
+                        $isOverdue = $dueDate ? $dueDate->lt(\Carbon\Carbon::today()) : false;
+                    @endphp
+                    <td>{{ $dueDate ? $dueDate->format('d/m/Y') : '-' }}</td>
                     <td>
-                        @if($p->status === 'paid') <span class="text-danger">Pago</span>
-                        @elseif($p->status === 'partial') <span class="text-warning">Parcial</span>
-                        @else <span class="text-danger">Pendente</span>
+                        @if($p->status === 'paid')
+                            <span class="text-success">Pago</span>
+                        @elseif($isOverdue && $p->status !== 'paid')
+                            <span class="text-danger">EM ATRASO</span>
+                        @elseif($p->status === 'partial')
+                            <span class="text-warning">Parcial</span>
+                        @else
+                            <span class="text-muted">Pendente</span>
                         @endif
                     </td>
                     <td class="text-center d-flex gap-2 justify-content-center">
@@ -74,7 +98,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center text-light">Nenhum pagamento encontrado para este mês.</td>
+                    <td colspan="7" class="text-center text-light">Nenhum pagamento encontrado para este mês.</td>
                 </tr>
             @endforelse
         </tbody>

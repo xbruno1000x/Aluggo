@@ -18,15 +18,12 @@ class TaxaController extends Controller
     {
         $query = Taxa::with(['imovel', 'propriedade'])
             ->where(function ($q) {
-                // permitir taxas vinculadas a imóveis do proprietário
                 $q->whereHas('imovel.propriedade', function ($q2) {
                     $q2->where('proprietario_id', Auth::id());
                 })
-                    // ou taxas sem imóvel criadas pelo próprio proprietário
                     ->orWhere('proprietario_id', Auth::id());
             });
 
-        // filtros opcionais
         if ($request->filled('imovel_id')) {
             $query->where('imovel_id', (int) $request->imovel_id);
         }
@@ -44,7 +41,7 @@ class TaxaController extends Controller
                 $start = Carbon::parse($request->start)->startOfDay()->toDateString();
                 $query->whereDate('data_pagamento', '>=', $start);
             } catch (\Exception $e) {
-                // ignore invalid date
+
             }
         }
 
@@ -53,7 +50,7 @@ class TaxaController extends Controller
                 $end = Carbon::parse($request->end)->endOfDay()->toDateString();
                 $query->whereDate('data_pagamento', '<=', $end);
             } catch (\Exception $e) {
-                // ignore invalid date
+
             }
         }
 
@@ -80,7 +77,6 @@ class TaxaController extends Controller
         $validated = $request->validate([
             'imovel_id' => 'nullable|exists:imoveis,id',
             'propriedade_id' => 'nullable|exists:propriedades,id',
-            // corrigido: tabela de alugueis é 'alugueis'
             'aluguel_id' => 'nullable|exists:alugueis,id',
             'tipo' => 'required|string|max:50',
             'valor' => 'required|numeric|min:0',
@@ -89,7 +85,6 @@ class TaxaController extends Controller
             'observacao' => 'nullable|string',
         ]);
 
-        // exigir exatamente um dos relacionamentos: imovel_id ou propriedade_id (ou nenhum se for taxa genérica do proprietário)
         if (!empty($validated['imovel_id']) && !empty($validated['propriedade_id'])) {
             return redirect()->back()->withInput()->with('error', 'Escolha apenas um: imóvel ou propriedade.');
         }
@@ -139,7 +134,6 @@ class TaxaController extends Controller
                 abort(403);
             }
         }
-        // validar que imovel/aluguel informados pertencem ao usuário
         $this->validateOwnershipForInput($validated);
 
         $taxa->update($validated);
@@ -175,12 +169,10 @@ class TaxaController extends Controller
             return;
         }
 
-        // taxa ligada diretamente a uma propriedade
         if ($taxa->propriedade && $taxa->propriedade->proprietario_id === $userId) {
             return;
         }
 
-        // ou taxa criada pelo próprio proprietario (proprietario_id)
         if (!empty($taxa->proprietario_id) && $taxa->proprietario_id === $userId) {
             return;
         }

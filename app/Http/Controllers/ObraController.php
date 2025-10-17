@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class ObraController extends Controller
 {
     /**
-     * Display a listing of the resource.
+    * Exibe uma listagem do recurso.
      */
     public function index(Request $request): View
     {
@@ -43,7 +43,7 @@ class ObraController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+    * Exibe o formulário para criar um novo recurso.
      */
     public function create(): View
     {
@@ -52,7 +52,7 @@ class ObraController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+    * Armazena um novo recurso.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -76,7 +76,7 @@ class ObraController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+    * Exibe o formulário para editar o recurso especificado.
      */
     public function edit(Obra $obra): View
     {
@@ -85,7 +85,7 @@ class ObraController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+    * Atualiza o recurso especificado no armazenamento.
      */
     public function update(Request $request, Obra $obra): RedirectResponse
     {
@@ -109,7 +109,7 @@ class ObraController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+    * Remove o recurso especificado do armazenamento.
      */
     public function destroy(Obra $obra): RedirectResponse
     {

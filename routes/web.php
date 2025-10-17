@@ -79,6 +79,7 @@ Route::middleware(['auth:proprietario'])->group(function () {
     Route::post('pagamentos/{pagamento}/revert', [\App\Http\Controllers\PagamentoController::class, 'revert'])->name('pagamentos.revert');
     Route::post('pagamentos/mark-all', [\App\Http\Controllers\PagamentoController::class, 'markAllPaid'])->name('pagamentos.markAll');
     Route::post('alugueis/{aluguel}/renew', [\App\Http\Controllers\PagamentoController::class, 'renew'])->name('alugueis.renew');
+    Route::patch('alugueis/{aluguel}/adjust', [AluguelController::class, 'adjust'])->name('alugueis.adjust');
 
     // Taxas (condominio, iptu, outros)
     Route::resource('taxas', \App\Http\Controllers\TaxaController::class)->parameters(['taxas' => 'taxa']);

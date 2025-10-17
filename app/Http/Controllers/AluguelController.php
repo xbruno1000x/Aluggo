@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Aluguel;
 use App\Models\Imovel;
 use App\Models\Locatario;
+use App\Services\IgpmService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class AluguelController extends Controller
@@ -34,6 +36,17 @@ class AluguelController extends Controller
         $locatarios = Locatario::orderBy('nome')->get();
 
         return view('alugueis.create', compact('imoveis', 'locatarios'));
+    }
+
+    /**
+     * Mostrar formulário de edição de aluguel.
+     */
+    public function edit(Aluguel $aluguel): View
+    {
+        $imoveis = Imovel::orderBy('nome')->get();
+        $locatarios = Locatario::orderBy('nome')->get();
+
+        return view('alugueis.edit', compact('aluguel', 'imoveis', 'locatarios'));
     }
 
     /**
@@ -104,6 +117,89 @@ class AluguelController extends Controller
     }
 
     /**
+     * Atualiza um contrato existente.
+     */
+    public function update(Request $request, Aluguel $aluguel): RedirectResponse
+    {
+        $data = $request->validate([
+            'valor_mensal' => ['required', 'numeric', 'min:0'],
+            'data_inicio' => ['required', 'date'],
+            'data_fim' => ['nullable', 'date', 'after_or_equal:data_inicio'],
+            'imovel_id' => ['required', 'exists:imoveis,id'],
+            'locatario_id' => ['required', 'exists:locatarios,id'],
+        ]);
+
+        $imovelId = (int) $data['imovel_id'];
+        $newStart = Carbon::parse($data['data_inicio'])->startOfDay();
+        $newEnd = isset($data['data_fim']) ? Carbon::parse($data['data_fim'])->endOfDay() : Carbon::createFromDate(9999, 12, 31)->endOfDay();
+
+        // verificar sobreposição de contratos no mesmo imóvel, excluindo o contrato atual
+        $overlap = Aluguel::where('imovel_id', $imovelId)
+            ->where('id', '!=', $aluguel->id)
+            ->where(function ($q) use ($newStart, $newEnd) {
+                $q->whereNull('data_fim')
+                    ->where('data_inicio', '<=', $newEnd->toDateString());
+                $q->orWhere(function ($q2) use ($newStart, $newEnd) {
+                    $q2->whereNotNull('data_fim')
+                        ->where('data_inicio', '<=', $newEnd->toDateString())
+                        ->where('data_fim', '>=', $newStart->toDateString());
+                });
+            })
+            ->exists();
+
+        if ($overlap) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['imovel_id' => 'Já existe um contrato para este imóvel que se sobrepõe ao período informado.']);
+        }
+
+        DB::beginTransaction();
+        try {
+            $aluguel->fill($data);
+            $aluguel->save();
+
+            $today = Carbon::today()->startOfDay();
+            $isActiveNow = ($newStart->lte($today) && $today->lte($newEnd));
+
+            if ($aluguel->wasChanged('imovel_id')) {
+                $previousImovelId = $aluguel->getOriginal('imovel_id');
+                if ($previousImovelId) {
+                    $hasActive = Aluguel::where('imovel_id', $previousImovelId)
+                        ->where('data_inicio', '<=', $today->toDateString())
+                        ->where(function ($q) use ($today) {
+                            $q->whereNull('data_fim')
+                              ->orWhere('data_fim', '>=', $today->toDateString());
+                        })
+                        ->exists();
+
+                    if (! $hasActive) {
+                        $im = Imovel::find($previousImovelId);
+                        if ($im) {
+                            $im->status = 'disponivel';
+                            $im->save();
+                        }
+                    }
+                }
+            }
+
+            if ($isActiveNow) {
+                $im = Imovel::find($imovelId);
+                if ($im) {
+                    $im->status = 'alugado';
+                    $im->save();
+                }
+            }
+
+            DB::commit();
+
+            return redirect()->route('alugueis.index')->with('success', 'Aluguel atualizado com sucesso.');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->withErrors(['general' => 'Erro ao atualizar contrato. Tente novamente.']);
+        }
+    }
+
+    /**
      * Remove um contrato de aluguel.
      * Após exclusão, atualiza status do imóvel para 'disponivel' caso não exista
      * outro contrato ativo cobrindo a data atual.
@@ -115,15 +211,12 @@ class AluguelController extends Controller
             $aluguelId = $aluguel->id;
             $imovelId = $aluguel->imovel_id;
 
-            // tenta remover via Eloquent (respeita soft deletes se existirem)
             $deleted = Aluguel::destroy($aluguelId);
 
-            // fallback direto caso não tenha sido removido (ex.: hooks/observers impedindo)
             if (! $deleted) {
                 DB::table('alugueis')->where('id', $aluguelId)->delete();
             }
 
-            // garantir que não exista mais (só para lógica subsequente)
             $stillExists = DB::table('alugueis')->where('id', $aluguelId)->exists();
 
             if ($stillExists) {
@@ -131,7 +224,6 @@ class AluguelController extends Controller
                 return redirect()->route('alugueis.index')->with('error', 'Falha ao excluir o contrato. Tente novamente.');
             }
 
-            // verificar se existe outro contrato ativo para este imóvel hoje
             $today = Carbon::today()->toDateString();
 
             $hasActive = Aluguel::where('imovel_id', $imovelId)
@@ -157,5 +249,124 @@ class AluguelController extends Controller
             DB::rollBack();
             return redirect()->route('alugueis.index')->with('error', 'Falha ao excluir o contrato. Tente novamente.');
         }
+    }
+
+    /**
+     * Reajusta o valor do aluguel manualmente ou via IGP-M acumulado.
+     */
+    public function adjust(Request $request, Aluguel $aluguel, IgpmService $igpmService): JsonResponse
+    {
+        $mode = (string) $request->input('mode');
+        $preview = $request->boolean('preview');
+
+        if (!in_array($mode, ['manual', 'igpm'], true)) {
+            return response()->json([
+                'message' => 'Modo de reajuste inválido.',
+            ], 422);
+        }
+
+        $newValue = null;
+        $igpmPercent = null;
+        $period = null;
+
+        if ($mode === 'manual') {
+            $raw = (string) $request->input('novo_valor', '');
+            $normalized = $this->normalizeDecimal($raw);
+            if ($normalized === null) {
+                return response()->json([
+                    'message' => 'Informe um valor válido para o reajuste manual.',
+                    'errors' => ['novo_valor' => ['Informe um valor válido para o reajuste manual.']],
+                ], 422);
+            }
+
+            if ($normalized < 0) {
+                return response()->json([
+                    'message' => 'O valor do aluguel não pode ser negativo.',
+                    'errors' => ['novo_valor' => ['O valor do aluguel não pode ser negativo.']],
+                ], 422);
+            }
+
+            $newValue = round($normalized, 2);
+        } else {
+            // phpstan: value may be typed as float via model casts; allow runtime null check
+            // @phpstan-ignore-next-line
+            if (is_null($aluguel->valor_mensal)) {
+                return response()->json([
+                    'message' => 'Não é possível calcular o reajuste automático sem um valor atual.',
+                ], 422);
+            }
+
+            $today = Carbon::today();
+            $contractStart = $aluguel->data_inicio ? Carbon::parse($aluguel->data_inicio) : $today->copy();
+            $fromCandidate = $today->copy()->subYear();
+            $from = $contractStart->greaterThan($fromCandidate) ? $contractStart->copy() : $fromCandidate;
+            $from->startOfMonth();
+
+            $to = $today->copy()->endOfMonth();
+            if ($aluguel->data_fim) {
+                $contractEnd = Carbon::parse($aluguel->data_fim)->endOfMonth();
+                if ($contractEnd->lessThan($to)) {
+                    $to = $contractEnd;
+                }
+            }
+
+            if ($to->lessThan($from)) {
+                $to = $from->copy();
+            }
+
+            try {
+                $result = $igpmService->accumulatedPercent($from, $to);
+            } catch (\Throwable $e) {
+                return response()->json([
+                    'message' => 'Falha ao obter o IGP-M. Tente novamente mais tarde.',
+                ], 502);
+            }
+
+            $igpmPercent = $result['percent'];
+            $period = [
+                'start' => $result['from']->toDateString(),
+                'end' => $result['to']->toDateString(),
+                'start_br' => $result['from']->format('d/m/Y'),
+                'end_br' => $result['to']->format('d/m/Y'),
+            ];
+
+            $currentValue = (float) $aluguel->valor_mensal;
+            $newValue = round($currentValue * (1 + ($igpmPercent / 100)), 2);
+        }
+
+        // @phpstan-ignore-next-line
+        if (!$preview && !is_null($newValue)) {
+            $aluguel->valor_mensal = $newValue;
+            $aluguel->save();
+        }
+
+        return response()->json([
+            'ok' => true,
+            'preview' => $preview,
+            'mode' => $mode,
+            'new_value' => $newValue,
+            // @phpstan-ignore-next-line
+            'new_value_formatted' => !is_null($newValue) ? 'R$ ' . number_format($newValue, 2, ',', '.') : null,
+            'igpm_percent' => $igpmPercent,
+            'period' => $period,
+            'message' => $preview ? 'Simulação concluída.' : 'Aluguel reajustado com sucesso.',
+        ]);
+    }
+
+    private function normalizeDecimal(string $raw): ?float
+    {
+        $trimmed = trim($raw);
+        if ($trimmed === '') {
+            return null;
+        }
+
+        $normalized = preg_replace('/\.(?=\d{3}(?:[^\d]|$))/', '', $trimmed) ?? $trimmed;
+        $normalized = str_replace(',', '.', $normalized);
+
+        if (!is_numeric($normalized)) {
+            return null;
+        }
+
+        return (float) $normalized;
     }
 }
