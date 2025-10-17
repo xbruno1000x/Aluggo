@@ -16,9 +16,30 @@ class ObraController extends Controller
      */
     public function index(Request $request): View
     {
-        $obras = Obra::with('imovel.propriedade')->orderByDesc('data_inicio')->paginate(15);
+        $query = Obra::with('imovel.propriedade');
 
-        return view('obras.index', compact('obras'));
+        if ($request->filled('q')) {
+            $query->where('descricao', 'like', '%'.$request->get('q').'%');
+        }
+
+        if ($request->filled('imovel_id')) {
+            $query->where('imovel_id', $request->get('imovel_id'));
+        }
+
+        // filter by data_inicio range
+        if ($request->filled('data_inicio_from')) {
+            $query->whereDate('data_inicio', '>=', $request->get('data_inicio_from'));
+        }
+
+        if ($request->filled('data_inicio_to')) {
+            $query->whereDate('data_inicio', '<=', $request->get('data_inicio_to'));
+        }
+
+        $obras = $query->orderByDesc('data_inicio')->paginate(15)->withQueryString();
+
+        $imoveis = Imovel::orderBy('nome')->get();
+
+        return view('obras.index', compact('obras', 'imoveis'));
     }
 
     /**

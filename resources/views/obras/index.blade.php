@@ -14,6 +14,49 @@
     <a href="{{ route('obras.create') }}" class="btn btn-success">Nova Obra ou Manutenção</a>
 </div>
 
+@if(request()->filled('data_inicio_from') || request()->filled('data_inicio_to'))
+    <div class="mb-3">
+        <strong>Período:</strong>
+        @if(request()->filled('data_inicio_from'))
+            {{ \Illuminate\Support\Carbon::parse(request('data_inicio_from'))->format('d/m/Y') }}
+        @else
+            --
+        @endif
+        &nbsp;—&nbsp;
+        @if(request()->filled('data_inicio_to'))
+            {{ \Illuminate\Support\Carbon::parse(request('data_inicio_to'))->format('d/m/Y') }}
+        @else
+            --
+        @endif
+    </div>
+@endif
+
+<form method="GET" action="{{ route('obras.index') }}" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="search" name="q" class="form-control form-control-sm" placeholder="Buscar por descrição" value="{{ request('q') }}">
+    </div>
+    <div class="col-auto">
+        <select name="imovel_id" class="form-select form-select-sm">
+            <option value="">Todos os imóveis</option>
+            @foreach($imoveis as $i)
+                <option value="{{ $i->id }}" @selected(request('imovel_id') == $i->id)>{{ $i->nome }}{{ isset($i->numero) && $i->numero ? ' (nº ' . $i->numero . ')' : '' }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-auto d-flex align-items-center">
+        <label class="form-label mb-0 me-2 small">Início</label>
+        <input type="date" name="data_inicio_from" value="{{ request('data_inicio_from') }}" class="form-control form-control-sm" style="max-width:160px;" placeholder="Data início">
+    </div>
+    <div class="col-auto d-flex align-items-center">
+        <label class="form-label mb-0 me-2 small">Fim</label>
+        <input type="date" name="data_inicio_to" value="{{ request('data_inicio_to') }}" class="form-control form-control-sm" style="max-width:160px;" placeholder="Data fim">
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-danger">Filtrar</button>
+        <a href="{{ route('obras.index') }}" class="btn btn-outline-danger">Limpar</a>
+    </div>
+</form>
+
 <div class="table-responsive">
     <table class="table table-dark table-striped table-hover align-middle">
         <thead class="table-primary text-dark">
@@ -54,6 +97,6 @@
 </div>
 
 <div class="d-flex justify-content-center mt-3">
-    {{ $obras->links() }}
+    {{ $obras->appends(request()->query())->links() }}
 </div>
 @endsection
