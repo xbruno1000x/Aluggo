@@ -61,13 +61,13 @@
                     <td>{{ $dueDate ? $dueDate->format('d/m/Y') : '-' }}</td>
                     <td>
                         @if($p->status === 'paid')
-                            <span class="text-success">Pago</span>
+                            <span class="text-dolar">Pago</span>
                         @elseif($isOverdue && $p->status !== 'paid')
                             <span class="text-danger">EM ATRASO</span>
                         @elseif($p->status === 'partial')
                             <span class="text-warning">Parcial</span>
                         @else
-                            <span class="text-muted">Pendente</span>
+                            <span class="text-success">Pendente</span>
                         @endif
                     </td>
                     <td class="text-center d-flex gap-2 justify-content-center">

@@ -155,6 +155,8 @@ class AluguelController extends Controller
 
         DB::beginTransaction();
         try {
+            $previousImovelId = $aluguel->getOriginal('imovel_id');
+
             $aluguel->fill($data);
             $aluguel->save();
 
@@ -162,7 +164,6 @@ class AluguelController extends Controller
             $isActiveNow = ($newStart->lte($today) && $today->lte($newEnd));
 
             if ($aluguel->wasChanged('imovel_id')) {
-                $previousImovelId = $aluguel->getOriginal('imovel_id');
                 if ($previousImovelId) {
                     $hasActive = Aluguel::where('imovel_id', $previousImovelId)
                         ->where('data_inicio', '<=', $today->toDateString())
@@ -251,122 +252,4 @@ class AluguelController extends Controller
         }
     }
 
-    /**
-     * Reajusta o valor do aluguel manualmente ou via IGP-M acumulado.
-     */
-    public function adjust(Request $request, Aluguel $aluguel, IgpmService $igpmService): JsonResponse
-    {
-        $mode = (string) $request->input('mode');
-        $preview = $request->boolean('preview');
-
-        if (!in_array($mode, ['manual', 'igpm'], true)) {
-            return response()->json([
-                'message' => 'Modo de reajuste inválido.',
-            ], 422);
-        }
-
-        $newValue = null;
-        $igpmPercent = null;
-        $period = null;
-
-        if ($mode === 'manual') {
-            $raw = (string) $request->input('novo_valor', '');
-            $normalized = $this->normalizeDecimal($raw);
-            if ($normalized === null) {
-                return response()->json([
-                    'message' => 'Informe um valor válido para o reajuste manual.',
-                    'errors' => ['novo_valor' => ['Informe um valor válido para o reajuste manual.']],
-                ], 422);
-            }
-
-            if ($normalized < 0) {
-                return response()->json([
-                    'message' => 'O valor do aluguel não pode ser negativo.',
-                    'errors' => ['novo_valor' => ['O valor do aluguel não pode ser negativo.']],
-                ], 422);
-            }
-
-            $newValue = round($normalized, 2);
-        } else {
-            // phpstan: value may be typed as float via model casts; allow runtime null check
-            // @phpstan-ignore-next-line
-            if (is_null($aluguel->valor_mensal)) {
-                return response()->json([
-                    'message' => 'Não é possível calcular o reajuste automático sem um valor atual.',
-                ], 422);
-            }
-
-            $today = Carbon::today();
-            $contractStart = $aluguel->data_inicio ? Carbon::parse($aluguel->data_inicio) : $today->copy();
-            $fromCandidate = $today->copy()->subYear();
-            $from = $contractStart->greaterThan($fromCandidate) ? $contractStart->copy() : $fromCandidate;
-            $from->startOfMonth();
-
-            $to = $today->copy()->endOfMonth();
-            if ($aluguel->data_fim) {
-                $contractEnd = Carbon::parse($aluguel->data_fim)->endOfMonth();
-                if ($contractEnd->lessThan($to)) {
-                    $to = $contractEnd;
-                }
-            }
-
-            if ($to->lessThan($from)) {
-                $to = $from->copy();
-            }
-
-            try {
-                $result = $igpmService->accumulatedPercent($from, $to);
-            } catch (\Throwable $e) {
-                return response()->json([
-                    'message' => 'Falha ao obter o IGP-M. Tente novamente mais tarde.',
-                ], 502);
-            }
-
-            $igpmPercent = $result['percent'];
-            $period = [
-                'start' => $result['from']->toDateString(),
-                'end' => $result['to']->toDateString(),
-                'start_br' => $result['from']->format('d/m/Y'),
-                'end_br' => $result['to']->format('d/m/Y'),
-            ];
-
-            $currentValue = (float) $aluguel->valor_mensal;
-            $newValue = round($currentValue * (1 + ($igpmPercent / 100)), 2);
-        }
-
-        // @phpstan-ignore-next-line
-        if (!$preview && !is_null($newValue)) {
-            $aluguel->valor_mensal = $newValue;
-            $aluguel->save();
-        }
-
-        return response()->json([
-            'ok' => true,
-            'preview' => $preview,
-            'mode' => $mode,
-            'new_value' => $newValue,
-            // @phpstan-ignore-next-line
-            'new_value_formatted' => !is_null($newValue) ? 'R$ ' . number_format($newValue, 2, ',', '.') : null,
-            'igpm_percent' => $igpmPercent,
-            'period' => $period,
-            'message' => $preview ? 'Simulação concluída.' : 'Aluguel reajustado com sucesso.',
-        ]);
-    }
-
-    private function normalizeDecimal(string $raw): ?float
-    {
-        $trimmed = trim($raw);
-        if ($trimmed === '') {
-            return null;
-        }
-
-        $normalized = preg_replace('/\.(?=\d{3}(?:[^\d]|$))/', '', $trimmed) ?? $trimmed;
-        $normalized = str_replace(',', '.', $normalized);
-
-        if (!is_numeric($normalized)) {
-            return null;
-        }
-
-        return (float) $normalized;
-    }
 }

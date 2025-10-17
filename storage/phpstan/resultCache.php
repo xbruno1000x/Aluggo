@@ -2096,71 +2096,8 @@ return [
 	'errorsCallback' => static function (): array { return array (
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
-  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 293,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 293,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 338,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 338,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
-       'file' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 349,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 349,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
 ); },
 	'linesToIgnore' => array (
-  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
-  array (
-    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
-    array (
-      293 => NULL,
-      338 => NULL,
-      349 => NULL,
-    ),
-  ),
 ),
 	'unmatchedLineIgnores' => array (
 ),
@@ -2489,7 +2426,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'c81018dd2278fefe1ab55bfb3e408eb09e70a0c7',
+    'fileHash' => 'beb4a9052834a977fb60d292617091d14dd4e91d',
     'dependentFiles' => 
     array (
     ),
@@ -2702,7 +2639,6 @@ return [
     'fileHash' => '2af01d687ef1066df5b8a67e3edb39b372b932aa',
     'dependentFiles' => 
     array (
-      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
@@ -3673,79 +3609,6 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'aluguel',
                'type' => 'App\\Models\\Aluguel',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        6 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'adjust',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Reajusta o valor do aluguel manualmente ou via IGP-M acumulado.
-     */',
-             'namespace' => 'App\\Http\\Controllers',
-             'uses' => 
-            array (
-              'aluguel' => 'App\\Models\\Aluguel',
-              'imovel' => 'App\\Models\\Imovel',
-              'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
-              'request' => 'Illuminate\\Http\\Request',
-              'db' => 'Illuminate\\Support\\Facades\\DB',
-              'carbon' => 'Carbon\\Carbon',
-              'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
-              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Http\\JsonResponse',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'request',
-               'type' => 'Illuminate\\Http\\Request',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'aluguel',
-               'type' => 'App\\Models\\Aluguel',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            2 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'igpmService',
-               'type' => 'App\\Services\\IgpmService',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

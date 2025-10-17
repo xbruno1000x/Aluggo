@@ -4,7 +4,7 @@ use App\Models\Aluguel;
 use App\Models\Imovel;
 use App\Models\Locatario;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use function Pest\Laravel\{post, delete, get};
+use function Pest\Laravel\{post, delete, get, patch};
 
 uses(RefreshDatabase::class);
 
@@ -106,4 +106,81 @@ test('destroy fallback quando não é removido e ainda existe retorna erro', fun
 
     delete(route('alugueis.destroy', $aluguel))->assertRedirect(route('alugueis.index'));
     $this->assertTrue(session()->has('error'));
+});
+
+test('update rejeita contratos sobrepostos', function () {
+    $imovel = Imovel::factory()->create(['status' => 'disponivel']);
+    $loc1 = Locatario::factory()->create();
+    $loc2 = Locatario::factory()->create();
+
+    Aluguel::factory()->create([
+        'imovel_id' => $imovel->id,
+        'locatario_id' => $loc1->id,
+        'data_inicio' => '2025-10-01',
+        'data_fim' => '2025-10-10',
+        'valor_mensal' => 1000,
+    ]);
+
+    $aluguel = Aluguel::factory()->create([
+        'imovel_id' => $imovel->id,
+        'locatario_id' => $loc2->id,
+        'data_inicio' => '2025-11-01',
+        'data_fim' => '2025-11-10',
+        'valor_mensal' => 1200,
+    ]);
+
+    $payload = [
+        'imovel_id' => $imovel->id,
+        'locatario_id' => $loc2->id,
+        'data_inicio' => '2025-10-05',
+        'data_fim' => '2025-10-15',
+        'valor_mensal' => 1300,
+    ];
+
+    $response = patch(route('alugueis.update', $aluguel), $payload);
+
+    $response->assertRedirect();
+    $response->assertSessionHasErrors('imovel_id');
+
+    $aluguel->refresh();
+    expect($aluguel->data_inicio)->toBe('2025-11-01');
+    expect($aluguel->data_fim)->toBe('2025-11-10');
+    expect((float) $aluguel->valor_mensal)->toBe(1200.0);
+});
+
+test('update altera contrato ativo e atualiza status dos imoveis', function () {
+    $today = now()->toDateString();
+    $future = now()->addMonth()->toDateString();
+
+    $imovelAnterior = Imovel::factory()->create(['status' => 'alugado']);
+    $imovelNovo = Imovel::factory()->create(['status' => 'disponivel']);
+    $loc = Locatario::factory()->create();
+
+    $aluguel = Aluguel::factory()->create([
+        'imovel_id' => $imovelAnterior->id,
+        'locatario_id' => $loc->id,
+        'data_inicio' => $today,
+        'data_fim' => $future,
+        'valor_mensal' => 1500,
+    ]);
+
+    $payload = [
+        'imovel_id' => $imovelNovo->id,
+        'locatario_id' => $loc->id,
+        'data_inicio' => $today,
+        'data_fim' => $future,
+        'valor_mensal' => 1750,
+    ];
+
+    patch(route('alugueis.update', $aluguel), $payload)->assertRedirect(route('alugueis.index'));
+
+    $aluguel->refresh();
+    expect($aluguel->imovel_id)->toBe($imovelNovo->id);
+    expect((float) $aluguel->valor_mensal)->toBe(1750.0);
+
+    $imovelAnterior->refresh();
+    expect($imovelAnterior->status)->toBe('disponivel');
+
+    $imovelNovo->refresh();
+    expect($imovelNovo->status)->toBe('alugado');
 });

@@ -237,7 +237,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => 'c81018dd2278fefe1ab55bfb3e408eb09e70a0c7',
+      0 => 'beb4a9052834a977fb60d292617091d14dd4e91d',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -250,8 +250,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         3 => 'app\\http\\controllers\\store',
         4 => 'app\\http\\controllers\\update',
         5 => 'app\\http\\controllers\\destroy',
-        6 => 'app\\http\\controllers\\adjust',
-        7 => 'app\\http\\controllers\\normalizedecimal',
       ),
       3 => 
       array (
