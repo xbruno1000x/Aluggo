@@ -13,10 +13,10 @@
             <div class="col-12">
                 <label class="form-label">Vincular a</label>
                 <div>
-                    <div class="form-check form-check-inline">
+                    <!-- <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="assoc_type" id="assoc_none" value="none" {{ empty($taxa->imovel_id) && empty($taxa->propriedade_id) ? 'checked' : '' }}>
                         <label class="form-check-label" for="assoc_none">Nenhum (taxa geral do proprietário)</label>
-                    </div>
+                    </div> -->
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="assoc_type" id="assoc_imovel" value="imovel" {{ !empty($taxa->imovel_id) ? 'checked' : '' }}>
                         <label class="form-check-label" for="assoc_imovel">Imóvel</label>
@@ -52,6 +52,8 @@
                 <select name="tipo" class="form-select">
                     <option value="condominio" {{ $taxa->tipo=='condominio' ? 'selected' : '' }}>Condomínio</option>
                     <option value="iptu" {{ $taxa->tipo=='iptu' ? 'selected' : '' }}>IPTU</option>
+                    <option value="agua" {{ $taxa->tipo=='agua' ? 'selected' : '' }}>Água</option>
+                    <option value="energia" {{ $taxa->tipo=='energia' ? 'selected' : '' }}>Energia</option>
                     <option value="outros" {{ $taxa->tipo=='outros' ? 'selected' : '' }}>Outros</option>
                 </select>
             </div>

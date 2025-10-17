@@ -46,7 +46,14 @@
         </select>
     </div>
     <div class="col-auto">
-        <input type="text" name="tipo" value="{{ request('tipo') }}" class="form-control" placeholder="Tipo">
+        <select name="tipo" class="form-select">
+            <option value="">Qualquer tipo</option>
+            <option value="condominio" @selected(request('tipo')=='condominio')>Condomínio</option>
+            <option value="iptu" @selected(request('tipo')=='iptu')>IPTU</option>
+            <option value="agua" @selected(request('tipo')=='agua')>Água</option>
+            <option value="energia" @selected(request('tipo')=='energia')>Energia</option>
+            <option value="outros" @selected(request('tipo')=='outros')>Outros</option>
+        </select>
     </div>
     <div class="col-auto">
         <select name="pagador" class="form-select">

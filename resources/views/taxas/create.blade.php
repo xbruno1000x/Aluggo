@@ -51,6 +51,8 @@
                 <select name="tipo" class="form-select">
                     <option value="condominio">Condomínio</option>
                     <option value="iptu">IPTU</option>
+                    <option value="agua">Água</option>
+                    <option value="energia">Energia</option>
                     <option value="outros">Outros</option>
                 </select>
             </div>
