@@ -2233,6 +2233,59 @@ return [
       1 => 'propriedades.edit',
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php' => 
+  array (
+    'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
+    array (
+      0 => 'relatorios.index',
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
+  array (
+    'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
+    array (
+      0 => 'taxas.index',
+      1 => 'taxas.create',
+      2 => 'taxas.edit',
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 100,
+      ),
+      1 => 
+      array (
+        0 => 'abort',
+        1 => 139,
+      ),
+      2 => 
+      array (
+        0 => 'abort',
+        1 => 188,
+      ),
+      3 => 
+      array (
+        0 => 'abort',
+        1 => 204,
+      ),
+      4 => 
+      array (
+        0 => 'abort',
+        1 => 211,
+      ),
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Builder',
+        1 => 'create',
+        2 => 105,
+      ),
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
@@ -2301,6 +2354,16 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
         1 => 'Illuminate\\Notifications\\Notifiable',
+      ),
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php' => 
+  array (
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
       ),
     ),
   ),
@@ -2380,7 +2443,9 @@ return [
       5 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php',
       6 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
       7 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
-      8 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      8 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php',
+      9 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
+      10 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php' => 
@@ -2418,6 +2483,20 @@ return [
     array (
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php' => 
+  array (
+    'fileHash' => 'e05185ba56788e29c8c9835904086fcd873976d1',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
+  array (
+    'fileHash' => '9f28e831bb62dafc421fe1a667ba0e31766e27bd',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
     'fileHash' => '0e1cc1be28de5037dfd6676e603bd6e03f72c746',
@@ -2432,9 +2511,12 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
-      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
-      3 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
-      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php',
+      5 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php',
+      6 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php',
+      7 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php' => 
@@ -2445,11 +2527,15 @@ return [
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
       2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php',
-      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
-      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
-      5 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Obra.php',
-      6 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php',
-      7 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php',
+      4 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
+      5 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      6 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Aluguel.php',
+      7 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Obra.php',
+      8 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php',
+      9 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php',
+      10 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php',
+      11 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Locatario.php' => 
@@ -2470,6 +2556,7 @@ return [
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ObraController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
       2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php' => 
@@ -2479,6 +2566,7 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php' => 
@@ -2488,7 +2576,10 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
-      2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php',
+      5 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
@@ -2501,6 +2592,15 @@ return [
       2 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Propriedade.php',
     ),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php' => 
+  array (
+    'fileHash' => 'd97677ea9ce574143c415e704f6cb716263fa12e',
+    'dependentFiles' => 
+    array (
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
+    ),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php' => 
   array (
     'fileHash' => 'b8b5adbd937bc685b373633fea0f1a722ca65a9b',
@@ -2508,6 +2608,7 @@ return [
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Providers\\AppServiceProvider.php' => 
@@ -2530,6 +2631,14 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+    ),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
+  array (
+    'fileHash' => 'b04773cec24a0b66412da0f7e7f1570b6197a49f',
+    'dependentFiles' => 
+    array (
+      0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php',
     ),
   ),
 ),
@@ -4516,6 +4625,272 @@ return [
       ),
     )),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\RelatorioController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'svc',
+               'type' => 'App\\Services\\RelatorioService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\TaxaController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'store',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'edit',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'taxa',
+               'type' => 'App\\Models\\Taxa',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'taxa',
+               'type' => 'App\\Models\\Taxa',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'destroy',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'taxa',
+               'type' => 'App\\Models\\Taxa',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
     0 => 
@@ -6002,6 +6377,277 @@ return [
       ),
     )),
   ),
+  'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Models\\Taxa',
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * Class Taxa
+ *
+ * @property int|null $imovel_id
+ * @property int|null $propriedade_id
+ * @property int|null $aluguel_id
+ * @property float $valor
+ * @property string $pagador
+ * @property \\App\\Models\\Imovel|null $imovel
+ * @property \\App\\Models\\Aluguel|null $aluguel
+ * @property \\App\\Models\\Propriedade|null $propriedade
+ * @property int|null $proprietario_id
+ *
+ * @method static \\Database\\Factories\\TaxaFactory factory(...$parameters)
+ *
+ * @use HasFactory<\\Database\\Factories\\TaxaFactory>
+ */',
+         'namespace' => 'App\\Models',
+         'uses' => 
+        array (
+          'model' => 'Illuminate\\Database\\Eloquent\\Model',
+          'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+          'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+          'imovel' => 'App\\Models\\Imovel',
+          'aluguel' => 'App\\Models\\Aluguel',
+          'propriedade' => 'App\\Models\\Propriedade',
+          'taxafactory' => 'Database\\Factories\\TaxaFactory',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'factory',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'table',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'fillable',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'casts',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'imovel',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return BelongsTo<Imovel, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'propriedade' => 'App\\Models\\Propriedade',
+              'taxafactory' => 'Database\\Factories\\TaxaFactory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'aluguel',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return BelongsTo<Aluguel, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'propriedade' => 'App\\Models\\Propriedade',
+              'taxafactory' => 'Database\\Factories\\TaxaFactory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'propriedade',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return BelongsTo<Propriedade, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'propriedade' => 'App\\Models\\Propriedade',
+              'taxafactory' => 'Database\\Factories\\TaxaFactory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php' => 
   array (
     0 => 
@@ -6724,6 +7370,120 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'values',
                'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\RelatorioService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getReport',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Gera agregados e série temporal para o período informado.
+     *
+     * @param int|null $imovelId
+     * @param string $startYmd
+     * @param string $endYmd
+     * @param int $proprietarioId
+     * @return array{aggregates:array<string,mixed>,series:list<array<string,mixed>>}
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'pagamento' => 'App\\Models\\Pagamento',
+              'obra' => 'App\\Models\\Obra',
+              'transacao' => 'App\\Models\\Transacao',
+              'propriedade' => 'App\\Models\\Propriedade',
+              'carbon' => 'Carbon\\Carbon',
+              'collection' => 'Illuminate\\Support\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'imovelId',
+               'type' => '?int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'startYmd',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'endYmd',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            3 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'proprietarioId',
+               'type' => 'int',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

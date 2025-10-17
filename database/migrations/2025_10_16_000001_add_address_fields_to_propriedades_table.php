@@ -8,17 +8,37 @@ return new class extends Migration
 {
     public function up()
     {
+        if (!Schema::hasTable('propriedades')) {
+            return;
+        }
+
         Schema::table('propriedades', function (Blueprint $table) {
-            $table->string('cep', 20)->nullable()->after('endereco');
-            $table->string('cidade', 100)->nullable()->after('cep');
-            $table->string('estado', 100)->nullable()->after('cidade');
+            if (!Schema::hasColumn('propriedades', 'cep')) {
+                $table->string('cep', 20)->nullable()->after('endereco');
+            }
+            if (!Schema::hasColumn('propriedades', 'cidade')) {
+                $table->string('cidade', 100)->nullable()->after('cep');
+            }
+            if (!Schema::hasColumn('propriedades', 'estado')) {
+                $table->string('estado', 100)->nullable()->after('cidade');
+            }
         });
     }
 
     public function down()
     {
+        if (!Schema::hasTable('propriedades')) {
+            return;
+        }
+
         Schema::table('propriedades', function (Blueprint $table) {
-            $table->dropColumn(['cep', 'cidade', 'estado']);
+            $toDrop = [];
+            if (Schema::hasColumn('propriedades', 'cep')) $toDrop[] = 'cep';
+            if (Schema::hasColumn('propriedades', 'cidade')) $toDrop[] = 'cidade';
+            if (Schema::hasColumn('propriedades', 'estado')) $toDrop[] = 'estado';
+            if (!empty($toDrop)) {
+                $table->dropColumn($toDrop);
+            }
         });
     }
 };

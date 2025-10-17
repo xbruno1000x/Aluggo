@@ -70,12 +70,18 @@ Route::middleware(['auth:proprietario'])->group(function () {
         'transacoes' => 'transacao'
     ]);
 
+    // Relatórios financeiros
+    Route::get('relatorios', [\App\Http\Controllers\RelatorioController::class, 'index'])->name('relatorios.index');
+
     // Pagamentos - MVP manual confirmation
     Route::get('pagamentos', [\App\Http\Controllers\PagamentoController::class, 'index'])->name('pagamentos.index');
     Route::post('pagamentos/{pagamento}/mark-paid', [\App\Http\Controllers\PagamentoController::class, 'markPaid'])->name('pagamentos.markPaid');
     Route::post('pagamentos/{pagamento}/revert', [\App\Http\Controllers\PagamentoController::class, 'revert'])->name('pagamentos.revert');
     Route::post('pagamentos/mark-all', [\App\Http\Controllers\PagamentoController::class, 'markAllPaid'])->name('pagamentos.markAll');
     Route::post('alugueis/{aluguel}/renew', [\App\Http\Controllers\PagamentoController::class, 'renew'])->name('alugueis.renew');
+
+    // Taxas (condominio, iptu, outros)
+    Route::resource('taxas', \App\Http\Controllers\TaxaController::class)->parameters(['taxas' => 'taxa']);
 });
 
 // Redirecionamento para login padrão

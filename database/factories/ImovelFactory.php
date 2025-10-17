@@ -13,13 +13,13 @@ class ImovelFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->word() . ' ' . $this->faker->randomNumber(3),
+            'nome' => 'Imóvel ' . $this->faker->randomNumber(3),
             'numero' => (string) $this->faker->numberBetween(1, 9999),
-            'tipo' => $this->faker->randomElement(['Apartamento', 'Loja', 'Terreno']),
-            'valor_compra' => $this->faker->numberBetween(100000, 1000000),
+            'tipo' => 'Apartamento',
+            'valor_compra' => 250000,
             // Default to 'disponivel' for deterministic tests; tests can override when needed
             'status' => 'disponivel',
-            'data_aquisicao' => $this->faker->date(),
+            'data_aquisicao' => now()->toDateString(),
             'propriedade_id' => Propriedade::factory(),
         ];
     }

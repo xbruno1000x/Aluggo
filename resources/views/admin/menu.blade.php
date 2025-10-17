@@ -36,13 +36,13 @@
                 </div>
             </div>
 
-            <!-- Controle Financeiro -->
+            <!-- Taxas -->
             <div class="col-md-3">
                 <div class="card bg-secondary text-light h-100">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Controle Financeiro</h5>
-                        <p class="card-text flex-grow-1">Registre transações e acompanhe a saúde financeira.</p>
-                        <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <p class="card-text flex-grow-1">Registre taxas e despesas.</p>
+                        <a href="{{ route('taxas.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Relatórios</h5>
                         <p class="card-text flex-grow-1">Visualize relatórios e rentabilidade do seu portfólio.</p>
-                        <a href="#" class="btn btn-warning w-100 mt-auto">Acessar</a>
+                        <a href="{{ route('relatorios.index') }}" class="btn btn-warning w-100 mt-auto">Acessar</a>
                     </div>
                 </div>
             </div>

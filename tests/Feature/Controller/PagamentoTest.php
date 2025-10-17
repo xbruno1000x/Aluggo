@@ -91,12 +91,10 @@ test('reverte pagamento para pendente e limpa campos', function () {
         'valor_devido' => 1000,
     ]);
 
-    // marcar pago totalmente
     $this->post(route('pagamentos.markPaid', $p), ['valor_recebido' => 1000]);
     $p->refresh();
     expect($p->status)->toBe('paid');
 
-    // reverter
     $this->post(route('pagamentos.revert', $p))->assertRedirect();
     $p->refresh();
     expect($p->status)->toBe('pending');
@@ -106,7 +104,7 @@ test('reverte pagamento para pendente e limpa campos', function () {
 });
 
 test('mark all paid marca todos pagamentos pendentes e parciais', function () {
-    // create properties tied to the current proprietario to ensure controller scopes match
+    
     $imovel1 = Imovel::factory()->for(Propriedade::factory()->for($this->proprietario, 'proprietario'))->create();
     $imovel2 = Imovel::factory()->for(Propriedade::factory()->for($this->proprietario, 'proprietario'))->create();
     $loc1 = Locatario::factory()->create();

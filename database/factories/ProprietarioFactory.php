@@ -12,13 +12,14 @@ class ProprietarioFactory extends Factory
 
     public function definition(): array
     {
+        $uniq = substr((string) time() . random_int(100, 999), -10);
         return [
-            'nome' => $this->faker->name(),
-            'cpf' => $this->faker->numerify('###########'),
+            'nome' => 'Proprietario Teste ' . $uniq,
+            'cpf' => str_pad((string) random_int(10000000000, 99999999999), 11, '0', STR_PAD_LEFT),
             // Ensure telefone fits validation (max 15 chars)
-            'telefone' => substr(preg_replace('/[^0-9+]/', '', $this->faker->phoneNumber()), 0, 15),
-            'email' => $this->faker->unique()->safeEmail(),
-            'password' => Hash::make('password'),
+            'telefone' => '+5511' . random_int(900000000, 999999999),
+            'email' => 'owner+' . $uniq . '@example.com',
+            'password' => password_hash('password', PASSWORD_BCRYPT),
         ];
     }
 }

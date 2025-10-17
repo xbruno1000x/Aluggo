@@ -14,8 +14,8 @@ class TransacaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'valor_venda' => $this->faker->numberBetween(50000, 2000000),
-            'data_venda' => Carbon::today()->subDays($this->faker->numberBetween(0, 365)),
+            'valor_venda' => 200000,
+            'data_venda' => Carbon::today()->subDays(10),
             'imovel_id' => Imovel::factory(),
         ];
     }

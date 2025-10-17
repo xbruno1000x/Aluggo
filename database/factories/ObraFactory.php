@@ -12,14 +12,14 @@ class ObraFactory extends Factory
 
     public function definition(): array
     {
-        $start = $this->faker->dateTimeBetween('-1 years', 'now');
-        $end = (clone $start)->modify('+'.rand(1,60).' days');
+        $start = now()->subDays(30);
+        $end = now()->addDays(10);
 
         return [
-            'descricao' => $this->faker->sentence(6),
-            'valor' => $this->faker->randomFloat(2, 1000, 50000),
-            'data_inicio' => $start->format('Y-m-d'),
-            'data_fim' => $end->format('Y-m-d'),
+            'descricao' => 'Obra de teste',
+            'valor' => 5000.00,
+            'data_inicio' => $start->toDateString(),
+            'data_fim' => $end->toDateString(),
             'imovel_id' => Imovel::factory(),
         ];
     }

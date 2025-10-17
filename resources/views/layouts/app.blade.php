@@ -35,6 +35,7 @@
                         <li><a class="dropdown-item" href="{{ route('imoveis.index') }}">Gestão de Imóveis</a></li>
                         <li><a class="dropdown-item" href="{{ route('propriedades.index') }}">Gestão de Propriedades</a></li>
                         <li><a class="dropdown-item" href="{{ route('obras.index') }}">Gestão de Obras e Manutenções</a></li>
+                        <li><a class="dropdown-item" href="{{ route('taxas.index') }}">Gestão de Taxas</a></li>
                     </ul>
                 </li>
 
@@ -45,7 +46,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
                         <li><a class="dropdown-item" href="{{ route('transacoes.index') }}">Cadastro de Transações de Venda</a></li>
-                        <li><a class="dropdown-item" href="#">Relatórios e Rentabilidade</a></li>
+                        <li><a class="dropdown-item" href="{{ route('relatorios.index') }}">Relatórios e Rentabilidade</a></li>
                     </ul>
                 </li>
 

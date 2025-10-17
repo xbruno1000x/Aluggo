@@ -117,7 +117,6 @@ test('update retorna erro generico quando DB falha', function () {
     $obra = Obra::factory()->create(['descricao' => 'Velha']);
     $imovel = Imovel::factory()->create();
 
-    // simulate a DB failure during update using model event
     \App\Models\Obra::updating(function () {
         throw new \Exception('fail');
     });
@@ -137,7 +136,6 @@ test('update retorna erro generico quando DB falha', function () {
 test('destroy retorna erro generico quando DB falha', function () {
     $obra = Obra::factory()->create();
 
-    // simulate a DB failure during delete using model event
     \App\Models\Obra::deleting(function () {
         throw new \Exception('fail');
     });
@@ -152,7 +150,7 @@ test('update valida campos obrigatórios e retorna erros', function () {
     $obra = Obra::factory()->create(['descricao' => 'Velha']);
     $imovel = Imovel::factory()->create();
 
-    // missing descricao and invalid valor
+    
     $payload = [
         'valor' => -10,
         'imovel_id' => $imovel->id,
@@ -165,7 +163,7 @@ test('update valida campos obrigatórios e retorna erros', function () {
 });
 
 test('index suporta paginação e retorna view', function () {
-    // create more than 15 records to force pagination
+    
     Obra::factory()->count(20)->create();
 
     $response = $this->get(route('obras.index', ['page' => 2]));
@@ -217,13 +215,13 @@ test('destroy exclui obra e redireciona', function () {
     $this->assertDatabaseMissing('obras', ['id' => $obra->id]);
 });
 
-// Direct controller invocation tests
+ 
 test('controlador de obra: chamadas diretas cobrem store, update e destroy', function () {
     $controller = new ObraController();
 
     $imovel = Imovel::factory()->create();
 
-    // store normal
+    
     $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Direct', 'valor' => 100, 'imovel_id' => $imovel->id]);
     $resStore = $controller->store($reqStore);
     expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
@@ -231,17 +229,17 @@ test('controlador de obra: chamadas diretas cobrem store, update e destroy', fun
 
     $obra = Obra::first();
 
-    // update normal
+    
     $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated', 'valor' => 200, 'imovel_id' => $imovel->id]);
     $resUpdate = $controller->update($reqUpdate, $obra);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated']);
 
-    // destroy normal
+    
     $resDestroy = $controller->destroy($obra);
     expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
 
-    // (DB failure simulation covered in other tests)
+    
 });
 
 test('controlador de obra: index e create (invocação direta) retornam views', function () {
@@ -260,7 +258,7 @@ test('controlador de obra: store, update e destroy via métodos do controller (i
 
     $imovel = Imovel::factory()->create();
 
-    // store
+    
     $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Extra Direct', 'valor' => 500, 'imovel_id' => $imovel->id]);
     $resStore = $controller->store($reqStore);
     expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
@@ -268,17 +266,17 @@ test('controlador de obra: store, update e destroy via métodos do controller (i
 
     $obra = Obra::where('descricao', 'Extra Direct')->first();
 
-    // update
+    
     $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated Extra', 'valor' => 600, 'imovel_id' => $imovel->id]);
     $resUpdate = $controller->update($reqUpdate, $obra);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated Extra']);
 
-    // edit
+    
     $resEdit = $controller->edit($obra);
     expect($resEdit)->toBeInstanceOf(Illuminate\View\View::class);
 
-    // destroy
+    
     $resDestroy = $controller->destroy($obra);
     expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseMissing('obras', ['id' => $obra->id]);

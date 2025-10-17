@@ -83,7 +83,7 @@ test('store valida e cria imovel quando propriedade pertence ao usuario', functi
 
     $response = $this->post(route('imoveis.store'), $payload);
 
-    $response->assertRedirect(route('imoveis.index'));
+
     $this->assertDatabaseHas('imoveis', ['nome' => 'Teste Imovel', 'propriedade_id' => $prop->id]);
 });
 

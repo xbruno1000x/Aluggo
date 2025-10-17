@@ -97,16 +97,13 @@ test('controlador de propriedade: cobre editar, atualizar, excluir e autorizaç�
 
     $prop = Propriedade::factory()->create(['proprietario_id' => $user->id]);
 
-    // editar (funciona quando é o proprietário)
     $resEdit = $controller->edit($prop->id);
     expect($resEdit)->toBeInstanceOf(Illuminate\View\View::class);
 
-    // atualizar (atualização)
     $reqUpdate = Request::create('/propriedades/' . $prop->id, 'PUT', ['nome' => 'X', 'endereco' => 'Y', 'bairro' => 'Z']);
     $resUpdate = $controller->update($reqUpdate, $prop->id);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
 
-    // destruir (exclusão)
     $resDestroy = $controller->destroy($prop->id);
     expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
 });

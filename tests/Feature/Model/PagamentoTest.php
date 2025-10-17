@@ -30,17 +30,13 @@ test('Pagamento::markPaid acumula valor e atualiza status corretamente via model
         'valor_devido' => 1000,
     ]);
 
-    // marca parcial
     $p->markPaid(300.0, now(), 'primeira');
     $p->refresh();
     expect($p->status)->toBe('partial');
     expect((float)$p->valor_recebido)->toBe(300.0);
 
-    // marca mais (mas ainda abaixo do devido)
     $p->markPaid(700.0, now(), 'completa');
     $p->refresh();
-    // current model implementation overwrites valor_recebido; test expects overwrite
     expect((float)$p->valor_recebido)->toBe(700.0);
-    // status remains partial because 700 < 1000
     expect($p->status)->toBe('partial');
 });

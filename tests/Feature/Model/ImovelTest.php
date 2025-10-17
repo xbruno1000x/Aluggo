@@ -98,7 +98,6 @@ test('imovel pode ter transacoes e retorna relacionamentos corretamente', functi
 test('metodos de relacao retornam instancias corretas', function () {
     $imovel = Imovel::factory()->make();
 
-    // chamar os métodos de relação para cobrir as linhas e garantir tipos
     $propRel = $imovel->propriedade();
     $obrasRel = $imovel->obras();
     $transRel = $imovel->transacoes();

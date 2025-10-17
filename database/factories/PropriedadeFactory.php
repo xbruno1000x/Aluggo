@@ -13,12 +13,12 @@ class PropriedadeFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->company(),
-            'endereco' => $this->faker->streetAddress(),
-            'cep' => $this->faker->postcode(),
-            'cidade' => $this->faker->city(),
-            'estado' => $this->faker->state(),
-            'descricao' => $this->faker->sentence(),
+            'nome' => 'Propriedade ' . $this->faker->randomNumber(3),
+            'endereco' => 'Rua Teste, 123',
+            'cep' => '00000-000',
+            'cidade' => 'Cidade',
+            'estado' => 'Estado',
+            'descricao' => 'Descrição de teste',
             'proprietario_id' => Proprietario::factory(),
         ];
     }

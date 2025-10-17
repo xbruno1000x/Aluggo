@@ -380,5 +380,74 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php' => 
+    array (
+      0 => 'e05185ba56788e29c8c9835904086fcd873976d1',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\relatoriocontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
+    array (
+      0 => '9f28e831bb62dafc421fe1a667ba0e31766e27bd',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\taxacontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\index',
+        1 => 'app\\http\\controllers\\create',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\edit',
+        4 => 'app\\http\\controllers\\update',
+        5 => 'app\\http\\controllers\\destroy',
+        6 => 'app\\http\\controllers\\ensureownerorabort',
+        7 => 'app\\http\\controllers\\validateownershipforinput',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php' => 
+    array (
+      0 => 'd97677ea9ce574143c415e704f6cb716263fa12e',
+      1 => 
+      array (
+        0 => 'app\\models\\taxa',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\imovel',
+        1 => 'app\\models\\aluguel',
+        2 => 'app\\models\\propriedade',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
+    array (
+      0 => 'b04773cec24a0b66412da0f7e7f1570b6197a49f',
+      1 => 
+      array (
+        0 => 'app\\services\\relatorioservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\getreport',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

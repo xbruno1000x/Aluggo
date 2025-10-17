@@ -12,9 +12,9 @@ class LocatarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->name(),
-            'telefone' => $this->faker->phoneNumber(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'nome' => 'Locatario Teste',
+            'telefone' => '+5511988887777',
+            'email' => 'tenant@example.com',
         ];
     }
 }

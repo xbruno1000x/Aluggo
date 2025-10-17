@@ -19,9 +19,15 @@ return new class extends Migration
             $table->date('data_fim')->nullable();
             $table->unsignedBigInteger('imovel_id');
             $table->timestamps();
-
-            $table->foreign('imovel_id')->references('id')->on('imoveis')->onDelete('cascade');
+            // foreign key added conditionally below
         });
+
+        // adicionar constraint somente se tabela referenciada existir
+        if (Schema::hasTable('imoveis')) {
+            Schema::table('obras', function (Blueprint $table) {
+                $table->foreign('imovel_id')->references('id')->on('imoveis')->onDelete('cascade');
+            });
+        }
     }
 
     /**
