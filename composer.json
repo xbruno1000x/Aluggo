@@ -59,6 +59,7 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
+            "php -r \"if (file_exists('.env.localhost')) { copy('.env.localhost', '.env'); }\"",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve --port=777\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
         ],
         "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G",

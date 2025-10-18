@@ -28,6 +28,21 @@ class AccountSettingsController extends Controller
                 } catch (\Throwable $e) {
                     $twoFactorSecretPlain = null;
                 }
+
+                // Some servers strip inline SVG output. If the provider returned a raw
+                // SVG string, convert it to a data:image URI inside an <img> tag to
+                // improve compatibility when rendering in browsers.
+                if (! empty($qrCodeUrl)) {
+                    $trim = ltrim($qrCodeUrl);
+                    if (strpos($trim, '<svg') === 0 || strpos($trim, '<?xml') === 0) {
+                        // encode safely for use in a data URI
+                        $svg = $qrCodeUrl;
+                        // remove newlines to keep URI compact
+                        $svg = preg_replace('/\s+/', ' ', $svg);
+                        $dataUri = 'data:image/svg+xml;utf8,' . rawurlencode($svg);
+                        $qrCodeUrl = '<img src="' . $dataUri . '" alt="QR Code">';
+                    }
+                }
             }
         }
 
