@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"
+
+echo "Executando script use-infinityfree-env..."
+npm run use-infinityfree-env || {
+  echo "use-infinityfree-env falhou; abortando commit";
+  exit 1;
+}
+
+echo "Preparando .env para o commit"
+git add .env || {
+  echo "Falha ao adicionar .env ao commit";
+  exit 1;
+}
+
+echo "Executando phpstan (script do composer)..."
+composer run phpstan || {
+  echo "phpstan falhou; abortando commit";
+  exit 1;
+}
+
+echo "Executando verificação de cobertura..."
+node scripts/verificar-cobertura.cjs || {
+  echo "Verificação de cobertura falhou; abortando commit";
+  exit 1;
+}
+
+echo "Verificações pre-commit concluídas com sucesso."
+exit 0
