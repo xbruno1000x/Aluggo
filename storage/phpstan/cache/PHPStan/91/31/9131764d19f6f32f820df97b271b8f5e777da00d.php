@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => '2c6639975edce8a1d565e2e0589ea3d75d5767c6',
+      0 => '3a29f83f52d1d38a4076202bd54e7e4dbb4d4fbf',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',

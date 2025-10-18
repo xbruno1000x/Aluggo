@@ -2475,7 +2475,7 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => '2c6639975edce8a1d565e2e0589ea3d75d5767c6',
+    'fileHash' => '3a29f83f52d1d38a4076202bd54e7e4dbb4d4fbf',
     'dependentFiles' => 
     array (
     ),

@@ -78,15 +78,15 @@
 
                 <div class="mt-2 text-center d-flex flex-column gap-1">
                     @if(!empty($periodText))
-                        <div class="small">Período de posse: {{ $periodText }}</div>
+                        <div class="small text-break">Período de posse: {{ $periodText }}</div>
                     @endif
 
                     @if(!empty($selicText))
-                        <div class="small">{{ $selicText }}</div>
+                        <div class="small text-break">{{ $selicText }}</div>
                     @endif
 
                     @if(!empty($ipcaText))
-                        <div class="small">{{ $ipcaText }}</div>
+                        <div class="small text-break">{{ $ipcaText }}</div>
                     @endif
                 </div>
             </div>
