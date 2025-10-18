@@ -30,7 +30,7 @@ class Proprietario extends Authenticatable
     public function enableTwoFactorAuthentication(): void
     {
         $google2fa = new Google2FA();
-        $this->two_factor_secret = encrypt($google2fa->generateSecretKey());
+        $this->two_factor_secret = \Illuminate\Support\Facades\Crypt::encryptString($google2fa->generateSecretKey());
         $this->save();
     }
 
@@ -52,7 +52,7 @@ class Proprietario extends Authenticatable
     public function verifyTwoFactorCode(string $code): bool
     {
         $google2fa = new Google2FA();
-        return $google2fa->verifyKey(decrypt($this->two_factor_secret), $code);
+        return $google2fa->verifyKey(\Illuminate\Support\Facades\Crypt::decryptString($this->two_factor_secret), $code);
     }
 
     /**
@@ -63,7 +63,7 @@ class Proprietario extends Authenticatable
     public function getTwoFactorQRCodeUrl(): string
     {
         $google2fa = new Google2FAQrCode();
-        $secret = decrypt($this->two_factor_secret);
+        $secret = \Illuminate\Support\Facades\Crypt::decryptString($this->two_factor_secret);
         $companyName = 'Gestão imobiliaria';
         $email = $this->email;
 

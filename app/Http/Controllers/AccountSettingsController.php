@@ -24,10 +24,9 @@ class AccountSettingsController extends Controller
             $qrCodeUrl = $is2FAEnabled ? $user->getTwoFactorQRCodeUrl() : null;
             if ($is2FAEnabled) {
                 try {
-                    // Decrypt returns serialized value, so unserialize it first
                     $decrypted = Crypt::decryptString($user->two_factor_secret);
-                    // If it's serialized (starts with s:), unserialize it
-                    if (is_string($decrypted) && preg_match('/^s:\d+:"(.*)";$/', $decrypted, $matches)) {
+                    // Remove o prefixo de serialização se existir (ex: s:16:"JE5UKQOS3S46DIEC")
+                    if (preg_match('/^s:\d+:"(.*)";?$/', $decrypted, $matches)) {
                         $twoFactorSecretPlain = $matches[1];
                     } else {
                         $twoFactorSecretPlain = $decrypted;
@@ -36,15 +35,10 @@ class AccountSettingsController extends Controller
                     $twoFactorSecretPlain = null;
                 }
 
-                // Some servers strip inline SVG output. If the provider returned a raw
-                // SVG string, convert it to a data:image URI inside an <img> tag to
-                // improve compatibility when rendering in browsers.
                 if (! empty($qrCodeUrl)) {
                     $trim = ltrim($qrCodeUrl);
                     if (strpos($trim, '<svg') === 0 || strpos($trim, '<?xml') === 0) {
-                        // encode safely for use in a data URI
                         $svg = $qrCodeUrl;
-                        // remove newlines to keep URI compact
                         $svg = preg_replace('/\s+/', ' ', $svg);
                         $dataUri = 'data:image/svg+xml;utf8,' . rawurlencode($svg);
                         $qrCodeUrl = '<img src="' . $dataUri . '" alt="QR Code">';

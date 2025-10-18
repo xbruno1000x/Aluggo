@@ -15,12 +15,6 @@ if (!fs.existsSync(envSrc)) {
 }
 
 try {
-  if (fs.existsSync(envDest)) {
-    const backupName = `${envDest}.bak.${Date.now()}`;
-    fs.copyFileSync(envDest, backupName);
-    console.log('Backed up existing .env to', backupName);
-  }
-
   fs.copyFileSync(envSrc, envDest);
   console.log('Replaced .env with .env.infinityfree');
   process.exit(0);

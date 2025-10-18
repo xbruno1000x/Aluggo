@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => 'f8dc232f2af18894fcf4ec56a23a59e2190c3b0b',
+      0 => '6b535c50ee9269347e60711b849f9e0de3157574',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',
@@ -338,7 +338,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
     array (
-      0 => '60953c88ceaf92134b9e7c889acc487ac306b7e5',
+      0 => 'a1a7c657f36f9d233e66e6bb6721263d34de9eed',
       1 => 
       array (
         0 => 'app\\models\\proprietario',
