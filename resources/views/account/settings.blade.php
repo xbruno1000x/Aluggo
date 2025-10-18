@@ -40,6 +40,15 @@
                 <div class="d-inline-block p-3 bg-light rounded">
                     {!! $qrCodeUrl !!}
                 </div>
+                <div class="mt-3">
+                    <p class="mb-1">Se você está usando o mesmo celular e não consegue escanear o QR, copie o segredo manualmente:</p>
+                    <div class="input-group mb-2">
+                        <input type="text" id="tf-secret" readonly class="form-control" value="{{ $twoFactorSecretPlain ?? '' }}">
+                        <button class="btn btn-outline-danger" id="btn-copy-secret" type="button">Copiar</button>
+                        <button class="btn btn-outline-danger" id="btn-open-qr" type="button">Abrir QR em nova aba</button>
+                    </div>
+                    <small class="text-muted">Caso prefira, adicione manualmente o segredo ao seu app autenticador (ex.: Google Authenticator).</small>
+                </div>
             </div>
         @endif
 
@@ -89,5 +98,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/account-password-modal.ts'])
+@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts'])
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\Proprietario;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -18,11 +19,19 @@ class AccountSettingsController extends Controller
         $is2FAEnabled = $user instanceof Proprietario && !is_null($user->two_factor_secret);
 
         $qrCodeUrl = null;
+        $twoFactorSecretPlain = null;
         if ($user instanceof Proprietario) {
             $qrCodeUrl = $is2FAEnabled ? $user->getTwoFactorQRCodeUrl() : null;
+            if ($is2FAEnabled) {
+                try {
+                    $twoFactorSecretPlain = Crypt::decryptString($user->two_factor_secret);
+                } catch (\Throwable $e) {
+                    $twoFactorSecretPlain = null;
+                }
+            }
         }
 
-        return view('account.settings', compact('is2FAEnabled', 'qrCodeUrl'));
+        return view('account.settings', compact('is2FAEnabled', 'qrCodeUrl', 'twoFactorSecretPlain'));
     }
 
     public function updatePassword(Request $request): JsonResponse

@@ -1,7 +1,7 @@
 {
-  "_alert-!~{00f}~.js": {
+  "_alert-!~{00g}~.js": {
     "file": "assets/alert-oHKcZcvd.css",
-    "src": "_alert-!~{00f}~.js"
+    "src": "_alert-!~{00g}~.js"
   },
   "_alert-DLWxqPIg.js": {
     "file": "assets/alert-DLWxqPIg.js",
@@ -21,6 +21,12 @@
   "resources/scss/app.scss": {
     "file": "assets/app-yyf-mJdE.css",
     "src": "resources/scss/app.scss",
+    "isEntry": true
+  },
+  "resources/ts/account-2fa.ts": {
+    "file": "assets/account-2fa-DI4ozNY7.js",
+    "name": "account-2fa",
+    "src": "resources/ts/account-2fa.ts",
     "isEntry": true
   },
   "resources/ts/account-password-modal.ts": {
