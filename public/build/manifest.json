@@ -1,13 +1,116 @@
 {
+  "_alert-!~{00f}~.js": {
+    "file": "assets/alert-oHKcZcvd.css",
+    "src": "_alert-!~{00f}~.js"
+  },
+  "_alert-DLWxqPIg.js": {
+    "file": "assets/alert-DLWxqPIg.js",
+    "name": "alert",
+    "css": [
+      "assets/alert-oHKcZcvd.css"
+    ]
+  },
+  "_bootstrap.esm-D_BmgoUQ.js": {
+    "file": "assets/bootstrap.esm-D_BmgoUQ.js",
+    "name": "bootstrap.esm"
+  },
+  "_index-NIGUFBhG.js": {
+    "file": "assets/index-NIGUFBhG.js",
+    "name": "index"
+  },
   "resources/scss/app.scss": {
     "file": "assets/app-yyf-mJdE.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   },
+  "resources/ts/account-password-modal.ts": {
+    "file": "assets/account-password-modal-D33-Mxbm.js",
+    "name": "account-password-modal",
+    "src": "resources/ts/account-password-modal.ts",
+    "isEntry": true,
+    "imports": [
+      "_alert-DLWxqPIg.js"
+    ]
+  },
+  "resources/ts/aluguel-adjust.ts": {
+    "file": "assets/aluguel-adjust-BlmeHcIs.js",
+    "name": "aluguel-adjust",
+    "src": "resources/ts/aluguel-adjust.ts",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap.esm-D_BmgoUQ.js",
+      "_alert-DLWxqPIg.js"
+    ]
+  },
   "resources/ts/app.ts": {
-    "file": "assets/app-BqHCfdie.js",
+    "file": "assets/app-CUTMT3HT.js",
     "name": "app",
     "src": "resources/ts/app.ts",
+    "isEntry": true,
+    "imports": [
+      "_index-NIGUFBhG.js",
+      "_bootstrap.esm-D_BmgoUQ.js"
+    ]
+  },
+  "resources/ts/bootstrap.ts": {
+    "file": "assets/bootstrap-B7OvUs4L.js",
+    "name": "bootstrap",
+    "src": "resources/ts/bootstrap.ts",
+    "isEntry": true,
+    "imports": [
+      "_index-NIGUFBhG.js"
+    ]
+  },
+  "resources/ts/delete-confirm.ts": {
+    "file": "assets/delete-confirm-BSe-9vEj.js",
+    "name": "delete-confirm",
+    "src": "resources/ts/delete-confirm.ts",
+    "isEntry": true,
+    "imports": [
+      "_alert-DLWxqPIg.js"
+    ]
+  },
+  "resources/ts/pagamentos-modal.ts": {
+    "file": "assets/pagamentos-modal-BitIlb4o.js",
+    "name": "pagamentos-modal",
+    "src": "resources/ts/pagamentos-modal.ts",
+    "isEntry": true,
+    "imports": [
+      "_alert-DLWxqPIg.js",
+      "_bootstrap.esm-D_BmgoUQ.js"
+    ]
+  },
+  "resources/ts/password-recovery.ts": {
+    "file": "assets/password-recovery-Cwvn4M62.js",
+    "name": "password-recovery",
+    "src": "resources/ts/password-recovery.ts",
+    "isEntry": true
+  },
+  "resources/ts/propriedade-modal.ts": {
+    "file": "assets/propriedade-modal-CGKhoGRs.js",
+    "name": "propriedade-modal",
+    "src": "resources/ts/propriedade-modal.ts",
+    "isEntry": true,
+    "imports": [
+      "_alert-DLWxqPIg.js"
+    ]
+  },
+  "resources/ts/relatorios-chart.ts": {
+    "file": "assets/relatorios-chart-4BT-2gG0.js",
+    "name": "relatorios-chart",
+    "src": "resources/ts/relatorios-chart.ts",
+    "isEntry": true
+  },
+  "resources/ts/taxas-assoc.ts": {
+    "file": "assets/taxas-assoc-Bf3VTVGj.js",
+    "name": "taxas-assoc",
+    "src": "resources/ts/taxas-assoc.ts",
+    "isEntry": true
+  },
+  "resources/ts/transacoes-details.ts": {
+    "file": "assets/transacoes-details-Cw_kNSji.js",
+    "name": "transacoes-details",
+    "src": "resources/ts/transacoes-details.ts",
     "isEntry": true
   }
 }

@@ -1,4 +1,21 @@
+# .htaccess em Root/htdocs — encaminha internamente para public/index.php
+DirectoryIndex public/index.php index.php index.html
+
 <IfModule mod_rewrite.c>
+    Options +FollowSymLinks
     RewriteEngine On
-    RewriteRule ^(.*)$ /public/$1 [L]
+    RewriteBase /
+
+    # Evita loop se a URI já começa com public/
+    RewriteRule ^public/ - [L]
+
+    # Se o recurso requisitado existe em public/, sirva-o diretamente
+    RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Tudo o resto: encaminha internamente para public/index.php
+    RewriteRule ^(.*)$ public/index.php [L,QSA]
 </IfModule>
