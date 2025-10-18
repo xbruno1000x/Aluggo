@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => 'aacbf939c2a202bcaf8350ea0538f63aa96806b7',
+      0 => '2c6639975edce8a1d565e2e0589ea3d75d5767c6',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',
@@ -338,7 +338,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
     array (
-      0 => 'a1a7c657f36f9d233e66e6bb6721263d34de9eed',
+      0 => '30fe99916ba39bbf367c640b27908d53017df5b2',
       1 => 
       array (
         0 => 'app\\models\\proprietario',
@@ -347,8 +347,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\models\\enabletwofactorauthentication',
         1 => 'app\\models\\disabletwofactorauthentication',
-        2 => 'app\\models\\verifytwofactorcode',
-        3 => 'app\\models\\gettwofactorqrcodeurl',
+        2 => 'app\\models\\decrypttwofactorsecret',
+        3 => 'app\\models\\verifytwofactorcode',
+        4 => 'app\\models\\gettwofactorqrcodeurl',
       ),
       3 => 
       array (

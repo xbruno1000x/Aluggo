@@ -41,11 +41,16 @@ class AccountSettingsController extends Controller
 
                 if (! empty($qrCodeUrl)) {
                     $trim = ltrim($qrCodeUrl);
+                    // Se for SVG, converte para data URI
                     if (strpos($trim, '<svg') === 0 || strpos($trim, '<?xml') === 0) {
                         $svg = $qrCodeUrl;
                         $svg = preg_replace('/\s+/', ' ', $svg);
                         $dataUri = 'data:image/svg+xml;utf8,' . rawurlencode($svg);
                         $qrCodeUrl = '<img src="' . $dataUri . '" alt="QR Code">';
+                    }
+                    // Se for data URI PNG, envolve em tag img
+                    elseif (strpos($trim, 'data:image/png;base64,') === 0) {
+                        $qrCodeUrl = '<img src="' . $qrCodeUrl . '" alt="QR Code">';
                     }
                 }
             }

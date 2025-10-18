@@ -2475,7 +2475,7 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => 'aacbf939c2a202bcaf8350ea0538f63aa96806b7',
+    'fileHash' => '2c6639975edce8a1d565e2e0589ea3d75d5767c6',
     'dependentFiles' => 
     array (
     ),
@@ -2649,7 +2649,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
   array (
-    'fileHash' => 'a1a7c657f36f9d233e66e6bb6721263d34de9eed',
+    'fileHash' => '30fe99916ba39bbf367c640b27908d53017df5b2',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php',
