@@ -107,7 +107,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => 'd26ce7f6cf82a87877ba5a9310c5143ce3d091df',
+      0 => '8dee29383714b84c69a284baa2140537ef959931',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',
@@ -237,7 +237,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => 'beb4a9052834a977fb60d292617091d14dd4e91d',
+      0 => '77b5145b340cfe7f18c1b4278d4ee6442570f212',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -292,7 +292,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
     array (
-      0 => '3858842b4d31ddeeec72b8fdcbb3562f3f7eb6da',
+      0 => '47474380455903b07cc2da2fdd637829e403450b',
       1 => 
       array (
         0 => 'app\\http\\controllers\\transacaocontroller',
@@ -368,7 +368,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php' => 
     array (
-      0 => '3e797e96ce3519740c15526e659ebae257ead0b7',
+      0 => 'bcaff0bd95fa1ba915c71c7a947c1d6b18678818',
       1 => 
       array (
         0 => 'app\\models\\pagamento',
@@ -399,7 +399,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
     array (
-      0 => '91b67230e1e1e6ce5e7d08b87d7b39b5462d2cd0',
+      0 => '4110698f3430d30346336150d9081d371da05e36',
       1 => 
       array (
         0 => 'app\\http\\controllers\\taxacontroller',
@@ -438,7 +438,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
     array (
-      0 => 'b04773cec24a0b66412da0f7e7f1570b6197a49f',
+      0 => 'a63a179c61b8ee84dc386b9ea42f565d43293c25',
       1 => 
       array (
         0 => 'app\\services\\relatorioservice',

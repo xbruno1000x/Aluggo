@@ -2125,7 +2125,7 @@ return [
       0 => 
       array (
         0 => 'session',
-        1 => 164,
+        1 => 163,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2264,17 +2264,17 @@ return [
       2 => 
       array (
         0 => 'abort',
-        1 => 180,
+        1 => 179,
       ),
       3 => 
       array (
         0 => 'abort',
-        1 => 196,
+        1 => 195,
       ),
       4 => 
       array (
         0 => 'abort',
-        1 => 203,
+        1 => 202,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2419,14 +2419,14 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AdminController.php' => 
   array (
-    'fileHash' => 'd26ce7f6cf82a87877ba5a9310c5143ce3d091df',
+    'fileHash' => '8dee29383714b84c69a284baa2140537ef959931',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'beb4a9052834a977fb60d292617091d14dd4e91d',
+    'fileHash' => '77b5145b340cfe7f18c1b4278d4ee6442570f212',
     'dependentFiles' => 
     array (
     ),
@@ -2493,14 +2493,14 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php' => 
   array (
-    'fileHash' => '91b67230e1e1e6ce5e7d08b87d7b39b5462d2cd0',
+    'fileHash' => '4110698f3430d30346336150d9081d371da05e36',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => '3858842b4d31ddeeec72b8fdcbb3562f3f7eb6da',
+    'fileHash' => '47474380455903b07cc2da2fdd637829e403450b',
     'dependentFiles' => 
     array (
     ),
@@ -2562,7 +2562,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Pagamento.php' => 
   array (
-    'fileHash' => '3e797e96ce3519740c15526e659ebae257ead0b7',
+    'fileHash' => 'bcaff0bd95fa1ba915c71c7a947c1d6b18678818',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PagamentoController.php',
@@ -2578,9 +2578,10 @@ return [
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\ImovelController.php',
       1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\PropriedadeController.php',
       2 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
-      3 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
-      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php',
-      5 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
+      3 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      4 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Imovel.php',
+      5 => 'C:\\Users\\faria\\projeto-final\\app\\Models\\Taxa.php',
+      6 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Proprietario.php' => 
@@ -2599,7 +2600,8 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TaxaController.php',
-      1 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
+      1 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\TransacaoController.php',
+      2 => 'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Models\\Transacao.php' => 
@@ -2643,7 +2645,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Services\\RelatorioService.php' => 
   array (
-    'fileHash' => 'b04773cec24a0b66412da0f7e7f1570b6197a49f',
+    'fileHash' => 'a63a179c61b8ee84dc386b9ea42f565d43293c25',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\RelatorioController.php',
@@ -6008,7 +6010,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Relation to aluguel.
+     * Relação com aluguel.
      *
      * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo<\\App\\Models\\Aluguel, \\App\\Models\\Pagamento>
      * @phpstan-return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo<\\App\\Models\\Aluguel, \\App\\Models\\Pagamento>
