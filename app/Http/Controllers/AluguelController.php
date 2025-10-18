@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Aluguel;
 use App\Models\Imovel;
 use App\Models\Locatario;
-use App\Services\IgpmService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class AluguelController extends Controller
@@ -18,9 +16,20 @@ class AluguelController extends Controller
     /**
      * Lista contratos de aluguel.
      */
-    public function index(Request $request): View
+    public function index(Request $request): View|RedirectResponse
     {
+        $filterImovelId = $request->input('imovel_id');
+        if ($filterImovelId) {
+            $imovel = Imovel::find((int) $filterImovelId);
+            if ($imovel && strtolower((string) $imovel->status) === 'vendido') {
+                return redirect()->back()->with('error', 'Não é possível gerenciar contratos de imóveis vendidos.');
+            }
+        }
+
         $alugueis = Aluguel::with(['imovel.propriedade', 'locatario'])
+            ->whereHas('imovel', function ($q) {
+                $q->whereNull('status')->orWhere('status', '!=', 'vendido');
+            })
             ->orderByDesc('data_inicio')
             ->paginate(15);
 
