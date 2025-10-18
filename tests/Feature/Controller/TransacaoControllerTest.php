@@ -1,8 +1,13 @@
 <?php
 
+use App\Models\Aluguel;
 use App\Models\Imovel;
-use App\Models\Transacao;
+use App\Models\Obra;
+use App\Models\Pagamento;
+use App\Models\Propriedade;
 use App\Models\Proprietario;
+use App\Models\Taxa;
+use App\Models\Transacao;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
 use App\Services\FinanceRateService;
@@ -157,4 +162,63 @@ test('destroy trata falha de exclusao e retorna erro', function () {
     $this->assertTrue(Transacao::where('id', $t->id)->exists());
 
     Transacao::flushEventListeners();
+});
+
+test('show calcula lucro ajustado descontando taxas do proprietario', function () {
+    $today = Carbon::today();
+    $acquisitionDate = $today->copy()->subYear()->toDateString();
+    $saleDate = $today->toDateString();
+    $rentStart = $today->copy()->subMonths(6)->toDateString();
+    $paymentMonth = $today->copy()->startOfMonth()->toDateString();
+    $obraDate = $today->copy()->subMonths(3)->toDateString();
+
+    $propriedade = Propriedade::factory()->create([
+        'proprietario_id' => $this->proprietario->id,
+    ]);
+
+    $imovel = Imovel::factory()->create([
+        'propriedade_id' => $propriedade->id,
+        'valor_compra' => 100000,
+        'data_aquisicao' => $acquisitionDate,
+    ]);
+
+    $transacao = Transacao::factory()->create([
+        'imovel_id' => $imovel->id,
+        'valor_venda' => 150000,
+        'data_venda' => $saleDate,
+    ]);
+
+    $aluguel = Aluguel::factory()->create([
+        'imovel_id' => $imovel->id,
+        'data_inicio' => $rentStart,
+    ]);
+
+    Pagamento::create([
+        'aluguel_id' => $aluguel->id,
+        'referencia_mes' => $paymentMonth,
+        'valor_devido' => 1200,
+        'valor_recebido' => 1200,
+        'status' => 'paid',
+        'data_pago' => $today->copy(),
+    ]);
+
+    Obra::factory()->create([
+        'imovel_id' => $imovel->id,
+        'valor' => 5000,
+        'data_inicio' => $obraDate,
+        'data_fim' => null,
+    ]);
+
+    Taxa::factory()->create([
+        'imovel_id' => $imovel->id,
+        'propriedade_id' => $propriedade->id,
+        'valor' => 800,
+        'data_pagamento' => $paymentMonth,
+        'pagador' => 'proprietario',
+    ]);
+
+    $response = $this->get(route('transacoes.show', $transacao))->assertStatus(200);
+
+    expect($response->viewData('taxExpenses'))->toBe(800.0);
+    expect($response->viewData('adjustedProfit'))->toEqualWithDelta(45400.0, 0.01);
 });

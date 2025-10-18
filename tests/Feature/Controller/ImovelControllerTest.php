@@ -50,7 +50,6 @@ test('lista imóveis do usuário', function () {
         ->assertViewHas('imoveis');
 });
 
-// Tests ported from ImovelControllerTestPest
 test('index retorna imoveis e propriedades do usuario', function () {
     $prop = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
     Imovel::factory()->count(2)->create(['propriedade_id' => $prop->id]);
@@ -145,7 +144,6 @@ test('update e destroy funcionam para imovel do usuario', function () {
     $this->assertDatabaseMissing('imoveis', ['id' => $imovel->id]);
 });
 
-// Direct controller invocation test
 test('controlador imovel: cobre filtros, store, update, destroy e checagem de propriedade', function () {
     /** @var \App\Models\Proprietario $user */
     $user = $this->user;
@@ -156,17 +154,14 @@ test('controlador imovel: cobre filtros, store, update, destroy e checagem de pr
     $prop = Propriedade::factory()->create(['proprietario_id' => $user->id]);
     Imovel::factory()->create(['propriedade_id' => $prop->id, 'nome' => 'NomeFiltro', 'numero' => '123', 'tipo' => 'apartamento', 'status' => 'disponível']);
 
-    // index com filtro por nome
     $req = Request::create('/imoveis', 'GET', ['nome' => 'NomeFiltro']);
     $res = $controller->index($req);
     expect($res)->toBeInstanceOf(Illuminate\View\View::class);
 
-    // index com filtro por número
     $req2 = Request::create('/imoveis', 'GET', ['numero' => '123']);
     $res2 = $controller->index($req2);
     expect($res2)->toBeInstanceOf(Illuminate\View\View::class);
 
-    // store (criação)
     $reqStore = Request::create('/imoveis', 'POST', ['nome' => 'Novo', 'tipo' => 'apartamento', 'status' => 'disponível', 'propriedade_id' => $prop->id]);
     $resStore = $controller->store($reqStore);
     expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
@@ -174,12 +169,10 @@ test('controlador imovel: cobre filtros, store, update, destroy e checagem de pr
 
     $imovel = Imovel::where('nome', 'Novo')->first();
 
-    // update (atualização)
     $reqUpdate = Request::create('/imoveis/' . $imovel->id, 'PUT', ['nome' => 'Atual', 'tipo' => 'apartamento', 'status' => 'disponível', 'propriedade_id' => $prop->id]);
     $resUpdate = $controller->update($reqUpdate, $imovel);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
 
-    // destroy (exclusão)
     $resDestroy = $controller->destroy($imovel);
     expect($resDestroy)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
 });

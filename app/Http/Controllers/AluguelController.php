@@ -70,13 +70,10 @@ class AluguelController extends Controller
         $newStart = Carbon::parse($data['data_inicio'])->startOfDay();
         $newEnd = isset($data['data_fim']) ? Carbon::parse($data['data_fim'])->endOfDay() : Carbon::createFromDate(9999, 12, 31)->endOfDay();
 
-        // verificar sobreposição de contratos no mesmo imóvel
         $overlap = Aluguel::where('imovel_id', $imovelId)
             ->where(function ($q) use ($newStart, $newEnd) {
-                // contratos sem data_fim que começam antes do fim do novo contrato
                 $q->whereNull('data_fim')
                     ->where('data_inicio', '<=', $newEnd->toDateString());
-                // ou contratos com data_fim que se intersectam [data_inicio, data_fim] com [newStart, newEnd]
                 $q->orWhere(function ($q2) use ($newStart, $newEnd) {
                     $q2->whereNotNull('data_fim')
                         ->where('data_inicio', '<=', $newEnd->toDateString())
@@ -95,7 +92,6 @@ class AluguelController extends Controller
         try {
             $aluguel = Aluguel::create($data);
 
-            // Atualizar status do imóvel se o contrato estiver ativo hoje
             $today = Carbon::today()->startOfDay();
             $isActiveNow = ($newStart->lte($today) && $today->lte($newEnd));
 
@@ -133,7 +129,6 @@ class AluguelController extends Controller
         $newStart = Carbon::parse($data['data_inicio'])->startOfDay();
         $newEnd = isset($data['data_fim']) ? Carbon::parse($data['data_fim'])->endOfDay() : Carbon::createFromDate(9999, 12, 31)->endOfDay();
 
-        // verificar sobreposição de contratos no mesmo imóvel, excluindo o contrato atual
         $overlap = Aluguel::where('imovel_id', $imovelId)
             ->where('id', '!=', $aluguel->id)
             ->where(function ($q) use ($newStart, $newEnd) {

@@ -56,11 +56,20 @@
                         @endif
                     </div>
 
+                    <div class="me-3 text-center mb-2">
+                        <strong>Gastos com Taxas:</strong>
+                        @if(isset($taxExpenses) && $taxExpenses !== null)
+                            <div><span class="{{ $taxExpenses > 0 ? 'text-danger' : 'text-dolar' }}">R$ {{ number_format($taxExpenses, 2, ',', '.') }}</span></div>
+                        @else
+                            <div>-</div>
+                        @endif
+                    </div>
+
                     <div class="text-center mb-2">
                         <strong>Lucro Ajustado:</strong>
                         @if(isset($adjustedProfit) && $adjustedProfit !== null)
                             <div><span class="{{ $adjustedProfit >= 0 ? 'text-dolar' : 'text-danger' }}">R$ {{ number_format($adjustedProfit, 2, ',', '.') }}</span></div>
-                            <div class="small">(venda + alugueis - obras)</div>
+                            <div class="small">(venda + alugueis - obras - taxas)</div>
                         @else
                             <div>-</div>
                         @endif

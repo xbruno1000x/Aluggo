@@ -27,7 +27,7 @@ class Pagamento extends Model
     ];
 
     /**
-     * Relation to aluguel.
+     * Relação com aluguel.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Aluguel, \App\Models\Pagamento>
      * @phpstan-return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Aluguel, \App\Models\Pagamento>
@@ -45,7 +45,6 @@ class Pagamento extends Model
         $this->valor_recebido = $valor;
         $this->status = $valor >= $this->valor_devido ? 'paid' : 'partial';
         if ($when instanceof \DateTimeInterface) {
-            // ensure we store a Carbon instance (compatible with model cast)
             $this->data_pago = Carbon::instance($when);
         } else {
             $this->data_pago = now();

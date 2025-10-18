@@ -7,6 +7,7 @@ use App\Models\Imovel;
 use App\Models\Aluguel;
 use App\Models\Pagamento;
 use App\Models\Obra;
+use App\Models\Taxa;
 use App\Services\FinanceRateService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -76,17 +77,18 @@ class TransacaoController extends Controller
         $ipcaCumulative = null;
         $rentalIncome = 0.0;
         $obraExpenses = 0.0;
+        $taxExpenses = 0.0;
         $adjustedProfit = 0.0;
 
-    if ($valorCompra !== null && $valorVenda !== null) {
+        if ($valorCompra !== null && $valorVenda !== null) {
             $vc = (float) $valorCompra;
             $vv = (float) $valorVenda;
             $lucro = $vv - $vc;
-            if ($vc != 0) {
+            if ($vc != 0.0) {
                 $porcentagem = ($lucro / $vc) * 100;
             }
 
-            if (!empty($imovel->data_aquisicao)) {
+            if ($imovel && !empty($imovel->data_aquisicao)) {
                 try {
                     $dtCompra = Carbon::parse($imovel->data_aquisicao);
                     $dtVenda = Carbon::parse($transacao->data_venda ?? now());
@@ -101,12 +103,13 @@ class TransacaoController extends Controller
                         ->whereDate('data_inicio', '<=', $end->toDateString())
                         ->where(function ($q) use ($start) {
                             $q->whereNull('data_fim')
-                              ->orWhereDate('data_fim', '>=', $start->toDateString());
-                        })->get();
+                                ->orWhereDate('data_fim', '>=', $start->toDateString());
+                        })
+                        ->get();
 
                     $rentalIncome = 0.0;
-                    foreach ($alugueis as $a) {
-                        $sum = Pagamento::where('aluguel_id', $a->id)
+                    foreach ($alugueis as $aluguel) {
+                        $sum = Pagamento::where('aluguel_id', $aluguel->id)
                             ->whereDate('referencia_mes', '>=', $start->toDateString())
                             ->whereDate('referencia_mes', '<=', $end->toDateString())
                             ->sum('valor_recebido');
@@ -117,10 +120,54 @@ class TransacaoController extends Controller
                         ->whereDate('data_inicio', '<=', $end->toDateString())
                         ->where(function ($q) use ($start) {
                             $q->whereNull('data_fim')
-                              ->orWhereDate('data_fim', '>=', $start->toDateString());
-                        })->sum('valor');
+                                ->orWhereDate('data_fim', '>=', $start->toDateString());
+                        })
+                        ->sum('valor');
 
-                    $adjustedProfit = $lucro + $rentalIncome - $obraExpenses;
+                    $taxExpenses = 0.0;
+                    $taxQueryEnd = $end->copy()->endOfMonth();
+
+                    $taxas = Taxa::with(['propriedade.imoveis:id,propriedade_id', 'aluguel.imovel:id'])
+                        ->whereDate('data_pagamento', '>=', $start->toDateString())
+                        ->whereDate('data_pagamento', '<=', $taxQueryEnd->toDateString())
+                        ->where(function ($query) use ($imovel) {
+                            $query->where('imovel_id', $imovel->id)
+                                ->orWhereHas('aluguel', function ($q2) use ($imovel) {
+                                    $q2->where('imovel_id', $imovel->id);
+                                })
+                                ->orWhereHas('propriedade', function ($q3) use ($imovel) {
+                                    $q3->whereHas('imoveis', function ($q4) use ($imovel) {
+                                        $q4->where('id', $imovel->id);
+                                    });
+                                });
+                        })
+                        ->get();
+
+                    foreach ($taxas as $taxa) {
+                        if (($taxa->pagador ?? '') !== 'proprietario') {
+                            continue;
+                        }
+
+                        if (!empty($taxa->imovel_id) && (int) $taxa->imovel_id === (int) $imovel->id) {
+                            $taxExpenses += (float) $taxa->valor;
+                            continue;
+                        }
+
+                        if ($taxa->aluguel && $taxa->aluguel->imovel && (int) $taxa->aluguel->imovel->id === (int) $imovel->id) {
+                            $taxExpenses += (float) $taxa->valor;
+                            continue;
+                        }
+
+                        if ($taxa->propriedade) {
+                            $ids = $taxa->propriedade->imoveis->pluck('id')->map(fn ($id) => (int) $id)->all();
+                            if (!empty($ids) && in_array((int) $imovel->id, $ids, true)) {
+                                $share = (float) $taxa->valor / count($ids);
+                                $taxExpenses += $share;
+                            }
+                        }
+                    }
+
+                    $adjustedProfit = $lucro + $rentalIncome - $obraExpenses - $taxExpenses;
 
                     $svc = app(FinanceRateService::class);
                     $startYmd = $dtCompra->format('Y-m-d');
@@ -141,27 +188,26 @@ class TransacaoController extends Controller
 
                     /** @var array{value:float,type:'cumulative'|'annual'}|null $ipcaResult */
                     $ipcaResult = $svc->getCumulativeReturn($startYmd, $endYmd, 'ipca');
-                        if ($ipcaResult !== null) {
+                    if ($ipcaResult !== null) {
                         $ipcaType = $ipcaResult['type'];
                         $ipcaValue = (float) $ipcaResult['value'];
                         if ($ipcaType === 'cumulative') {
-                                $ipcaCumulative = $ipcaValue;
+                            $ipcaCumulative = $ipcaValue;
                         } else {
                             $ipcaCumulative = pow(1 + $ipcaValue, $periodYears) - 1;
                         }
-                            $ipcaText = 'Inflação (IPCA) no período: ' . number_format($ipcaCumulative * 100, 2, ',', '.') . '%';
+                        $ipcaText = 'Inflação (IPCA) no período: ' . number_format($ipcaCumulative * 100, 2, ',', '.') . '%';
 
-                            if ($ipcaCumulative < -0.5) {
-                                $ipcaCumulative = abs($ipcaCumulative);
-                            }
+                        if ($ipcaCumulative < -0.5) {
+                            $ipcaCumulative = abs($ipcaCumulative);
+                        }
                     }
 
-                    if ($vc != 0 && $ipcaCumulative !== null) {
+                    if ($vc != 0.0 && $ipcaCumulative !== null) {
                         $gainDecimal = $adjustedProfit / (float) $vc;
                         $realGainDecimal = (1 + $gainDecimal) / (1 + $ipcaCumulative) - 1;
                         $realGainPercent = $realGainDecimal * 100;
 
-                        $ipcaPercent = $ipcaCumulative * 100;
                         $ipcaText .= ' | Seu lucro real, descontada a inflação no período, foi de: ' . number_format($realGainPercent, 2, ',', '.') . '%';
                     }
                 } catch (\Throwable $e) {
@@ -170,7 +216,7 @@ class TransacaoController extends Controller
             }
         }
 
-        return view('transacoes.show', compact('transacao', 'lucro', 'porcentagem', 'periodText', 'selicText', 'ipcaText', 'rentalIncome', 'obraExpenses', 'adjustedProfit'));
+        return view('transacoes.show', compact('transacao', 'lucro', 'porcentagem', 'periodText', 'selicText', 'ipcaText', 'rentalIncome', 'obraExpenses', 'adjustedProfit', 'taxExpenses'));
     }
 
     public function edit(Transacao $transacao): View

@@ -154,7 +154,6 @@ class AdminController extends Controller
 
         $user = Proprietario::where('email', $request->email)->first();
 
-        // Anotação para o analisador
         /** @var \App\Models\Proprietario|null $user */
 
         if ($user && $user->verifyTwoFactorCode($request->two_factor_code)) {
@@ -212,7 +211,6 @@ class AdminController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        // Limpa dados sensíveis da sessão
         session()->forget(['reset_email', 'reset_token', 'reset_token_expires_at']);
 
         return redirect()->route('admin.login')->with('success', 'Senha redefinida com sucesso. Faça login com a nova senha.');

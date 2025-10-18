@@ -155,7 +155,6 @@ class TaxaController extends Controller
      */
     private function ensureOwnerOrAbort(Taxa $taxa): void
     {
-        // help phpstan understand loaded relations
         /** @var \App\Models\Taxa $taxa */
         $taxa->loadMissing(['imovel.propriedade', 'aluguel.imovel.propriedade', 'propriedade']);
 
