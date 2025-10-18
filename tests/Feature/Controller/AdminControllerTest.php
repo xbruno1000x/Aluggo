@@ -84,7 +84,7 @@ test('verifyTwoFactorRecovery seta sessão e redireciona para reset quando códi
     $user->refresh();
 
     $g = new Google2FA();
-    $secret = decrypt($user->two_factor_secret);
+    $secret = \Illuminate\Support\Facades\Crypt::decryptString($user->two_factor_secret);
     $code = $g->getCurrentOtp($secret);
 
     post(route('admin.reset.twofactor.verify'), ['email' => $user->email, 'two_factor_code' => $code])
@@ -121,7 +121,7 @@ test('verificação 2FA durante login redireciona para menu quando código corre
     actingAs($user, 'proprietario');
 
     $g = new Google2FA();
-    $secret = decrypt($user->two_factor_secret);
+    $secret = \Illuminate\Support\Facades\Crypt::decryptString($user->two_factor_secret);
     $code = $g->getCurrentOtp($secret);
 
     post(route('admin.twofactor.verify'), ['two_factor_code' => $code])->assertRedirect(route('admin.menu'));

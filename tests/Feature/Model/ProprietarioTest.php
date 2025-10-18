@@ -49,7 +49,7 @@ test('proprietario gera qr code e verifica codigo 2fa corretamente', function ()
     $proprietario->refresh();
 
     $google2fa = new \PragmaRX\Google2FA\Google2FA();
-    $secret = decrypt($proprietario->two_factor_secret);
+    $secret = \Illuminate\Support\Facades\Crypt::decryptString($proprietario->two_factor_secret);
     $code = $google2fa->getCurrentOtp($secret);
 
     expect($proprietario->verifyTwoFactorCode($code))->toBeTrue();

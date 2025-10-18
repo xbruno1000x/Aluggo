@@ -24,15 +24,19 @@ class AccountSettingsController extends Controller
             $qrCodeUrl = $is2FAEnabled ? $user->getTwoFactorQRCodeUrl() : null;
             if ($is2FAEnabled) {
                 try {
-                    $decrypted = Crypt::decryptString($user->two_factor_secret);
-                    // Remove o prefixo de serialização se existir (ex: s:16:"JE5UKQOS3S46DIEC")
-                    if (preg_match('/^s:\d+:"(.*)";?$/', $decrypted, $matches)) {
-                        $twoFactorSecretPlain = $matches[1];
-                    } else {
-                        $twoFactorSecretPlain = $decrypted;
+                    $twoFactorSecretPlain = Crypt::decryptString($user->two_factor_secret);
+                } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+                    try {
+                        $twoFactorSecretPlain = decrypt($user->two_factor_secret);
+                    } catch (\Throwable $e2) {
+                        $twoFactorSecretPlain = null;
                     }
                 } catch (\Throwable $e) {
                     $twoFactorSecretPlain = null;
+                }
+
+                if ($twoFactorSecretPlain && preg_match('/^s:\d+:"(.*)";?$/', $twoFactorSecretPlain, $matches)) {
+                    $twoFactorSecretPlain = $matches[1];
                 }
 
                 if (! empty($qrCodeUrl)) {

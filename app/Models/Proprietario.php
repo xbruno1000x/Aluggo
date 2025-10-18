@@ -44,6 +44,30 @@ class Proprietario extends Authenticatable
     }
 
     /**
+     * Decripta o segredo 2FA (compatível com encrypt() e encryptString())
+     *
+     * @return string|null
+     */
+    private function decryptTwoFactorSecret(): ?string
+    {
+        if (empty($this->two_factor_secret)) {
+            return null;
+        }
+
+        try {
+            // Tenta decriptar com decryptString (novo método, sem serialização)
+            return \Illuminate\Support\Facades\Crypt::decryptString($this->two_factor_secret);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            // Se falhar, tenta com decrypt (método antigo, com serialização)
+            try {
+                return decrypt($this->two_factor_secret);
+            } catch (\Throwable $e2) {
+                return null;
+            }
+        }
+    }
+
+    /**
      * Verifica se o código fornecido é válido
      *
      * @param string $code
@@ -51,8 +75,13 @@ class Proprietario extends Authenticatable
      */
     public function verifyTwoFactorCode(string $code): bool
     {
+        $secret = $this->decryptTwoFactorSecret();
+        if (!$secret) {
+            return false;
+        }
+
         $google2fa = new Google2FA();
-        return $google2fa->verifyKey(\Illuminate\Support\Facades\Crypt::decryptString($this->two_factor_secret), $code);
+        return $google2fa->verifyKey($secret, $code);
     }
 
     /**
@@ -62,8 +91,12 @@ class Proprietario extends Authenticatable
      */
     public function getTwoFactorQRCodeUrl(): string
     {
+        $secret = $this->decryptTwoFactorSecret();
+        if (!$secret) {
+            return '';
+        }
+
         $google2fa = new Google2FAQrCode();
-        $secret = \Illuminate\Support\Facades\Crypt::decryptString($this->two_factor_secret);
         $companyName = 'Gestão imobiliaria';
         $email = $this->email;
 
