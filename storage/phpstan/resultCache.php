@@ -2426,7 +2426,7 @@ return [
   ),
   'C:\\Users\\faria\\projeto-final\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => '77b5145b340cfe7f18c1b4278d4ee6442570f212',
+    'fileHash' => 'bacd1aedc007e06d200b8d8b51bd1e605776558f',
     'dependentFiles' => 
     array (
     ),
@@ -3325,12 +3325,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3343,7 +3341,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'Illuminate\\View\\View',
+           'returnType' => 'Illuminate\\View\\View|Illuminate\\Http\\RedirectResponse',
            'parameters' => 
           array (
             0 => 
@@ -3376,12 +3374,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3416,12 +3412,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3471,12 +3465,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3522,12 +3514,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
@@ -3586,12 +3576,10 @@ return [
               'aluguel' => 'App\\Models\\Aluguel',
               'imovel' => 'App\\Models\\Imovel',
               'locatario' => 'App\\Models\\Locatario',
-              'igpmservice' => 'App\\Services\\IgpmService',
               'request' => 'Illuminate\\Http\\Request',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'carbon' => 'Carbon\\Carbon',
               'view' => 'Illuminate\\View\\View',
-              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
              'constUses' => 
