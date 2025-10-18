@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
-. "$(dirname "$0")/h"
+
+# Ajuda: permite pular o hook com HUSKY=0
+if [ "${HUSKY-}" = "0" ]; then
+  exit 0
+fi
+
+# Garante que os binários locais estejam no PATH
+export PATH="node_modules/.bin:$PATH"
 
 echo "Executando script use-infinityfree-env..."
 npm run use-infinityfree-env || {
@@ -19,7 +26,6 @@ composer run phpstan || {
   exit 1;
 }
 
-echo "Executando verificação de cobertura..."
 node scripts/verificar-cobertura.cjs || {
   echo "Verificação de cobertura falhou; abortando commit";
   exit 1;

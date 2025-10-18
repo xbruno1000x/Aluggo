@@ -45,7 +45,6 @@
                     <div class="input-group mb-2">
                         <input type="text" id="tf-secret" readonly class="form-control" value="{{ $twoFactorSecretPlain ?? '' }}">
                         <button class="btn btn-outline-danger" id="btn-copy-secret" type="button">Copiar</button>
-                        <button class="btn btn-outline-danger" id="btn-open-qr" type="button">Abrir QR em nova aba</button>
                     </div>
                     <small class="text-muted">Caso prefira, adicione manualmente o segredo ao seu app autenticador (ex.: Google Authenticator).</small>
                 </div>
