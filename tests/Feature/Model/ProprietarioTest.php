@@ -57,3 +57,52 @@ test('proprietario gera qr code e verifica codigo 2fa corretamente', function ()
     $qr = $proprietario->getTwoFactorQRCodeUrl();
     expect($qr)->toBeString()->not->toBeEmpty();
 });
+
+test('verifyTwoFactorCode retorna false quando secret é null', function () {
+    $proprietario = Proprietario::factory()->create([
+        'two_factor_secret' => null,
+    ]);
+
+    expect($proprietario->verifyTwoFactorCode('123456'))->toBeFalse();
+});
+
+test('verifyTwoFactorCode retorna false quando secret está vazio', function () {
+    $proprietario = Proprietario::factory()->create([
+        'two_factor_secret' => '',
+    ]);
+
+    expect($proprietario->verifyTwoFactorCode('123456'))->toBeFalse();
+});
+
+test('verifyTwoFactorCode retorna false com código inválido', function () {
+    $proprietario = Proprietario::factory()->create();
+    $proprietario->enableTwoFactorAuthentication();
+
+    expect($proprietario->verifyTwoFactorCode('000000'))->toBeFalse();
+});
+
+test('getTwoFactorQRCodeUrl retorna string vazia quando secret é null', function () {
+    $proprietario = Proprietario::factory()->create([
+        'two_factor_secret' => null,
+    ]);
+
+    expect($proprietario->getTwoFactorQRCodeUrl())->toBe('');
+});
+
+test('getTwoFactorQRCodeUrl retorna string vazia quando secret está vazio', function () {
+    $proprietario = Proprietario::factory()->create([
+        'two_factor_secret' => '',
+    ]);
+
+    expect($proprietario->getTwoFactorQRCodeUrl())->toBe('');
+});
+
+test('decryptTwoFactorSecret lida com exceptions de decriptação', function () {
+    $proprietario = Proprietario::factory()->create();
+    
+    $proprietario->two_factor_secret = 'valor_invalido_nao_criptografado';
+    $proprietario->save();
+
+    expect($proprietario->verifyTwoFactorCode('123456'))->toBeFalse();
+    expect($proprietario->getTwoFactorQRCodeUrl())->toBe('');
+});

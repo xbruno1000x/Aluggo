@@ -184,3 +184,327 @@ test('update altera contrato ativo e atualiza status dos imoveis', function () {
     $imovelNovo->refresh();
     expect($imovelNovo->status)->toBe('alugado');
 });
+
+test('index redireciona com erro quando filtra por imovel vendido', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $this->actingAs($proprietario, 'proprietario');
+    
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id, 'status' => 'vendido']);
+
+    $response = $this->get(route('alugueis.index', ['imovel_id' => $imovel->id]));
+
+    $response->assertRedirect();
+    $response->assertSessionHas('error', 'Não é possível gerenciar contratos de imóveis vendidos.');
+});
+
+test('create retorna view com imoveis e locatarios do proprietario', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $this->actingAs($proprietario, 'proprietario');
+    
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
+    $locatario = Locatario::factory()->create();
+
+    $response = $this->get(route('alugueis.create'));
+
+    $response->assertStatus(200);
+    $response->assertViewIs('alugueis.create');
+    $response->assertViewHas('imoveis');
+    $response->assertViewHas('locatarios');
+});
+
+test('edit retorna view com aluguel', function () {
+    $aluguel = Aluguel::factory()->create();
+
+    $response = $this->get(route('alugueis.edit', $aluguel));
+
+    $response->assertStatus(200);
+    $response->assertViewIs('alugueis.edit');
+    $response->assertViewHas('aluguel');
+    $response->assertViewHas('imoveis');
+    $response->assertViewHas('locatarios');
+});
+
+test('store valida campos obrigatorios', function () {
+    $response = $this->post(route('alugueis.store'), []);
+
+    $response->assertSessionHasErrors(['imovel_id', 'locatario_id', 'valor_mensal', 'data_inicio']);
+});
+
+test('update valida campos obrigatorios', function () {
+    $aluguel = Aluguel::factory()->create();
+
+    $response = $this->put(route('alugueis.update', $aluguel), []);
+
+    $response->assertSessionHasErrors(['imovel_id', 'locatario_id', 'valor_mensal', 'data_inicio']);
+});
+
+test('index filtra alugueis por imovel quando fornecido', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $this->actingAs($proprietario, 'proprietario');
+    
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel1 = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
+    $imovel2 = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
+    
+    $loc = Locatario::factory()->create();
+    Aluguel::factory()->create(['imovel_id' => $imovel1->id, 'locatario_id' => $loc->id]);
+    Aluguel::factory()->create(['imovel_id' => $imovel2->id, 'locatario_id' => $loc->id]);
+
+    $response = $this->get(route('alugueis.index', ['imovel_id' => $imovel1->id]));
+
+    $response->assertStatus(200);
+});
+
+test('store retorna erro quando ocorre exception durante salvamento', function () {
+    $imovel = Imovel::factory()->create(['status' => 'disponivel']);
+    $loc = Locatario::factory()->create();
+
+    Aluguel::creating(function () {
+        throw new \Exception('Database error');
+    });
+
+    $payload = [
+        'imovel_id' => $imovel->id,
+        'locatario_id' => $loc->id,
+        'valor_mensal' => 500,
+        'data_inicio' => now()->toDateString(),
+        'data_fim' => now()->addDays(10)->toDateString(),
+    ];
+
+    $response = $this->post(route('alugueis.store'), $payload);
+
+    $response->assertRedirect();
+    $response->assertSessionHasErrors('general');
+    
+    Aluguel::flushEventListeners();
+});
+
+test('update retorna erro quando ocorre exception durante atualizacao', function () {
+    $aluguel = Aluguel::factory()->create();
+
+    Aluguel::updating(function () {
+        throw new \Exception('Update error');
+    });
+
+    $payload = [
+        'imovel_id' => $aluguel->imovel_id,
+        'locatario_id' => $aluguel->locatario_id,
+        'valor_mensal' => 1000,
+        'data_inicio' => now()->toDateString(),
+    ];
+
+    $response = $this->put(route('alugueis.update', $aluguel), $payload);
+
+    $response->assertRedirect();
+    $response->assertSessionHasErrors('general');
+    
+    Aluguel::flushEventListeners();
+});
+
+test('adjust retorna erro quando modo é inválido', function () {
+    $aluguel = Aluguel::factory()->create(['valor_mensal' => 1000]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'invalid_mode',
+    ]);
+
+    $response->assertStatus(422);
+    $response->assertJson(['message' => 'Modo de reajuste inválido.']);
+});
+
+test('adjust modo manual valida valor vazio', function () {
+    $aluguel = Aluguel::factory()->create(['valor_mensal' => 1000]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'manual',
+        'novo_valor' => '',
+    ]);
+
+    $response->assertStatus(422);
+    $response->assertJson(['message' => 'Informe um valor válido para o reajuste manual.']);
+});
+
+test('adjust modo manual valida valor negativo', function () {
+    $aluguel = Aluguel::factory()->create(['valor_mensal' => 1000]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'manual',
+        'novo_valor' => '-100',
+    ]);
+
+    $response->assertStatus(422);
+    $response->assertJson(['message' => 'O valor do aluguel não pode ser negativo.']);
+});
+
+test('adjust modo manual preview calcula novo valor', function () {
+    $aluguel = Aluguel::factory()->create(['valor_mensal' => 1000]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'manual',
+        'novo_valor' => '1500,00',
+        'preview' => true,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertJson([
+        'ok' => true,
+        'preview' => true,
+        'mode' => 'manual',
+        'new_value' => 1500.0,
+        'message' => 'Simulação concluída.',
+    ]);
+
+    $aluguel->refresh();
+    expect((float) $aluguel->valor_mensal)->toBe(1000.0); // Não deve alterar em preview
+});
+
+test('adjust modo manual sem preview atualiza valor', function () {
+    $aluguel = Aluguel::factory()->create(['valor_mensal' => 1000]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'manual',
+        'novo_valor' => '1.500,00',
+        'preview' => false,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertJson([
+        'ok' => true,
+        'preview' => false,
+        'mode' => 'manual',
+        'new_value' => 1500.0,
+        'message' => 'Aluguel reajustado com sucesso.',
+    ]);
+
+    $aluguel->refresh();
+    expect((float) $aluguel->valor_mensal)->toBe(1500.0);
+});
+
+test('adjust modo igpm preview calcula reajuste com service', function () {
+    $mockService = Mockery::mock(\App\Services\IgpmService::class);
+    $mockService->shouldReceive('accumulatedPercent')
+        ->once()
+        ->andReturn([
+            'percent' => 5.5,
+            'from' => \Carbon\Carbon::parse('2024-10-01'),
+            'to' => \Carbon\Carbon::parse('2025-10-01'),
+        ]);
+
+    $this->app->instance(\App\Services\IgpmService::class, $mockService);
+
+    $aluguel = Aluguel::factory()->create([
+        'valor_mensal' => 1000,
+        'data_inicio' => now()->subYear()->toDateString(),
+    ]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'igpm',
+        'preview' => true,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertJson([
+        'ok' => true,
+        'preview' => true,
+        'mode' => 'igpm',
+        'igpm_percent' => 5.5,
+        'message' => 'Simulação concluída.',
+    ]);
+
+    expect($response->json('new_value'))->toBeGreaterThan(1000);
+    
+    $aluguel->refresh();
+    expect((float) $aluguel->valor_mensal)->toBe(1000.0); // Não altera em preview
+});
+
+test('adjust modo igpm sem preview atualiza valor', function () {
+    $mockService = Mockery::mock(\App\Services\IgpmService::class);
+    $mockService->shouldReceive('accumulatedPercent')
+        ->once()
+        ->andReturn([
+            'percent' => 10.0,
+            'from' => \Carbon\Carbon::parse('2024-10-01'),
+            'to' => \Carbon\Carbon::parse('2025-10-01'),
+        ]);
+
+    $this->app->instance(\App\Services\IgpmService::class, $mockService);
+
+    $aluguel = Aluguel::factory()->create([
+        'valor_mensal' => 1000,
+        'data_inicio' => now()->subYear()->toDateString(),
+    ]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'igpm',
+        'preview' => false,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertJson([
+        'ok' => true,
+        'preview' => false,
+        'mode' => 'igpm',
+        'igpm_percent' => 10.0,
+        'message' => 'Aluguel reajustado com sucesso.',
+    ]);
+
+    $aluguel->refresh();
+    expect((float) $aluguel->valor_mensal)->toBe(1100.0); // 1000 + 10%
+});
+
+test('adjust modo igpm retorna erro quando service falha', function () {
+    $mockService = Mockery::mock(\App\Services\IgpmService::class);
+    $mockService->shouldReceive('accumulatedPercent')
+        ->once()
+        ->andThrow(new \Exception('Service unavailable'));
+
+    $this->app->instance(\App\Services\IgpmService::class, $mockService);
+
+    $aluguel = Aluguel::factory()->create([
+        'valor_mensal' => 1000,
+        'data_inicio' => now()->subYear()->toDateString(),
+    ]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'igpm',
+    ]);
+
+    $response->assertStatus(502);
+    $response->assertJson(['message' => 'Falha ao obter o IGP-M. Tente novamente mais tarde.']);
+});
+
+test('adjust modo igpm calcula periodo corretamente com data_fim', function () {
+    $mockService = Mockery::mock(\App\Services\IgpmService::class);
+    $mockService->shouldReceive('accumulatedPercent')
+        ->once()
+        ->andReturn([
+            'percent' => 5.0,
+            'from' => \Carbon\Carbon::parse('2024-10-01'),
+            'to' => \Carbon\Carbon::parse('2025-10-01'),
+        ]);
+
+    $this->app->instance(\App\Services\IgpmService::class, $mockService);
+
+    $aluguel = Aluguel::factory()->create([
+        'valor_mensal' => 1000,
+        'data_inicio' => now()->subYear()->toDateString(),
+        'data_fim' => now()->addMonth()->toDateString(),
+    ]);
+
+    $response = $this->patchJson(route('alugueis.adjust', $aluguel), [
+        'mode' => 'igpm',
+        'preview' => true,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertJsonStructure([
+        'ok',
+        'preview',
+        'mode',
+        'new_value',
+        'igpm_percent',
+        'period' => ['start', 'end', 'start_br', 'end_br'],
+    ]);
+});

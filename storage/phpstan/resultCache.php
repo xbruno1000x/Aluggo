@@ -2102,12 +2102,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to function is_null() with float will always evaluate to false.',
        'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 300,
+       'line' => 317,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
        'traitFilePath' => NULL,
        'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 300,
+       'nodeLine' => 317,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'function.impossibleType',
        'metadata' => 
@@ -2119,12 +2119,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to function is_null() with float will always evaluate to false.',
        'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 345,
+       'line' => 362,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 345,
+       'nodeLine' => 362,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'function.impossibleType',
        'metadata' => 
@@ -2136,12 +2136,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to function is_null() with float will always evaluate to false.',
        'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 356,
+       'line' => 373,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 356,
+       'nodeLine' => 373,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'function.impossibleType',
        'metadata' => 
@@ -2156,9 +2156,9 @@ return [
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      300 => NULL,
-      345 => NULL,
-      356 => NULL,
+      317 => NULL,
+      362 => NULL,
+      373 => NULL,
     ),
   ),
 ),
@@ -2254,13 +2254,31 @@ return [
       1 => 'locatarios.create',
       2 => 'locatarios.edit',
     ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 83,
+      ),
+      1 => 
+      array (
+        0 => 'abort',
+        1 => 101,
+      ),
+      2 => 
+      array (
+        0 => 'abort',
+        1 => 128,
+      ),
+    ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
     array (
       0 => 
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 60,
+        2 => 65,
       ),
     ),
   ),
@@ -2272,13 +2290,31 @@ return [
       1 => 'obras.create',
       2 => 'obras.edit',
     ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 104,
+      ),
+      1 => 
+      array (
+        0 => 'abort',
+        1 => 126,
+      ),
+      2 => 
+      array (
+        0 => 'abort',
+        1 => 159,
+      ),
+    ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
     array (
       0 => 
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 69,
+        2 => 85,
       ),
     ),
   ),
@@ -2287,6 +2323,24 @@ return [
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
     array (
       0 => 'pagamentos.index',
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 137,
+      ),
+      1 => 
+      array (
+        0 => 'abort',
+        1 => 159,
+      ),
+      2 => 
+      array (
+        0 => 'abort',
+        1 => 179,
+      ),
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php' => 
@@ -2358,6 +2412,29 @@ return [
       1 => 'transacoes.create',
       2 => 'transacoes.show',
       3 => 'transacoes.edit',
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 84,
+      ),
+      1 => 
+      array (
+        0 => 'abort',
+        1 => 252,
+      ),
+      2 => 
+      array (
+        0 => 'abort',
+        1 => 271,
+      ),
+      3 => 
+      array (
+        0 => 'abort',
+        1 => 292,
+      ),
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php' => 
@@ -2475,7 +2552,7 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => '3a29f83f52d1d38a4076202bd54e7e4dbb4d4fbf',
+    'fileHash' => 'a94f1b0c4af44adcfe3a7c9104bde81082828046',
     'dependentFiles' => 
     array (
     ),
@@ -2489,7 +2566,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'b1be7a9827b80f3f60635ad192eaa7a24afc03a3',
+    'fileHash' => '4eac16ec2521e99e6661cfe5a41046d5f60d4825',
     'dependentFiles' => 
     array (
     ),
@@ -2521,21 +2598,21 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => 'bc8b105894866ed3c0ce4ea19131a1ab8b42020c',
+    'fileHash' => '49d43df1fdbeaf6ce9585554b803c1ba269dbc65',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php' => 
   array (
-    'fileHash' => '79012a34790bde53649956e0ca99a75f5fd49d6e',
+    'fileHash' => 'fbc83e57303cf5d6cc3a79eb9211ddf42343afc2',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => 'ead87aa04f51411a1e7243f9cd83d927c0b016b6',
+    'fileHash' => 'f7d991d8c795181b767e2e08da2d50d461f4ca62',
     'dependentFiles' => 
     array (
     ),
@@ -2563,7 +2640,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => '47474380455903b07cc2da2fdd637829e403450b',
+    'fileHash' => '48fc41f52d5fc765b1992768eb6c22c4d63a92ec',
     'dependentFiles' => 
     array (
     ),
@@ -2574,13 +2651,14 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
-      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
-      4 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php',
-      5 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Pagamento.php',
-      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
-      7 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
+      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
+      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
+      5 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php',
+      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Pagamento.php',
+      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
+      8 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php' => 
@@ -2591,15 +2669,16 @@ return [
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
       1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ImovelController.php',
       2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php',
-      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\RelatorioController.php',
-      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
-      5 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
-      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php',
-      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Obra.php',
-      8 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php',
-      9 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
-      10 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Transacao.php',
-      11 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\RelatorioController.php',
+      5 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
+      6 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
+      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php',
+      8 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Obra.php',
+      9 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php',
+      10 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
+      11 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Transacao.php',
+      12 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php' => 
@@ -2639,12 +2718,14 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ImovelController.php',
-      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
-      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
-      4 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php',
-      5 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
-      6 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
+      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php',
+      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
+      5 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
+      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php',
+      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
+      8 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 

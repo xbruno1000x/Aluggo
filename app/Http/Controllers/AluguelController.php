@@ -20,6 +20,8 @@ class AluguelController extends Controller
      */
     public function index(Request $request): View|RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
         $filterImovelId = $request->input('imovel_id');
         if ($filterImovelId) {
             $imovel = Imovel::find((int) $filterImovelId);
@@ -32,6 +34,9 @@ class AluguelController extends Controller
             ->whereHas('imovel', function ($q) {
                 $q->whereNull('status')->orWhere('status', '!=', 'vendido');
             })
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
             ->orderByDesc('data_inicio')
             ->paginate(15);
 
@@ -43,8 +48,20 @@ class AluguelController extends Controller
      */
     public function create(): View
     {
-        $imoveis = Imovel::orderBy('nome')->get();
-        $locatarios = Locatario::orderBy('nome')->get();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orderBy('nome')
+            ->get();
+            
+        $locatarios = Locatario::whereHas('alugueis.imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orWhereDoesntHave('alugueis')
+            ->orderBy('nome')
+            ->get();
 
         return view('alugueis.create', compact('imoveis', 'locatarios'));
     }

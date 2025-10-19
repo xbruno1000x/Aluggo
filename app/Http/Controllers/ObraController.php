@@ -16,7 +16,12 @@ class ObraController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = Obra::with('imovel.propriedade');
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $query = Obra::with('imovel.propriedade')
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            });
 
         if ($request->filled('q')) {
             $query->where('descricao', 'like', '%'.$request->get('q').'%');
@@ -37,7 +42,11 @@ class ObraController extends Controller
 
         $obras = $query->orderByDesc('data_inicio')->paginate(15)->withQueryString();
 
-        $imoveis = Imovel::orderBy('nome')->get();
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orderBy('nome')
+            ->get();
 
         return view('obras.index', compact('obras', 'imoveis'));
     }
@@ -47,7 +56,14 @@ class ObraController extends Controller
      */
     public function create(): View
     {
-        $imoveis = Imovel::orderBy('nome')->get();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orderBy('nome')
+            ->get();
+            
         return view('obras.create', compact('imoveis'));
     }
 
@@ -80,7 +96,20 @@ class ObraController extends Controller
      */
     public function edit(Obra $obra): View
     {
-        $imoveis = Imovel::orderBy('nome')->get();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$obra->imovel || 
+            !$obra->imovel->propriedade || 
+            $obra->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orderBy('nome')
+            ->get();
+            
         return view('obras.edit', compact('obra', 'imoveis'));
     }
 
@@ -89,6 +118,14 @@ class ObraController extends Controller
      */
     public function update(Request $request, Obra $obra): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$obra->imovel || 
+            !$obra->imovel->propriedade || 
+            $obra->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $data = $request->validate([
             'descricao' => ['required', 'string', 'max:1000'],
             'valor' => ['required', 'numeric', 'min:0'],
@@ -113,6 +150,14 @@ class ObraController extends Controller
      */
     public function destroy(Obra $obra): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$obra->imovel || 
+            !$obra->imovel->propriedade || 
+            $obra->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         DB::beginTransaction();
         try {
             $obra->delete();

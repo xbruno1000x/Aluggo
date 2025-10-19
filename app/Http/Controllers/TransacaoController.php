@@ -19,13 +19,26 @@ class TransacaoController extends Controller
 {
     public function index(): View
     {
-        $transacoes = Transacao::with('imovel')->paginate(15);
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $transacoes = Transacao::with('imovel')
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->paginate(15);
+            
         return view('transacoes.index', compact('transacoes'));
     }
 
     public function create(): View
     {
-        $imoveis = Imovel::all();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->get();
+            
         return view('transacoes.create', compact('imoveis'));
     }
 
@@ -62,6 +75,14 @@ class TransacaoController extends Controller
 
     public function show(Transacao $transacao): View
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$transacao->imovel || 
+            !$transacao->imovel->propriedade || 
+            $transacao->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $transacao->load('imovel');
 
         $imovel = $transacao->imovel ?? null;
@@ -221,12 +242,32 @@ class TransacaoController extends Controller
 
     public function edit(Transacao $transacao): View
     {
-        $imoveis = Imovel::all();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$transacao->imovel || 
+            !$transacao->imovel->propriedade || 
+            $transacao->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->get();
+            
         return view('transacoes.edit', compact('transacao', 'imoveis'));
     }
 
     public function update(Request $request, Transacao $transacao): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$transacao->imovel || 
+            !$transacao->imovel->propriedade || 
+            $transacao->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $data = $request->validate([
             'valor_venda' => ['required', 'numeric', 'min:0.01'],
             'data_venda' => ['required', 'date'],
@@ -239,6 +280,14 @@ class TransacaoController extends Controller
 
     public function destroy(Transacao $transacao): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$transacao->imovel || 
+            !$transacao->imovel->propriedade || 
+            $transacao->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         \Illuminate\Support\Facades\DB::beginTransaction();
         try {
             $transacaoId = $transacao->id;

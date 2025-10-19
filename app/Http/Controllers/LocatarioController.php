@@ -12,7 +12,11 @@ class LocatarioController extends Controller
 {
     public function index(Request $request): View
     {
-        $query = Locatario::query();
+        $proprietarioId = Auth::id();
+        
+        $query = Locatario::whereHas('alugueis.imovel.propriedade', function ($q) use ($proprietarioId) {
+            $q->where('proprietario_id', $proprietarioId);
+        });
 
         if ($request->filled('search')) {
             $search = $request->input('search');
@@ -65,11 +69,35 @@ class LocatarioController extends Controller
 
     public function edit(Locatario $locatario): View
     {
+        $proprietarioId = Auth::id();
+        
+        $pertenceAoProprietario = $locatario->alugueis()
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->exists();
+            
+        if (!$pertenceAoProprietario) {
+            abort(403, 'Acesso negado.');
+        }
+        
         return view('locatarios.edit', compact('locatario'));
     }
 
     public function update(Request $request, Locatario $locatario): RedirectResponse
     {
+        $proprietarioId = Auth::id();
+        
+        $pertenceAoProprietario = $locatario->alugueis()
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->exists();
+            
+        if (!$pertenceAoProprietario) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $validated = $request->validate([
             'nome'     => 'required|string|max:255',
             'telefone' => 'nullable|string|max:20',
@@ -84,6 +112,18 @@ class LocatarioController extends Controller
 
     public function destroy(Locatario $locatario): RedirectResponse
     {
+        $proprietarioId = Auth::id();
+        
+        $pertenceAoProprietario = $locatario->alugueis()
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->exists();
+            
+        if (!$pertenceAoProprietario) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $locatario->delete();
 
         return redirect()->route('locatarios.index')

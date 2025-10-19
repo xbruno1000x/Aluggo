@@ -17,6 +17,8 @@ class PagamentoController extends Controller
 {
     public function index(Request $request): View|JsonResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
         $month = $request->query('month', Carbon::now()->startOfMonth()->toDateString());
         $ref = $this->normalizeMonthToStart($month);
         $refDate = Carbon::parse($ref)->startOfMonth()->toDateString();
@@ -29,11 +31,14 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-                        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
-                            ->where(function ($q) use ($start) {
-                                $q->whereNull('data_fim')
-                                  ->orWhereDate('data_fim', '>=', $start->toDateString());
-                            });
+        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
+            ->where(function ($q) use ($start) {
+                $q->whereNull('data_fim')
+                  ->orWhereDate('data_fim', '>=', $start->toDateString());
+            })
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            });
 
         if ($aluguelFilter) {
             $alugueisQuery->where('id', $aluguelFilter);
@@ -122,6 +127,15 @@ class PagamentoController extends Controller
 
     public function markPaid(Request $request, Pagamento $pagamento): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$pagamento->aluguel || 
+            !$pagamento->aluguel->imovel || 
+            !$pagamento->aluguel->imovel->propriedade || 
+            $pagamento->aluguel->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $data = $request->validate([
             'valor_recebido' => ['required', 'numeric', 'min:0'],
             'observacao' => ['nullable', 'string'],
@@ -134,6 +148,15 @@ class PagamentoController extends Controller
 
     public function revert(Pagamento $pagamento): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$pagamento->aluguel || 
+            !$pagamento->aluguel->imovel || 
+            !$pagamento->aluguel->imovel->propriedade || 
+            $pagamento->aluguel->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         $pagamento->valor_recebido = 0;
         $pagamento->status = 'pending';
         $pagamento->data_pago = null;
@@ -145,6 +168,14 @@ class PagamentoController extends Controller
 
     public function renew(Aluguel $aluguel): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$aluguel->imovel || 
+            !$aluguel->imovel->propriedade || 
+            $aluguel->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+        
         if ($aluguel->data_fim) {
             $start = Carbon::parse($aluguel->data_inicio);
             $end = Carbon::parse($aluguel->data_fim);
@@ -159,6 +190,8 @@ class PagamentoController extends Controller
 
     public function markAllPaid(Request $request): RedirectResponse
     {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
         $month = $request->input('month', Carbon::now()->startOfMonth()->toDateString());
         $ref = $this->normalizeMonthToStart($month);
         $refDate = Carbon::parse($ref)->startOfMonth()->toDateString();
@@ -168,10 +201,13 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-                $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
+        $alugueisQuery = Aluguel::whereDate('data_inicio', '<=', $end->toDateString())
             ->where(function ($q) use ($start) {
                 $q->whereNull('data_fim')
                   ->orWhereDate('data_fim', '>=', $start->toDateString());
+            })
+            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
             });
 
         if ($aluguelId) {

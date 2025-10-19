@@ -60,3 +60,43 @@ test('propriedade pode ter varios imoveis e bairro pode ser salvo', function () 
         ->and($propriedade->imoveis->contains($imovel))->toBeTrue()
         ->and($propriedade->bairro)->toBe('Centro');
 });
+
+test('propriedade pode ser criada com todos os atributos fillable', function () {
+    $propriedade = Propriedade::create([
+        'nome' => 'Complexo Residencial',
+        'endereco' => 'Av. Paulista, 1000',
+        'cep' => '01310-100',
+        'cidade' => 'São Paulo',
+        'estado' => 'SP',
+        'bairro' => 'Bela Vista',
+        'descricao' => 'Propriedade comercial de alto padrão',
+        'proprietario_id' => $this->proprietario->id,
+    ]);
+
+    expect($propriedade->cep)->toBe('01310-100')
+        ->and($propriedade->cidade)->toBe('São Paulo')
+        ->and($propriedade->estado)->toBe('SP');
+});
+
+test('propriedade factory usa HasFactory trait', function () {
+    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->proprietario->id]);
+
+    expect($propriedade)->toBeInstanceOf(Propriedade::class)
+        ->and($propriedade->id)->toBeGreaterThan(0);
+});
+
+test('propriedade tem relacao imoveis que retorna HasMany', function () {
+    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->proprietario->id]);
+    
+    $relation = $propriedade->imoveis();
+    
+    expect($relation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+});
+
+test('propriedade tem relacao proprietario que retorna BelongsTo', function () {
+    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->proprietario->id]);
+    
+    $relation = $propriedade->proprietario();
+    
+    expect($relation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+});

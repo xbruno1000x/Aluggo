@@ -3,15 +3,21 @@
 use App\Http\Controllers\ObraController;
 use App\Models\Imovel;
 use App\Models\Obra;
+use App\Models\Proprietario;
+use App\Models\Propriedade;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
-use function Pest\Laravel\{get, post, put, delete};
+use function Pest\Laravel\{get, post, put, delete, actingAs};
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->withoutMiddleware(\Illuminate\Auth\Middleware\Authenticate::class);
+    $this->user = Proprietario::factory()->create();
+    $this->actingAs($this->user, 'proprietario');
+    
+    $this->propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
+    $this->imovel = Imovel::factory()->create(['propriedade_id' => $this->propriedade->id]);
 });
 
 test('index retorna view com obras paginadas', function () {
@@ -60,11 +66,11 @@ test('store valida campos obrigatórios', function () {
 });
 
 test('create e edit apresentam imoveis para seleção', function () {
-    Imovel::factory()->count(2)->create();
+    Imovel::factory()->count(2)->create(['propriedade_id' => $this->propriedade->id]);
 
     $this->get(route('obras.create'))->assertOk()->assertViewHas('imoveis');
 
-    $obra = Obra::factory()->create();
+    $obra = Obra::factory()->create(['imovel_id' => $this->imovel->id]);
     $this->get(route('obras.edit', $obra))->assertOk()->assertViewHasAll(['obra', 'imoveis']);
 });
 
@@ -88,7 +94,7 @@ test('store retorna erro generico quando DB falha', function () {
 });
 
 test('edit mostra formulario com obra e imoveis', function () {
-    $obra = Obra::factory()->create();
+    $obra = Obra::factory()->create(['imovel_id' => $this->imovel->id]);
 
     $response = $this->get(route('obras.edit', $obra));
 
@@ -98,13 +104,12 @@ test('edit mostra formulario com obra e imoveis', function () {
 });
 
 test('update altera obra e redireciona', function () {
-    $obra = Obra::factory()->create(['descricao' => 'Velha']);
-    $imovel = Imovel::factory()->create();
+    $obra = Obra::factory()->create(['descricao' => 'Velha', 'imovel_id' => $this->imovel->id]);
 
     $payload = [
         'descricao' => 'Atualizada',
         'valor' => 200,
-        'imovel_id' => $imovel->id,
+        'imovel_id' => $this->imovel->id,
     ];
 
     $response = $this->put(route('obras.update', $obra), $payload);
@@ -114,8 +119,7 @@ test('update altera obra e redireciona', function () {
 });
 
 test('update retorna erro generico quando DB falha', function () {
-    $obra = Obra::factory()->create(['descricao' => 'Velha']);
-    $imovel = Imovel::factory()->create();
+    $obra = Obra::factory()->create(['descricao' => 'Velha', 'imovel_id' => $this->imovel->id]);
 
     \App\Models\Obra::updating(function () {
         throw new \Exception('fail');
@@ -124,7 +128,7 @@ test('update retorna erro generico quando DB falha', function () {
     $payload = [
         'descricao' => 'Atualizada',
         'valor' => 200,
-        'imovel_id' => $imovel->id,
+        'imovel_id' => $this->imovel->id,
     ];
 
     $response = $this->put(route('obras.update', $obra), $payload);
@@ -134,7 +138,7 @@ test('update retorna erro generico quando DB falha', function () {
 });
 
 test('destroy retorna erro generico quando DB falha', function () {
-    $obra = Obra::factory()->create();
+    $obra = Obra::factory()->create(['imovel_id' => $this->imovel->id]);
 
     \App\Models\Obra::deleting(function () {
         throw new \Exception('fail');
@@ -147,13 +151,12 @@ test('destroy retorna erro generico quando DB falha', function () {
 });
 
 test('update valida campos obrigatórios e retorna erros', function () {
-    $obra = Obra::factory()->create(['descricao' => 'Velha']);
-    $imovel = Imovel::factory()->create();
+    $obra = Obra::factory()->create(['descricao' => 'Velha', 'imovel_id' => $this->imovel->id]);
 
     
     $payload = [
         'valor' => -10,
-        'imovel_id' => $imovel->id,
+        'imovel_id' => $this->imovel->id,
     ];
 
     $response = $this->put(route('obras.update', $obra), $payload);
@@ -207,7 +210,7 @@ test('store aceita data_fim igual a data_inicio', function () {
 });
 
 test('destroy exclui obra e redireciona', function () {
-    $obra = Obra::factory()->create();
+    $obra = Obra::factory()->create(['imovel_id' => $this->imovel->id]);
 
     $response = $this->delete(route('obras.destroy', $obra));
 
@@ -219,10 +222,8 @@ test('destroy exclui obra e redireciona', function () {
 test('controlador de obra: chamadas diretas cobrem store, update e destroy', function () {
     $controller = new ObraController();
 
-    $imovel = Imovel::factory()->create();
-
     
-    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Direct', 'valor' => 100, 'imovel_id' => $imovel->id]);
+    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Direct', 'valor' => 100, 'imovel_id' => $this->imovel->id]);
     $resStore = $controller->store($reqStore);
     expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['descricao' => 'Direct']);
@@ -230,7 +231,7 @@ test('controlador de obra: chamadas diretas cobrem store, update e destroy', fun
     $obra = Obra::first();
 
     
-    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated', 'valor' => 200, 'imovel_id' => $imovel->id]);
+    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated', 'valor' => 200, 'imovel_id' => $this->imovel->id]);
     $resUpdate = $controller->update($reqUpdate, $obra);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated']);
@@ -256,10 +257,8 @@ test('controlador de obra: index e create (invocação direta) retornam views', 
 test('controlador de obra: store, update e destroy via métodos do controller (invocação direta)', function () {
     $controller = new ObraController();
 
-    $imovel = Imovel::factory()->create();
-
     
-    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Extra Direct', 'valor' => 500, 'imovel_id' => $imovel->id]);
+    $reqStore = Request::create('/obras', 'POST', ['descricao' => 'Extra Direct', 'valor' => 500, 'imovel_id' => $this->imovel->id]);
     $resStore = $controller->store($reqStore);
     expect($resStore)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['descricao' => 'Extra Direct']);
@@ -267,7 +266,7 @@ test('controlador de obra: store, update e destroy via métodos do controller (i
     $obra = Obra::where('descricao', 'Extra Direct')->first();
 
     
-    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated Extra', 'valor' => 600, 'imovel_id' => $imovel->id]);
+    $reqUpdate = Request::create('/obras/' . $obra->id, 'PUT', ['descricao' => 'Direct Updated Extra', 'valor' => 600, 'imovel_id' => $this->imovel->id]);
     $resUpdate = $controller->update($reqUpdate, $obra);
     expect($resUpdate)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('obras', ['id' => $obra->id, 'descricao' => 'Direct Updated Extra']);
