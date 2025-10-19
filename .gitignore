@@ -22,3 +22,4 @@
 #/.vscode
 #/.zed
 /storage/phpstan/*
+/vendor/pestphp/*

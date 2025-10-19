@@ -449,9 +449,49 @@ test('index loga debug informacoes quando possivel', function () {
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
     
-    // Log deve ser chamado internamente
     $response = $this->get(route('pagamentos.index', ['month' => $ref]));
     $response->assertStatus(200);
     
     expect(Pagamento::where('aluguel_id', $aluguel->id)->count())->toBeGreaterThan(0);
+});
+
+test('index nao exibe pagamentos de outros proprietarios', function () {
+    $outroProprietario = Proprietario::factory()->create();
+    $outraPropriedade = Propriedade::factory()->create(['proprietario_id' => $outroProprietario->id]);
+    $outroImovel = Imovel::factory()->create(['propriedade_id' => $outraPropriedade->id, 'nome' => 'Imovel do Outro']);
+    $outroLocatario = Locatario::factory()->create(['nome' => 'Locatario do Outro']);
+    
+    $outroAluguel = Aluguel::factory()->create([
+        'imovel_id' => $outroImovel->id,
+        'locatario_id' => $outroLocatario->id,
+        'valor_mensal' => 5000,
+        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+    ]);
+
+    $ref = Carbon::now()->startOfMonth()->toDateString();
+    
+    Pagamento::create([
+        'aluguel_id' => $outroAluguel->id,
+        'referencia_mes' => $ref,
+        'valor_devido' => 5000,
+        'valor_recebido' => 0,
+        'status' => 'pending',
+    ]);
+
+    $loc = Locatario::factory()->create(['nome' => 'Meu Locatario']);
+    $meuAluguel = Aluguel::factory()->create([
+        'imovel_id' => $this->imovel->id,
+        'locatario_id' => $loc->id,
+        'valor_mensal' => 1000,
+        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+    ]);
+
+    $response = $this->get(route('pagamentos.index', ['month' => $ref]));
+    $response->assertStatus(200);
+    
+    $response->assertDontSee('Imovel do Outro');
+    $response->assertDontSee('Locatario do Outro');
+    $response->assertDontSee('5.000,00');
+    
+    $response->assertSee('Meu Locatario');
 });

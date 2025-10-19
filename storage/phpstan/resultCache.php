@@ -2259,17 +2259,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 83,
+        1 => 81,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 101,
+        1 => 98,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 128,
+        1 => 124,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2278,7 +2278,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 65,
+        2 => 64,
       ),
     ),
   ),
@@ -2305,7 +2305,7 @@ return [
       2 => 
       array (
         0 => 'abort',
-        1 => 159,
+        1 => 158,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2329,17 +2329,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 137,
+        1 => 136,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 159,
+        1 => 157,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 179,
+        1 => 176,
       ),
     ),
   ),
@@ -2418,22 +2418,22 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 84,
+        1 => 83,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 252,
+        1 => 250,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 271,
+        1 => 268,
       ),
       3 => 
       array (
         0 => 'abort',
-        1 => 292,
+        1 => 288,
       ),
     ),
   ),
@@ -2598,21 +2598,21 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => '49d43df1fdbeaf6ce9585554b803c1ba269dbc65',
+    'fileHash' => '6cb29efba8f9a7537cd4a8b1027ff92def4598fb',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php' => 
   array (
-    'fileHash' => 'fbc83e57303cf5d6cc3a79eb9211ddf42343afc2',
+    'fileHash' => 'a2a24350b213ae957aa5cc5d9d3e1582010ff9b0',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => 'f7d991d8c795181b767e2e08da2d50d461f4ca62',
+    'fileHash' => '03f20e1e84a1e8eaf34f33d93a8f7668ab7de448',
     'dependentFiles' => 
     array (
     ),
@@ -2640,7 +2640,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => '48fc41f52d5fc765b1992768eb6c22c4d63a92ec',
+    'fileHash' => 'd14a637c6948672c85edfd2ced9dd93348a4943a',
     'dependentFiles' => 
     array (
     ),

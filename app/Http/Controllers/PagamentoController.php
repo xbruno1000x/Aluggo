@@ -77,6 +77,9 @@ class PagamentoController extends Controller
 
         $query = Pagamento::with('aluguel.imovel', 'aluguel.locatario')
             ->whereDate('referencia_mes', $refDate)
+            ->whereHas('aluguel.imovel.propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
             ->whereNotExists(function ($q) use ($refDate) {
                 $q->select(DB::raw('1'))
                   ->from('transacoes')
