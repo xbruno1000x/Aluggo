@@ -56,10 +56,7 @@ class AluguelController extends Controller
             ->orderBy('nome')
             ->get();
             
-        $locatarios = Locatario::whereHas('alugueis.imovel.propriedade', function ($q) use ($proprietarioId) {
-                $q->where('proprietario_id', $proprietarioId);
-            })
-            ->orWhereDoesntHave('alugueis')
+        $locatarios = Locatario::where('proprietario_id', $proprietarioId)
             ->orderBy('nome')
             ->get();
 
@@ -71,8 +68,17 @@ class AluguelController extends Controller
      */
     public function edit(Aluguel $aluguel): View
     {
-        $imoveis = Imovel::orderBy('nome')->get();
-        $locatarios = Locatario::orderBy('nome')->get();
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        $imoveis = Imovel::whereHas('propriedade', function ($q) use ($proprietarioId) {
+                $q->where('proprietario_id', $proprietarioId);
+            })
+            ->orderBy('nome')
+            ->get();
+            
+        $locatarios = Locatario::where('proprietario_id', $proprietarioId)
+            ->orderBy('nome')
+            ->get();
 
         return view('alugueis.edit', compact('aluguel', 'imoveis', 'locatarios'));
     }
@@ -312,16 +318,8 @@ class AluguelController extends Controller
 
             $newValue = round($normalized, 2);
         } else {
-            // phpstan: value may be typed as float via model casts; allow runtime null check
-            // @phpstan-ignore-next-line
-            if (is_null($aluguel->valor_mensal)) {
-                return response()->json([
-                    'message' => 'Não é possível calcular o reajuste automático sem um valor atual.',
-                ], 422);
-            }
-
             $today = Carbon::today();
-            $contractStart = $aluguel->data_inicio ? Carbon::parse($aluguel->data_inicio) : $today->copy();
+            $contractStart = Carbon::parse($aluguel->data_inicio ?? $today->toDateString());
             $fromCandidate = $today->copy()->subYear();
             $from = $contractStart->greaterThan($fromCandidate) ? $contractStart->copy() : $fromCandidate;
             $from->startOfMonth();
@@ -358,8 +356,7 @@ class AluguelController extends Controller
             $newValue = round($currentValue * (1 + ($igpmPercent / 100)), 2);
         }
 
-        // @phpstan-ignore-next-line
-        if (!$preview && !is_null($newValue)) {
+        if (!$preview) {
             $aluguel->valor_mensal = $newValue;
             $aluguel->save();
         }
@@ -369,8 +366,7 @@ class AluguelController extends Controller
             'preview' => $preview,
             'mode' => $mode,
             'new_value' => $newValue,
-            // @phpstan-ignore-next-line
-            'new_value_formatted' => !is_null($newValue) ? 'R$ ' . number_format($newValue, 2, ',', '.') : null,
+            'new_value_formatted' => 'R$ ' . number_format($newValue, 2, ',', '.'),
             'igpm_percent' => $igpmPercent,
             'period' => $period,
             'message' => $preview ? 'Simulação concluída.' : 'Aluguel reajustado com sucesso.',

@@ -143,8 +143,8 @@ test('update rejeita contratos sobrepostos', function () {
     $response->assertSessionHasErrors('imovel_id');
 
     $aluguel->refresh();
-    expect($aluguel->data_inicio)->toBe('2025-11-01');
-    expect($aluguel->data_fim)->toBe('2025-11-10');
+    expect($aluguel->data_inicio->toDateString())->toBe('2025-11-01');
+    expect($aluguel->data_fim->toDateString())->toBe('2025-11-10');
     expect((float) $aluguel->valor_mensal)->toBe(1200.0);
 });
 

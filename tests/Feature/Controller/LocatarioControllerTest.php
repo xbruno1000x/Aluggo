@@ -18,7 +18,7 @@ beforeEach(function () {
 });
 
 test('index retorna view com locatários', function () {
-    Locatario::factory()->count(3)->create();
+    Locatario::factory()->count(3)->create(['proprietario_id' => $this->user->id]);
 
     $response = $this->get(route('locatarios.index'));
 
@@ -57,13 +57,7 @@ test('store valida campos obrigatórios', function () {
 });
 
 test('edit retorna view com locatário', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create();
-    Aluguel::factory()->create([
-        'imovel_id' => $imovel->id,
-        'locatario_id' => $loc->id
-    ]);
+    $loc = Locatario::factory()->create(['proprietario_id' => $this->user->id]);
 
     $response = $this->get(route('locatarios.edit', $loc));
 
@@ -73,12 +67,9 @@ test('edit retorna view com locatário', function () {
 });
 
 test('update modifica locatário e redireciona', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create(['nome' => 'Antigo Nome']);
-    Aluguel::factory()->create([
-        'imovel_id' => $imovel->id,
-        'locatario_id' => $loc->id
+    $loc = Locatario::factory()->create([
+        'nome' => 'Antigo Nome',
+        'proprietario_id' => $this->user->id
     ]);
 
     $payload = [
@@ -94,13 +85,7 @@ test('update modifica locatário e redireciona', function () {
 });
 
 test('destroy exclui locatário', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create();
-    Aluguel::factory()->create([
-        'imovel_id' => $imovel->id,
-        'locatario_id' => $loc->id
-    ]);
+    $loc = Locatario::factory()->create(['proprietario_id' => $this->user->id]);
 
     $response = $this->delete(route('locatarios.destroy', $loc));
 
@@ -111,7 +96,7 @@ test('destroy exclui locatário', function () {
 test('controlador de locatário: chamadas diretas cobrem index, create, store, edit, update e destroy', function () {
     $controller = new LocatarioController();
 
-    Locatario::factory()->count(2)->create();
+    Locatario::factory()->count(2)->create(['proprietario_id' => $this->user->id]);
     $req = Request::create('/locatarios', 'GET', []);
     $res = $controller->index($req);
     expect($res)->toBeInstanceOf(Illuminate\View\View::class);
@@ -129,13 +114,7 @@ test('controlador de locatário: chamadas diretas cobrem index, create, store, e
     expect($resPost)->toBeInstanceOf(Illuminate\Http\RedirectResponse::class);
     $this->assertDatabaseHas('locatarios', ['nome' => 'Direct Loc']);
 
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create();
-    Aluguel::factory()->create([
-        'imovel_id' => $imovel->id,
-        'locatario_id' => $loc->id
-    ]);
+    $loc = Locatario::factory()->create(['proprietario_id' => $this->user->id]);
 
     $resEdit = $controller->edit($loc);
     expect($resEdit)->toBeInstanceOf(Illuminate\View\View::class);
@@ -151,10 +130,10 @@ test('controlador de locatário: chamadas diretas cobrem index, create, store, e
 });
 
 test('index formata telefone celular com 11 digitos', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create(['telefone' => '11987654321']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc->id]);
+    $loc = Locatario::factory()->create([
+        'telefone' => '11987654321',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index'));
 
@@ -164,10 +143,10 @@ test('index formata telefone celular com 11 digitos', function () {
 });
 
 test('index formata telefone fixo com 10 digitos', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create(['telefone' => '1134567890']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc->id]);
+    $loc = Locatario::factory()->create([
+        'telefone' => '1134567890',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index'));
 
@@ -177,10 +156,10 @@ test('index formata telefone fixo com 10 digitos', function () {
 });
 
 test('index mantém telefone vazio quando não há digitos', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create(['telefone' => '']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc->id]);
+    $loc = Locatario::factory()->create([
+        'telefone' => '',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index'));
 
@@ -190,10 +169,10 @@ test('index mantém telefone vazio quando não há digitos', function () {
 });
 
 test('index mantém formato original para telefones com formato diferente', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc = Locatario::factory()->create(['telefone' => '123456789']); // 9 dígitos
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc->id]);
+    $loc = Locatario::factory()->create([
+        'telefone' => '123456789',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index'));
 
@@ -203,12 +182,14 @@ test('index mantém formato original para telefones com formato diferente', func
 });
 
 test('index busca por nome do locatario', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc1 = Locatario::factory()->create(['nome' => 'João Silva']);
-    $loc2 = Locatario::factory()->create(['nome' => 'Maria Santos']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc1->id]);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc2->id]);
+    $loc1 = Locatario::factory()->create([
+        'nome' => 'João Silva',
+        'proprietario_id' => $this->user->id
+    ]);
+    $loc2 = Locatario::factory()->create([
+        'nome' => 'Maria Santos',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index', ['search' => 'João']));
 
@@ -219,12 +200,14 @@ test('index busca por nome do locatario', function () {
 });
 
 test('index busca por telefone do locatario', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc1 = Locatario::factory()->create(['telefone' => '11987654321']);
-    $loc2 = Locatario::factory()->create(['telefone' => '11912345678']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc1->id]);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc2->id]);
+    $loc1 = Locatario::factory()->create([
+        'telefone' => '11987654321',
+        'proprietario_id' => $this->user->id
+    ]);
+    $loc2 = Locatario::factory()->create([
+        'telefone' => '11912345678',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index', ['search' => '87654']));
 
@@ -234,12 +217,14 @@ test('index busca por telefone do locatario', function () {
 });
 
 test('index busca por email do locatario', function () {
-    $propriedade = Propriedade::factory()->create(['proprietario_id' => $this->user->id]);
-    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
-    $loc1 = Locatario::factory()->create(['email' => 'joao@test.com']);
-    $loc2 = Locatario::factory()->create(['email' => 'maria@test.com']);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc1->id]);
-    Aluguel::factory()->create(['imovel_id' => $imovel->id, 'locatario_id' => $loc2->id]);
+    $loc1 = Locatario::factory()->create([
+        'email' => 'joao@test.com',
+        'proprietario_id' => $this->user->id
+    ]);
+    $loc2 = Locatario::factory()->create([
+        'email' => 'maria@test.com',
+        'proprietario_id' => $this->user->id
+    ]);
 
     $response = $this->get(route('locatarios.index', ['search' => 'joao@']));
 

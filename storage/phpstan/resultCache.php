@@ -2094,56 +2094,20 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-); },
-	'locallyIgnoredErrorsCallback' => static function (): array { return array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
+       'message' => 'Ternary operator condition is always true.',
        'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 317,
+       'line' => 322,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
        'traitFilePath' => NULL,
        'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 317,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
-       'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 362,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 362,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_null() with float will always evaluate to false.',
-       'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 373,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 373,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.impossibleType',
+       'nodeLine' => 322,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Ternary',
+       'identifier' => 'ternary.alwaysTrue',
        'metadata' => 
       array (
       ),
@@ -2151,16 +2115,9 @@ return [
     )),
   ),
 ); },
+	'locallyIgnoredErrorsCallback' => static function (): array { return array (
+); },
 	'linesToIgnore' => array (
-  'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
-  array (
-    'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
-    array (
-      317 => NULL,
-      362 => NULL,
-      373 => NULL,
-    ),
-  ),
 ),
 	'unmatchedLineIgnores' => array (
 ),
@@ -2259,17 +2216,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 81,
+        1 => 75,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 98,
+        1 => 86,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 124,
+        1 => 106,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2329,17 +2286,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 136,
+        1 => 139,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 157,
+        1 => 160,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 176,
+        1 => 179,
       ),
     ),
   ),
@@ -2566,7 +2523,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => '4eac16ec2521e99e6661cfe5a41046d5f60d4825',
+    'fileHash' => '9ad7bce247d513812caa513b6d2f6c48cddcdc20',
     'dependentFiles' => 
     array (
     ),
@@ -2598,7 +2555,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => '6cb29efba8f9a7537cd4a8b1027ff92def4598fb',
+    'fileHash' => '85c0c087be580ab9017a92800f590d7707c8df25',
     'dependentFiles' => 
     array (
     ),
@@ -2612,7 +2569,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => '03f20e1e84a1e8eaf34f33d93a8f7668ab7de448',
+    'fileHash' => '2000b9740e15ad09370915535446e5c070e07662',
     'dependentFiles' => 
     array (
     ),
@@ -2647,18 +2604,17 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php' => 
   array (
-    'fileHash' => '3482ab8ab27a7be9952361caac6fd96806bd995d',
+    'fileHash' => '20450d0721eb2a3285c131a7cc53d693c6255f97',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
-      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
-      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
-      5 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php',
-      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Pagamento.php',
-      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
-      8 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
+      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
+      4 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php',
+      5 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Pagamento.php',
+      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
+      7 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php' => 
@@ -2683,7 +2639,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php' => 
   array (
-    'fileHash' => 'f0c25c261a8549999a4a4d44e4356cb853883a3b',
+    'fileHash' => 'c31ec71aceaf2a26fb79e57cf70882f46f99df1f',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
@@ -2735,7 +2691,8 @@ return [
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php',
       1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php' => 
@@ -5555,6 +5512,47 @@ return [
           ),
         )),
         3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'casts',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @var array<string, string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'aluguelfactory' => 'Database\\Factories\\AluguelFactory',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'imovel',
            'phpDoc' => 
@@ -5588,7 +5586,7 @@ return [
           array (
           ),
         )),
-        4 => 
+        5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'locatario',
            'phpDoc' => 
@@ -5962,6 +5960,40 @@ return [
            'final' => false,
            'static' => false,
            'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'proprietario',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo<Proprietario, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'locatariofactory' => 'Database\\Factories\\LocatarioFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
            'parameters' => 
           array (
           ),

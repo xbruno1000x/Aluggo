@@ -16,7 +16,15 @@ class RelatorioController extends Controller
         $start = $request->query('start', Carbon::now()->subYear()->startOfMonth()->toDateString());
         $end = $request->query('end', Carbon::now()->endOfMonth()->toDateString());
 
-        $data = $svc->getReport($imovelId, $start, $end, Auth::id());
+        $filters = [
+            'include_vendas' => $request->query('include_vendas', '1') === '1',
+            'include_compras' => $request->query('include_compras', '1') === '1',
+            'include_alugueis' => $request->query('include_alugueis', '1') === '1',
+            'include_obras' => $request->query('include_obras', '1') === '1',
+            'include_taxas' => $request->query('include_taxas', '1') === '1',
+        ];
+
+        $data = $svc->getReport($imovelId, $start, $end, Auth::id(), $filters);
 
         $imoveis = \App\Models\Imovel::whereHas('propriedade', function ($q) {
             $q->where('proprietario_id', Auth::id());

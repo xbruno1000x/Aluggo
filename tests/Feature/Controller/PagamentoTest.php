@@ -361,7 +361,7 @@ test('renew estende contrato sem data_fim adicionando um ano', function () {
     expect($aluguel->data_fim)->not()->toBeNull();
     
     $esperado = $dataInicio->copy()->addYear()->toDateString();
-    expect($aluguel->data_fim)->toBe($esperado);
+    expect($aluguel->data_fim->toDateString())->toBe($esperado);
 });
 
 test('markAllPaid filtra por aluguel_id quando fornecido', function () {

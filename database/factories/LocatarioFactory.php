@@ -15,6 +15,7 @@ class LocatarioFactory extends Factory
             'nome' => 'Locatario Teste',
             'telefone' => '+5511988887777',
             'email' => 'tenant@example.com',
+            'proprietario_id' => \App\Models\Proprietario::factory(),
         ];
     }
 }

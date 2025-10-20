@@ -20,6 +20,7 @@ class Locatario extends Model
         'nome',
         'telefone',
         'email',
+        'proprietario_id',
     ];
 
     /**
@@ -28,5 +29,13 @@ class Locatario extends Model
     public function alugueis(): HasMany
     {
         return $this->hasMany(Aluguel::class, 'locatario_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Proprietario, $this>
+     */
+    public function proprietario(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Proprietario::class, 'proprietario_id');
     }
 }

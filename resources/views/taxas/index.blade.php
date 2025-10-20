@@ -120,4 +120,6 @@
 <div class="d-flex justify-content-center">
     {{ $taxas->links() }}
 </div>
+
+@vite(['resources/ts/delete-confirm.ts'])
 @endsection

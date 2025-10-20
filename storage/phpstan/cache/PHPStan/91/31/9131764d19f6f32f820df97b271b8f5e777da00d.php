@@ -50,7 +50,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => '4eac16ec2521e99e6661cfe5a41046d5f60d4825',
+      0 => '98d839e86580acb68b827625f4522b12f897c8cf',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -106,7 +106,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
     array (
-      0 => '6cb29efba8f9a7537cd4a8b1027ff92def4598fb',
+      0 => '85c0c087be580ab9017a92800f590d7707c8df25',
       1 => 
       array (
         0 => 'app\\http\\controllers\\locatariocontroller',
@@ -146,7 +146,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
     array (
-      0 => '03f20e1e84a1e8eaf34f33d93a8f7668ab7de448',
+      0 => '2000b9740e15ad09370915535446e5c070e07662',
       1 => 
       array (
         0 => 'app\\http\\controllers\\pagamentocontroller',
@@ -185,7 +185,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\RelatorioController.php' => 
     array (
-      0 => 'e05185ba56788e29c8c9835904086fcd873976d1',
+      0 => '34b27962997761ddfcb94b1cc8608bd803c79dc5',
       1 => 
       array (
         0 => 'app\\http\\controllers\\relatoriocontroller',
@@ -243,7 +243,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php' => 
     array (
-      0 => '3482ab8ab27a7be9952361caac6fd96806bd995d',
+      0 => '20450d0721eb2a3285c131a7cc53d693c6255f97',
       1 => 
       array (
         0 => 'app\\models\\aluguel',
@@ -276,7 +276,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php' => 
     array (
-      0 => 'f0c25c261a8549999a4a4d44e4356cb853883a3b',
+      0 => 'c31ec71aceaf2a26fb79e57cf70882f46f99df1f',
       1 => 
       array (
         0 => 'app\\models\\locatario',
@@ -284,6 +284,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\models\\alugueis',
+        1 => 'app\\models\\proprietario',
       ),
       3 => 
       array (
@@ -460,7 +461,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php' => 
     array (
-      0 => 'a63a179c61b8ee84dc386b9ea42f565d43293c25',
+      0 => '7b6531c300a79b6302734f4be44cb54a6b7eae88',
       1 => 
       array (
         0 => 'app\\services\\relatorioservice',

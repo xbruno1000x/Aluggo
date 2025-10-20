@@ -20,10 +20,17 @@ class RelatorioService
      * @param string $startYmd
      * @param string $endYmd
      * @param int $proprietarioId
+     * @param array<string,bool> $filters
      * @return array{aggregates:array<string,mixed>,series:list<array<string,mixed>>}
      */
-    public function getReport(?int $imovelId, string $startYmd, string $endYmd, int $proprietarioId): array
+    public function getReport(?int $imovelId, string $startYmd, string $endYmd, int $proprietarioId, array $filters = []): array
     {
+        $includeVendas = $filters['include_vendas'] ?? true;
+        $includeCompras = $filters['include_compras'] ?? true;
+        $includeAlugueis = $filters['include_alugueis'] ?? true;
+        $includeObras = $filters['include_obras'] ?? true;
+        $includeTaxas = $filters['include_taxas'] ?? true;
+
         $start = Carbon::parse($startYmd)->startOfMonth();
         $end = Carbon::parse($endYmd)->endOfMonth();
 
@@ -35,64 +42,73 @@ class RelatorioService
 
         $aluguelIds = Aluguel::whereIn('imovel_id', $imovelIds)->pluck('id')->all();
 
-        $rentalIncome = Pagamento::whereIn('aluguel_id', $aluguelIds)
-            ->whereDate('referencia_mes', '>=', $start->toDateString())
-            ->whereDate('referencia_mes', '<=', $end->toDateString())
-            ->sum('valor_recebido');
+        $rentalIncome = $includeAlugueis 
+            ? Pagamento::whereIn('aluguel_id', $aluguelIds)
+                ->whereDate('referencia_mes', '>=', $start->toDateString())
+                ->whereDate('referencia_mes', '<=', $end->toDateString())
+                ->sum('valor_recebido')
+            : 0;
 
-        $obraExpenses = Obra::whereIn('imovel_id', $imovelIds)
-            ->whereDate('data_inicio', '>=', $start->toDateString())
-            ->whereDate('data_inicio', '<=', $end->toDateString())
-            ->sum('valor');
+        $obraExpenses = $includeObras
+            ? Obra::whereIn('imovel_id', $imovelIds)
+                ->whereDate('data_inicio', '>=', $start->toDateString())
+                ->whereDate('data_inicio', '<=', $end->toDateString())
+                ->sum('valor')
+            : 0;
 
-        $sales = Transacao::whereIn('imovel_id', $imovelIds)
-            ->whereDate('data_venda', '>=', $start->toDateString())
-            ->whereDate('data_venda', '<=', $end->toDateString())
-            ->sum('valor_venda');
+        $sales = $includeVendas
+            ? Transacao::whereIn('imovel_id', $imovelIds)
+                ->whereDate('data_venda', '>=', $start->toDateString())
+                ->whereDate('data_venda', '<=', $end->toDateString())
+                ->sum('valor_venda')
+            : 0;
 
-        $purchases = Imovel::whereIn('id', $imovelIds)
-            ->whereDate('data_aquisicao', '>=', $start->toDateString())
-            ->whereDate('data_aquisicao', '<=', $end->toDateString())
-            ->sum('valor_compra');
+        $purchases = $includeCompras
+            ? Imovel::whereIn('id', $imovelIds)
+                ->whereDate('data_aquisicao', '>=', $start->toDateString())
+                ->whereDate('data_aquisicao', '<=', $end->toDateString())
+                ->sum('valor_compra')
+            : 0;
 
         $net = (float) $sales + (float) $rentalIncome - (float) $purchases - (float) $obraExpenses;
 
         /** @var int[] $propriedadeIds */
         $propriedadeIds = Propriedade::where('proprietario_id', $proprietarioId)->pluck('id')->all();
 
-        $taxasQuery = \App\Models\Taxa::with(['propriedade', 'imovel', 'aluguel.imovel'])
-            ->whereDate('data_pagamento', '>=', $start->toDateString())
-            ->whereDate('data_pagamento', '<=', $end->toDateString());
-
-        if (!empty($imovelId)) {
-            $taxasQuery->where(function ($q) use ($imovelId) {
-                $q->where('imovel_id', $imovelId)
-                    ->orWhereHas('aluguel', function ($q2) use ($imovelId) {
-                        $q2->where('imovel_id', $imovelId);
-                    })
-                    ->orWhereHas('propriedade', function ($q3) use ($imovelId) {
-                        $q3->whereHas('imoveis', function ($q4) use ($imovelId) {
-                            $q4->where('id', $imovelId);
-                        });
-                    });
-            });
-        } else {
-            $taxasQuery->where(function ($q) use ($imovelIds, $propriedadeIds, $aluguelIds, $proprietarioId) {
-                $q->whereIn('imovel_id', $imovelIds)
-                    ->orWhereIn('propriedade_id', $propriedadeIds)
-                    ->orWhereIn('aluguel_id', $aluguelIds)
-                    ->orWhere('proprietario_id', $proprietarioId);
-            });
-        }
-
-        $taxas = $taxasQuery->get();
-
         $taxasTotal = 0.0;
         $taxasImpact = 0.0;
         /** @var array<string,float> $taxasByPagador */
         $taxasByPagador = ['proprietario' => 0.0, 'locatario' => 0.0];
 
-        foreach ($taxas as $t) {
+        if ($includeTaxas) {
+            $taxasQuery = \App\Models\Taxa::with(['propriedade', 'imovel', 'aluguel.imovel'])
+                ->whereDate('data_pagamento', '>=', $start->toDateString())
+                ->whereDate('data_pagamento', '<=', $end->toDateString());
+
+            if (!empty($imovelId)) {
+                $taxasQuery->where(function ($q) use ($imovelId) {
+                    $q->where('imovel_id', $imovelId)
+                        ->orWhereHas('aluguel', function ($q2) use ($imovelId) {
+                            $q2->where('imovel_id', $imovelId);
+                        })
+                        ->orWhereHas('propriedade', function ($q3) use ($imovelId) {
+                            $q3->whereHas('imoveis', function ($q4) use ($imovelId) {
+                                $q4->where('id', $imovelId);
+                            });
+                        });
+                });
+            } else {
+                $taxasQuery->where(function ($q) use ($imovelIds, $propriedadeIds, $aluguelIds, $proprietarioId) {
+                    $q->whereIn('imovel_id', $imovelIds)
+                        ->orWhereIn('propriedade_id', $propriedadeIds)
+                        ->orWhereIn('aluguel_id', $aluguelIds)
+                        ->orWhere('proprietario_id', $proprietarioId);
+                });
+            }
+
+            $taxas = $taxasQuery->get();
+
+            foreach ($taxas as $t) {
             if (!empty($t->imovel_id) && in_array($t->imovel_id, $imovelIds, true)) {
                 $val = (float) $t->valor;
                 $taxasTotal += $val;
@@ -150,6 +166,7 @@ class RelatorioService
                 }
                 continue;
             }
+            }
         }
 
         $net = $net - (float) $taxasImpact;
@@ -161,32 +178,41 @@ class RelatorioService
             $mStart = $cursor->copy()->startOfMonth();
             $mEnd = $cursor->copy()->endOfMonth();
 
-            $monthSales = Transacao::whereIn('imovel_id', $imovelIds)
-                ->whereDate('data_venda', '>=', $mStart->toDateString())
-                ->whereDate('data_venda', '<=', $mEnd->toDateString())
-                ->sum('valor_venda');
+            $monthSales = $includeVendas
+                ? Transacao::whereIn('imovel_id', $imovelIds)
+                    ->whereDate('data_venda', '>=', $mStart->toDateString())
+                    ->whereDate('data_venda', '<=', $mEnd->toDateString())
+                    ->sum('valor_venda')
+                : 0;
 
-            $monthPurchases = Imovel::whereIn('id', $imovelIds)
-                ->whereDate('data_aquisicao', '>=', $mStart->toDateString())
-                ->whereDate('data_aquisicao', '<=', $mEnd->toDateString())
-                ->sum('valor_compra');
+            $monthPurchases = $includeCompras
+                ? Imovel::whereIn('id', $imovelIds)
+                    ->whereDate('data_aquisicao', '>=', $mStart->toDateString())
+                    ->whereDate('data_aquisicao', '<=', $mEnd->toDateString())
+                    ->sum('valor_compra')
+                : 0;
 
-            $monthRent = Pagamento::whereIn('aluguel_id', $aluguelIds)
-                ->whereDate('referencia_mes', '>=', $mStart->toDateString())
-                ->whereDate('referencia_mes', '<=', $mEnd->toDateString())
-                ->sum('valor_recebido');
+            $monthRent = $includeAlugueis
+                ? Pagamento::whereIn('aluguel_id', $aluguelIds)
+                    ->whereDate('referencia_mes', '>=', $mStart->toDateString())
+                    ->whereDate('referencia_mes', '<=', $mEnd->toDateString())
+                    ->sum('valor_recebido')
+                : 0;
 
-            $monthObra = Obra::whereIn('imovel_id', $imovelIds)
-                ->whereDate('data_inicio', '>=', $mStart->toDateString())
-                ->whereDate('data_inicio', '<=', $mEnd->toDateString())
-                ->sum('valor');
+            $monthObra = $includeObras
+                ? Obra::whereIn('imovel_id', $imovelIds)
+                    ->whereDate('data_inicio', '>=', $mStart->toDateString())
+                    ->whereDate('data_inicio', '<=', $mEnd->toDateString())
+                    ->sum('valor')
+                : 0;
 
             $monthTaxas = 0.0;
+            $monthTaxasImpact = 0.0;
 
-            $monthTaxas = 0.0;
-            $monthTaxasQuery = \App\Models\Taxa::with(['propriedade', 'aluguel.imovel'])
-                ->whereDate('data_pagamento', '>=', $mStart->toDateString())
-                ->whereDate('data_pagamento', '<=', $mEnd->toDateString());
+            if ($includeTaxas) {
+                $monthTaxasQuery = \App\Models\Taxa::with(['propriedade', 'aluguel.imovel'])
+                    ->whereDate('data_pagamento', '>=', $mStart->toDateString())
+                    ->whereDate('data_pagamento', '<=', $mEnd->toDateString());
 
             if (!empty($imovelId)) {
                 $monthTaxasQuery->where(function ($q) use ($imovelId) {
@@ -240,8 +266,37 @@ class RelatorioService
                 }
             }
 
-            $delta = (float) $monthSales + (float) $monthRent - (float) $monthPurchases - (float) $monthObra;
-            $monthTaxasImpact = 0.0;
+            $monthTaxasAll = $monthTaxasQuery->get();
+
+            foreach ($monthTaxasAll as $t) {
+                if (!empty($t->imovel_id) && in_array($t->imovel_id, $imovelIds, true)) {
+                    $monthTaxas += (float) $t->valor;
+                    continue;
+                }
+                if (!empty($t->aluguel) && !empty($t->aluguel->imovel) && in_array($t->aluguel->imovel->id, $imovelIds, true)) {
+                    $monthTaxas += (float) $t->valor;
+                    continue;
+                }
+                if (!empty($t->propriedade_id) && in_array($t->propriedade_id, $propriedadeIds, true)) {
+                    $prop = $t->propriedade;
+                    if (!$prop) continue;
+                    /** @var \App\Models\Propriedade $prop */
+                    $imoveisOfProp = $prop->imoveis()->pluck('id')->all();
+                    if (empty($imoveisOfProp)) continue;
+                    $intersect = array_values(array_intersect($imoveisOfProp, $imovelIds));
+                    if (empty($intersect)) continue;
+                    $share = (float) $t->valor / count($imoveisOfProp);
+                    $monthTaxas += $share * count($intersect);
+                    continue;
+                }
+                if (!empty($t->proprietario_id) && $t->proprietario_id === $proprietarioId) {
+                    if (empty($imovelId)) {
+                        $monthTaxas += (float) $t->valor;
+                    }
+                    continue;
+                }
+            }
+
             foreach ($monthTaxasAll as $t) {
                 $counted = false;
                 if (!empty($t->imovel_id) && in_array($t->imovel_id, $imovelIds, true)) {
@@ -283,8 +338,9 @@ class RelatorioService
                     }
                 }
             }
+            }
 
-            $delta = $delta - (float) $monthTaxasImpact;
+            $delta = (float) $monthSales + (float) $monthRent - (float) $monthPurchases - (float) $monthObra - (float) $monthTaxasImpact;
             $cumulative += $delta;
 
 

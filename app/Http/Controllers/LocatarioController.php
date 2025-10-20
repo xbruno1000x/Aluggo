@@ -14,9 +14,7 @@ class LocatarioController extends Controller
     {
         $proprietarioId = Auth::id();
         
-        $query = Locatario::whereHas('alugueis.imovel.propriedade', function ($q) use ($proprietarioId) {
-            $q->where('proprietario_id', $proprietarioId);
-        });
+        $query = Locatario::where('proprietario_id', $proprietarioId);
 
         if ($request->filled('search')) {
             $search = $request->input('search');
@@ -61,6 +59,8 @@ class LocatarioController extends Controller
             'email'    => 'nullable|email|max:255',
         ]);
 
+        $validated['proprietario_id'] = Auth::id();
+
         Locatario::create($validated);
 
         return redirect()->route('locatarios.index')
@@ -71,13 +71,7 @@ class LocatarioController extends Controller
     {
         $proprietarioId = Auth::id();
         
-        $pertenceAoProprietario = $locatario->alugueis()
-            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
-                $q->where('proprietario_id', $proprietarioId);
-            })
-            ->exists();
-            
-        if (!$pertenceAoProprietario) {
+        if ($locatario->proprietario_id !== $proprietarioId) {
             abort(403, 'Acesso negado.');
         }
         
@@ -88,13 +82,7 @@ class LocatarioController extends Controller
     {
         $proprietarioId = Auth::id();
         
-        $pertenceAoProprietario = $locatario->alugueis()
-            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
-                $q->where('proprietario_id', $proprietarioId);
-            })
-            ->exists();
-            
-        if (!$pertenceAoProprietario) {
+        if ($locatario->proprietario_id !== $proprietarioId) {
             abort(403, 'Acesso negado.');
         }
         
@@ -114,13 +102,7 @@ class LocatarioController extends Controller
     {
         $proprietarioId = Auth::id();
         
-        $pertenceAoProprietario = $locatario->alugueis()
-            ->whereHas('imovel.propriedade', function ($q) use ($proprietarioId) {
-                $q->where('proprietario_id', $proprietarioId);
-            })
-            ->exists();
-            
-        if (!$pertenceAoProprietario) {
+        if ($locatario->proprietario_id !== $proprietarioId) {
             abort(403, 'Acesso negado.');
         }
         

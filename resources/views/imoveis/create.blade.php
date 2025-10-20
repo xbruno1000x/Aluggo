@@ -77,7 +77,10 @@
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+                <button type="submit" class="btn btn-success w-100" id="btn-submit-imovel">
+                    <span class="btn-text">Cadastrar</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </div>
         </form>
 
@@ -159,5 +162,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/propriedade-modal.ts'])
+@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/imovel-form-submit.ts'])
 @endsection

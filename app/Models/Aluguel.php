@@ -25,6 +25,15 @@ class Aluguel extends Model
     ];
 
     /**
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'valor_mensal' => 'decimal:2',
+        'data_inicio' => 'date',
+        'data_fim' => 'date',
+    ];
+
+    /**
      * @return BelongsTo<Imovel, $this>
      */
     public function imovel(): BelongsTo
