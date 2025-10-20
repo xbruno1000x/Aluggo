@@ -13,7 +13,7 @@
                 <p class="text-dark small mb-0">Digite o código enviado para o seu dispositivo</p>
             </header>
 
-            <form action="{{ route('admin.twofactor.verify') }}" method="POST" class="needs-validation" novalidate>
+            <form action="{{ route('admin.twofactor.verify') }}" method="POST" class="needs-validation" novalidate data-spinner>
                 @csrf
 
                 <div class="mb-3">
@@ -24,7 +24,10 @@
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Verificar</button>
+                <button type="submit" class="btn btn-primary w-100">
+                    <span class="btn-text">Verificar</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </form>
 
             <div class="text-center mt-3">
@@ -40,4 +43,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

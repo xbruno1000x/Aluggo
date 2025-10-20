@@ -26,7 +26,7 @@
 
             <p class="text-center text-muted mb-3">ou</p>-->
 
-            <form action="{{ route('admin.login.post') }}" method="POST">
+            <form action="{{ route('admin.login.post') }}" method="POST" data-spinner>
                 @csrf
 
                 <div class="mb-3">
@@ -52,7 +52,10 @@
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
 
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-primary w-100">
+                    <span class="btn-text">Login</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </form>
 
             <footer class="mt-3 text-center">
@@ -65,4 +68,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

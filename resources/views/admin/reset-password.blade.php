@@ -13,7 +13,7 @@
                 <p class="text-muted mb-0">Informe sua nova senha</p>
             </header>
 
-            <form action="{{ route('admin.reset.password.post') }}" method="POST" class="needs-validation" novalidate>
+            <form action="{{ route('admin.reset.password.post') }}" method="POST" class="needs-validation" novalidate data-spinner>
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
 
@@ -38,7 +38,10 @@
                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirme a nova senha" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Redefinir Senha</button>
+                <button type="submit" class="btn btn-primary w-100">
+                    <span class="btn-text">Redefinir Senha</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </form>
 
             <footer class="mt-3 text-center">
@@ -48,4 +51,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

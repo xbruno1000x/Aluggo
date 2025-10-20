@@ -6,7 +6,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('obras.store') }}" method="POST">
+        <form action="{{ route('obras.store') }}" method="POST" data-spinner>
             @csrf
 
             <div class="mb-3">
@@ -47,10 +47,17 @@
             </div>
 
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success">
+                    <span class="btn-text">Salvar</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
                 <a href="{{ route('obras.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
  </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

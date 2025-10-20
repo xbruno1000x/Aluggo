@@ -73,10 +73,13 @@
                     <td class="text-center d-flex gap-2 justify-content-center">
                         @if($p->status !== 'paid')
                         {{-- Full payment (existing) --}}
-                        <form method="POST" action="{{ route('pagamentos.markPaid', $p) }}" class="d-inline">
+                        <form method="POST" action="{{ route('pagamentos.markPaid', $p) }}" class="d-inline" data-spinner>
                             @csrf
                             <input type="hidden" name="valor_recebido" value="{{ $p->valor_devido }}">
-                            <button class="btn btn-sm btn-outline-danger">Marcar Pago</button>
+                            <button class="btn btn-sm btn-outline-danger">
+                                <span class="btn-text">Marcar Pago</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
                         </form>
 
                         {{-- Open modal to register partial or custom payment --}}
@@ -89,9 +92,12 @@
                         </button>
                         @endif
                         @if(in_array($p->status, ['paid', 'partial']))
-                        <form method="POST" action="{{ route('pagamentos.revert', $p) }}" class="d-inline">
+                        <form method="POST" action="{{ route('pagamentos.revert', $p) }}" class="d-inline" data-spinner>
                             @csrf
-                            <button class="btn btn-sm btn-outline-danger">Desfazer</button>
+                            <button class="btn btn-sm btn-outline-danger">
+                                <span class="btn-text">Desfazer</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
                         </form>
                         @endif
                     </td>
@@ -110,13 +116,16 @@
 </div>
 
 <div class="mt-4 d-flex justify-content-end">
-    <form id="mark-all-form" method="POST" action="{{ route('pagamentos.markAll') }}">
+    <form id="mark-all-form" method="POST" action="{{ route('pagamentos.markAll') }}" data-spinner>
         @csrf
         <input type="hidden" name="month" value="{{ \Carbon\Carbon::parse($ref)->format('Y-m-d') }}">
         @if(request()->query('aluguel_id'))
             <input type="hidden" name="aluguel_id" value="{{ request()->query('aluguel_id') }}">
         @endif
-        <button class="btn btn-danger">Marcar todos como pagos</button>
+        <button class="btn btn-danger">
+            <span class="btn-text">Marcar todos como pagos</span>
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+        </button>
     </form>
 </div>
 
@@ -126,7 +135,7 @@
 <div class="modal fade" id="partialPaymentModal" tabindex="-1" aria-labelledby="partialPaymentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="partialPaymentForm" method="POST" action="">
+            <form id="partialPaymentForm" method="POST" action="" data-spinner>
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="partialPaymentModalLabel">Registrar Pagamento</h5>
@@ -145,12 +154,15 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-success">Registrar</button>
+                    <button type="submit" class="btn btn-success">
+                        <span class="btn-text">Registrar</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-@vite(['resources/ts/pagamentos-modal.ts'])
+@vite(['resources/ts/pagamentos-modal.ts', 'resources/ts/form-spinner.ts'])
 @endpush

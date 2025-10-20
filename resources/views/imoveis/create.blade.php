@@ -12,7 +12,7 @@
         <h2 class="mb-4 text-warning text-center">@yield('header')</h2>
 
         <!-- Formulário centralizado -->
-        <form action="{{ route('imoveis.store') }}" method="POST" class="row g-3">
+        <form action="{{ route('imoveis.store') }}" method="POST" class="row g-3" data-spinner>
             @csrf
 
             <div class="col-12">
@@ -110,7 +110,7 @@
                     <div class="mb-3">
                         <label for="p_nome" class="form-label">Nome</label>
                         <input type="text" id="p_nome" name="nome" class="form-control" required
-                               placeholder="Digite o nome da propriedade">
+                               placeholder="Ex: Condominio das Flores">
                     </div>
 
                     <div class="mb-3">
@@ -119,28 +119,32 @@
                                placeholder="Ex: Rua das Palmeiras, 123">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="p_cep" class="form-label">CEP</label>
-                        <input type="text" id="p_cep" name="cep" class="form-control"
-                               placeholder="Ex: 28000-000">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="p_cep" class="form-label">CEP</label>
+                            <input type="text" id="p_cep" name="cep" class="form-control"
+                                   placeholder="00000-000">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="p_bairro" class="form-label">Bairro</label>
+                            <input type="text" id="p_bairro" name="bairro" class="form-control"
+                                   placeholder="Informe o bairro">
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="p_cidade" class="form-label">Cidade</label>
-                        <input type="text" id="p_cidade" name="cidade" class="form-control"
-                               placeholder="Informe a cidade">
-                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label for="p_cidade" class="form-label">Cidade</label>
+                            <input type="text" id="p_cidade" name="cidade" class="form-control"
+                                   placeholder="Nome da cidade">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="p_estado" class="form-label">Estado</label>
-                        <input type="text" id="p_estado" name="estado" class="form-control"
-                               placeholder="Ex: RJ">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="p_bairro" class="form-label">Bairro</label>
-                        <input type="text" id="p_bairro" name="bairro" class="form-control" required
-                               placeholder="Informe o bairro">
+                        <div class="col-md-4 mb-3">
+                            <label for="p_estado" class="form-label">Estado</label>
+                            <input type="text" id="p_estado" name="estado" class="form-control"
+                                   placeholder="UF" maxlength="2">
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -148,6 +152,7 @@
                         <textarea id="p_descricao" name="descricao" rows="3" class="form-control"
                                   placeholder="Adicione uma breve descrição da propriedade"></textarea>
                     </div>
+                </div>
                 </div>
 
                 <div class="modal-footer">
@@ -162,5 +167,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/imovel-form-submit.ts'])
+@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/form-spinner.ts'])
 @endsection

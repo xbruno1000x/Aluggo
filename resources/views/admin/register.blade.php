@@ -13,7 +13,7 @@
                 <p class="text-muted mb-0">Preencha os campos abaixo para se cadastrar</p>
             </header>
 
-            <form action="{{ route('admin.register.post') }}" method="POST" class="needs-validation" novalidate>
+            <form action="{{ route('admin.register.post') }}" method="POST" class="needs-validation" novalidate data-spinner>
                 @csrf
 
                 <div class="mb-3">
@@ -64,7 +64,10 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                <button type="submit" class="btn btn-primary w-100">
+                    <span class="btn-text">Cadastrar</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
 
                 @if (session('success'))
                     <div class="alert alert-success mt-3">
@@ -80,4 +83,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

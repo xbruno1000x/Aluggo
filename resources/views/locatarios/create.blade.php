@@ -12,7 +12,7 @@
         <h2 class="mb-4 text-warning text-center">@yield('header')</h2>
 
         <!-- Formulário centralizado -->
-        <form action="{{ route('locatarios.store') }}" method="POST" class="row g-3">
+        <form action="{{ route('locatarios.store') }}" method="POST" class="row g-3" data-spinner>
             @csrf
 
             <div class="col-12">
@@ -59,7 +59,10 @@
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-success w-100">Cadastrar Locatário</button>
+                <button type="submit" class="btn btn-success w-100">
+                    <span class="btn-text">Cadastrar Locatário</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </div>
         </form>
 
@@ -70,4 +73,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

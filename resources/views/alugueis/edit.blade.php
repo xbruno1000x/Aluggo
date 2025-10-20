@@ -6,7 +6,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('alugueis.update', $aluguel) }}" method="POST">
+        <form action="{{ route('alugueis.update', $aluguel) }}" method="POST" data-spinner>
             @csrf
             @method('PUT')
 
@@ -57,10 +57,17 @@
             </div>
 
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-success">Salvar alterações</button>
+                <button type="submit" class="btn btn-success">
+                    <span class="btn-text">Salvar alterações</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
                 <a href="{{ route('alugueis.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

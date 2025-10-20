@@ -24,7 +24,7 @@
             </div>
 
             <!-- Formulário para E-mail -->
-            <form id="email-form" class="recovery-form active" action="{{ route('admin.recovery-email') }}" method="POST">
+            <form id="email-form" class="recovery-form active" action="{{ route('admin.recovery-email') }}" method="POST" data-spinner>
                 @csrf
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">
@@ -35,13 +35,16 @@
                 @if (session('status'))
                     <div class="alert alert-success">{{ session('status') }}</div>
                 @endif
-                <button type="submit" class="btn btn-success w-100">Enviar link de recuperação</button>
+                <button type="submit" class="btn btn-success w-100">
+                    <span class="btn-text">Enviar link de recuperação</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </form>
 
             <!-- Formulário para 2FA -->
             <form id="2fa-form" class="recovery-form mt-3" 
                   action="{{ route('admin.reset.twofactor.verify') }}" 
-                  method="POST" style="display: none;">
+                  method="POST" style="display: none;" data-spinner>
                 @csrf
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">
@@ -58,7 +61,10 @@
                 @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
-                <button type="submit" class="btn btn-success w-100">Verificar Código</button>
+                <button type="submit" class="btn btn-success w-100">
+                    <span class="btn-text">Verificar Código</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </form>
 
             <footer class="mt-4 text-center">
@@ -70,4 +76,8 @@
 
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/password-recovery.ts', 'resources/ts/form-spinner.ts'])
+@endpush
 @endsection

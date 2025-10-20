@@ -8,7 +8,7 @@
     <div class="w-100" style="max-width: 600px;">
         <h2 class="mb-4 text-warning text-center">@yield('header')</h2>
 
-        <form action="{{ route('transacoes.store') }}" method="post" class="row g-3">
+        <form action="{{ route('transacoes.store') }}" method="post" class="row g-3" data-spinner>
             @csrf
 
             <div class="col-12">
@@ -31,7 +31,10 @@
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-success w-100">Registrar Venda</button>
+                <button type="submit" class="btn btn-success w-100">
+                    <span class="btn-text">Registrar Venda</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </div>
         </form>
 
@@ -40,4 +43,8 @@
         </div>
     </div>
 </div>
+
+@push('scripts-body')
+    @vite(['resources/ts/form-spinner.ts'])
+@endpush
 @endsection

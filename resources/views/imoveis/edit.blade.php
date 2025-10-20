@@ -7,7 +7,7 @@
 @section('content')
 <div class="d-flex justify-content-center">
     <div class="w-100" style="max-width: 600px;">
-        <form action="{{ route('imoveis.update', $imovel) }}" method="POST" class="row g-3">
+        <form action="{{ route('imoveis.update', $imovel) }}" method="POST" class="row g-3" data-spinner>
             @csrf
             @method('PUT')
 
@@ -110,10 +110,32 @@
                                placeholder="Ex: Rua das Palmeiras, 123">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="p_bairro" class="form-label">Bairro</label>
-                        <input type="text" id="p_bairro" name="bairro" class="form-control" required
-                               placeholder="Informe o bairro">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="p_cep" class="form-label">CEP</label>
+                            <input type="text" id="p_cep" name="cep" class="form-control"
+                                   placeholder="00000-000">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="p_bairro" class="form-label">Bairro</label>
+                            <input type="text" id="p_bairro" name="bairro" class="form-control"
+                                   placeholder="Informe o bairro">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label for="p_cidade" class="form-label">Cidade</label>
+                            <input type="text" id="p_cidade" name="cidade" class="form-control"
+                                   placeholder="Nome da cidade">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="p_estado" class="form-label">Estado</label>
+                            <input type="text" id="p_estado" name="estado" class="form-control"
+                                   placeholder="UF" maxlength="2">
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -136,5 +158,5 @@
 </div>
 
 <!-- Script do modal -->
-@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/imovel-form-submit.ts'])
+@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/form-spinner.ts'])
 @endsection

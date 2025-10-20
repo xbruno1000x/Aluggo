@@ -7,7 +7,7 @@
 <div class="d-flex justify-content-center">
     <div class="w-100" style="max-width: 600px;">
         <h2 class="mb-4 text-warning text-center">@yield('header')</h2>
-        <form action="{{ route('taxas.store') }}" method="POST" class="row g-3">
+        <form action="{{ route('taxas.store') }}" method="POST" class="row g-3" data-spinner>
             @csrf
             <div class="col-12">
                 <label class="form-label">Vincular a</label>
@@ -77,12 +77,15 @@
             </div>
             <div class="col-12 d-flex gap-2">
                 <a href="{{ route('taxas.index') }}" class="btn btn-secondary">Voltar</a>
-                <button class="btn btn-success ms-auto">Salvar</button>
+                <button type="submit" class="btn btn-success ms-auto">
+                    <span class="btn-text">Salvar</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
             </div>
         </form>
     </div>
 </div>
 @push('scripts-body')
-    @vite(['resources/ts/taxas-assoc.ts'])
+    @vite(['resources/ts/taxas-assoc.ts', 'resources/ts/form-spinner.ts'])
 @endpush
 @endsection

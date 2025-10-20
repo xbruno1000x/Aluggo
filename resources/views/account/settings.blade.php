@@ -22,14 +22,17 @@
         </button>
 
         <!-- Formulário de ativação/desativação 2FA -->
-        <form method="POST" action="{{ route('account.toggle2fa') }}" class="mb-4">
+        <form method="POST" action="{{ route('account.toggle2fa') }}" class="mb-4" data-spinner>
             @csrf
             <button type="submit" class="btn btn-warning w-100">
-                @if($is2FAEnabled)
-                    Desativar Autenticação de 2 Fatores
-                @else
-                    Ativar Autenticação de 2 Fatores
-                @endif
+                <span class="btn-text">
+                    @if($is2FAEnabled)
+                        Desativar Autenticação de 2 Fatores
+                    @else
+                        Ativar Autenticação de 2 Fatores
+                    @endif
+                </span>
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
             </button>
         </form>
 
@@ -58,7 +61,7 @@
 <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="password-form" method="POST" action="{{ route('account.password.update') }}">
+            <form id="password-form" method="POST" action="{{ route('account.password.update') }}" data-spinner data-spinner-button="btn-submit-password">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -97,5 +100,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts'])
+@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts'])
 @endsection

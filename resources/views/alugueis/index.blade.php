@@ -4,7 +4,8 @@
 @push('scripts-body')
     @vite([
         'resources/ts/delete-confirm.ts',
-        'resources/ts/aluguel-adjust.ts'
+        'resources/ts/aluguel-adjust.ts',
+        'resources/ts/form-spinner.ts'
     ])
 @endpush
 
@@ -63,15 +64,21 @@
                             Reajuste
                         </button>
 
-                        <form method="POST" action="{{ route('alugueis.renew', $aluguel) }}" class="d-inline">
+                        <form method="POST" action="{{ route('alugueis.renew', $aluguel) }}" class="d-inline" data-spinner>
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-secondary">Renovar</button>
+                            <button type="submit" class="btn btn-sm btn-secondary">
+                                <span class="btn-text">Renovar</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
                         </form>
 
-                        <form action="{{ route('alugueis.destroy', $aluguel) }}" method="POST" class="d-inline" data-confirm data-confirm-text="Deseja realmente excluir este contrato?">
+                        <form action="{{ route('alugueis.destroy', $aluguel) }}" method="POST" class="d-inline" data-confirm data-confirm-text="Deseja realmente excluir este contrato?" data-spinner>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <span class="btn-text">Excluir</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
                         </form>
                     </td>
                 </tr>
