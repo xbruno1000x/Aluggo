@@ -72,6 +72,45 @@
         </div>
     </div>
 
+    <div class="card border-secondary mb-4">
+        <div class="card-body">
+            <h5 class="card-title text-secondary">Filtros Dinâmicos</h5>
+            <p class="text-muted small mb-3">Desmarque um item para excluir seus valores do gráfico e da tabela.</p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-2">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterSales" data-key="monthSales" checked>
+                        <label class="form-check-label" for="filterSales">Incluir vendas</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterPurchases" data-key="monthPurchases" checked>
+                        <label class="form-check-label" for="filterPurchases">Incluir compras</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterRent" data-key="monthRent" checked>
+                        <label class="form-check-label" for="filterRent">Incluir aluguéis</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterObra" data-key="monthObra" checked>
+                        <label class="form-check-label" for="filterObra">Incluir obras</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterTax" data-key="monthTaxas" checked>
+                        <label class="form-check-label" for="filterTax">Incluir taxas</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h4>Série Mensal</h4>
     <div class="mb-4">
         <canvas id="patrimonioChart" height="120" data-series='@json($data['series'] ?? [])'></canvas>
@@ -92,15 +131,15 @@
             </thead>
             <tbody>
                 @foreach($data['series'] ?? [] as $s)
-                    <tr>
-                        <td>{{ $s['label'] }}</td>
-                        <td>R$ {{ number_format($s['monthSales'], 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['monthPurchases'], 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['monthRent'], 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['monthObra'], 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['monthTaxas'] ?? 0, 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['delta'], 2, ',', '.') }}</td>
-                        <td>R$ {{ number_format($s['cumulative'], 2, ',', '.') }}</td>
+                    <tr data-series-row>
+                        <td data-field="label">{{ $s['label'] }}</td>
+                        <td data-field="monthSales">R$ {{ number_format($s['monthSales'], 2, ',', '.') }}</td>
+                        <td data-field="monthPurchases">R$ {{ number_format($s['monthPurchases'], 2, ',', '.') }}</td>
+                        <td data-field="monthRent">R$ {{ number_format($s['monthRent'], 2, ',', '.') }}</td>
+                        <td data-field="monthObra">R$ {{ number_format($s['monthObra'], 2, ',', '.') }}</td>
+                        <td data-field="monthTaxas">R$ {{ number_format($s['monthTaxas'] ?? 0, 2, ',', '.') }}</td>
+                        <td data-field="delta">R$ {{ number_format($s['delta'], 2, ',', '.') }}</td>
+                        <td data-field="cumulative">R$ {{ number_format($s['cumulative'], 2, ',', '.') }}</td>
                     </tr>
                 @endforeach
             </tbody>

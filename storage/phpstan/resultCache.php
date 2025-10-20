@@ -2094,26 +2094,6 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Ternary operator condition is always true.',
-       'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 322,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 322,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Ternary',
-       'identifier' => 'ternary.alwaysTrue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
 ); },
@@ -2523,7 +2503,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => '9ad7bce247d513812caa513b6d2f6c48cddcdc20',
+    'fileHash' => '98d839e86580acb68b827625f4522b12f897c8cf',
     'dependentFiles' => 
     array (
     ),
@@ -2583,7 +2563,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\RelatorioController.php' => 
   array (
-    'fileHash' => 'e05185ba56788e29c8c9835904086fcd873976d1',
+    'fileHash' => '34b27962997761ddfcb94b1cc8608bd803c79dc5',
     'dependentFiles' => 
     array (
     ),
@@ -2747,7 +2727,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php' => 
   array (
-    'fileHash' => 'a63a179c61b8ee84dc386b9ea42f565d43293c25',
+    'fileHash' => '7b6531c300a79b6302734f4be44cb54a6b7eae88',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\RelatorioController.php',
@@ -7903,6 +7883,7 @@ return [
      * @param string $startYmd
      * @param string $endYmd
      * @param int $proprietarioId
+     * @param array<string,bool> $filters
      * @return array{aggregates:array<string,mixed>,series:list<array<string,mixed>>}
      */',
              'namespace' => 'App\\Services',
@@ -7970,6 +7951,17 @@ return [
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            4 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'filters',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
                'attributes' => 
               array (
               ),
