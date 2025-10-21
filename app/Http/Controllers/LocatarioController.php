@@ -26,23 +26,6 @@ class LocatarioController extends Controller
         }
 
         $locatarios = $query->orderBy('nome')->get();
-
-        $locatarios->transform(function ($item) {
-            $raw = preg_replace('/[^0-9]/', '', (string) $item->telefone);
-            $formatted = $item->telefone;
-            if (strlen($raw) === 11) {
-                // celular: (AA)NNNNN-NNNN
-                $formatted = sprintf('(%s)%s-%s', substr($raw, 0, 2), substr($raw, 2, 5), substr($raw, 7));
-            } elseif (strlen($raw) === 10) {
-                // fixo: (AA)NNNN-NNNN
-                $formatted = sprintf('(%s)%s-%s', substr($raw, 0, 2), substr($raw, 2, 4), substr($raw, 6));
-            } elseif ($raw === '') {
-                $formatted = '';
-            }
-            $item->telefone = $formatted;
-            return $item;
-        });
-
         return view('locatarios.index', compact('locatarios'));
     }
 

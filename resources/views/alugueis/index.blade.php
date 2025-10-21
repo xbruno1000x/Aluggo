@@ -72,6 +72,14 @@
                             </button>
                         </form>
 
+                        <form method="POST" action="{{ route('alugueis.terminate', $aluguel) }}" class="d-inline" data-confirm data-confirm-text="Deseja realmente encerrar este contrato? A data de término será definida para hoje." data-spinner>
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-warning">
+                                <span class="btn-text">Encerrar</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
+                        </form>
+
                         <form action="{{ route('alugueis.destroy', $aluguel) }}" method="POST" class="d-inline" data-confirm data-confirm-text="Deseja realmente excluir este contrato?" data-spinner>
                             @csrf
                             @method('DELETE')

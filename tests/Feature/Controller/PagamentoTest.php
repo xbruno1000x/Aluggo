@@ -110,18 +110,19 @@ test('mark all paid marca todos pagamentos pendentes e parciais', function () {
     $loc1 = Locatario::factory()->create();
     $loc2 = Locatario::factory()->create();
 
+    // Aluguéis começaram mês passado
     $al1 = Aluguel::factory()->create([
         'imovel_id' => $imovel1->id,
         'locatario_id' => $loc1->id,
         'valor_mensal' => 800,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
         'data_fim' => null,
     ]);
     $al2 = Aluguel::factory()->create([
         'imovel_id' => $imovel2->id,
         'locatario_id' => $loc2->id,
         'valor_mensal' => 1200,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
         'data_fim' => null,
     ]);
 
@@ -142,11 +143,12 @@ test('mark all paid marca todos pagamentos pendentes e parciais', function () {
 
 test('index cria pagamentos preguiçosamente para alugueis ativos', function () {
     $loc = Locatario::factory()->create();
+    // Aluguel começou mês passado, então gera pagamento para este mês
     $aluguel = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc->id,
         'valor_mensal' => 700,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
@@ -160,11 +162,12 @@ test('index cria pagamentos preguiçosamente para alugueis ativos', function () 
 
 test('aceita formatos de mês MM/YYYY e DD/MM/YYYY no index', function () {
     $loc = Locatario::factory()->create();
+    // Aluguel começou mês passado
     $aluguel = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc->id,
         'valor_mensal' => 900,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $m = Carbon::now()->format('m/Y');
@@ -180,11 +183,12 @@ test('aceita formatos de mês MM/YYYY e DD/MM/YYYY no index', function () {
 
 test('normalizeMonthToStart trata formato invalido e retorna now', function () {
     $loc = Locatario::factory()->create();
+    // Aluguel começou mês passado
     $aluguel = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc->id,
         'valor_mensal' => 800,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $response = $this->get(route('pagamentos.index', ['month' => 'formato-invalido']));
@@ -201,18 +205,19 @@ test('index filtra por aluguel_id quando fornecido', function () {
     
     $imovel2 = Imovel::factory()->create(['propriedade_id' => $this->propriedade->id]);
     
+    // Aluguéis começaram mês passado
     $aluguel1 = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc1->id,
         'valor_mensal' => 1000,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
     
     $aluguel2 = Aluguel::factory()->create([
         'imovel_id' => $imovel2->id,
         'locatario_id' => $loc2->id,
         'valor_mensal' => 1500,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
@@ -440,11 +445,12 @@ test('markAllPaid trata exception do insertOrIgnore graciosamente', function () 
 
 test('index loga debug informacoes quando possivel', function () {
     $loc = Locatario::factory()->create();
+    // Aluguel começou mês passado
     $aluguel = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc->id,
         'valor_mensal' => 800,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
@@ -461,11 +467,12 @@ test('index nao exibe pagamentos de outros proprietarios', function () {
     $outroImovel = Imovel::factory()->create(['propriedade_id' => $outraPropriedade->id, 'nome' => 'Imovel do Outro']);
     $outroLocatario = Locatario::factory()->create(['nome' => 'Locatario do Outro']);
     
+    // Aluguel do outro começou mês passado
     $outroAluguel = Aluguel::factory()->create([
         'imovel_id' => $outroImovel->id,
         'locatario_id' => $outroLocatario->id,
         'valor_mensal' => 5000,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $ref = Carbon::now()->startOfMonth()->toDateString();
@@ -479,11 +486,12 @@ test('index nao exibe pagamentos de outros proprietarios', function () {
     ]);
 
     $loc = Locatario::factory()->create(['nome' => 'Meu Locatario']);
+    // Meu aluguel também começou mês passado
     $meuAluguel = Aluguel::factory()->create([
         'imovel_id' => $this->imovel->id,
         'locatario_id' => $loc->id,
         'valor_mensal' => 1000,
-        'data_inicio' => Carbon::now()->startOfMonth()->toDateString(),
+        'data_inicio' => Carbon::now()->subMonth()->startOfMonth()->toDateString(),
     ]);
 
     $response = $this->get(route('pagamentos.index', ['month' => $ref]));

@@ -129,6 +129,29 @@
     </form>
 </div>
 
+@if(!empty($overdues))
+    <div class="mt-4">
+        <h5 class="text-warning">Inquilinos em atraso</h5>
+        <div class="list-group list-group-flush">
+            @foreach($overdues as $ov)
+                <div class="list-group-item bg-dark text-light d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ $ov['locatario']->nome }}</strong>
+                        @if(!empty($ov['locatario']->telefone))
+                            <div class="small text-warning">{{ $ov['locatario']->telefone }}</div>
+                        @endif
+                    </div>
+                    <div class="text-end">
+                        @foreach($ov['months'] as $m)
+                            <span class="badge bg-danger ms-1">{{ $m }}</span>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+@endif
+
 @endsection
 
 @push('scripts-body')

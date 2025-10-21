@@ -389,4 +389,27 @@ class AluguelController extends Controller
 
         return (float) $normalized;
     }
+
+    /**
+     * Encerra o contrato de aluguel definindo data_fim para hoje.
+     */
+    public function terminate(Aluguel $aluguel): RedirectResponse
+    {
+        $proprietarioId = \Illuminate\Support\Facades\Auth::id();
+        
+        if (!$aluguel->imovel || 
+            !$aluguel->imovel->propriedade || 
+            $aluguel->imovel->propriedade->proprietario_id !== $proprietarioId) {
+            abort(403, 'Acesso negado.');
+        }
+
+        if ($aluguel->data_fim && \Carbon\Carbon::parse($aluguel->data_fim)->lt(\Carbon\Carbon::today())) {
+            return redirect()->route('alugueis.index')->with('info', 'Este contrato já está encerrado.');
+        }
+
+        $aluguel->data_fim = \Carbon\Carbon::today()->toDateString();
+        $aluguel->save();
+
+        return redirect()->route('alugueis.index')->with('success', 'Contrato encerrado com sucesso.');
+    }
 }
