@@ -79,13 +79,13 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-2">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterSales" data-key="monthSales" checked>
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterSales" data-key="monthSales">
                         <label class="form-check-label" for="filterSales">Incluir vendas</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterPurchases" data-key="monthPurchases" checked>
+                        <input class="form-check-input js-relatorio-filter" type="checkbox" id="filterPurchases" data-key="monthPurchases">
                         <label class="form-check-label" for="filterPurchases">Incluir compras</label>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ class AluguelFactory extends Factory
 
         return [
             'valor_mensal' => 1000.00,
+            'caucao' => $this->faker->optional(0.7)->randomFloat(2, 500, 3000), // 70% chance de ter caução
             'data_inicio' => $startDate->toDateString(),
             'data_fim' => $endDate,
             'imovel_id' => Imovel::factory(),

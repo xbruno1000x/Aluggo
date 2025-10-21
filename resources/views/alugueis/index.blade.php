@@ -26,6 +26,7 @@
                 <th>Propriedade</th>
                 <th>Locatário</th>
                 <th>Valor mensal</th>
+                <th>Caução</th>
                 <th>Início</th>
                 <th>Fim</th>
                 <th class="text-center">Ações</th>
@@ -39,6 +40,13 @@
                     <td>{{ $aluguel->locatario->nome ?? 'N/D' }}</td>
                     <td>
                         {{ $aluguel->valor_mensal !== null ? 'R$ ' . number_format($aluguel->valor_mensal, 2, ',', '.') : 'N/A' }}
+                    </td>
+                    <td>
+                        @if($aluguel->caucao !== null && $aluguel->caucao > 0)
+                            <span class="text-success">R$ {{ number_format($aluguel->caucao, 2, ',', '.') }}</span>
+                        @else
+                            <span class="text-muted">N/A</span>
+                        @endif
                     </td>
                     <td>{{ $aluguel->data_inicio ? \Carbon\Carbon::parse($aluguel->data_inicio)->format('d/m/Y') : '-' }}</td>
                     <td>{{ $aluguel->data_fim ? \Carbon\Carbon::parse($aluguel->data_fim)->format('d/m/Y') : '-' }}</td>

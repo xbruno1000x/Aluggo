@@ -18,6 +18,7 @@ class Aluguel extends Model
 
     protected $fillable = [
         'valor_mensal',
+        'caucao',
         'data_inicio',
         'data_fim',
         'imovel_id',

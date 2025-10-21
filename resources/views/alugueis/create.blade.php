@@ -36,19 +36,29 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="valor_mensal" class="form-label">Valor mensal (R$)</label>
                     <input type="number" name="valor_mensal" id="valor_mensal" step="0.01" min="0" class="form-control @error('valor_mensal') is-invalid @enderror" value="{{ old('valor_mensal') }}" required>
                     @error('valor_mensal')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
+                    <label for="caucao" class="form-label">Caução (R$)</label>
+                    <div class="input-group">
+                        <input type="number" name="caucao" id="caucao" step="0.01" min="0" class="form-control @error('caucao') is-invalid @enderror" value="{{ old('caucao') }}" placeholder="0,00">
+                        <button type="button" class="btn btn-outline-secondary" id="btn-na-caucao">N/A</button>
+                    </div>
+                    <div class="form-text">Deixe vazio ou clique em N/A se não houver caução</div>
+                    @error('caucao')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                </div>
+
+                <div class="col-md-3 mb-3">
                     <label for="data_inicio" class="form-label">Data de início</label>
                     <input type="date" name="data_inicio" id="data_inicio" class="form-control @error('data_inicio') is-invalid @enderror" value="{{ old('data_inicio') }}" required>
                     @error('data_inicio')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="data_fim" class="form-label">Data de fim (opcional)</label>
                     <input type="date" name="data_fim" id="data_fim" class="form-control @error('data_fim') is-invalid @enderror" value="{{ old('data_fim') }}">
                     @error('data_fim')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -68,5 +78,12 @@
 
 @push('scripts-body')
     @vite(['resources/ts/form-spinner.ts'])
+    <script>
+        document.getElementById('btn-na-caucao').addEventListener('click', function() {
+            const caucaoInput = document.getElementById('caucao');
+            caucaoInput.value = '';
+            caucaoInput.placeholder = 'N/A';
+        });
+    </script>
 @endpush
 @endsection
