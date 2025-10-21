@@ -45,7 +45,7 @@ class Locatario extends Model
      */
     public function getTelefoneAttribute(?string $value): ?string
     {
-        if (empty($value)) return null;
+        if (empty($value)) return '';
 
         // Remove tudo que não for número ou +
         $raw = preg_replace('/[^0-9+]/', '', $value);
@@ -65,7 +65,6 @@ class Locatario extends Model
             $prefix = '+55 ';
         } else {
             $prefix = $hasPlus ? '+' : '';
-            if ($prefix === '+') $prefix = '+'.substr($raw, 1, strlen($raw)-1) === '' ? '+' : '';
         }
 
         // Agora digits deve ter 10 ou 11 caracteres (DDD + número)
@@ -74,14 +73,14 @@ class Locatario extends Model
             $area = substr($digits, 0, 2);
             $part1 = substr($digits, 2, 5);
             $part2 = substr($digits, 7, 4);
-            return ($prefix === '+55 ' ? $prefix : '') . "({$area}) {$part1}-{$part2}";
+            return ($prefix === '+55 ' ? $prefix : '') . "({$area}){$part1}-{$part2}";
         }
 
         if ($len === 10) {
             $area = substr($digits, 0, 2);
             $part1 = substr($digits, 2, 4);
             $part2 = substr($digits, 6, 4);
-            return ($prefix === '+55 ' ? $prefix : '') . "({$area}) {$part1}-{$part2}";
+            return ($prefix === '+55 ' ? $prefix : '') . "({$area}){$part1}-{$part2}";
         }
 
         // Fallback: exiba com prefixo se existir

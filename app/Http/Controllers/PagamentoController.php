@@ -32,17 +32,11 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-        // Buscar aluguéis que estiveram ativos em QUALQUER momento durante o mês de referência
-        // Isso inclui:
-        // 1. Contratos que começaram antes e ainda estão ativos
-        // 2. Contratos que começaram durante o mês
-        // 3. Contratos que terminaram durante o mês (para pagamento proporcional)
-        $alugueisQuery = Aluguel::where(function ($q) use ($start, $end) {
+        $alugueisQuery = Aluguel::where(function ($q) use ($end) {
                 // Contrato deve ter começado até o fim do mês de referência
                 $q->whereDate('data_inicio', '<=', $end->toDateString());
             })
             ->where(function ($q) use ($start) {
-                // E não ter terminado antes do início do mês de referência
                 $q->whereNull('data_fim')
                   ->orWhereDate('data_fim', '>=', $start->toDateString());
             })
@@ -67,44 +61,33 @@ class PagamentoController extends Controller
         $now = now();
         
         foreach ($alugueis as $a) {
-            // Calcular valor proporcional se houver ocupação parcial no mês
             $valorDevido = $a->valor_mensal ?? 0;
             
-            // Período de referência (mês completo)
             $refMonthStart = Carbon::parse($refDate)->startOfMonth();
             $refMonthEnd = Carbon::parse($refDate)->endOfMonth();
             $totalDaysInMonth = $refMonthEnd->day; // 28, 29, 30 ou 31
             
-            // Data de início efetiva no mês (se contrato começou durante o mês de referência)
             $effectiveStart = $refMonthStart->copy();
-            if ($a->data_inicio) {
-                $contratoInicio = Carbon::parse($a->data_inicio);
-                // Se contrato iniciou durante este mês de referência, usar data_inicio
-                if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
-                    $effectiveStart = $contratoInicio;
-                }
+            $contratoInicio = Carbon::parse($a->data_inicio);
+            if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
+                $effectiveStart = $contratoInicio;
             }
             
-            // Data de fim efetiva no mês (se contrato terminou durante o mês de referência)
             $effectiveEnd = $refMonthEnd->copy();
-            if ($a->data_fim) {
+            if ($a->data_fim !== null) {
                 $contratoFim = Carbon::parse($a->data_fim);
-                // Se contrato terminou durante este mês de referência, usar data_fim
                 if ($contratoFim->between($refMonthStart, $refMonthEnd)) {
                     $effectiveEnd = $contratoFim;
                 }
             }
             
-            // Calcular dias de ocupação efetiva
-            $daysOccupied = $effectiveStart->diffInDays($effectiveEnd) + 1; // +1 para incluir ambos os dias
+            $daysOccupied = $effectiveStart->diffInDays($effectiveEnd) + 1; 
             
-            // Se ocupação parcial, calcular valor proporcional
             if ($daysOccupied < $totalDaysInMonth) {
                 $valorDevido = ($a->valor_mensal / $totalDaysInMonth) * $daysOccupied;
                 $valorDevido = round($valorDevido, 2);
             }
             
-            // Usar updateOrInsert para sempre atualizar valores (importante para recalcular quando houver mudanças)
             try {
                 DB::table('pagamentos')->updateOrInsert(
                     [
@@ -113,8 +96,8 @@ class PagamentoController extends Controller
                     ],
                     [
                         'valor_devido' => $valorDevido,
-                        'valor_recebido' => DB::raw('COALESCE(valor_recebido, 0)'), // Preservar valor se já existir
-                        'status' => DB::raw("COALESCE(status, 'pending')"), // Preservar status se já existir
+                        'valor_recebido' => DB::raw('COALESCE(valor_recebido, 0)'), 
+                        'status' => DB::raw("COALESCE(status, 'pending')"), 
                         'updated_at' => $now,
                         'created_at' => DB::raw('COALESCE(created_at, NOW())'),
                     ]
@@ -151,8 +134,6 @@ class PagamentoController extends Controller
         $pagamentos = $query->paginate(20);
         $pagamentos->appends($request->query());
 
-        // Calcular inquilinos em atraso (todos os pagamentos pendentes/parciais
-        // anteriores ao mês de referência)
         $overdueQuery = Pagamento::with('aluguel.locatario')
             ->whereDate('referencia_mes', '<', $refDate)
             ->whereIn('status', ['pending', 'partial'])
@@ -163,12 +144,10 @@ class PagamentoController extends Controller
 
         $overdueList = $overdueQuery->get();
 
-        // Agrupar por locatário e coletar meses de atraso (formatados como MM/YYYY)
         $overdues = [];
         foreach ($overdueList as $op) {
             if (!$op->aluguel || !$op->aluguel->locatario) continue;
 
-            // Calcular data de vencimento do pagamento (mesma lógica da view)
             try {
                 $refMonth = Carbon::parse($op->referencia_mes)->startOfMonth();
                 if (!empty($op->aluguel->data_inicio)) {
@@ -180,12 +159,10 @@ class PagamentoController extends Controller
                     $dueDate = $refMonth->copy()->endOfMonth();
                 }
             } catch (\Exception $e) {
-                // Se não for possível calcular, pular
                 continue;
             }
 
-            // Somente considerar em atraso se a data de vencimento já passou
-            if (!$dueDate || !$dueDate->lt(Carbon::today())) {
+            if (!$dueDate->lt(Carbon::today())) {
                 continue;
             }
 
@@ -310,7 +287,7 @@ class PagamentoController extends Controller
         $end = Carbon::parse($ref)->endOfMonth();
 
         // Buscar aluguéis que estiveram ativos em QUALQUER momento durante o mês de referência
-        $alugueisQuery = Aluguel::where(function ($q) use ($start, $end) {
+        $alugueisQuery = Aluguel::where(function ($q) use ($end) {
                 $q->whereDate('data_inicio', '<=', $end->toDateString());
             })
             ->where(function ($q) use ($start) {
@@ -339,16 +316,14 @@ class PagamentoController extends Controller
             
             // Data de início efetiva no mês
             $effectiveStart = $refMonthStart->copy();
-            if ($a->data_inicio) {
-                $contratoInicio = Carbon::parse($a->data_inicio);
-                if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
-                    $effectiveStart = $contratoInicio;
-                }
+            $contratoInicio = Carbon::parse($a->data_inicio);
+            if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
+                $effectiveStart = $contratoInicio;
             }
             
             // Data de fim efetiva no mês
             $effectiveEnd = $refMonthEnd->copy();
-            if ($a->data_fim) {
+            if ($a->data_fim !== null) {
                 $contratoFim = Carbon::parse($a->data_fim);
                 if ($contratoFim->between($refMonthStart, $refMonthEnd)) {
                     $effectiveEnd = $contratoFim;

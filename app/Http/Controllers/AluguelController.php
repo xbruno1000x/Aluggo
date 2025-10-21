@@ -407,7 +407,7 @@ class AluguelController extends Controller
             return redirect()->route('alugueis.index')->with('info', 'Este contrato já está encerrado.');
         }
 
-        $aluguel->data_fim = \Carbon\Carbon::today()->toDateString();
+        $aluguel->data_fim = \Carbon\Carbon::today();
         $aluguel->save();
 
         return redirect()->route('alugueis.index')->with('success', 'Contrato encerrado com sucesso.');

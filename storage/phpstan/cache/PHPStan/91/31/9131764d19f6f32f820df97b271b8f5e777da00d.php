@@ -50,7 +50,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => '98d839e86580acb68b827625f4522b12f897c8cf',
+      0 => 'ed2483a3ac63966ec2aa1bf85ac41eb54fa3cd99',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -65,6 +65,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         5 => 'app\\http\\controllers\\destroy',
         6 => 'app\\http\\controllers\\adjust',
         7 => 'app\\http\\controllers\\normalizedecimal',
+        8 => 'app\\http\\controllers\\terminate',
       ),
       3 => 
       array (
@@ -106,7 +107,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
     array (
-      0 => '85c0c087be580ab9017a92800f590d7707c8df25',
+      0 => '7590a95233e25fad92d7ac6da88d4d53703f3647',
       1 => 
       array (
         0 => 'app\\http\\controllers\\locatariocontroller',
@@ -146,7 +147,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
     array (
-      0 => '2000b9740e15ad09370915535446e5c070e07662',
+      0 => '918d0ed5e34b3f06f38c5ea111814677036a6805',
       1 => 
       array (
         0 => 'app\\http\\controllers\\pagamentocontroller',
@@ -276,7 +277,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php' => 
     array (
-      0 => 'c31ec71aceaf2a26fb79e57cf70882f46f99df1f',
+      0 => '93b09079273a876c9f5d1f984a010ed079498f86',
       1 => 
       array (
         0 => 'app\\models\\locatario',
@@ -285,6 +286,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\models\\alugueis',
         1 => 'app\\models\\proprietario',
+        2 => 'app\\models\\gettelefoneattribute',
       ),
       3 => 
       array (

@@ -2146,6 +2146,14 @@ return [
       1 => 'alugueis.create',
       2 => 'alugueis.edit',
     ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'abort',
+        1 => 403,
+      ),
+    ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ImovelController.php' => 
   array (
@@ -2196,17 +2204,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 75,
+        1 => 58,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 86,
+        1 => 69,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 106,
+        1 => 89,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2215,7 +2223,7 @@ return [
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 64,
+        2 => 47,
       ),
     ),
   ),
@@ -2266,17 +2274,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 139,
+        1 => 221,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 160,
+        1 => 242,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 179,
+        1 => 261,
       ),
     ),
   ),
@@ -2503,7 +2511,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => '98d839e86580acb68b827625f4522b12f897c8cf',
+    'fileHash' => 'ed2483a3ac63966ec2aa1bf85ac41eb54fa3cd99',
     'dependentFiles' => 
     array (
     ),
@@ -2535,7 +2543,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php' => 
   array (
-    'fileHash' => '85c0c087be580ab9017a92800f590d7707c8df25',
+    'fileHash' => '7590a95233e25fad92d7ac6da88d4d53703f3647',
     'dependentFiles' => 
     array (
     ),
@@ -2549,7 +2557,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => '2000b9740e15ad09370915535446e5c070e07662',
+    'fileHash' => '918d0ed5e34b3f06f38c5ea111814677036a6805',
     'dependentFiles' => 
     array (
     ),
@@ -2619,12 +2627,13 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Locatario.php' => 
   array (
-    'fileHash' => 'c31ec71aceaf2a26fb79e57cf70882f46f99df1f',
+    'fileHash' => '93b09079273a876c9f5d1f984a010ed079498f86',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
       1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\LocatarioController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Obra.php' => 
@@ -2653,15 +2662,16 @@ return [
     'fileHash' => '7f05e0989c054aa46b2ce624efa24ddfa67ff06e',
     'dependentFiles' => 
     array (
-      0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ImovelController.php',
-      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php',
-      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
-      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php',
-      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
-      5 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
-      6 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php',
-      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
-      8 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
+      0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
+      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ImovelController.php',
+      2 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\ObraController.php',
+      3 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php',
+      4 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php',
+      5 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TaxaController.php',
+      6 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
+      7 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Imovel.php',
+      8 => 'C:\\Users\\faria\\Aluggo\\app\\Models\\Taxa.php',
+      9 => 'C:\\Users\\faria\\Aluggo\\app\\Services\\RelatorioService.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
@@ -3766,6 +3776,57 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'igpmService',
                'type' => 'App\\Services\\IgpmService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'terminate',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Encerra o contrato de aluguel definindo data_fim para hoje.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'aluguel' => 'App\\Models\\Aluguel',
+              'imovel' => 'App\\Models\\Imovel',
+              'locatario' => 'App\\Models\\Locatario',
+              'request' => 'Illuminate\\Http\\Request',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'carbon' => 'Carbon\\Carbon',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'igpmservice' => 'App\\Services\\IgpmService',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'aluguel',
+               'type' => 'App\\Models\\Aluguel',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -5976,6 +6037,52 @@ return [
            'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
            'parameters' => 
           array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTelefoneAttribute',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Accessor para formatar telefone ao recuperar o atributo
+     * Ex: +5511988887777 -> +55 (11) 98887-7777
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'locatariofactory' => 'Database\\Factories\\LocatarioFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'value',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
