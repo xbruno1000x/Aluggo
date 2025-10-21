@@ -66,7 +66,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center text-light">Nenhum locatário cadastrado.</td>
+                            <td colspan="4" class="text-center text-light">Nenhum locatário cadastrado.</td>
                         </tr>
                     @endforelse
                 </tbody>

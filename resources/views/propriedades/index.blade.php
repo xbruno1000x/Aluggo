@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($propriedades as $propriedade)
+                    @forelse ($propriedades as $propriedade)
                         <tr>
                             <td>{{ $propriedade->nome }}</td>
                             <td>{{ $propriedade->endereco }}</td>
@@ -72,12 +72,11 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
-                    @if($propriedades->isEmpty())
+                    @empty
                         <tr>
-                            <td colspan="4" class="text-center text-light">Nenhuma propriedade cadastrada.</td>
+                            <td colspan="8" class="text-center text-light">Nenhuma propriedade cadastrada.</td>
                         </tr>
-                    @endif
+                    @endforelse
                 </tbody>
             </table>
         </div>

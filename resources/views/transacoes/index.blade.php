@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($transacoes as $t)
+                @forelse($transacoes as $t)
                     <tr>
                         <td>{{ $t->imovel->nome ?? '-' }}{{ $t->imovel && $t->imovel->numero ? ' (nº ' . $t->imovel->numero . ')' : '' }}</td>
                         <td>R$ {{ number_format($t->valor_venda, 2, ',', '.') }}</td>
@@ -41,7 +41,11 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center text-light">Nenhuma transação cadastrada.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
@@ -51,8 +55,4 @@
 @push('scripts-body')
     @vite(['resources/ts/transacoes-details.ts'])
 @endpush
-
-    @if($transacoes->isEmpty())
-        <p class="text-center text-light mt-4">Nenhuma transação registrada ainda.</p>
-    @endif
 @endsection

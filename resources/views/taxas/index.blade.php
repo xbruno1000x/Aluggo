@@ -89,7 +89,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($taxas as $t)
+            @forelse($taxas as $t)
                 <tr>
                         <td>
                             @if(!empty($t->propriedade))
@@ -113,7 +113,11 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center text-light">Nenhuma taxa cadastrada.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 </div>

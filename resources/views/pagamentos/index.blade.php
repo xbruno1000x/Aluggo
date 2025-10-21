@@ -104,7 +104,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center text-light">Nenhum pagamento encontrado para este mês.</td>
+                    <td colspan="7" class="text-center text-light">Nenhum pagamento cadastrado.</td>
                 </tr>
             @endforelse
         </tbody>

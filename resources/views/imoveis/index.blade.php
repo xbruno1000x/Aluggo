@@ -73,7 +73,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($imoveis as $imovel)
+            @forelse ($imoveis as $imovel)
                 <tr>
                     <td>{{ $imovel->nome }}{{ $imovel->numero ? ' (nº ' . $imovel->numero . ')' : '' }}</td>
                     <td>{{ ucfirst($imovel->tipo) }}</td>
@@ -98,12 +98,12 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center text-light">Nenhum imóvel cadastrado.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 </div>
-
-@if($imoveis->isEmpty())
-    <p class="text-center text-light mt-4">Nenhum imóvel cadastrado ainda.</p>
-@endif
 @endsection

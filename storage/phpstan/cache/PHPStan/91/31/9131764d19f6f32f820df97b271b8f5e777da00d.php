@@ -244,7 +244,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php' => 
     array (
-      0 => '20450d0721eb2a3285c131a7cc53d693c6255f97',
+      0 => '1948fa6991f07131297cb0300602789a6b3d617c',
       1 => 
       array (
         0 => 'app\\models\\aluguel',

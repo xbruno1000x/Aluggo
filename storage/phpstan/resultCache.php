@@ -2592,7 +2592,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Aluguel.php' => 
   array (
-    'fileHash' => '20450d0721eb2a3285c131a7cc53d693c6255f97',
+    'fileHash' => '1948fa6991f07131297cb0300602789a6b3d617c',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
