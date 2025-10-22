@@ -50,7 +50,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => 'ed2483a3ac63966ec2aa1bf85ac41eb54fa3cd99',
+      0 => '3941ef0346b770fd79c69764ce189884ff79f81c',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',
@@ -147,7 +147,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
     array (
-      0 => '918d0ed5e34b3f06f38c5ea111814677036a6805',
+      0 => 'feb102037ad26f476d294e8ed80cec86bf711681',
       1 => 
       array (
         0 => 'app\\http\\controllers\\pagamentocontroller',

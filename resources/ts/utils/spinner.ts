@@ -75,18 +75,19 @@ export function initFormSpinner(opts: FormSpinnerOptions = {}): void {
         }
 
         const submitHandler = (e: Event) => {
-            // Se já estiver processando e deve prevenir múltiplos submits, cancela
+            if (form.hasAttribute('data-confirm') && !(e as any).__fromConfirm) {
+                return;
+            }
+
             if (preventMultipleSubmits && submitBtn!.disabled) {
                 e.preventDefault();
                 return;
             }
 
-            // Ativa spinner
             submitBtn!.disabled = true;
             btnText.classList.add('d-none');
             spinner.classList.remove('d-none');
 
-            // Opcional: restaurar estado após timeout (fallback de segurança)
             const timeout = parseInt(form.dataset.spinnerTimeout || '0', 10);
             if (timeout > 0) {
                 setTimeout(() => {

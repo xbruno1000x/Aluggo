@@ -39,14 +39,36 @@ export function initDeleteConfirm(opts: DeleteConfirmOptions = {}): void {
 
         const submitHandler = async (e: Event) => {
             e.preventDefault();
+            e.stopPropagation();
+
+            const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+            const btnText = submitBtn?.querySelector<HTMLElement>('.btn-text');
+            const spinner = submitBtn?.querySelector<HTMLElement>('.spinner-border');
+
             const title = form.dataset.confirmTitle || defaultTitle;
             const text = form.dataset.confirmText || defaultText;
 
             const ok = await showConfirm(title, text, confirmButtonText, cancelButtonText);
 
             if (ok) {
+                if (submitBtn && btnText && spinner) {
+                    submitBtn.disabled = true;
+                    btnText.classList.add('d-none');
+                    spinner.classList.remove('d-none');
+                }
+                form.removeEventListener('submit', submitHandler);
+                
+                const newSubmitEvent = new Event('submit', { cancelable: false, bubbles: true });
+                (newSubmitEvent as any).__fromConfirm = true;
+                form.dispatchEvent(newSubmitEvent);
+                
                 form.submit();
             } else {
+                if (submitBtn && btnText && spinner) {
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('d-none');
+                    spinner.classList.add('d-none');
+                }
                 try {
                     showAlert(
                         canceledIcon,
@@ -54,7 +76,6 @@ export function initDeleteConfirm(opts: DeleteConfirmOptions = {}): void {
                         canceledTimer
                     );
                 } catch {
-                    // no-op
                 }
             }
         };

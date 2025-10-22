@@ -72,7 +72,7 @@
                             Reajuste
                         </button>
 
-                        <form method="POST" action="{{ route('alugueis.renew', $aluguel) }}" class="d-inline" data-spinner>
+                        <form method="POST" action="{{ route('alugueis.renew', $aluguel) }}" class="d-inline" data-confirm data-confirm-text="Deseja realmente renovar este contrato? A data de término será estendida por 1 ano." data-spinner>
                             @csrf
                             <button type="submit" class="btn btn-sm btn-secondary">
                                 <span class="btn-text">Renovar</span>

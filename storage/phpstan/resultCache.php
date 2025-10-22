@@ -2151,7 +2151,7 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 403,
+        1 => 405,
       ),
     ),
   ),
@@ -2274,17 +2274,17 @@ return [
       0 => 
       array (
         0 => 'abort',
-        1 => 221,
+        1 => 268,
       ),
       1 => 
       array (
         0 => 'abort',
-        1 => 242,
+        1 => 289,
       ),
       2 => 
       array (
         0 => 'abort',
-        1 => 261,
+        1 => 308,
       ),
     ),
   ),
@@ -2511,7 +2511,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'ed2483a3ac63966ec2aa1bf85ac41eb54fa3cd99',
+    'fileHash' => '3941ef0346b770fd79c69764ce189884ff79f81c',
     'dependentFiles' => 
     array (
     ),
@@ -2557,7 +2557,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PagamentoController.php' => 
   array (
-    'fileHash' => '918d0ed5e34b3f06f38c5ea111814677036a6805',
+    'fileHash' => 'feb102037ad26f476d294e8ed80cec86bf711681',
     'dependentFiles' => 
     array (
     ),
