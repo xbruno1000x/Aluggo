@@ -96,5 +96,5 @@ Route::get('/', function () {
     if (Auth::guard('proprietario')->check()) {
         return redirect()->route('admin.menu');
     }
-    return redirect()->route('admin.login');
+    return view('welcome');
 });
