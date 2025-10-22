@@ -153,7 +153,6 @@
                                   placeholder="Adicione uma breve descrição da propriedade"></textarea>
                     </div>
                 </div>
-                </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

@@ -22,6 +22,21 @@
 </div>
 
 <div class="table-responsive">
+    <div class="mb-3">
+        <div class="card bg-dark text-light">
+            <div class="card-body p-2">
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <div class="small">
+                        <strong>Legenda:</strong>
+                    </div>
+                    <div class="small">✅ <span class="text-light">— Pago</span></div>
+                    <div class="small">⚠️ <span class="text-danger">— Em atraso</span></div>
+                    <div class="small">☑️ <span class="text-warning">— Pago parcialmente</span></div>
+                    <div class="small">🔜 <span class="text-danger">— A vencer</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <table class="table table-dark table-striped table-hover align-middle">
         <thead class="table-primary text-dark">
             <tr>
@@ -61,13 +76,13 @@
                     <td>{{ $dueDate ? $dueDate->format('d/m/Y') : '-' }}</td>
                     <td>
                         @if($p->status === 'paid')
-                            <span class="text-dolar">Pago</span>
+                            <span class="text-center">✅</span>
                         @elseif($isOverdue && $p->status !== 'paid')
-                            <span class="text-danger">EM ATRASO</span>
+                            <span class="text-danger">⚠️</span>
                         @elseif($p->status === 'partial')
-                            <span class="text-warning">Parcial</span>
+                            <span class="text-warning">☑️</span>
                         @else
-                            <span class="text-success">Pendente</span>
+                            <span class="text-success">🔜</span>
                         @endif
                     </td>
                     <td class="text-center d-flex gap-2 justify-content-center">
