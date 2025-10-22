@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+if [ "${HUSKY-}" = "0" ]; then
+  exit 0
+fi
+
+export PATH="node_modules/.bin:$PATH"
+
+echo "Restaurando .env para .env.localhost..."
+npm run use-localhost-env || {
+  echo "use-localhost-env falhou; continuando mesmo assim";
+}
+
+echo "post-commit concluído."
+exit 0

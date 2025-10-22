@@ -19,7 +19,7 @@ class PagamentoController extends Controller
     public function index(Request $request): View|JsonResponse
     {
         $proprietarioId = Auth::id();
-        
+
         $month = $request->query('month', Carbon::now()->startOfMonth()->toDateString());
         $ref = $this->normalizeMonthToStart($month);
         $refDate = Carbon::parse($ref)->startOfMonth()->toDateString();
@@ -32,9 +32,8 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-        $alugueisQuery = Aluguel::where(function ($q) use ($end) {
-                // Contrato deve ter começado até o fim do mês de referência
-                $q->whereDate('data_inicio', '<=', $end->toDateString());
+        $alugueisQuery = Aluguel::where(function ($q) use ($start) {
+                $q->whereDate('data_inicio', '<', $start->toDateString());
             })
             ->where(function ($q) use ($start) {
                 $q->whereNull('data_fim')
@@ -59,35 +58,53 @@ class PagamentoController extends Controller
         }
         $alugueisIds = $alugueis->pluck('id')->all();
         $now = now();
-        
+
         foreach ($alugueis as $a) {
-            $valorDevido = $a->valor_mensal ?? 0;
-            
+            $valorMensal = $a->valor_mensal ?? 0;
+
             $refMonthStart = Carbon::parse($refDate)->startOfMonth();
             $refMonthEnd = Carbon::parse($refDate)->endOfMonth();
-            $totalDaysInMonth = $refMonthEnd->day; // 28, 29, 30 ou 31
-            
-            $effectiveStart = $refMonthStart->copy();
+
             $contratoInicio = Carbon::parse($a->data_inicio);
-            if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
-                $effectiveStart = $contratoInicio;
+            $contratoFim = $a->data_fim ? Carbon::parse($a->data_fim) : null;
+
+            $lastDayOfRefMonth = $refMonthEnd->day;
+            $vencimentoBase = $contratoInicio->copy()
+                ->setYear($refMonthStart->year)
+                ->setMonth($refMonthStart->month)
+                ->day(min($contratoInicio->day, $lastDayOfRefMonth));
+
+            while ($vencimentoBase->lt($refMonthStart)) {
+                $vencimentoBase->addMonth();
+                $vencimentoBase->day(min($contratoInicio->day, $vencimentoBase->copy()->endOfMonth()->day));
             }
-            
-            $effectiveEnd = $refMonthEnd->copy();
-            if ($a->data_fim !== null) {
-                $contratoFim = Carbon::parse($a->data_fim);
-                if ($contratoFim->between($refMonthStart, $refMonthEnd)) {
-                    $effectiveEnd = $contratoFim;
-                }
+
+            $periodStart = $vencimentoBase->copy()->subDays(30);
+            $periodEnd = $vencimentoBase->copy()->subDay();
+
+            if ($periodStart->lt($contratoInicio)) {
+                $periodStart = $contratoInicio->copy();
             }
-            
-            $daysOccupied = $effectiveStart->diffInDays($effectiveEnd) + 1; 
-            
-            if ($daysOccupied < $totalDaysInMonth) {
-                $valorDevido = ($a->valor_mensal / $totalDaysInMonth) * $daysOccupied;
-                $valorDevido = round($valorDevido, 2);
+
+            $cobrancaFim = $periodEnd->copy();
+            $isParcial = false;
+
+            if ($contratoFim && $contratoFim->lessThanOrEqualTo($periodEnd)) {
+                $cobrancaFim = $contratoFim->copy();
+                $isParcial = true;
             }
-            
+
+            if ($cobrancaFim->lessThan($periodStart)) {
+                continue;
+            }
+
+            $diasNoPeriodo = $periodStart->diffInDays($cobrancaFim) + 1;
+            $valorDevidoBase = $valorMensal;
+
+            if ($isParcial || $diasNoPeriodo < 30) {
+                $valorDevidoBase = round(($valorMensal / 30) * $diasNoPeriodo, 2);
+            }
+
             try {
                 DB::table('pagamentos')->updateOrInsert(
                     [
@@ -95,9 +112,9 @@ class PagamentoController extends Controller
                         'referencia_mes' => $refDate,
                     ],
                     [
-                        'valor_devido' => $valorDevido,
-                        'valor_recebido' => DB::raw('COALESCE(valor_recebido, 0)'), 
-                        'status' => DB::raw("COALESCE(status, 'pending')"), 
+                        'valor_devido' => $valorDevidoBase,
+                        'valor_recebido' => DB::raw('COALESCE(valor_recebido, 0)'),
+                        'status' => DB::raw("COALESCE(status, 'pending')"),
                         'updated_at' => $now,
                         'created_at' => DB::raw('COALESCE(created_at, NOW())'),
                     ]
@@ -105,10 +122,40 @@ class PagamentoController extends Controller
             } catch (\Exception $e) {
                 Log::warning('Pagamento updateOrInsert failed: ' . $e->getMessage());
             }
+
+            if ($contratoFim && $contratoFim->between($refMonthStart, $refMonthEnd) && $contratoFim->greaterThan($periodEnd)) {
+                $parcialInicio = $vencimentoBase->copy()->addDay();
+
+                if ($parcialInicio->greaterThan($contratoFim)) {
+                    continue;
+                }
+
+                $diasParcial = $parcialInicio->diffInDays($contratoFim) + 1;
+                $valorParcial = round(($valorMensal / 30) * $diasParcial, 2);
+                $referenciaParcial = $contratoFim->toDateString();
+
+                try {
+                    DB::table('pagamentos')->updateOrInsert(
+                        [
+                            'aluguel_id' => $a->id,
+                            'referencia_mes' => $referenciaParcial,
+                        ],
+                        [
+                            'valor_devido' => $valorParcial,
+                            'valor_recebido' => DB::raw('COALESCE(valor_recebido, 0)'),
+                            'status' => DB::raw("COALESCE(status, 'pending')"),
+                            'updated_at' => $now,
+                            'created_at' => DB::raw('COALESCE(created_at, NOW())'),
+                        ]
+                    );
+                } catch (\Exception $e) {
+                    Log::warning('Pagamento parcial updateOrInsert failed: ' . $e->getMessage());
+                }
+            }
         }
 
         $query = Pagamento::with('aluguel.imovel', 'aluguel.locatario')
-            ->whereDate('referencia_mes', $refDate)
+            ->whereBetween('referencia_mes', [$start->toDateString(), $end->toDateString()])
             ->whereHas('aluguel.imovel.propriedade', function ($q) use ($proprietarioId) {
                 $q->where('proprietario_id', $proprietarioId);
             })
@@ -131,7 +178,7 @@ class PagamentoController extends Controller
             $query->where('aluguel_id', $aluguelFilter);
         }
 
-        $pagamentos = $query->paginate(20);
+    $pagamentos = $query->orderBy('referencia_mes')->paginate(20);
         $pagamentos->appends($request->query());
 
         $overdueQuery = Pagamento::with('aluguel.locatario')
@@ -286,8 +333,7 @@ class PagamentoController extends Controller
         $start = Carbon::parse($ref)->startOfMonth();
         $end = Carbon::parse($ref)->endOfMonth();
 
-        // Buscar aluguéis que estiveram ativos em QUALQUER momento durante o mês de referência
-        $alugueisQuery = Aluguel::where(function ($q) use ($end) {
+    $alugueisQuery = Aluguel::where(function ($q) use ($end) {
                 $q->whereDate('data_inicio', '<=', $end->toDateString());
             })
             ->where(function ($q) use ($start) {
@@ -306,22 +352,18 @@ class PagamentoController extends Controller
         $now = now();
         
         foreach ($alugueis as $a) {
-            // Calcular valor proporcional se houver ocupação parcial no mês
             $valorDevido = $a->valor_mensal ?? 0;
-            
-            // Período de referência (mês completo)
+
             $refMonthStart = Carbon::parse($refDate)->startOfMonth();
             $refMonthEnd = Carbon::parse($refDate)->endOfMonth();
             $totalDaysInMonth = $refMonthEnd->day;
-            
-            // Data de início efetiva no mês
+
             $effectiveStart = $refMonthStart->copy();
             $contratoInicio = Carbon::parse($a->data_inicio);
             if ($contratoInicio->between($refMonthStart, $refMonthEnd)) {
                 $effectiveStart = $contratoInicio;
             }
-            
-            // Data de fim efetiva no mês
+
             $effectiveEnd = $refMonthEnd->copy();
             if ($a->data_fim !== null) {
                 $contratoFim = Carbon::parse($a->data_fim);
@@ -329,17 +371,14 @@ class PagamentoController extends Controller
                     $effectiveEnd = $contratoFim;
                 }
             }
-            
-            // Calcular dias de ocupação efetiva
+
             $daysOccupied = $effectiveStart->diffInDays($effectiveEnd) + 1;
-            
-            // Se ocupação parcial, calcular valor proporcional
+
             if ($daysOccupied < $totalDaysInMonth) {
                 $valorDevido = ($a->valor_mensal / $totalDaysInMonth) * $daysOccupied;
                 $valorDevido = round($valorDevido, 2);
             }
-            
-            // Usar updateOrInsert para sempre atualizar valores
+
             try {
                 DB::table('pagamentos')->updateOrInsert(
                     [
@@ -348,7 +387,7 @@ class PagamentoController extends Controller
                     ],
                     [
                         'valor_devido' => $valorDevido,
-                        'valor_recebido' => $valorDevido, // Marcar como pago com o valor devido
+                        'valor_recebido' => $valorDevido,
                         'status' => 'paid',
                         'data_pago' => $now,
                         'updated_at' => $now,

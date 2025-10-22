@@ -43,9 +43,9 @@
                     </td>
                     <td>
                         @if($aluguel->caucao !== null && $aluguel->caucao > 0)
-                            <span class="text-success">R$ {{ number_format($aluguel->caucao, 2, ',', '.') }}</span>
+                            <span class="text-danger">R$ {{ number_format($aluguel->caucao, 2, ',', '.') }}</span>
                         @else
-                            <span class="text-muted">N/A</span>
+                            <span class="text-danger">N/A</span>
                         @endif
                     </td>
                     <td>{{ $aluguel->data_inicio ? \Carbon\Carbon::parse($aluguel->data_inicio)->format('d/m/Y') : '-' }}</td>

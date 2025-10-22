@@ -6,6 +6,7 @@
         "dev": "vite",
     "prepare": "husky install",
     "use-infinityfree-env": "node scripts/use-infinityfree-env.js",
+    "use-localhost-env": "node scripts/use-localhost-env.js",
     "check-coverage": "node scripts/verificar-cobertura.cjs",
     "verificar-cobertura": "node scripts/verificar-cobertura.cjs"
     },

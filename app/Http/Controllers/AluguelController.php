@@ -94,6 +94,7 @@ class AluguelController extends Controller
     {
         $data = $request->validate([
             'valor_mensal' => ['required', 'numeric', 'min:0'],
+            'caucao' => ['nullable', 'numeric', 'min:0'],
             'data_inicio' => ['required', 'date'],
             'data_fim' => ['nullable', 'date', 'after_or_equal:data_inicio'],
             'imovel_id' => ['required', 'exists:imoveis,id'],
@@ -153,6 +154,7 @@ class AluguelController extends Controller
     {
         $data = $request->validate([
             'valor_mensal' => ['required', 'numeric', 'min:0'],
+            'caucao' => ['nullable', 'numeric', 'min:0'],
             'data_inicio' => ['required', 'date'],
             'data_fim' => ['nullable', 'date', 'after_or_equal:data_inicio'],
             'imovel_id' => ['required', 'exists:imoveis,id'],

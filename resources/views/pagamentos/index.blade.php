@@ -59,14 +59,17 @@
                     @php
                         $dueDate = null;
                         try {
-                            $refMonth = \Carbon\Carbon::parse($p->referencia_mes)->startOfMonth();
-                            if (!empty($p->aluguel) && !empty($p->aluguel->data_inicio)) {
+                            $referencia = \Carbon\Carbon::parse($p->referencia_mes);
+                            if ($referencia->day !== 1) {
+                                $dueDate = $referencia->copy();
+                            } elseif (!empty($p->aluguel) && !empty($p->aluguel->data_inicio)) {
+                                $refMonth = $referencia->copy()->startOfMonth();
                                 $startDay = \Carbon\Carbon::parse($p->aluguel->data_inicio)->day;
                                 $lastDay = $refMonth->copy()->endOfMonth()->day;
                                 $day = min($startDay, $lastDay);
                                 $dueDate = $refMonth->copy()->day($day);
                             } else {
-                                $dueDate = $refMonth->copy()->endOfMonth();
+                                $dueDate = $referencia->copy()->endOfMonth();
                             }
                         } catch (\Exception $e) {
                             $dueDate = null;
