@@ -82,8 +82,16 @@
                         {{ $imovel->valor_compra ? 'R$ ' . number_format($imovel->valor_compra, 2, ',', '.') : 'N/A' }}
                     </td>
                     <td>{{ $imovel->propriedade->nome }} ({{ $imovel->propriedade->endereco }}, {{ $imovel->propriedade->bairro }})</td>
-                    <td class="d-flex gap-2">
-                        <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <td class="d-flex gap-2 flex-wrap">
+                        <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-sm btn-warning">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+
+                        @if($imovel->status !== 'vendido')
+                            <a href="{{ route('imoveis.simular-venda', $imovel) }}" class="btn btn-sm btn-info" title="Simular Venda">
+                                <i class="bi bi-calculator"></i> Simular Venda
+                            </a>
+                        @endif
 
                         <form action="{{ route('imoveis.destroy', $imovel) }}" 
                             method="POST" 
@@ -93,7 +101,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">
-                                Excluir
+                                <i class="bi bi-trash"></i> Excluir
                             </button>
                         </form>
                     </td>

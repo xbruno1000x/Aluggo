@@ -2369,6 +2369,8 @@ return [
       1 => 'transacoes.create',
       2 => 'transacoes.show',
       3 => 'transacoes.edit',
+      4 => 'transacoes.simulate',
+      5 => 'transacoes.simulate-result',
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
     array (
@@ -2391,6 +2393,21 @@ return [
       array (
         0 => 'abort',
         1 => 288,
+      ),
+      4 => 
+      array (
+        0 => 'abort',
+        1 => 333,
+      ),
+      5 => 
+      array (
+        0 => 'set_time_limit',
+        1 => 363,
+      ),
+      6 => 
+      array (
+        0 => 'abort',
+        1 => 368,
       ),
     ),
   ),
@@ -2597,7 +2614,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php' => 
   array (
-    'fileHash' => 'd14a637c6948672c85edfd2ced9dd93348a4943a',
+    'fileHash' => '43d29268ee596cbbb92e4dfd3ea7725852f59e28',
     'dependentFiles' => 
     array (
     ),
@@ -2733,7 +2750,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Services\\FinanceRateService.php' => 
   array (
-    'fileHash' => 'a296546561109a5f320c45ce63d3876950a78504',
+    'fileHash' => '45ad7524f446d83f6043e8c738fb13c2935516c3',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php',
@@ -5740,6 +5757,123 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'transacao',
                'type' => 'App\\Models\\Transacao',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'showSimulation',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Exibe formulário de simulação de venda
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'transacao' => 'App\\Models\\Transacao',
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'pagamento' => 'App\\Models\\Pagamento',
+              'obra' => 'App\\Models\\Obra',
+              'taxa' => 'App\\Models\\Taxa',
+              'financerateservice' => 'App\\Services\\FinanceRateService',
+              'request' => 'Illuminate\\Http\\Request',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'carbon' => 'Carbon\\Carbon',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'imovel',
+               'type' => 'App\\Models\\Imovel',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'simulate',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Processa simulação de venda (sem salvar)
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'transacao' => 'App\\Models\\Transacao',
+              'imovel' => 'App\\Models\\Imovel',
+              'aluguel' => 'App\\Models\\Aluguel',
+              'pagamento' => 'App\\Models\\Pagamento',
+              'obra' => 'App\\Models\\Obra',
+              'taxa' => 'App\\Models\\Taxa',
+              'financerateservice' => 'App\\Services\\FinanceRateService',
+              'request' => 'Illuminate\\Http\\Request',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'carbon' => 'Carbon\\Carbon',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'imovel',
+               'type' => 'App\\Models\\Imovel',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

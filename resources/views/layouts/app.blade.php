@@ -45,6 +45,7 @@
                         📊 Controle Financeiro
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="financeiroDropdown">
+                        <li><a class="dropdown-item" href="{{ route('imoveis.index') }}">Simulador de Venda</a></li>
                         <li><a class="dropdown-item" href="{{ route('transacoes.index') }}">Gestão de Transações de Venda</a></li>
                         <li><a class="dropdown-item" href="{{ route('relatorios.index') }}">Relatórios e Rentabilidade</a></li>
                     </ul>

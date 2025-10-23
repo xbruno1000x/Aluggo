@@ -226,7 +226,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\TransacaoController.php' => 
     array (
-      0 => 'd14a637c6948672c85edfd2ced9dd93348a4943a',
+      0 => '43d29268ee596cbbb92e4dfd3ea7725852f59e28',
       1 => 
       array (
         0 => 'app\\http\\controllers\\transacaocontroller',
@@ -240,6 +240,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'app\\http\\controllers\\edit',
         5 => 'app\\http\\controllers\\update',
         6 => 'app\\http\\controllers\\destroy',
+        7 => 'app\\http\\controllers\\showsimulation',
+        8 => 'app\\http\\controllers\\simulate',
       ),
       3 => 
       array (
@@ -427,7 +429,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Services\\FinanceRateService.php' => 
     array (
-      0 => 'a296546561109a5f320c45ce63d3876950a78504',
+      0 => '45ad7524f446d83f6043e8c738fb13c2935516c3',
       1 => 
       array (
         0 => 'app\\services\\financerateservice',

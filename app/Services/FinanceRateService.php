@@ -44,7 +44,8 @@ class FinanceRateService
                     $cacheKey = "finance_series_{$seriesId}_{$s->format('Ymd')}_{$e->format('Ymd')}";
                     $vals = null;
                     try {
-                        $vals = Cache::remember($cacheKey, now()->addHours(6), function () use ($seriesId, $s, $e) {
+                        // Cache por 24 horas para reduzir chamadas ao BACEN
+                        $vals = Cache::remember($cacheKey, now()->addHours(24), function () use ($seriesId, $s, $e) {
                             return $this->fetchSeriesValues($seriesId, $s->format('Y-m-d'), $e->format('Y-m-d'));
                         });
                     } catch (\Exception $ex) {
@@ -126,7 +127,8 @@ class FinanceRateService
 
         $data = null;
         try {
-            $resp = Http::acceptJson()->get($base, [
+            // Timeout de 10 segundos para evitar travamento
+            $resp = Http::timeout(10)->acceptJson()->get($base, [
                 'dataInicial' => $start,
                 'dataFinal' => $end,
                 'formato' => 'json',

@@ -73,6 +73,12 @@ Route::middleware(['auth:proprietario'])->group(function () {
         'transacoes' => 'transacao'
     ]);
 
+    // Simulação de venda de imóvel
+    Route::get('imoveis/{imovel}/simular-venda', [TransacaoController::class, 'showSimulation'])
+        ->name('imoveis.simular-venda');
+    Route::post('imoveis/{imovel}/simular-venda', [TransacaoController::class, 'simulate'])
+        ->name('imoveis.simular-venda.post');
+
     // Relatórios financeiros
     Route::get('relatorios', [\App\Http\Controllers\RelatorioController::class, 'index'])->name('relatorios.index');
 

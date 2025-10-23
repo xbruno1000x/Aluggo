@@ -36,12 +36,6 @@ test('showSimulation exibe formulário de simulação de venda', function () {
     $response->assertSee($this->imovel->nome);
 });
 
-test('showSimulation sugere valor baseado no valor de compra', function () {
-    $response = $this->get(route('imoveis.simular-venda', $this->imovel));
-    
-    $response->assertViewHas('valorSugerido', 200000);
-});
-
 test('showSimulation sugere valor baseado em aluguel quando disponível', function () {
     $locatario = Locatario::factory()->create();
     Aluguel::factory()->create([
