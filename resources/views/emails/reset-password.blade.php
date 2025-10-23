@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperação de Senha - Aluggo</title>
     <style>
-        body { background-color: #f7f7f7; font-family: Arial, sans-serif; color: #333; margin: 0; padding: 0; }
+        /* Paleta do site: azul primário (#0d6efd / bootstrap primary) e verde ação (#16a34a) */
+        body { background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1f2937; margin: 0; padding: 0; }
         .wrapper { width: 100%; padding: 24px 0; }
-        .email { width: 100%; max-width: 540px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .header { background: #2563eb; color: #ffffff; padding: 32px 24px; text-align: center; }
-        .header h1 { margin: 0; font-size: 24px; }
-        .header p { margin: 8px 0 0; font-size: 14px; opacity: 0.9; }
-        .content { padding: 32px 24px; }
-        .content h2 { font-size: 18px; margin: 0 0 16px; color: #111827; }
-        .content p { margin: 0 0 16px; line-height: 1.5; }
-        .button { display: inline-block; background: #16a34a; color: #ffffff !important; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin: 16px 0; }
-        .button:hover { background: #15803d; }
-        .info { font-size: 12px; color: #6b7280; margin-top: 24px; }
-        .footer { padding: 20px 24px; text-align: center; font-size: 12px; color: #6b7280; }
-        .footer a { color: #2563eb; text-decoration: none; }
+        .email { width: 100%; max-width: 640px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid rgba(15,23,42,0.04); }
+        .header { background: linear-gradient(90deg,#0d6efd 0%,#2563eb 100%); color: #ffffff; padding: 28px 24px; text-align: center; }
+        .logo { max-width: 160px; height: auto; display: block; margin: 0 auto 12px; }
+        .brand { font-size: 18px; font-weight: 700; margin: 0; }
+        .content { padding: 28px 24px; }
+        .content h2 { font-size: 18px; margin: 0 0 12px; color: #0f172a; }
+        .content p { margin: 0 0 14px; line-height: 1.5; color: #374151; }
+        .button { display: inline-block; background: #16a34a; color: #ffffff !important; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 16px 0; }
+        .info { font-size: 13px; color: #6b7280; margin-top: 20px; }
+        .footer { padding: 20px 24px; text-align: center; font-size: 13px; color: #6b7280; }
+        .footer a { color: #0d6efd; text-decoration: none; }
         @media (max-width: 600px) {
-            .email { margin: 0 16px; }
-            .content, .header, .footer { padding: 24px 20px; }
-            .header h1 { font-size: 20px; }
+            .email { margin: 0 12px; }
+            .content, .header, .footer { padding: 20px; }
+            .logo { max-width: 140px; }
         }
     </style>
 </head>
@@ -30,8 +30,9 @@
 <div class="wrapper">
     <div class="email">
         <div class="header">
-            <h1>Recuperação de Senha</h1>
-            <p>Aluggo</p>
+            {{-- logo em build/images/logo.png — ajuste se o caminho for diferente no seu projeto --}}
+            <img src="{{ asset('/images/aluggo_logo.png') }}" alt="Aluggo" class="logo" onerror="this.style.display='none'">
+            <h1 class="brand">Recuperação de Senha - Aluggo</h1>
         </div>
         <div class="content">
             <h2>Olá, {{ $user->nome }}!</h2>
