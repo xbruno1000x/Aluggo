@@ -123,3 +123,84 @@ test('update aborta quando altera propriedade para uma que não pertence', funct
     $this->put(route('taxas.update', $taxa), ['propriedade_id' => $otherProp->id, 'tipo' => 'iptu', 'valor' => 10, 'data_pagamento' => now()->toDateString(), 'pagador' => 'proprietario'])
         ->assertStatus(403);
 });
+
+test('update retorna erro quando imovel_id e propriedade_id são ambos fornecidos', function () {
+    $taxa = Taxa::factory()->create(['imovel_id' => $this->imovel->id, 'proprietario_id' => $this->owner->id]);
+    
+    $res = $this->put(route('taxas.update', $taxa), [
+        'imovel_id' => $this->imovel->id,
+        'propriedade_id' => $this->prop->id,
+        'tipo' => 'condominio',
+        'valor' => 100,
+        'data_pagamento' => now()->toDateString(),
+        'pagador' => 'proprietario',
+    ]);
+    
+    $res->assertSessionHas('error');
+});
+
+test('validateOwnershipForInput aborta quando imovel não pertence', function () {
+    $other = Proprietario::factory()->create();
+    $otherProp = Propriedade::factory()->create(['proprietario_id' => $other->id]);
+    $otherImovel = Imovel::factory()->create(['propriedade_id' => $otherProp->id]);
+    
+    $taxa = Taxa::factory()->create(['imovel_id' => $this->imovel->id, 'proprietario_id' => $this->owner->id]);
+    
+    $this->put(route('taxas.update', $taxa), [
+        'imovel_id' => $otherImovel->id,
+        'tipo' => 'condominio',
+        'valor' => 100,
+        'data_pagamento' => now()->toDateString(),
+        'pagador' => 'proprietario',
+    ])->assertStatus(403);
+});
+
+test('validateOwnershipForInput aborta quando aluguel não pertence', function () {
+    $other = Proprietario::factory()->create();
+    $otherProp = Propriedade::factory()->create(['proprietario_id' => $other->id]);
+    $otherImovel = Imovel::factory()->create(['propriedade_id' => $otherProp->id]);
+    $otherLoc = \App\Models\Locatario::factory()->create();
+    $otherAluguel = \App\Models\Aluguel::factory()->create([
+        'imovel_id' => $otherImovel->id,
+        'locatario_id' => $otherLoc->id,
+    ]);
+    
+    $taxa = Taxa::factory()->create(['imovel_id' => $this->imovel->id, 'proprietario_id' => $this->owner->id]);
+    
+    $this->put(route('taxas.update', $taxa), [
+        'aluguel_id' => $otherAluguel->id,
+        'tipo' => 'condominio',
+        'valor' => 100,
+        'data_pagamento' => now()->toDateString(),
+        'pagador' => 'proprietario',
+    ])->assertStatus(403);
+});
+
+test('ensureOwnerOrAbort valida taxa via propriedade direta', function () {
+    $taxa = Taxa::factory()->create(['propriedade_id' => $this->prop->id, 'proprietario_id' => $this->owner->id]);
+    
+    $res = $this->get(route('taxas.edit', $taxa));
+    $res->assertStatus(200);
+});
+
+test('ensureOwnerOrAbort valida taxa via proprietario_id', function () {
+    $taxa = Taxa::factory()->create(['proprietario_id' => $this->owner->id]);
+    
+    $res = $this->get(route('taxas.edit', $taxa));
+    $res->assertStatus(200);
+});
+
+test('ensureOwnerOrAbort aborta quando taxa não pertence via aluguel', function () {
+    $other = Proprietario::factory()->create();
+    $otherProp = Propriedade::factory()->create(['proprietario_id' => $other->id]);
+    $otherImovel = Imovel::factory()->create(['propriedade_id' => $otherProp->id]);
+    $otherLoc = \App\Models\Locatario::factory()->create();
+    $otherAluguel = \App\Models\Aluguel::factory()->create([
+        'imovel_id' => $otherImovel->id,
+        'locatario_id' => $otherLoc->id,
+    ]);
+    
+    $taxa = Taxa::factory()->create(['aluguel_id' => $otherAluguel->id, 'proprietario_id' => $other->id]);
+    
+    $this->get(route('taxas.edit', $taxa))->assertStatus(403);
+});
