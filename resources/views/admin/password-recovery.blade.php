@@ -1,8 +1,4 @@
-@extends('layouts.guest') {{-- Layout sem navbar para pré-login --}}
-
-@push('scripts-body')
-    @vite(['resources/ts/password-recovery.ts'])
-@endpush
+@extends('layouts.guest')
 
 @section('title', 'Recuperação de Senha')
 @section('header', 'Recuperação de Senha')
@@ -24,7 +20,7 @@
             </div>
 
             <!-- Formulário para E-mail -->
-            <form id="email-form" class="recovery-form active" action="{{ route('admin.recovery-email') }}" method="POST" data-spinner>
+            <form id="email-form" class="recovery-form active d-block" action="{{ route('admin.recovery-email') }}" method="POST" data-spinner>
                 @csrf
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">
@@ -42,9 +38,9 @@
             </form>
 
             <!-- Formulário para 2FA -->
-            <form id="2fa-form" class="recovery-form mt-3" 
-                  action="{{ route('admin.reset.twofactor.verify') }}" 
-                  method="POST" style="display: none;" data-spinner>
+        <form id="2fa-form" class="recovery-form mt-3 d-none" 
+            action="{{ route('admin.reset.twofactor.verify') }}" 
+            method="POST" data-spinner>
                 @csrf
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}" required class="form-control @error('email') is-invalid @enderror">

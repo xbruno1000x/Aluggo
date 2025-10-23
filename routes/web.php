@@ -22,15 +22,18 @@ Route::post('/admin/register', [AdminController::class, 'register'])->name('admi
 
 // Rotas de Recuperação de Senha
 Route::get('/admin/reset', [AdminController::class, 'showResetForm'])->name('admin.reset');
-Route::post('/admin/password-recovery', [AdminController::class, 'sendResetLink'])->name('admin.password-recovery');
-Route::post('/admin/password-recovery', [AdminController::class, 'sendResetLink'])->name('admin.recovery-email');
+Route::post('/admin/recovery/email', [AdminController::class, 'sendResetLinkEmail'])->name('admin.recovery-email');
 
 // Nova rota para verificação via 2FA (recuperação de senha)
 Route::post('/admin/reset/verify-2fa', [AdminController::class, 'verifyTwoFactorRecovery'])->name('admin.reset.twofactor.verify');
 
-// Rotas para o formulário de redefinição e processamento (token temporário)
+// Rotas para o formulário de redefinição e processamento (token temporário via 2FA)
 Route::get('/admin/reset/password/{token}', [AdminController::class, 'showResetPasswordForm'])->name('admin.reset.password.form');
 Route::post('/admin/reset/password', [AdminController::class, 'resetPassword'])->name('admin.reset.password.post');
+
+// Rotas dedicadas à recuperação por e-mail
+Route::get('/admin/reset/email/{token}', [AdminController::class, 'showResetPasswordFormEmail'])->name('admin.reset.password.email.form');
+Route::post('/admin/reset/email', [AdminController::class, 'resetPasswordEmail'])->name('admin.reset.password.email.post');
 
 // Rotas protegidas com o guard 'proprietario' — unificadas
 Route::middleware(['auth:proprietario'])->group(function () {

@@ -24,7 +24,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => '8dee29383714b84c69a284baa2140537ef959931',
+      0 => 'b26c87f20b58d039780a0063cbfc4aa8ef309eca',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',
@@ -37,12 +37,15 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         3 => 'app\\http\\controllers\\menu',
         4 => 'app\\http\\controllers\\showregisterform',
         5 => 'app\\http\\controllers\\showresetform',
-        6 => 'app\\http\\controllers\\register',
-        7 => 'app\\http\\controllers\\showtwofactorform',
-        8 => 'app\\http\\controllers\\verifytwofactorrecovery',
-        9 => 'app\\http\\controllers\\showresetpasswordform',
-        10 => 'app\\http\\controllers\\resetpassword',
-        11 => 'app\\http\\controllers\\verifytwofactor',
+        6 => 'app\\http\\controllers\\sendresetlinkemail',
+        7 => 'app\\http\\controllers\\register',
+        8 => 'app\\http\\controllers\\showtwofactorform',
+        9 => 'app\\http\\controllers\\verifytwofactorrecovery',
+        10 => 'app\\http\\controllers\\showresetpasswordform',
+        11 => 'app\\http\\controllers\\resetpassword',
+        12 => 'app\\http\\controllers\\showresetpasswordformemail',
+        13 => 'app\\http\\controllers\\resetpasswordemail',
+        14 => 'app\\http\\controllers\\verifytwofactor',
       ),
       3 => 
       array (
