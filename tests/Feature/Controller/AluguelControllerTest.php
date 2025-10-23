@@ -508,3 +508,68 @@ test('adjust modo igpm calcula periodo corretamente com data_fim', function () {
         'period' => ['start', 'end', 'start_br', 'end_br'],
     ]);
 });
+
+test('terminate encerra contrato e marca imovel como disponivel', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel = Imovel::factory()->create([
+        'status' => 'alugado',
+        'propriedade_id' => $propriedade->id,
+    ]);
+    $aluguel = Aluguel::factory()->create([
+        'imovel_id' => $imovel->id,
+        'data_inicio' => now()->subMonths(6),
+        'data_fim' => now()->addMonths(6),
+    ]);
+
+    $this->actingAs($proprietario, 'proprietario');
+
+    expect($imovel->fresh()->status)->toBe('alugado');
+    expect($aluguel->data_fim)->not->toBeNull();
+
+    $response = post(route('alugueis.terminate', $aluguel));
+
+    $response->assertRedirect(route('alugueis.index'));
+    $response->assertSessionHas('success');
+
+    $aluguel->refresh();
+    $imovel->refresh();
+
+    expect($aluguel->data_fim->toDateString())->toBe(now()->toDateString());
+    expect($imovel->status)->toBe('disponivel');
+});
+
+test('terminate retorna info se contrato ja esta encerrado', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel = Imovel::factory()->create([
+        'status' => 'disponivel',
+        'propriedade_id' => $propriedade->id,
+    ]);
+    $aluguel = Aluguel::factory()->create([
+        'imovel_id' => $imovel->id,
+        'data_inicio' => now()->subMonths(12),
+        'data_fim' => now()->subMonth(),
+    ]);
+
+    $this->actingAs($proprietario, 'proprietario');
+
+    $response = post(route('alugueis.terminate', $aluguel));
+
+    $response->assertRedirect(route('alugueis.index'));
+    $response->assertSessionHas('info');
+});
+
+test('terminate bloqueia acesso nao autorizado', function () {
+    $proprietario = \App\Models\Proprietario::factory()->create();
+    $propriedade = \App\Models\Propriedade::factory()->create(['proprietario_id' => $proprietario->id]);
+    $imovel = Imovel::factory()->create(['propriedade_id' => $propriedade->id]);
+    $aluguel = Aluguel::factory()->create(['imovel_id' => $imovel->id]);
+
+    $outroProprietario = \App\Models\Proprietario::factory()->create();
+    $this->actingAs($outroProprietario, 'proprietario');
+
+    $response = post(route('alugueis.terminate', $aluguel));
+
+    $response->assertStatus(403);
+});

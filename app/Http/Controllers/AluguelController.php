@@ -409,9 +409,18 @@ class AluguelController extends Controller
             return redirect()->route('alugueis.index')->with('info', 'Este contrato já está encerrado.');
         }
 
-        $aluguel->data_fim = \Carbon\Carbon::today();
-        $aluguel->save();
+        \Illuminate\Support\Facades\DB::beginTransaction();
+        try {
+            $aluguel->data_fim = \Carbon\Carbon::today();
+            $aluguel->save();
+            $aluguel->imovel->status = 'disponivel';
+            $aluguel->imovel->save();
 
-        return redirect()->route('alugueis.index')->with('success', 'Contrato encerrado com sucesso.');
+            \Illuminate\Support\Facades\DB::commit();
+            return redirect()->route('alugueis.index')->with('success', 'Contrato encerrado com sucesso.');
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\DB::rollBack();
+            return redirect()->route('alugueis.index')->with('error', 'Erro ao encerrar contrato.');
+        }
     }
 }
