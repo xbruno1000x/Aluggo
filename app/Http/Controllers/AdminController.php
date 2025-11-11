@@ -196,15 +196,18 @@ class AdminController extends Controller
             'password_confirmation.same' => 'A confirmação de senha não corresponde à senha.',
         ]);
     
-        Proprietario::create([
+        $proprietario = Proprietario::create([
             'nome' => $request->nome,
             'cpf' => $request->cpf,
             'telefone' => $request->telefone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        // Autentica o usuário automaticamente após o cadastro
+        Auth::guard('proprietario')->login($proprietario);
     
-        return redirect()->route('admin.login')->with('success', 'Cadastro realizado com sucesso!');
+        return redirect()->route('admin.menu')->with('success', 'Cadastro realizado com sucesso! Bem-vindo ao Aluggo.');
     }     
     
     /**
@@ -367,8 +370,10 @@ class AdminController extends Controller
     /**
      * Processa o código de 2FA durante o login.
      */
-    public function verifyTwoFactor(Request $request): RedirectResponse
+    public function verifyTwoFactor(): RedirectResponse
     {
+        $request = request();
+
         $request->validate([
             'two_factor_code' => 'required|numeric',
         ]);
@@ -380,7 +385,7 @@ class AdminController extends Controller
             return redirect()->route('admin.login')->with('error', 'Sessão expirada. Faça login novamente.');
         }
 
-        if ($user->verifyTwoFactorCode($request->two_factor_code)) {
+        if ($user->verifyTwoFactorCode($request->input('two_factor_code'))) {
             return redirect()->intended(route('admin.menu'));
         }
 

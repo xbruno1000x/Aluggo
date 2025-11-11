@@ -44,8 +44,12 @@ test('registra um novo proprietário', function () {
     $data['password_confirmation'] = 'Password123!';
 
     post(route('admin.register.post'), $data)
-        ->assertRedirect(route('admin.login'))
+        ->assertRedirect(route('admin.menu'))
         ->assertSessionHas('success');
+    
+    // Verifica que o usuário foi autenticado
+    expect(Auth::guard('proprietario')->check())->toBeTrue();
+    expect(Auth::guard('proprietario')->user()->email)->toBe($data['email']);
 });
 
 test('exibe menu do administrador quando logado', function () {

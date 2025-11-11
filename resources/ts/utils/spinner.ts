@@ -74,6 +74,12 @@ export function initFormSpinner(opts: FormSpinnerOptions = {}): void {
             return;
         }
 
+        const resetButton = () => {
+            submitBtn!.disabled = false;
+            btnText.classList.remove('d-none');
+            spinner.classList.add('d-none');
+        };
+
         const submitHandler = (e: Event) => {
             if (form.hasAttribute('data-confirm') && !(e as any).__fromConfirm) {
                 return;
@@ -84,21 +90,40 @@ export function initFormSpinner(opts: FormSpinnerOptions = {}): void {
                 return;
             }
 
+            // Verifica validação HTML5 antes de ativar o spinner
+            if (!form.checkValidity()) {
+                // Se o formulário não for válido, não ativa o spinner
+                // A validação nativa do navegador irá mostrar os erros
+                return;
+            }
+
             submitBtn!.disabled = true;
             btnText.classList.add('d-none');
             spinner.classList.remove('d-none');
 
             const timeout = parseInt(form.dataset.spinnerTimeout || '0', 10);
             if (timeout > 0) {
-                setTimeout(() => {
-                    submitBtn!.disabled = false;
-                    btnText.classList.remove('d-none');
-                    spinner.classList.add('d-none');
-                }, timeout);
+                setTimeout(resetButton, timeout);
             }
         };
 
         form.addEventListener('submit', submitHandler);
+
+        // Listener adicional: reseta o spinner se validação HTML5 falhar
+        form.addEventListener('invalid', resetButton, true);
+
+        // Reseta o spinner se a página recarregar (erro de validação)
+        window.addEventListener('pageshow', (event) => {
+            // Checa se a página foi restaurada do cache (back/forward)
+            if (event.persisted) {
+                resetButton();
+            }
+        });
+
+        // Reseta o spinner quando houver erro de validação (página recarregada)
+        if (form.querySelector('.is-invalid')) {
+            resetButton();
+        }
     });
 }
 
