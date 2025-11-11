@@ -119,11 +119,18 @@
                                placeholder="Ex: Rua das Palmeiras, 123">
                     </div>
 
+                    <div class="mb-3">
+                        <label for="p_numero" class="form-label">Número</label>
+                        <input type="text" id="p_numero" name="numero" class="form-control"
+                               placeholder="Ex: 123, S/N, Lote 45">
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="p_cep" class="form-label">CEP</label>
                             <input type="text" id="p_cep" name="cep" class="form-control"
-                                   placeholder="00000-000">
+                                   placeholder="00000-000" maxlength="9">
+                            <small class="form-text text-muted">Digite o CEP para preencher automaticamente</small>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -166,5 +173,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/form-spinner.ts'])
+@vite(['resources/ts/propriedade-modal.ts', 'resources/ts/form-spinner.ts', 'resources/ts/cep-autocomplete.ts'])
 @endsection

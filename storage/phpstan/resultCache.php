@@ -2094,26 +2094,6 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'If condition is always true.',
-       'file' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'line' => 418,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 418,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\If_',
-       'identifier' => 'if.alwaysTrue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
 ); },
@@ -2560,7 +2540,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
   array (
-    'fileHash' => 'a9992201a051b7d7047d0b464f63ad84416f60be',
+    'fileHash' => '56e02547dbff754250a7e8c5a001c94508caf8ed',
     'dependentFiles' => 
     array (
     ),

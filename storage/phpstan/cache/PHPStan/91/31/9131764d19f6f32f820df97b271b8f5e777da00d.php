@@ -53,7 +53,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php' => 
     array (
-      0 => 'a9992201a051b7d7047d0b464f63ad84416f60be',
+      0 => '56e02547dbff754250a7e8c5a001c94508caf8ed',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aluguelcontroller',

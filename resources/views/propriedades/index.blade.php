@@ -49,7 +49,7 @@
                     @forelse ($propriedades as $propriedade)
                         <tr>
                             <td>{{ $propriedade->nome }}</td>
-                            <td>{{ $propriedade->endereco }}</td>
+                            <td>{{ $propriedade->endereco }}, {{ $propriedade->numero ?? '-' }}</td>
                             <td>{{ $propriedade->bairro }}</td>
                             <td>{{ $propriedade->cep }}</td>
                             <td>{{ $propriedade->cidade }}</td>
@@ -74,7 +74,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-center text-light">Nenhuma propriedade cadastrada.</td>
+                            <td colspan="9" class="text-center text-light">Nenhuma propriedade cadastrada.</td>
                         </tr>
                     @endforelse
                 </tbody>

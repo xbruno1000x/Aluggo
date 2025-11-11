@@ -26,24 +26,32 @@
                 <input type="text" id="endereco" name="endereco" value="{{ $propriedade->endereco }}" required class="form-control">
             </div>
 
-            <div class="col-6">
-                <label for="cep" class="form-label">CEP:</label>
-                <input type="text" id="cep" name="cep" value="{{ $propriedade->cep }}" class="form-control">
+            <div class="col-12">
+                <label for="numero" class="form-label">Número:</label>
+                <input type="text" id="numero" name="numero" value="{{ $propriedade->numero }}" class="form-control" placeholder="Ex: 123, S/N, Lote 45">
             </div>
 
             <div class="col-6">
+                <label for="cep" class="form-label">CEP:</label>
+                <input type="text" id="cep" name="cep" value="{{ $propriedade->cep }}" class="form-control" 
+                       placeholder="00000-000" maxlength="9">
+                <small class="form-text text-light">Digite o CEP para preencher automaticamente</small>
+            </div>
+
+            <div class="col-6">
+                <label for="bairro" class="form-label">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" value="{{ $propriedade->bairro }}" required class="form-control">
+            </div>
+
+            <div class="col-8">
                 <label for="cidade" class="form-label">Cidade:</label>
                 <input type="text" id="cidade" name="cidade" value="{{ $propriedade->cidade }}" class="form-control">
             </div>
 
-            <div class="col-6">
+            <div class="col-4">
                 <label for="estado" class="form-label">Estado:</label>
-                <input type="text" id="estado" name="estado" value="{{ $propriedade->estado }}" class="form-control">
-            </div>
-
-            <div class="col-12">
-                <label for="bairro" class="form-label">Bairro:</label>
-                <input type="text" id="bairro" name="bairro" value="{{ $propriedade->bairro }}" required class="form-control">
+                <input type="text" id="estado" name="estado" value="{{ $propriedade->estado }}" class="form-control"
+                       placeholder="UF" maxlength="2">
             </div>
 
             <div class="col-12">
@@ -68,6 +76,6 @@
 </div>
 
 @push('scripts-body')
-    @vite(['resources/ts/form-spinner.ts'])
+    @vite(['resources/ts/form-spinner.ts', 'resources/ts/cep-autocomplete.ts'])
 @endpush
 @endsection

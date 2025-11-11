@@ -23,3 +23,5 @@
 /public/hot
 /storage/phpstan/*
 /vendor/pestphp/*
+/storage/phpstan/resultCache.php
+/docs/*

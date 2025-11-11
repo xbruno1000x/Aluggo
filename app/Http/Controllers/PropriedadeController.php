@@ -37,6 +37,7 @@ class PropriedadeController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
+            'numero' => 'nullable|string|max:50',
             'bairro' => 'required|string|max:255',
             'cep' => 'nullable|string|max:20',
             'cidade' => 'nullable|string|max:100',
@@ -65,10 +66,11 @@ class PropriedadeController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
-                'bairro' => 'required|string|max:255',
-                'cep' => 'nullable|string|max:20',
-                'cidade' => 'nullable|string|max:100',
-                'estado' => 'nullable|string|max:100',
+            'numero' => 'nullable|string|max:50',
+            'bairro' => 'required|string|max:255',
+            'cep' => 'nullable|string|max:20',
+            'cidade' => 'nullable|string|max:100',
+            'estado' => 'nullable|string|max:100',
             'descricao' => 'nullable|string',
         ]);
 

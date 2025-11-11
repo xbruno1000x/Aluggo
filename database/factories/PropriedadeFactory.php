@@ -15,9 +15,11 @@ class PropriedadeFactory extends Factory
         return [
             'nome' => 'Propriedade ' . $this->faker->randomNumber(3),
             'endereco' => 'Rua Teste, 123',
+            'numero' => $this->faker->optional()->numerify('###'),
             'cep' => '00000-000',
             'cidade' => 'Cidade',
             'estado' => 'Estado',
+            'bairro' => 'Bairro Teste',
             'descricao' => 'Descrição de teste',
             'proprietario_id' => Proprietario::factory(),
         ];
