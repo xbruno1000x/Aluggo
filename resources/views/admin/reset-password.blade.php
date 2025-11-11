@@ -53,6 +53,6 @@
 </div>
 
 @push('scripts-body')
-    @vite(['resources/ts/form-spinner.ts'])
+    @vite(['resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
 @endpush
 @endsection

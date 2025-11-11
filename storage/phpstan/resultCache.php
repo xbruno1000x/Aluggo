@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1760818404,
+	'lastFullAnalysisTime' => 1762833842,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.25',
@@ -2126,7 +2126,7 @@ return [
       0 => 
       array (
         0 => 'session',
-        1 => 235,
+        1 => 236,
       ),
       1 => 
       array (
@@ -2140,13 +2140,13 @@ return [
       array (
         0 => 'Illuminate\\Support\\Facades\\Mail',
         1 => 'send',
-        2 => 136,
+        2 => 137,
       ),
       1 => 
       array (
         0 => 'Illuminate\\Database\\Eloquent\\Builder',
         1 => 'create',
-        2 => 198,
+        2 => 199,
       ),
     ),
   ),
@@ -2526,14 +2526,14 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => 'a94f1b0c4af44adcfe3a7c9104bde81082828046',
+    'fileHash' => '98e8eb69dd7687f59a927458073509e649eda76b',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
   array (
-    'fileHash' => 'b26c87f20b58d039780a0063cbfc4aa8ef309eca',
+    'fileHash' => 'f5bb05e65147bd39ab627096e737e7a8a449669d',
     'dependentFiles' => 
     array (
     ),
@@ -2593,7 +2593,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php' => 
   array (
-    'fileHash' => '0216ea060667eeb85b668cd43cccbb5e87a9367a',
+    'fileHash' => 'f485ca89dd6577f61746e0ba2c18173722bf394f',
     'dependentFiles' => 
     array (
     ),
@@ -2688,7 +2688,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php' => 
   array (
-    'fileHash' => '7f05e0989c054aa46b2ce624efa24ddfa67ff06e',
+    'fileHash' => '9da2f351df334f206e52a43d17d61542950f478a',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AluguelController.php',
@@ -2746,6 +2746,15 @@ return [
     'fileHash' => 'aad42b49b935f4a69e1de19b203e55e2cd38d323',
     'dependentFiles' => 
     array (
+    ),
+  ),
+  'C:\\Users\\faria\\Aluggo\\app\\Rules\\StrongPassword.php' => 
+  array (
+    'fileHash' => '7b6308452ab25e7780d917cffff20632ac312d00',
+    'dependentFiles' => 
+    array (
+      0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php',
+      1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php',
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Services\\FinanceRateService.php' => 
@@ -2910,6 +2919,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -2956,6 +2966,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3013,6 +3024,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3070,6 +3082,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3116,6 +3129,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3162,6 +3176,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3208,6 +3223,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3265,6 +3281,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3322,6 +3339,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3368,6 +3386,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3425,6 +3444,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3482,6 +3502,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3539,6 +3560,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3607,6 +3629,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3664,6 +3687,7 @@ return [
               'passwordbroker' => 'Illuminate\\Auth\\Passwords\\PasswordBroker',
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -7898,6 +7922,100 @@ return [
            'returnType' => 'void',
            'parameters' => 
           array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\Aluggo\\app\\Rules\\StrongPassword.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Rules\\StrongPassword',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'Illuminate\\Contracts\\Validation\\ValidationRule',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'validate',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Run the validation rule.
+     *
+     * @param  \\Closure(string, ?string=): \\Illuminate\\Translation\\PotentiallyTranslatedString  $fail
+     */',
+             'namespace' => 'App\\Rules',
+             'uses' => 
+            array (
+              'closure' => 'Closure',
+              'validationrule' => 'Illuminate\\Contracts\\Validation\\ValidationRule',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'attribute',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'value',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'fail',
+               'type' => 'Closure',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (

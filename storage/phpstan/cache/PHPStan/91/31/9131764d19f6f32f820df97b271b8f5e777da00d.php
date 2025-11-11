@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => 'a94f1b0c4af44adcfe3a7c9104bde81082828046',
+      0 => '98e8eb69dd7687f59a927458073509e649eda76b',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',
@@ -24,7 +24,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => 'b26c87f20b58d039780a0063cbfc4aa8ef309eca',
+      0 => 'f5bb05e65147bd39ab627096e737e7a8a449669d',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',
@@ -170,7 +170,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\PropriedadeController.php' => 
     array (
-      0 => '0216ea060667eeb85b668cd43cccbb5e87a9367a',
+      0 => 'f485ca89dd6577f61746e0ba2c18173722bf394f',
       1 => 
       array (
         0 => 'app\\http\\controllers\\propriedadecontroller',
@@ -330,7 +330,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Propriedade.php' => 
     array (
-      0 => '7f05e0989c054aa46b2ce624efa24ddfa67ff06e',
+      0 => '9da2f351df334f206e52a43d17d61542950f478a',
       1 => 
       array (
         0 => 'app\\models\\propriedade',
@@ -476,6 +476,21 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\services\\getreport',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\Aluggo\\app\\Rules\\StrongPassword.php' => 
+    array (
+      0 => '7b6308452ab25e7780d917cffff20632ac312d00',
+      1 => 
+      array (
+        0 => 'app\\rules\\strongpassword',
+      ),
+      2 => 
+      array (
+        0 => 'app\\rules\\validate',
       ),
       3 => 
       array (

@@ -100,5 +100,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts'])
+@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
 @endsection

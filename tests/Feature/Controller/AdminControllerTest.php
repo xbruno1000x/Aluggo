@@ -40,8 +40,8 @@ test('exibe formulário de registro', function () {
 
 test('registra um novo proprietário', function () {
     $data = Proprietario::factory()->make()->toArray();
-    $data['password'] = 'password';
-    $data['password_confirmation'] = 'password';
+    $data['password'] = 'Password123!';
+    $data['password_confirmation'] = 'Password123!';
 
     post(route('admin.register.post'), $data)
         ->assertRedirect(route('admin.login'))
@@ -107,11 +107,11 @@ test('resetPassword atualiza senha quando token e email válidos', function () {
     $token = 'tokentest2';
     session(['reset_token' => $token, 'reset_email' => $user->email, 'reset_token_expires_at' => time() + 300]);
 
-    post(route('admin.reset.password.post'), ['token' => $token, 'email' => $user->email, 'password' => 'newpassword', 'password_confirmation' => 'newpassword'])
+    post(route('admin.reset.password.post'), ['token' => $token, 'email' => $user->email, 'password' => 'NewPass123!', 'password_confirmation' => 'NewPass123!'])
         ->assertRedirect(route('admin.login'));
 
     $user->refresh();
-    $this->assertTrue(Hash::check('newpassword', $user->password));
+    $this->assertTrue(Hash::check('NewPass123!', $user->password));
 });
 
 test('verificação 2FA durante login redireciona para menu quando código correto', function () {
@@ -128,12 +128,12 @@ test('verificação 2FA durante login redireciona para menu quando código corre
 });
 
 test('configurações de conta: atualização de senha retorna erro quando current_password inválida', function () {
-    $user = Proprietario::factory()->create(['password' => Hash::make('oldpass')]);
+    $user = Proprietario::factory()->create(['password' => Hash::make('OldPass123!')]);
     /** @var \App\Models\Proprietario $user */
     actingAs($user, 'proprietario');
 
     actingAs($user, 'proprietario')
-        ->put(route('account.password.update'), ['current_password' => 'wrong', 'password' => 'newpassword', 'password_confirmation' => 'newpassword'])
+        ->put(route('account.password.update'), ['current_password' => 'wrong', 'password' => 'NewPass456@', 'password_confirmation' => 'NewPass456@'])
         ->assertStatus(422);
 });
 
@@ -247,25 +247,25 @@ test('resetPasswordEmail reseta senha com token válido', function () {
     post(route('admin.reset.password.email.post'), [
         'token' => $token,
         'email' => $user->email,
-        'password' => 'newpassword123',
-        'password_confirmation' => 'newpassword123',
+        'password' => 'NewPass123!',
+        'password_confirmation' => 'NewPass123!',
     ])->assertRedirect(route('admin.login'))
       ->assertSessionHas('success');
     
     $user->refresh();
-    expect(Hash::check('newpassword123', $user->password))->toBeTrue();
+    expect(Hash::check('NewPass123!', $user->password))->toBeTrue();
 });
 
 test('resetPasswordEmail retorna erro com token inválido', function () {
     $user = Proprietario::factory()->create();
     
     post(route('admin.reset.password.email.post'), [
-        'token' => 'invalidtoken',
+        'token' => 'invalid_token',
         'email' => $user->email,
-        'password' => 'newpassword123',
-        'password_confirmation' => 'newpassword123',
+        'password' => 'NewPass123!',
+        'password_confirmation' => 'NewPass123!',
     ])->assertRedirect()
-      ->assertSessionHasErrors('email');
+      ->assertSessionHasErrors(['email']);
 });
 
 test('resetPasswordEmail retorna erro com email inválido', function () {
@@ -315,8 +315,8 @@ test('resetPassword retorna erro quando token expirado', function () {
     post(route('admin.reset.password.post'), [
         'token' => $token,
         'email' => $user->email,
-        'password' => 'newpassword',
-        'password_confirmation' => 'newpassword'
+        'password' => 'NewPass123!',
+        'password_confirmation' => 'NewPass123!'
     ])->assertSessionHasErrors('email');
 });
 
@@ -328,8 +328,8 @@ test('resetPassword limpa sessão após reset bem-sucedido', function () {
     post(route('admin.reset.password.post'), [
         'token' => $token,
         'email' => $user->email,
-        'password' => 'newpassword',
-        'password_confirmation' => 'newpassword'
+        'password' => 'NewPass123!',
+        'password_confirmation' => 'NewPass123!'
     ])->assertRedirect(route('admin.login'));
 
     expect(session('reset_token'))->toBeNull();

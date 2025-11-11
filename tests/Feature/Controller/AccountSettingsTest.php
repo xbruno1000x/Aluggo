@@ -42,17 +42,17 @@ test('updatePassword retorna 422 quando current_password incorreto', function ()
 
 test('updatePassword atualiza senha quando current_password correto', function () {
     /** @var \App\Models\Proprietario $user */
-    $user = Proprietario::factory()->create(['password' => \Illuminate\Support\Facades\Hash::make('oldpass')]);
+    $user = Proprietario::factory()->create(['password' => \Illuminate\Support\Facades\Hash::make('OldPass123!')]);
 
     actingAs($user, 'proprietario')
         ->putJson(route('account.password.update'), [
-            'current_password' => 'oldpass',
-            'password' => 'newpassword',
-            'password_confirmation' => 'newpassword',
+            'current_password' => 'OldPass123!',
+            'password' => 'NewPass456@',
+            'password_confirmation' => 'NewPass456@',
         ])->assertStatus(200)->assertJson(['status' => 'Senha alterada com sucesso!']);
 
     $user->refresh();
-    expect(\Illuminate\Support\Facades\Hash::check('newpassword', $user->password))->toBeTrue();
+    expect(\Illuminate\Support\Facades\Hash::check('NewPass456@', $user->password))->toBeTrue();
 });
 
 test('show exibe QR code SVG quando 2FA está ativo', function () {

@@ -16,6 +16,7 @@ use Illuminate\Auth\Passwords\DatabaseTokenRepository;
 use Illuminate\Auth\Passwords\PasswordBroker;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use App\Models\Proprietario;
+use App\Rules\StrongPassword;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -165,7 +166,7 @@ class AdminController extends Controller
             'cpf' => 'required|string|size:11|unique:proprietarios',
             'telefone' => 'required|string|max:15',
             'email' => 'required|string|email|max:255|unique:proprietarios',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => ['required', 'string', 'confirmed', new StrongPassword()],
         ], [
             'nome.required' => 'O campo Nome é obrigatório.',
             'nome.string' => 'O campo Nome deve ser uma string.',
@@ -268,7 +269,7 @@ class AdminController extends Controller
         $request->validate([
             'token' => 'required|string',
             'email' => 'required|email|exists:proprietarios,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => ['required', 'string', 'confirmed', new StrongPassword()],
         ]);
 
         $sessionToken = session('reset_token');
@@ -326,13 +327,12 @@ class AdminController extends Controller
         $request->validate([
             'token' => 'required|string',
             'email' => 'required|email|exists:proprietarios,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => ['required', 'string', 'confirmed', new StrongPassword()],
         ], [
             'email.required' => 'Informe o e-mail cadastrado.',
             'email.email' => 'Informe um e-mail válido.',
             'email.exists' => 'Não encontramos um cadastro com esse e-mail.',
             'password.required' => 'Informe a nova senha.',
-            'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
             'password.confirmed' => 'A confirmação de senha não corresponde.',
         ]);
 
