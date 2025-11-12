@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
     array (
-      0 => '98e8eb69dd7687f59a927458073509e649eda76b',
+      0 => '38cd9c0c0f6e93703d383aaa2b7c546d270bb79e',
       1 => 
       array (
         0 => 'app\\http\\controllers\\accountsettingscontroller',
@@ -17,6 +17,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'app\\http\\controllers\\show',
         1 => 'app\\http\\controllers\\updatepassword',
         2 => 'app\\http\\controllers\\toggletwofactorauthentication',
+        3 => 'app\\http\\controllers\\updateemail',
+        4 => 'app\\http\\controllers\\updatephone',
       ),
       3 => 
       array (
@@ -24,7 +26,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => 'eb3e9124c8445f674ca4489b457551c533eeb1dc',
+      0 => 'cfcdc4916ad5a4b50a01ac05caeafd1a6613a181',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',
@@ -487,6 +489,21 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       1 => 
       array (
         0 => 'app\\rules\\strongpassword',
+      ),
+      2 => 
+      array (
+        0 => 'app\\rules\\validate',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\faria\\Aluggo\\app\\Rules\\ValidCpf.php' => 
+    array (
+      0 => '67daf2afd39f89cfa5ba25e1f17187fa2e56ddb1',
+      1 => 
+      array (
+        0 => 'app\\rules\\validcpf',
       ),
       2 => 
       array (

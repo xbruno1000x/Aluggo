@@ -2126,12 +2126,12 @@ return [
       0 => 
       array (
         0 => 'session',
-        1 => 239,
+        1 => 242,
       ),
       1 => 
       array (
         0 => 'event',
-        1 => 351,
+        1 => 354,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2140,7 +2140,7 @@ return [
       array (
         0 => 'Illuminate\\Support\\Facades\\Mail',
         1 => 'send',
-        2 => 137,
+        2 => 138,
       ),
     ),
   ),
@@ -2520,14 +2520,14 @@ return [
 	'dependencies' => array (
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php' => 
   array (
-    'fileHash' => '98e8eb69dd7687f59a927458073509e649eda76b',
+    'fileHash' => '38cd9c0c0f6e93703d383aaa2b7c546d270bb79e',
     'dependentFiles' => 
     array (
     ),
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
   array (
-    'fileHash' => 'eb3e9124c8445f674ca4489b457551c533eeb1dc',
+    'fileHash' => 'cfcdc4916ad5a4b50a01ac05caeafd1a6613a181',
     'dependentFiles' => 
     array (
     ),
@@ -2751,6 +2751,14 @@ return [
       1 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php',
     ),
   ),
+  'C:\\Users\\faria\\Aluggo\\app\\Rules\\ValidCpf.php' => 
+  array (
+    'fileHash' => '67daf2afd39f89cfa5ba25e1f17187fa2e56ddb1',
+    'dependentFiles' => 
+    array (
+      0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php',
+    ),
+  ),
   'C:\\Users\\faria\\Aluggo\\app\\Services\\FinanceRateService.php' => 
   array (
     'fileHash' => '45ad7524f446d83f6043e8c738fb13c2935516c3',
@@ -2862,6 +2870,106 @@ return [
           array (
           ),
         )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateEmail',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Atualiza o e-mail do usuário
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'crypt' => 'Illuminate\\Support\\Facades\\Crypt',
+              'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updatePhone',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Atualiza o telefone do usuário
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'crypt' => 'Illuminate\\Support\\Facades\\Crypt',
+              'proprietario' => 'App\\Models\\Proprietario',
+              'strongpassword' => 'App\\Rules\\StrongPassword',
+              'view' => 'Illuminate\\View\\View',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
       ),
        'attributes' => 
       array (
@@ -2914,6 +3022,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -2961,6 +3070,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3019,6 +3129,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3077,6 +3188,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3124,6 +3236,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3171,6 +3284,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3218,6 +3332,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3276,6 +3391,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3334,6 +3450,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3381,6 +3498,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3439,6 +3557,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3497,6 +3616,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3555,6 +3675,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3624,6 +3745,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -3682,6 +3804,7 @@ return [
               'tokenrepositoryinterface' => 'Illuminate\\Auth\\Passwords\\TokenRepositoryInterface',
               'proprietario' => 'App\\Models\\Proprietario',
               'strongpassword' => 'App\\Rules\\StrongPassword',
+              'validcpf' => 'App\\Rules\\ValidCpf',
               'view' => 'Illuminate\\View\\View',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
             ),
@@ -7921,6 +8044,100 @@ return [
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
        'name' => 'App\\Rules\\StrongPassword',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'Illuminate\\Contracts\\Validation\\ValidationRule',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'validate',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Run the validation rule.
+     *
+     * @param  \\Closure(string, ?string=): \\Illuminate\\Translation\\PotentiallyTranslatedString  $fail
+     */',
+             'namespace' => 'App\\Rules',
+             'uses' => 
+            array (
+              'closure' => 'Closure',
+              'validationrule' => 'Illuminate\\Contracts\\Validation\\ValidationRule',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'attribute',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'value',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'fail',
+               'type' => 'Closure',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\faria\\Aluggo\\app\\Rules\\ValidCpf.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Rules\\ValidCpf',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,

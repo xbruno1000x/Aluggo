@@ -158,11 +158,13 @@ test('updatePhone atualiza telefone quando senha correta', function () {
         ])->assertStatus(200)
         ->assertJson([
             'status' => 'Telefone alterado com sucesso!',
-            'telefone' => $newPhone
+            'telefone' => '+55 (11)99988-7766' // Formato esperado após a formatação
         ]);
 
     $user->refresh();
-    expect($user->telefone)->toBe($newPhone);
+    // O accessor formata o telefone ao recuperar
+    expect($user->telefone)->toBe('+55 (11)99988-7766');
+
     expect($user->telefone)->not->toBe($oldPhone);
 });
 

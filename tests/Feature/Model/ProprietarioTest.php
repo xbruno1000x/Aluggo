@@ -106,3 +106,43 @@ test('decryptTwoFactorSecret lida com exceptions de decriptação', function () 
     expect($proprietario->verifyTwoFactorCode('123456'))->toBeFalse();
     expect($proprietario->getTwoFactorQRCodeUrl())->toBe('');
 });
+
+test('formata telefone celular com 11 digitos', function () {
+    $proprietario = Proprietario::factory()->create([
+        'telefone' => '11988887777',
+    ]);
+
+    expect($proprietario->telefone)->toBe('(11)98888-7777');
+});
+
+test('formata telefone fixo com 10 digitos', function () {
+    $proprietario = Proprietario::factory()->create([
+        'telefone' => '1133334444',
+    ]);
+
+    expect($proprietario->telefone)->toBe('(11)3333-4444');
+});
+
+test('formata telefone com codigo de pais', function () {
+    $proprietario = Proprietario::factory()->create([
+        'telefone' => '+5511988887777',
+    ]);
+
+    expect($proprietario->telefone)->toBe('+55 (11)98888-7777');
+});
+
+test('mantém telefone vazio quando não há digitos', function () {
+    $proprietario = Proprietario::factory()->create([
+        'telefone' => '',
+    ]);
+
+    expect($proprietario->telefone)->toBe('');
+});
+
+test('mantém formato original para telefones com formato diferente', function () {
+    $proprietario = Proprietario::factory()->create([
+        'telefone' => '123',
+    ]);
+
+    expect($proprietario->telefone)->toBe('123');
+});

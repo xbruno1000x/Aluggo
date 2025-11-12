@@ -102,4 +102,46 @@ class Proprietario extends Authenticatable
 
         return $google2fa->getQRCodeInline($companyName, $email, $secret);
     }
+
+    /**
+     * Accessor para formatar telefone ao recuperar o atributo
+     * Ex: +5511988887777 -> +55 (11) 98887-7777
+     */
+    public function getTelefoneAttribute(?string $value): ?string
+    {
+        if (empty($value)) return '';
+
+        $raw = preg_replace('/[^0-9+]/', '', $value);
+
+        $hasPlus = str_starts_with($raw, '+');
+        if ($hasPlus) {
+            $digits = preg_replace('/\D/', '', substr($raw, 1));
+        } else {
+            $digits = preg_replace('/\D/', '', $raw);
+        }
+
+        if (strlen($digits) > 10 && substr($digits, 0, 2) === '55') {
+            $digits = substr($digits, 2);
+            $prefix = '+55 ';
+        } else {
+            $prefix = $hasPlus ? '+' : '';
+        }
+
+        $len = strlen($digits);
+        if ($len === 11) {
+            $area = substr($digits, 0, 2);
+            $part1 = substr($digits, 2, 5);
+            $part2 = substr($digits, 7, 4);
+            return ($prefix === '+55 ' ? $prefix : '') . "({$area}){$part1}-{$part2}";
+        }
+
+        if ($len === 10) {
+            $area = substr($digits, 0, 2);
+            $part1 = substr($digits, 2, 4);
+            $part2 = substr($digits, 6, 4);
+            return ($prefix === '+55 ' ? $prefix : '') . "({$area}){$part1}-{$part2}";
+        }
+
+        return ($prefix === '+55 ' ? $prefix : '') . $digits;
+    }
 }

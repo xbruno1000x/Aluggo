@@ -17,7 +17,7 @@ class ProprietarioFactory extends Factory
         return [
             'nome' => 'Proprietario Teste ' . $uniqueSuffix,
             'cpf' => $this->generateValidCPF(),
-            'telefone' => '+55' . $this->faker->numerify('11#########'),
+            'telefone' => $this->faker->numerify('11#########'), // 11 dígitos (DDD + número)
             'email' => 'owner+' . $uniqueSuffix . '@example.com',
             'password' => Hash::make('password'),
         ];
