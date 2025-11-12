@@ -1,7 +1,7 @@
 {
-  "_alert-!~{00j}~.js": {
+  "_alert-!~{00l}~.js": {
     "file": "assets/alert-oHKcZcvd.css",
-    "src": "_alert-!~{00j}~.js"
+    "src": "_alert-!~{00l}~.js"
   },
   "_alert-DLWxqPIg.js": {
     "file": "assets/alert-DLWxqPIg.js",
@@ -27,6 +27,12 @@
     "file": "assets/account-2fa-DMo37Iko.js",
     "name": "account-2fa",
     "src": "resources/ts/account-2fa.ts",
+    "isEntry": true
+  },
+  "resources/ts/account-contact-modal.ts": {
+    "file": "assets/account-contact-modal-Cqf_YHpw.js",
+    "name": "account-contact-modal",
+    "src": "resources/ts/account-contact-modal.ts",
     "isEntry": true
   },
   "resources/ts/account-password-modal.ts": {
@@ -71,6 +77,12 @@
     "file": "assets/cep-autocomplete-C31hRCFi.js",
     "name": "cep-autocomplete",
     "src": "resources/ts/cep-autocomplete.ts",
+    "isEntry": true
+  },
+  "resources/ts/cpf-validator.ts": {
+    "file": "assets/cpf-validator-CydGyQCN.js",
+    "name": "cpf-validator",
+    "src": "resources/ts/cpf-validator.ts",
     "isEntry": true
   },
   "resources/ts/delete-confirm.ts": {

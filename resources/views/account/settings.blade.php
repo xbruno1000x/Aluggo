@@ -16,6 +16,16 @@
             </div>
         @endif
 
+        <!-- Botão para abrir modal de alteração de e-mail -->
+        <button type="button" class="btn btn-success w-100 mb-3" data-bs-toggle="modal" data-bs-target="#emailModal">
+            Alterar E-mail
+        </button>
+
+        <!-- Botão para abrir modal de alteração de telefone -->
+        <button type="button" class="btn btn-success w-100 mb-3" data-bs-toggle="modal" data-bs-target="#phoneModal">
+            Alterar Telefone
+        </button>
+
         <!-- Botão para abrir modal de alteração de senha -->
         <button type="button" class="btn btn-success w-100 mb-4" data-bs-toggle="modal" data-bs-target="#passwordModal">
             Alterar Senha
@@ -57,6 +67,92 @@
     </div>
 </div>
 
+<!-- Modal de Alteração de E-mail -->
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="email-form" method="POST" action="{{ route('account.email.update') }}" data-spinner data-spinner-button="btn-submit-email">
+                @csrf
+                @method('PUT')
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailModalLabel">Alterar E-mail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="email-form-alert" class="alert d-none" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label for="current_email" class="form-label">E-mail Atual</label>
+                        <input type="email" id="current_email" readonly class="form-control-plaintext" value="{{ Auth::user()->email }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Novo E-mail</label>
+                        <input type="email" name="email" id="email" required class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="current_password_email" class="form-label">Senha Atual</label>
+                        <input type="password" name="current_password" id="current_password_email" required class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary" id="btn-submit-email">
+                        <span class="btn-text">Alterar E-mail</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Alteração de Telefone -->
+<div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="phone-form" method="POST" action="{{ route('account.phone.update') }}" data-spinner data-spinner-button="btn-submit-phone">
+                @csrf
+                @method('PUT')
+                <div class="modal-header">
+                    <h5 class="modal-title" id="phoneModalLabel">Alterar Telefone</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="phone-form-alert" class="alert d-none" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label for="current_phone" class="form-label">Telefone Atual</label>
+                        <input type="text" id="current_phone" readonly class="form-control-plaintext" value="{{ Auth::user()->telefone }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Novo Telefone</label>
+                        <input type="text" name="telefone" id="telefone" required class="form-control" maxlength="15">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="current_password_phone" class="form-label">Senha Atual</label>
+                        <input type="password" name="current_password" id="current_password_phone" required class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary" id="btn-submit-phone">
+                        <span class="btn-text">Alterar Telefone</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Modal de Alteração de Senha -->
 <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -89,8 +185,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btn-submit-password">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary" id="btn-submit-password">
                         <span class="btn-text">Alterar Senha</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
@@ -100,5 +196,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
+@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-contact-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
 @endsection

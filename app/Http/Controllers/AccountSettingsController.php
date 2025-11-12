@@ -96,4 +96,69 @@ class AccountSettingsController extends Controller
 
         return redirect()->route('account.settings');
     }
+
+    /**
+     * Atualiza o e-mail do usuário
+     */
+    public function updateEmail(Request $request): JsonResponse
+    {
+        $request->validate([
+            'email' => 'required|string|email|max:255|unique:proprietarios,email,' . Auth::id(),
+            'current_password' => 'required|string',
+        ], [
+            'email.required' => 'O campo e-mail é obrigatório.',
+            'email.email' => 'Informe um e-mail válido.',
+            'email.unique' => 'Este e-mail já está em uso.',
+            'current_password.required' => 'A senha atual é obrigatória.',
+        ]);
+
+        /** @var Proprietario $user */
+        $user = Auth::user();
+
+        if (! Hash::check($request->current_password, $user->password)) {
+            return response()->json([
+                'message' => 'A senha atual está incorreta.'
+            ], 422);
+        }
+
+        $user->email = $request->email;
+        $user->save();
+
+        return response()->json([
+            'status' => 'E-mail alterado com sucesso!',
+            'email' => $user->email
+        ]);
+    }
+
+    /**
+     * Atualiza o telefone do usuário
+     */
+    public function updatePhone(Request $request): JsonResponse
+    {
+        $request->validate([
+            'telefone' => 'required|string|max:15',
+            'current_password' => 'required|string',
+        ], [
+            'telefone.required' => 'O campo telefone é obrigatório.',
+            'telefone.max' => 'O telefone não pode ter mais de 15 caracteres.',
+            'current_password.required' => 'A senha atual é obrigatória.',
+        ]);
+
+        /** @var Proprietario $user */
+        $user = Auth::user();
+
+        if (! Hash::check($request->current_password, $user->password)) {
+            return response()->json([
+                'message' => 'A senha atual está incorreta.'
+            ], 422);
+        }
+
+        $user->telefone = $request->telefone;
+        $user->save();
+
+        return response()->json([
+            'status' => 'Telefone alterado com sucesso!',
+            'telefone' => $user->telefone
+        ]);
+    }
 }

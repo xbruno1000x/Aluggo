@@ -17,6 +17,7 @@ use Illuminate\Auth\Passwords\PasswordBroker;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use App\Models\Proprietario;
 use App\Rules\StrongPassword;
+use App\Rules\ValidCpf;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -163,7 +164,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'cpf' => 'required|string|size:11|unique:proprietarios',
+            'cpf' => ['required', 'string', new ValidCpf(), 'unique:proprietarios'],
             'telefone' => 'required|string|max:15',
             'email' => 'required|string|email|max:255|unique:proprietarios',
             'password' => ['required', 'string', 'confirmed', new StrongPassword()],
@@ -174,7 +175,6 @@ class AdminController extends Controller
     
             'cpf.required' => 'O campo CPF é obrigatório.',
             'cpf.string' => 'O campo CPF deve ser uma string.',
-            'cpf.size' => 'O campo CPF deve ter exatamente 11 caracteres.',
             'cpf.unique' => 'Este CPF já está cadastrado.',
     
             'telefone.required' => 'O campo Telefone é obrigatório.',
@@ -196,9 +196,12 @@ class AdminController extends Controller
             'password_confirmation.same' => 'A confirmação de senha não corresponde à senha.',
         ]);
     
+        // Remove formatação do CPF antes de salvar
+        $cpfLimpo = preg_replace('/[^0-9]/', '', $request->cpf);
+    
         $proprietario = Proprietario::create([
             'nome' => $request->nome,
-            'cpf' => $request->cpf,
+            'cpf' => $cpfLimpo,
             'telefone' => $request->telefone,
             'email' => $request->email,
             'password' => Hash::make($request->password),

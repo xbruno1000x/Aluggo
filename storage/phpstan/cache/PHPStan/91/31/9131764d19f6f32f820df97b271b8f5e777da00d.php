@@ -24,7 +24,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
     array (
-      0 => 'f5bb05e65147bd39ab627096e737e7a8a449669d',
+      0 => 'eb3e9124c8445f674ca4489b457551c533eeb1dc',
       1 => 
       array (
         0 => 'app\\http\\controllers\\admincontroller',

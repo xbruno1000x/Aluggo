@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                     <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" id="cpf" placeholder="Digite seu CPF" value="{{ old('cpf') }}" required>
+                    <input type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" id="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required data-cpf-input maxlength="14">
                     @error('cpf')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -85,6 +85,6 @@
 </div>
 
 @push('scripts-body')
-    @vite(['resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
+    @vite(['resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts', 'resources/ts/cpf-validator.ts'])
 @endpush
 @endsection

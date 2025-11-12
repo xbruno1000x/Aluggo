@@ -45,6 +45,8 @@ Route::middleware(['auth:proprietario'])->group(function () {
     Route::get('/account/settings', [AccountSettingsController::class, 'show'])->name('account.settings');
     Route::post('/account/settings/toggle-2fa', [AccountSettingsController::class, 'toggleTwoFactorAuthentication'])->name('account.toggle2fa');
     Route::put('/account/password', [AccountSettingsController::class, 'updatePassword'])->name('account.password.update');
+    Route::put('/account/email', [AccountSettingsController::class, 'updateEmail'])->name('account.email.update');
+    Route::put('/account/phone', [AccountSettingsController::class, 'updatePhone'])->name('account.phone.update');
 
     // Two-factor auth (login)
     Route::get('/admin/twofactor', [AdminController::class, 'showTwoFactorForm'])->name('admin.twofactor');

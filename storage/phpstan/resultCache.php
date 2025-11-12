@@ -2126,12 +2126,12 @@ return [
       0 => 
       array (
         0 => 'session',
-        1 => 236,
+        1 => 239,
       ),
       1 => 
       array (
         0 => 'event',
-        1 => 348,
+        1 => 351,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -2141,12 +2141,6 @@ return [
         0 => 'Illuminate\\Support\\Facades\\Mail',
         1 => 'send',
         2 => 137,
-      ),
-      1 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Builder',
-        1 => 'create',
-        2 => 199,
       ),
     ),
   ),
@@ -2533,7 +2527,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AdminController.php' => 
   array (
-    'fileHash' => 'f5bb05e65147bd39ab627096e737e7a8a449669d',
+    'fileHash' => 'eb3e9124c8445f674ca4489b457551c533eeb1dc',
     'dependentFiles' => 
     array (
     ),
@@ -3704,17 +3698,6 @@ return [
            'returnType' => 'Illuminate\\Http\\RedirectResponse',
            'parameters' => 
           array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'request',
-               'type' => 'Illuminate\\Http\\Request',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
           ),
            'attributes' => 
           array (
