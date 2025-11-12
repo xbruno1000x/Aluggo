@@ -11,19 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Obtém o token CSRF do cookie ou meta tag
+ * Obtém o token CSRF da meta tag
+ * O Laravel já fornece o token descriptografado na meta tag
  */
 function getCsrfToken(): string {
-    // Tenta pegar do cookie XSRF-TOKEN primeiro (Laravel padrão)
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'XSRF-TOKEN') {
-            return decodeURIComponent(value);
-        }
-    }
-    
-    // Fallback: pega do meta tag
+    // Pega do meta tag (token já descriptografado pelo Laravel)
     return document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content || '';
 }
 
@@ -62,6 +54,10 @@ function initEmailModal(): void {
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        
+        // Remove o _token e _method do objeto data pois serão enviados como headers
+        delete data._token;
+        delete data._method;
 
         try {
             const response = await fetch(form.action, {
@@ -70,6 +66,7 @@ function initEmailModal(): void {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': getCsrfToken(),
                     'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest', // Identifica como requisição AJAX
                 },
                 credentials: 'same-origin',
                 body: JSON.stringify(data),
@@ -160,6 +157,10 @@ function initPhoneModal(): void {
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        
+        // Remove o _token e _method do objeto data pois serão enviados como headers
+        delete data._token;
+        delete data._method;
 
         try {
             const response = await fetch(form.action, {
@@ -168,6 +169,7 @@ function initPhoneModal(): void {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': getCsrfToken(),
                     'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest', // Identifica como requisição AJAX
                 },
                 credentials: 'same-origin', // Importante para enviar cookies
                 body: JSON.stringify(data),
