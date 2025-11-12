@@ -71,7 +71,7 @@
 <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="email-form" method="POST" action="{{ route('account.email.update') }}" data-spinner data-spinner-button="btn-submit-email">
+            <form method="POST" action="{{ route('account.email.update') }}" data-spinner>
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -80,7 +80,16 @@
                 </div>
                 <div class="modal-body">
 
-                    <div id="email-form-alert" class="alert d-none" role="alert"></div>
+                    @if($errors->has('email') || $errors->has('current_password'))
+                        <div class="alert alert-danger">
+                            @if($errors->has('email'))
+                                {{ $errors->first('email') }}
+                            @endif
+                            @if($errors->has('current_password'))
+                                {{ $errors->first('current_password') }}
+                            @endif
+                        </div>
+                    @endif
 
                     <div class="mb-3">
                         <label for="current_email" class="form-label">E-mail Atual</label>
@@ -89,18 +98,24 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Novo E-mail</label>
-                        <input type="email" name="email" id="email" required class="form-control">
+                        <input type="email" name="email" id="email" required class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="current_password_email" class="form-label">Senha Atual</label>
-                        <input type="password" name="current_password" id="current_password_email" required class="form-control">
+                        <input type="password" name="current_password" id="current_password_email" required class="form-control @error('current_password') is-invalid @enderror">
+                        @error('current_password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary" id="btn-submit-email">
+                    <button type="submit" class="btn btn-secondary">
                         <span class="btn-text">Alterar E-mail</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
@@ -114,7 +129,7 @@
 <div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="phone-form" method="POST" action="{{ route('account.phone.update') }}" data-spinner data-spinner-button="btn-submit-phone">
+            <form method="POST" action="{{ route('account.phone.update') }}" data-spinner>
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -123,7 +138,16 @@
                 </div>
                 <div class="modal-body">
 
-                    <div id="phone-form-alert" class="alert d-none" role="alert"></div>
+                    @if($errors->has('telefone') || $errors->has('current_password'))
+                        <div class="alert alert-danger">
+                            @if($errors->has('telefone'))
+                                {{ $errors->first('telefone') }}
+                            @endif
+                            @if($errors->has('current_password'))
+                                {{ $errors->first('current_password') }}
+                            @endif
+                        </div>
+                    @endif
 
                     <div class="mb-3">
                         <label for="current_phone" class="form-label">Telefone Atual</label>
@@ -132,22 +156,32 @@
 
                     <div class="mb-3">
                         <label for="telefone" class="form-label">Novo Telefone</label>
-                        <input type="text" name="telefone" id="telefone" required class="form-control" maxlength="15">
+                        <input type="text" name="telefone" id="telefone" required class="form-control @error('telefone') is-invalid @enderror" maxlength="15" value="{{ old('telefone') }}">
+                        @error('telefone')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="current_password_phone" class="form-label">Senha Atual</label>
-                        <input type="password" name="current_password" id="current_password_phone" required class="form-control">
+                        <input type="password" name="current_password" id="current_password_phone" required class="form-control @error('current_password') is-invalid @enderror">
+                        @error('current_password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary" id="btn-submit-phone">
+                    <button type="submit" class="btn btn-secondary">
                         <span class="btn-text">Alterar Telefone</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
             </form>
         </div>
     </div>
@@ -196,5 +230,5 @@
     </div>
 </div>
 
-@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-contact-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
+@vite(['resources/ts/account-password-modal.ts', 'resources/ts/account-2fa.ts', 'resources/ts/form-spinner.ts', 'resources/ts/password-strength.ts'])
 @endsection

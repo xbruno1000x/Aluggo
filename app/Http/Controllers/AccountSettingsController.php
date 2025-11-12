@@ -100,7 +100,7 @@ class AccountSettingsController extends Controller
     /**
      * Atualiza o e-mail do usuário
      */
-    public function updateEmail(Request $request): JsonResponse
+    public function updateEmail(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => 'required|string|email|max:255|unique:proprietarios,email,' . Auth::id(),
@@ -116,24 +116,21 @@ class AccountSettingsController extends Controller
         $user = Auth::user();
 
         if (! Hash::check($request->current_password, $user->password)) {
-            return response()->json([
-                'message' => 'A senha atual está incorreta.'
-            ], 422);
+            return back()->withErrors([
+                'current_password' => 'A senha atual está incorreta.'
+            ])->withInput();
         }
 
         $user->email = $request->email;
         $user->save();
 
-        return response()->json([
-            'status' => 'E-mail alterado com sucesso!',
-            'email' => $user->email
-        ]);
+        return redirect()->route('account.settings')->with('status', 'E-mail alterado com sucesso!');
     }
 
     /**
      * Atualiza o telefone do usuário
      */
-    public function updatePhone(Request $request): JsonResponse
+    public function updatePhone(Request $request): RedirectResponse
     {
         $request->validate([
             'telefone' => 'required|string|max:15',
@@ -148,17 +145,14 @@ class AccountSettingsController extends Controller
         $user = Auth::user();
 
         if (! Hash::check($request->current_password, $user->password)) {
-            return response()->json([
-                'message' => 'A senha atual está incorreta.'
-            ], 422);
+            return back()->withErrors([
+                'current_password' => 'A senha atual está incorreta.'
+            ])->withInput();
         }
 
         $user->telefone = $request->telefone;
         $user->save();
 
-        return response()->json([
-            'status' => 'Telefone alterado com sucesso!',
-            'telefone' => $user->telefone
-        ]);
+        return redirect()->route('account.settings')->with('status', 'Telefone alterado com sucesso!');
     }
 }

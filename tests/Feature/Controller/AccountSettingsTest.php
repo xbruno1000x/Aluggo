@@ -107,14 +107,11 @@ test('updateEmail atualiza e-mail quando senha correta', function () {
     $newEmail = 'newemail_' . time() . '@example.com';
 
     actingAs($user, 'proprietario')
-        ->putJson(route('account.email.update'), [
+        ->put(route('account.email.update'), [
             'email' => $newEmail,
             'current_password' => 'Password123!',
-        ])->assertStatus(200)
-        ->assertJson([
-            'status' => 'E-mail alterado com sucesso!',
-            'email' => $newEmail
-        ]);
+        ])->assertRedirect(route('account.settings'))
+        ->assertSessionHas('status', 'E-mail alterado com sucesso!');
 
     $user->refresh();
     expect($user->email)->toBe($newEmail);
@@ -126,11 +123,10 @@ test('updateEmail retorna erro quando senha incorreta', function () {
     $user = Proprietario::factory()->create(['password' => \Illuminate\Support\Facades\Hash::make('Password123!')]);
     
     actingAs($user, 'proprietario')
-        ->putJson(route('account.email.update'), [
+        ->put(route('account.email.update'), [
             'email' => 'anotheremail_' . time() . '@example.com',
             'current_password' => 'wrongpassword',
-        ])->assertStatus(422)
-        ->assertJson(['message' => 'A senha atual está incorreta.']);
+        ])->assertSessionHasErrors(['current_password']);
 });
 
 test('updateEmail retorna erro quando e-mail já existe', function () {
@@ -139,10 +135,10 @@ test('updateEmail retorna erro quando e-mail já existe', function () {
     $user = Proprietario::factory()->create(['password' => \Illuminate\Support\Facades\Hash::make('Password123!')]);
     
     actingAs($user, 'proprietario')
-        ->putJson(route('account.email.update'), [
+        ->put(route('account.email.update'), [
             'email' => $existingEmail,
             'current_password' => 'Password123!',
-        ])->assertStatus(422);
+        ])->assertSessionHasErrors(['email']);
 });
 
 test('updatePhone atualiza telefone quando senha correta', function () {
@@ -152,14 +148,11 @@ test('updatePhone atualiza telefone quando senha correta', function () {
     $newPhone = '+5511999887766';
 
     actingAs($user, 'proprietario')
-        ->putJson(route('account.phone.update'), [
+        ->put(route('account.phone.update'), [
             'telefone' => $newPhone,
             'current_password' => 'Password123!',
-        ])->assertStatus(200)
-        ->assertJson([
-            'status' => 'Telefone alterado com sucesso!',
-            'telefone' => '+55 (11)99988-7766' // Formato esperado após a formatação
-        ]);
+        ])->assertRedirect(route('account.settings'))
+        ->assertSessionHas('status', 'Telefone alterado com sucesso!');
 
     $user->refresh();
     // O accessor formata o telefone ao recuperar
@@ -169,10 +162,11 @@ test('updatePhone atualiza telefone quando senha correta', function () {
 });
 
 test('updatePhone retorna erro quando senha incorreta', function () {
-    actingAs($this->user, 'proprietario')
-        ->putJson(route('account.phone.update'), [
+    $user = Proprietario::factory()->create(['password' => \Illuminate\Support\Facades\Hash::make('Password123!')]);
+    
+    actingAs($user, 'proprietario')
+        ->put(route('account.phone.update'), [
             'telefone' => '+5511999887766',
             'current_password' => 'wrongpassword',
-        ])->assertStatus(422)
-        ->assertJson(['message' => 'A senha atual está incorreta.']);
+        ])->assertSessionHasErrors(['current_password']);
 });
