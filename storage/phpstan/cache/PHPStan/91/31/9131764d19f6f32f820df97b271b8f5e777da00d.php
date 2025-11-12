@@ -348,7 +348,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
     array (
-      0 => '30fe99916ba39bbf367c640b27908d53017df5b2',
+      0 => '9acc27458769f46581b21bbcf811b0af98ffd3f8',
       1 => 
       array (
         0 => 'app\\models\\proprietario',
@@ -360,6 +360,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'app\\models\\decrypttwofactorsecret',
         3 => 'app\\models\\verifytwofactorcode',
         4 => 'app\\models\\gettwofactorqrcodeurl',
+        5 => 'app\\models\\gettelefoneattribute',
       ),
       3 => 
       array (

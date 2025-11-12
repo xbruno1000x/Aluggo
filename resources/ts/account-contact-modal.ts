@@ -11,6 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
+ * Obtém o token CSRF do cookie ou meta tag
+ */
+function getCsrfToken(): string {
+    // Tenta pegar do cookie XSRF-TOKEN primeiro (Laravel padrão)
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'XSRF-TOKEN') {
+            return decodeURIComponent(value);
+        }
+    }
+    
+    // Fallback: pega do meta tag
+    return document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content || '';
+}
+
+/**
  * Inicializa o modal de alteração de e-mail
  */
 function initEmailModal(): void {
@@ -51,8 +68,10 @@ function initEmailModal(): void {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content || '',
+                    'X-CSRF-TOKEN': getCsrfToken(),
+                    'Accept': 'application/json',
                 },
+                credentials: 'same-origin',
                 body: JSON.stringify(data),
             });
 
@@ -147,8 +166,10 @@ function initPhoneModal(): void {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content || '',
+                    'X-CSRF-TOKEN': getCsrfToken(),
+                    'Accept': 'application/json',
                 },
+                credentials: 'same-origin', // Importante para enviar cookies
                 body: JSON.stringify(data),
             });
 

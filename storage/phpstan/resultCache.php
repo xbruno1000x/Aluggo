@@ -2699,7 +2699,7 @@ return [
   ),
   'C:\\Users\\faria\\Aluggo\\app\\Models\\Proprietario.php' => 
   array (
-    'fileHash' => '30fe99916ba39bbf367c640b27908d53017df5b2',
+    'fileHash' => '9acc27458769f46581b21bbcf811b0af98ffd3f8',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\faria\\Aluggo\\app\\Http\\Controllers\\AccountSettingsController.php',
@@ -7400,6 +7400,54 @@ return [
            'returnType' => 'string',
            'parameters' => 
           array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTelefoneAttribute',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Accessor para formatar telefone ao recuperar o atributo
+     * Ex: +5511988887777 -> +55 (11) 98887-7777
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+              'google2fa' => 'PragmaRX\\Google2FA\\Google2FA',
+              'google2faqrcode' => 'PragmaRX\\Google2FAQRCode\\Google2FA',
+              'proprietariofactory' => 'Database\\Factories\\ProprietarioFactory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'value',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
